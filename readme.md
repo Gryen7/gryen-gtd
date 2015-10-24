@@ -1,3 +1,3 @@
 ## Laravelblog
 
-基于laravel的Blog程序
+鍩轰簬laravel鐨凚log绋嬪簭
