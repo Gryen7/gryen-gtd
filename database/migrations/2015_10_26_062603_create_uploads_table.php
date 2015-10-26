@@ -16,7 +16,7 @@ class CreateUploadsTable extends Migration
             $table->increments('id');
             $table->integer('article_id');
             $table->string('url');
-            $table->timestamp('upload_time');
+            $table->timestamp('upload_at');
         });
     }
 
