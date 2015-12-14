@@ -1,5 +1,7 @@
 @extends('layouts.default')
+{{--注册页面--}}
 @section('content')
+    {!! Form::open(['method' => 'post' , 'url' => 'admin/userRegister']) !!}
     <div class="form-group">
         {!! Form::label('email','Email:') !!}
         {!! Form::text('email',null,['class' => 'form-control']) !!}
@@ -15,4 +17,5 @@
     <div class="form-group">
         {!! Form::submit('Register' , ['class' => 'btn btn-primary form-control']) !!}
     </div>
+    {!! Form::close() !!}
 @stop
