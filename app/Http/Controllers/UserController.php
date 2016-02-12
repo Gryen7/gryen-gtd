@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Auth\AuthController;
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends AuthController
@@ -34,7 +35,6 @@ class UserController extends AuthController
     public function handleLogin(Request $request)
     {
         $is_remember = false;
-//        dd($request->all());
         // 下次是否自动登录
         if ($request->has('is_remember')) {
             $is_remember = true;
@@ -61,10 +61,22 @@ class UserController extends AuthController
      */
     public function handleRegister(Request $request)
     {
+        if (User::all()->count() >= 1) {
+            return redirect('error');
+        }
         if (!$this->create($request->all())) {
             return redirect('error');
         };
         return redirect('user/login');
+    }
+
+    /**
+     * @return mixed
+     */
+    public function logout()
+    {
+        \Auth::logout();
+        return redirect('/home');
     }
 
 }

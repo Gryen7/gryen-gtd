@@ -1,3 +1,3 @@
-@extends('layouts.default')
+@extends('layouts.user')
 @section('content')
 @stop

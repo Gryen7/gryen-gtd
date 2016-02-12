@@ -31,25 +31,6 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
-                <li><a href="{{url('/articles')}}">Articles</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Columns<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">First</a></li>
-                        <li><a href="#">Second</a></li>
-                        <li><a href="#">Third</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="search...">
-                </div>
-                <button type="submit" class="btn btn-default">Search</button>
-            </form>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -57,7 +38,8 @@
                     <ul class="dropdown-menu">
                         <li><a href="{{url('/articles/create')}}">New Article</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="{{url('/user/index')}}">MySpace</a></li>
+                        <li><a href="{{url('/home')}}">Home</a></li>
+                        <li><a href="{{url('/user/setting')}}">Setting</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="{{url('/user/login')}}">Login</a></li>
                         <li><a href="{{url('/user/register')}}">Register</a></li>
