@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use Illuminate\Http\Request;
-use App\Http\Requests\ArticleRequest;
+use App\Http\Requests\CreateArticleRequest;
 use App\Article;
 
 class ArticlesController extends Controller
@@ -36,7 +35,7 @@ class ArticlesController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ArticleRequest $request)
+    public function store(CreateArticleRequest $request)
     {
 
         Article::create($request->all());
@@ -75,7 +74,7 @@ class ArticlesController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id, ArticleRequest $request)
+    public function update($id, CreateArticleRequest $request)
     {
         $article = Article::findOrNew($id);
         $article->update($request->all());

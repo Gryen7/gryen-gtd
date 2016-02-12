@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <title>@section('title')极简个人博客系统
     @show</title>
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src={{asset('js/jquery.min.js')}}></script>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"">
+    <link rel="stylesheet" href={{asset('css/bootstrap.min.css')}}>
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href={{asset('css/bootstrap-theme.min.css')}}>
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src={{asset('js/bootstrap.min.js')}}></script>
 </head>
 <body>
 <div class="container">
