@@ -6,9 +6,11 @@ Homestead.json
 .idea/
 _ide_helper.php
 composer.lock
+/public/build
 /public/css
 /public/js
 /storage/framework/*
 /storage/app/*
+/storage/logs/*
 /storage/cache/*
 .DS_Store
