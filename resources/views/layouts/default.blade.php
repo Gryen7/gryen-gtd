@@ -9,10 +9,11 @@
     <link rel="stylesheet" href={{elixir('css/all.css')}}>
 
     <!-- Optional theme -->
-    {{--<link rel="stylesheet" href={{asset('css/bootstrap-theme.min.css')}}>--}}
+    <link rel="stylesheet" href={{asset('css/bootstrap-theme.min.css')}}>
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <script src="/js/all.js"></script>
 </head>
 <body>

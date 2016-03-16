@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <title>@section('title')Tar-Blog
         @show</title>
-    <script src="/js/jquery.min.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href={{elixir('css/all.css')}}>
 
     <!-- Latest compiled and minified JavaScript -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <script src="/all.js"></script>
 </head>
 <body>

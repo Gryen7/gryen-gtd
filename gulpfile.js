@@ -18,6 +18,8 @@ elixir(function(mix) {
 
     mix.version('public/css/all.css');
 
-    mix.copy('node_modules/jquery/dist/jquery.min.js','public/js');
+    mix.copy('node_modules/bootstrap/dist/css/bootstrap-theme.min.css','public/css');
+
+    mix.copy(['node_modules/jquery/dist/jquery.min.js','node_modules/bootstrap/dist/js/bootstrap.min.js'],'public/js');
 
 });
