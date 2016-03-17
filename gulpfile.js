@@ -53,7 +53,7 @@ elixir(function (mix) {
         'app.css'
     ], null, 'public/css');
 
-    // 对 CSS 和 JS 文件做版本控制
+    // 对 CSS 文件做版本控制
     mix.version([
         'public/css/all.css'
     ]);

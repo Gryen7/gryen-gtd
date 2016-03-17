@@ -7,7 +7,8 @@ define(function () {
     // 加载编辑器
     var loadSimditor = function () {
         var editor = new Simditor({
-            textarea: $('#content')
+            textarea: $('#content'),
+            upload: true
             //optional options
         });
 
