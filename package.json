@@ -4,7 +4,8 @@
     "bootstrap": "^3.3.6",
     "gulp": "^3.8.8",
     "jquery": "^2.2.0",
-    "requirejs": "^2.1.22"
+    "requirejs": "^2.1.22",
+    "simditor": "^2.3.6"
   },
   "dependencies": {
     "laravel-elixir": "^3.0.0",
