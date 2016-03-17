@@ -8,7 +8,13 @@ define(function () {
     var loadSimditor = function () {
         var editor = new Simditor({
             textarea: $('#content'),
-            upload: true
+            upload: {
+                url: '',
+                params: null,
+                fileKey: 'upload_file',
+                connectionCount: 3,
+                leaveConfirm: 'Uploading is in progress, are you sure to leave this page?'
+            }
             //optional options
         });
 
