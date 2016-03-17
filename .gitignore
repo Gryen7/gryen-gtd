@@ -11,6 +11,7 @@ composer.lock
 /public/js
 /storage/framework/*
 /storage/app/*
+/public/vendor
 /storage/logs/*
 /storage/cache/*
 .DS_Store

@@ -4,17 +4,13 @@
     <meta charset="UTF-8">
     <title>@section('title')Tar-Blog
         @show</title>
-    {{--<script src={{asset('js/jquery.min.js')}}></script>--}}
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href={{elixir('css/all.css')}}>
-
     <!-- Optional theme -->
     <link rel="stylesheet" href={{asset('css/bootstrap-theme.min.css')}}>
-
+    <script data-main="js/main" src="js/require.js" defer async="true"></script>
     <!-- Latest compiled and minified JavaScript -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/all.js"></script>
+    <script src={{elixir('js/all.js')}}></script>
 </head>
 <body>
 <nav class="navbar navbar-default">

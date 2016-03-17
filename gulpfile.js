@@ -11,15 +11,32 @@ var elixir = require('laravel-elixir');
  |
  */
 
-elixir(function(mix) {
+elixir(function (mix) {
     mix.sass('app.scss');
-
     mix.styles(['app.css'], null, 'public/css');
 
-    mix.version('public/css/all.css');
+    mix.scripts([
+        'home.js',
+        'article.js',
+        'user.js'
+    ]);
 
-    mix.copy('node_modules/bootstrap/dist/css/bootstrap-theme.min.css','public/css');
+    mix.copy([
+        'node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
+    ], 'public/css');
 
-    mix.copy(['node_modules/jquery/dist/jquery.min.js','node_modules/bootstrap/dist/js/bootstrap.min.js'],'public/js');
+    mix.copy([
+        'resources/assets/js/main.js',
+        'node_modules/requirejs/require.js'
+    ], 'public/js');
 
+    mix.copy([
+        'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/bootstrap/dist/js/bootstrap.min.js'
+    ], 'public/vendor');
+
+    mix.version([
+        'public/css/all.css',
+        'public/js/all.js'
+    ]);
 });
