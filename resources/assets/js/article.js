@@ -9,7 +9,7 @@ window.onload = function () {
         markdown: true,
         toolbar: ['title', 'bold', 'italic', 'underline', 'strikethrough', 'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent', 'alignment', '|', 'markdown'],
         upload: {
-            url: '',
+            url: '/files/upload',
             params: null,
             fileKey: 'upload_file',
             connectionCount: 3,
