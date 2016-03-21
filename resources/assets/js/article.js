@@ -8,6 +8,7 @@ define(function () {
     var loadSimditor = function () {
         var editor = new Simditor({
             textarea: $('#content'),
+            markdown: true,
             upload: {
                 url: '',
                 params: null,

@@ -2,7 +2,7 @@
  * Created by gcy77 on 2016/3/13.
  */
 require.config({
-    "baseUrl": "/vendor",
+    "baseUrl": "/vendor/js",
     "paths": {
         "jquery": "jquery.min",
         "bootstrap":"bootstrap.min",
