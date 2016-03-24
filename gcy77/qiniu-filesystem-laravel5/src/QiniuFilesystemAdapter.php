@@ -6,7 +6,7 @@
  * Time: 11:36
  */
 
-namespace gcy77\QiniuFilesystem;
+namespace Targaryen\QiniuFilesystem;
 
 use Illuminate\Contracts\Filesystem\Cloud as CloudFilesystemContract;
 use Illuminate\Contracts\Filesystem\Filesystem as FilesystemContract;

@@ -1,6 +1,6 @@
 <?php
 
-namespace gcy77\QiniuFilesystem;
+namespace Targaryen\QiniuFilesystem;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -14,7 +14,7 @@ class QiniuFilesystemServiceProvider extends ServiceProvider
     public function boot()
     {
         \Storage::extend('qiniu', function ($app, $config) {
-            return new QiniuFilesystemAdapter($config['accessKey'], $config['secretKey'],$config['bucket'],$config['domain']);
+            return new QiniuFilesystemAdapter($config['accessKey'], $config['secretKey'], $config['bucket'], $config['domain']);
         });
     }
 

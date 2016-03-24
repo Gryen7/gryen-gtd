@@ -136,9 +136,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        /*tar add 151031*/
         Illuminate\Html\HtmlServiceProvider::class,
-        /*tar add end*/
 
         /*
          * Application Service Providers...
@@ -149,6 +147,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Targaryen\QiniuFilesystem\QiniuFilesystemServiceProvider::class,
 
     ],
 
