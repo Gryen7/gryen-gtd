@@ -11,7 +11,6 @@ namespace gcy77\QiniuFilesystem;
 use Illuminate\Contracts\Filesystem\Cloud as CloudFilesystemContract;
 use Illuminate\Contracts\Filesystem\Filesystem as FilesystemContract;
 use Qiniu\Auth;
-use Qiniu\Config;
 use Qiniu\Http\Error;
 use Qiniu\Storage\BucketManager;
 use Qiniu\Storage\UploadManager;
@@ -71,11 +70,17 @@ class QiniuFilesystemAdapter implements FilesystemContract, CloudFilesystemContr
         $this->domain = $domain;
     }
 
+    /**
+     * @param Error $error
+     */
     public function logError(Error $error)
     {
         \Log::error($error->message());
     }
 
+    /**
+     * @return null|Auth
+     */
     public function getAuth()
     {
         if ($this->auth == null) {
@@ -85,6 +90,13 @@ class QiniuFilesystemAdapter implements FilesystemContract, CloudFilesystemContr
         return $this->auth;
     }
 
+    /**
+     * @param null $key
+     * @param int $expires
+     * @param null $policy
+     * @param bool $strictPolicy
+     * @return null|string
+     */
     public function getUploadToken($key = null, $expires = 3600, $policy = null, $strictPolicy = true)
     {
         if ($this->uploadToken == null) {
@@ -95,6 +107,9 @@ class QiniuFilesystemAdapter implements FilesystemContract, CloudFilesystemContr
         return $this->uploadToken;
     }
 
+    /**
+     * @return null|UploadManager
+     */
     public function getUploadManager()
     {
         if ($this->uploadManager == null) {
@@ -103,6 +118,9 @@ class QiniuFilesystemAdapter implements FilesystemContract, CloudFilesystemContr
         return $this->uploadManager;
     }
 
+    /**
+     * @return null|BucketManager
+     */
     public function getBucketManager()
     {
         if ($this->bucketManager == null) {
