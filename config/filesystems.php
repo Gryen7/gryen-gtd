@@ -79,6 +79,12 @@ return [
             'region'    => 'IAD',
             'url_type'  => 'publicURL',
         ],
+        'qiniu' => [
+            'accessKey' => 'yixfY9dshvT9BUJOSSfj01BU4HB6fklOJnhAYfZT',
+            'secretKey' => 'cT6RKtj8tkGuegqgpfEXhUb6rXJa7iAcX8ijV0Cp',
+            'bucket'    => 'targaryen-top',
+            'domain'    => '',
+        ],
 
     ],
 

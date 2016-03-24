@@ -9,7 +9,9 @@
         "laravel/framework": "5.1.*",
         "illuminate/html": "^5.0",
         "barryvdh/laravel-ide-helper": "2.*",
-        "qiniu/php-sdk": "^7.0"
+        "qiniu/php-sdk": "^7.0",
+        "league/flysystem-aws-s3-v3": "^1.0",
+        "zgldh/qiniu-laravel-storage": "^0.3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
