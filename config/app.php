@@ -148,7 +148,6 @@ return [
 
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Targaryen\QiniuFilesystem\QiniuFilesystemServiceProvider::class,
-
     ],
 
     /*
