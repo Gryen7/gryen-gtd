@@ -16,7 +16,6 @@ elixir(function (mix) {
 
     // 合并依赖的 CSS 文件到 public/vendor/css/vendor.css
     mix.styles([
-        'bootstrap/dist/css/bootstrap-theme.min.css',
         'simditor/styles/simditor.css',
         'simditor-markdown/styles/simditor-markdown.css'
     ], 'public/vendor/css/vendor.css','node_modules');

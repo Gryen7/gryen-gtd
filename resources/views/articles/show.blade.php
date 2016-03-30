@@ -1,9 +1,11 @@
 @extends('layouts.default')
 @section('content')
-    <h1>Article Show</h1>
-    <hr>
-    <h2>{{ $article->title }}</h2>
-    <div class="article_content">
-        {!! $article->content !!}
+    <div class="col-md-8">
+        <h2>{{ $article->title }}</h2>
+        <hr>
+        <div class="article_content">
+            {!! $article->content !!}
+        </div>
     </div>
+    @include('pages.sidebar')
 @stop

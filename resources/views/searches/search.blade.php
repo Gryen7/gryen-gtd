@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
     <div class="col-md-8">
-        <h1>About:{{$name}}</h1>
+        Search...
     </div>
     @include('pages.sidebar')
 @stop

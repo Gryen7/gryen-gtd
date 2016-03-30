@@ -1,6 +1,8 @@
 <?php
 
-
+/**
+ * 首页、关于页等
+ */
 Route::get('/', 'PagesController@home');
 Route::get('/home', 'PagesController@home');
 Route::get('/about', 'PagesController@about');
@@ -10,7 +12,7 @@ Route::get('/error', function () {
 });
 
 /**
- * 文章页面
+ * 文章
  */
 
 Route::group(['prefix' => 'articles'], function () {
@@ -21,7 +23,13 @@ Route::group(['prefix' => 'articles'], function () {
 });
 
 /**
- * 用户中心
+ * 搜索
+ */
+Route::group(['prefix' => 'searches'], function () {
+    Route::get('/search/{keywords}', 'SearchesController@search');
+});
+/**
+ * 用户
  */
 Route::group(['prefix' => 'user'], function () {
     Route::get('/index', 'UserController@index');

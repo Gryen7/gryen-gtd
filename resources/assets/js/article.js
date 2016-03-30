@@ -7,7 +7,7 @@ window.onload = function () {
     var editor = new Simditor({
         textarea: $('#content'),
         markdown: true,
-        toolbar: ['title', 'bold', 'italic', 'underline', 'strikethrough', 'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent', 'alignment', '|', 'markdown'],
+        toolbar: ['title', 'bold', 'italic', 'underline', 'strikethrough', 'ol', 'ul', 'blockquote', 'code', 'link', 'image', 'hr', 'indent', 'outdent', 'alignment', 'markdown'],
         upload: {
             url: '/files/upload',
             params: null,
