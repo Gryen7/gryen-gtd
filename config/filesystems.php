@@ -82,7 +82,7 @@ return [
         'qiniu' => [
             'driver' => 'qiniu',
             'domains' => [
-                'default' => '7xnswo.com1.z0.glb.clouddn.com', //你的七牛域名
+                'default' => 'http://7xnswo.com1.z0.glb.clouddn.com', //你的七牛域名
                 'https' => '',         //你的HTTPS域名
                 'custom' => '',                //你的自定义域名
             ],

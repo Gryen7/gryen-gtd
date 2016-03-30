@@ -52,7 +52,6 @@ class ArticlesController extends Controller
     {
         $article = Article::findOrNew($id);
         return view('articles.show', compact('article'));
-
     }
 
     /**
