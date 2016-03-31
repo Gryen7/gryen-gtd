@@ -10,5 +10,5 @@
             @endforeach
         </ul>
     </div>
-    @include('pages.sidebar')
+    @include('pages._sidebar')
 @stop

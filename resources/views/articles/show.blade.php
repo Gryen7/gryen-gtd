@@ -7,5 +7,5 @@
             {!! $article->content !!}
         </div>
     </div>
-    @include('pages.sidebar')
+    @include('pages._sidebar')
 @stop

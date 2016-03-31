@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Article;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
 class PagesController extends Controller
 {
@@ -15,15 +14,17 @@ class PagesController extends Controller
      */
     public function home()
     {
-        return view('pages.home');
+        $articles = Article::all();
+        return view('pages.home', compact('articles'));
     }
 
     /**
      * 关于本站
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function about(){
+    public function about()
+    {
         $name = 'Targaryen';
-        return view('pages.about',compact('name'));
+        return view('pages.about', compact('name'));
     }
 }

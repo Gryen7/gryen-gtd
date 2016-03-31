@@ -3,5 +3,5 @@
     <div class="col-md-8">
         <h1>About:{{$name}}</h1>
     </div>
-    @include('pages.sidebar')
+    @include('pages._sidebar')
 @stop

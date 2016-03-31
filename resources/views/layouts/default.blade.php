@@ -1,54 +1,9 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>@section('title')Tar-Blog
-        @show</title>
-    <link rel="stylesheet" media="screen" charset="utf-8" href={{elixir('css/all.css')}}>
-    <script type="text/javascript" src="/vendor/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/vendor/js/bootstrap.min.js"></script>
-</head>
-<body>
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{url('/home')}}">Targaryen</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
-                <li><a href="{{url('/articles')}}">Blog</a></li>
-                <li><a href="{{url('/about')}}">About</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">GO!</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{url('/articles/create')}}">New Article</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{{url('/user/index')}}">Control Panel</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{{url('/user/login')}}">Login</a></li>
-                        <li><a href="{{url('/user/register')}}">Register</a></li>
-                        <li><a href="{{url('/user/logout')}}">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
+@include('pages._head')
+@include('pages._nav')
 <div class="container">
     <div class="row">
         @yield('content')
     </div>
 </div>
-@include('errors.list')
-</body>
-</html>
+@include('errors._list')
+@include('pages._foot')
