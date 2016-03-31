@@ -22,7 +22,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="{{url('/articles/create')}}">New Article</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="{{url('/user/index')}}">Control Panel</a></li>
+                        <li><a href="{{url('/control/index')}}">Control Panel</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="{{url('/user/login')}}">Login</a></li>
                         <li><a href="{{url('/user/register')}}">Register</a></li>

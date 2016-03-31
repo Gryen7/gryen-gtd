@@ -17,9 +17,10 @@
         {!! Form::label('is_remember','Remember:') !!}
         {!! Form::checkbox('is_remember',null,false,['class'=>'form-control']) !!}
     </div>
+    {!! Form::hidden('previous',$previous) !!}
     <div class="form-group">
         {!! Form::submit('Login In' , ['class' => 'btn btn-primary form-control']) !!}
     </div>
     {!! Form::close() !!}
-    @include('errors.list')
+    @include('errors._list')
 @stop

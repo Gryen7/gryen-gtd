@@ -44,13 +44,13 @@ Route::group(['prefix' => 'user'], function () {
  * 需要用户登录的页面
  */
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/user/', 'UserController@index');
-    Route::get('/user/index', 'UserController@index');
-
     Route::get('/articles/create', 'ArticlesController@create');
     Route::post('/articles/store', 'ArticlesController@store');
     Route::get('/articles/edit/{id}', 'ArticlesController@edit');
     Route::post('/articles/update/{id}', 'ArticlesController@update');
 
     Route::post('/files/upload', 'FilesController@upload');
+
+    Route::get('/control', 'ControlPanelController@index');
+    Route::get('/control/index', 'ControlPanelController@index');
 });

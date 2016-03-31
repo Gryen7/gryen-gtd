@@ -10,21 +10,14 @@ class UserController extends AuthController
 {
 
     /**
-     * 后台首页
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function index()
-    {
-        return view('user.index');
-    }
-
-    /**
      * 后台用户登录
+     * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function login()
+    public function login(Request $request)
     {
-        return view('user.login');
+        $previous = $request->session()->get('_previous')['url'];
+        return view('user.login', compact('previous'));
     }
 
     /**
@@ -42,7 +35,7 @@ class UserController extends AuthController
         if (!\Auth::attempt(['email' => $request->get('email'), 'password' => $request->get('password')], $is_remember)) {
             return redirect('error');
         }
-        return redirect('user/index');
+        return redirect($request->get('previous'));
     }
 
     /**

@@ -22,5 +22,5 @@
         {!! Form::submit('Register' , ['class' => 'btn btn-primary form-control']) !!}
     </div>
     {!! Form::close() !!}
-    @include('errors.list')
+    @include('errors._list')
 @stop
