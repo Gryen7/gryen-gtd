@@ -51,6 +51,19 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('/files/upload', 'FilesController@upload');
 
-    Route::get('/control', 'ControlPanelController@index');
-    Route::get('/control/index', 'ControlPanelController@index');
+
+});
+
+/**
+ * Control Panel
+ */
+Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
+    Route::get('/', 'ControlPanelController@index');
+    Route::get('/index', 'ControlPanelController@index');
+    Route::get('/articles', 'ControlPanelController@articles');
+    Route::get('/comments', 'ControlPanelController@comments');
+    Route::get('/todolist', 'ControlPanelController@todolist');
+    Route::get('/user', 'ControlPanelController@user');
+    Route::get('/settings', 'ControlPanelController@settings');
+    Route::get('/ashcan', 'ControlPanelController@ashcan');
 });

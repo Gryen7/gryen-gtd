@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
 class ControlPanelController extends Controller
 {
@@ -16,5 +13,35 @@ class ControlPanelController extends Controller
     public function index()
     {
         return view('control.index');
+    }
+
+    public function articles()
+    {
+        return view('control.articles');
+    }
+
+    public function comments()
+    {
+        return view('control.comments');
+    }
+
+    public function todolist()
+    {
+        return view('control.todolist');
+    }
+
+    public function user()
+    {
+        return view('control.user');
+    }
+
+    public function settings()
+    {
+        return view('control.settings');
+    }
+
+    public function ashcan()
+    {
+        return view('control.ashcan');
     }
 }
