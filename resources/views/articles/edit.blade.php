@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts._default')
 @section('content')
     {!! Form::model($article , ['method' => 'POST' , 'action' => ['ArticlesController@update' , $article->id]]) !!}
     @include('articles._form' , ['submitButtonText' => 'Update Article'])

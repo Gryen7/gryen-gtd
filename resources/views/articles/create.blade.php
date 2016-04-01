@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts._default')
 @section('content')
     {!! Form::open(['action' => 'ArticlesController@store']) !!}
     @include('articles._form' , ['submitButtonText' => 'Add Article'])

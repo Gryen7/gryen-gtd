@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts._default')
 {{--注册页面--}}
 @section('content')
     {!! Form::open(['method' => 'post' , 'url' => 'user/handleRegister']) !!}

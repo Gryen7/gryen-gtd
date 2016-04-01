@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts._default')
 @section('content')
     <div class="col-md-8">
         <h2>{{ $article->title }}</h2>

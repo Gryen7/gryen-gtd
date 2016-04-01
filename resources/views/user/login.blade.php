@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts._default')
 {{--登录页面--}}
 @section('title')
     管理员登录 - @parent

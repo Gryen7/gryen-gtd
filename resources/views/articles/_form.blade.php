@@ -13,7 +13,6 @@
     <div class="form-group">
         {!! Form::textarea('description',null,['class' => 'form-control','rows' =>'1','placeholder'=>'Please input description ...']) !!}
     </div>
-    @include('errors.list')
 </div>
 <script type="text/javascript" src="/vendor/js/simditor.js"></script>
 <script type="text/javascript" src="/vendor/js/simditor-markdown.js"></script>
