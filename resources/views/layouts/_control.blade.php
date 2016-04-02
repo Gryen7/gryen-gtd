@@ -7,14 +7,14 @@
                 @include('control._nav')
             </div>
             <div class="col-xs-10">
-                <div>Control Panel</div>
-                <hr>
+                @include('control._top')
+                <hr style="margin: 5px auto">
                 <div class="navbar navbar-default">
                     <div class="container-fluid">
                         @yield('subNavigation')
                     </div>
                 </div>
-                <div class="container-fluid">
+                <div class="container-fluid tar-cp-main">
                     <div class="row">
                         @yield('content')
                     </div>

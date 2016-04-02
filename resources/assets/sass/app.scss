@@ -30,19 +30,35 @@ input, textarea:focus {
 }
 
 // 控制面板
-.tar-cp-nav{
+.tar-cp-nav {
   background-color: #333;
   max-width: 150px;
 
-  img{
+  img {
     width: 60px;
   }
 
-  ul > li > a > span{
+  ul > li > a > span {
     font-size: 1em;
     margin-right: 0.5em;
   }
 }
-.tar-cp-main{
 
+.tar-cp-main {
+
+}
+
+.tar-cp-top {
+  ul{
+    margin-bottom: 0;
+  }
+  li{
+    padding: 0;
+    margin-right: 5px;
+  }
+  font-size: 0.8em;
+  a {
+    color: $gray-light;
+    text-decoration:none;
+  }
 }
