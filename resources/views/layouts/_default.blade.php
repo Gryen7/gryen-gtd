@@ -1,4 +1,6 @@
-@include('pages._head')
+@extends('layouts._base')
+@section('base_content')
+    @parent
 @include('pages._nav')
 <div class="container">
     <div class="row">
@@ -6,4 +8,4 @@
     </div>
 </div>
 @include('errors._list')
-@include('pages._foot')
+@endsection

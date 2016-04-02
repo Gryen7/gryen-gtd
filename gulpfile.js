@@ -30,6 +30,9 @@ elixir(function (mix) {
             'resources/assets/js/article.js',
             'resources/assets/js/user.js'
         ], 'public/js')
+        .copy([
+            'resources/assets/img'
+        ],'public/img')
         .copy([// 复制 bootstrap 的字库
             'node_modules/bootstrap/fonts'
         ],'public/build/fonts/bootstrap')

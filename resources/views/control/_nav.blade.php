@@ -1,10 +1,21 @@
 <ul class="list-group">
-	<li class="list-group-item"><a href=""	target="tar-cp-content"><img src="" alt="">选项</a></li>
-	<li><a href=""	target="tar-cp-content"><img src="" alt="">选项</a></li>
-	<li><a href=""	target="tar-cp-content"><img src="" alt="">选项</a></li>
-	<li><a href=""	target="tar-cp-content"><img src="" alt="">选项</a></li>
-	<li><a href=""	target="tar-cp-content"><img src="" alt="">选项</a></li>
-	<li><a href=""	target="tar-cp-content"><img src="" alt="">选项</a></li>
-	<li><a href=""	target="tar-cp-content"><img src="" alt="">选项</a></li>
-	<li><a href=""	target="tar-cp-content"><img src="" alt="">选项</a></li>
+	<li class="list-group-item"><a href="{{url('/control/index')}}"><img class="img-circle" src="{{asset('img/brand80.png')}}" alt=""></a></li>
+	<li class="list-group-item"><a href="{{url('/control/index')}}">
+			<span class="glyphicon glyphicon-th-large"></span></a></li>
+	<li class="list-group-item"><a href="{{url('/control/articles')}}">
+			<span class="glyphicon glyphicon-pencil"></span></a>
+	</li>
+	<li class="list-group-item"><a href="{{url('/control/comments')}}">
+			<span class="glyphicon glyphicon-comment"></span></a>
+	</li>
+	<li class="list-group-item"><a href="{{url('/control/todolist')}}">
+			<span class="glyphicon glyphicon-list-alt"></span></a>
+	</li>
+	<li class="list-group-item"><a href="{{url('/control/user')}}">
+			<span class="glyphicon glyphicon-user"></span></a></li>
+	<li class="list-group-item"><a href="{{url('/control/settings')}}">
+			<span class="glyphicon glyphicon-cog"></span></a></li>
+	<li class="list-group-item"><a href="{{url('/control/ashcan')}}">
+			<span class="glyphicon glyphicon-trash"></span></a>
+	</li>
 </ul>

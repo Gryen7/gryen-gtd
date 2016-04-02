@@ -1,5 +1,7 @@
-@include('pages._head')
-@include('pages._nav')
+@extends('layouts._base')
+@section('base_content')
+    @parent
+    @include('pages._nav')
 <div class="jumbotron tar-jumbotron">
     <h1>Hello, world!</h1>
     <p>...</p>
@@ -21,4 +23,4 @@
         @include('pages._sidebar')
     </div>
 </div>
-@include('pages._foot')
+@endsection

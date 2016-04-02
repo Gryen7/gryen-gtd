@@ -9,3 +9,7 @@
     <script type="text/javascript" src="/vendor/js/bootstrap.min.js"></script>
 </head>
 <body>
+@section('base_content')
+    @show
+</body>
+</html>
