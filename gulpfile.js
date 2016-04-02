@@ -20,16 +20,22 @@ elixir(function (mix) {
         'simditor-markdown/styles/simditor-markdown.css'
     ], 'public/vendor/css/vendor.css','node_modules');
 
-    // 复制引用的 JS 文件到 public/vendor 目录
-    mix.copy([
+
+    mix.copy([// 复制引用的 JS 文件到 public/vendor 目录
         'node_modules/jquery/dist/jquery.min.js',
         'node_modules/bootstrap/dist/js/bootstrap.min.js'
     ], 'public/vendor/js')
-        .copy([
+        .copy([// 复制系统的 JS 文件到 public/js 目录
             'resources/assets/js/home.js',
             'resources/assets/js/article.js',
             'resources/assets/js/user.js'
-        ], 'public/js');
+        ], 'public/js')
+        .copy([// 复制 bootstrap 的字库
+            'node_modules/bootstrap/fonts'
+        ],'public/build/fonts/bootstrap')
+        .copy([// 复制 bootstrap 的字库
+            'node_modules/bootstrap/fonts'
+        ],'public/fonts/bootstrap');
 
     // 编辑器 JS 文件合并输出到 simditor.js
     mix.scripts([
