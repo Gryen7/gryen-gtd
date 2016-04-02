@@ -3,10 +3,10 @@
     @parent
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-1 tar-cp-nav text-center">
+            <div class="col-xs-2 tar-cp-nav">
                 @include('control._nav')
             </div>
-            <div class="col-xs-11">
+            <div class="col-xs-10">
                 <div>Control Panel</div>
                 <hr>
                 <div class="navbar navbar-default">

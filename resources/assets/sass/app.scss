@@ -32,7 +32,17 @@ input, textarea:focus {
 // 控制面板
 .tar-cp-nav{
   background-color: #333;
+  max-width: 150px;
+
+  img{
+    width: 60px;
+  }
+
+  ul > li > a > span{
+    font-size: 1em;
+    margin-right: 0.5em;
+  }
 }
-.tar-cp-nav img{
-  width: 80%;
+.tar-cp-main{
+
 }
