@@ -26,7 +26,7 @@ Route::group(['prefix' => 'articles'], function () {
  * 搜索
  */
 Route::group(['prefix' => 'searches'], function () {
-    Route::get('/search/{keywords}', 'SearchesController@search');
+    Route::get('/search', 'SearchesController@search');
 });
 /**
  * 用户

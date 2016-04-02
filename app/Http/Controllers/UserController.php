@@ -40,9 +40,10 @@ class UserController extends AuthController
 
     /**
      * 用户注册
+     * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function register()
+    public function register(Request $request)
     {
         return view('user.register');
     }

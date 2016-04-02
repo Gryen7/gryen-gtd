@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 
 class SearchesController extends Controller
 {
-    public function search($keywords, Request $request)
+    public function search(Request $request)
     {
         return view('searches.search', compact('keywords', 'request'));
     }
