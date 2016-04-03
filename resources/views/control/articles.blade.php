@@ -16,7 +16,7 @@
             </li>
         </ul>
     </div>
-    @stop
+@stop
 @section('content')
     <div class="table-responsive">
         <table class="table table-striped">
@@ -31,7 +31,8 @@
                 <td>这是一篇文章</td>
                 <td>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                             已发布<span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
@@ -43,17 +44,21 @@
                 </td>
                 <td>
                     <ul class="list-group">
-                        <li class="list-group-item pull-left"><a href="">浏览</a></li>
+                        <li class="list-group-item pull-left"><a href="" target="_blank">浏览</a></li>
                         <li class="list-group-item pull-left"><a href="">编辑</a></li>
                         <li class="list-group-item pull-left"><a href="">删除</a></li>
-                        <li class="list-group-item pull-left"><a href="javascript:;" data-toggle="modal" data-target="#myModal">加入待办</a></li>
-                    </ul></td>
+                        <li class="list-group-item pull-left"><a href="javascript:;" data-toggle="modal"
+                                                                 data-target="#myModal">加入待办</a></li>
+                    </ul>
+                </td>
             </tr>
             <tr>
                 <td>2</td>
                 <td>这是一篇文章</td>
-                <td><div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                             已发布<span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
@@ -61,20 +66,25 @@
                             <li><a href="#">未发布</a></li>
                             <li><a href="#">草稿</a></li>
                         </ul>
-                    </div></td>
+                    </div>
+                </td>
                 <td>
                     <ul class="list-group">
-                        <li class="list-group-item pull-left"><a href="">浏览</a></li>
+                        <li class="list-group-item pull-left"><a href="" target="_blank">浏览</a></li>
                         <li class="list-group-item pull-left"><a href="">编辑</a></li>
                         <li class="list-group-item pull-left"><a href="">删除</a></li>
-                        <li class="list-group-item pull-left"><a href="javascript:;" data-toggle="modal" data-target="#myModal">加入待办</a></li>
-                    </ul></td>
+                        <li class="list-group-item pull-left"><a href="javascript:;" data-toggle="modal"
+                                                                 data-target="#myModal">加入待办</a></li>
+                    </ul>
+                </td>
             </tr>
             <tr>
                 <td>3</td>
                 <td>这是一篇文章</td>
-                <td><div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                             已发布<span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
@@ -82,14 +92,17 @@
                             <li><a href="#">未发布</a></li>
                             <li><a href="#">草稿</a></li>
                         </ul>
-                    </div></td>
+                    </div>
+                </td>
                 <td>
                     <ul class="list-group">
-                        <li class="list-group-item pull-left"><a href="">浏览</a></li>
+                        <li class="list-group-item pull-left"><a href="" target="_blank">浏览</a></li>
                         <li class="list-group-item pull-left"><a href="">编辑</a></li>
                         <li class="list-group-item pull-left"><a href="">删除</a></li>
-                       <li class="list-group-item pull-left"><a href="javascript:;" data-toggle="modal" data-target="#myModal">加入待办</a></li>
-                    </ul></td>
+                        <li class="list-group-item pull-left"><a href="javascript:;" data-toggle="modal"
+                                                                 data-target="#myModal">加入待办</a></li>
+                    </ul>
+                </td>
             </tr>
         </table>
     </div>
@@ -117,7 +130,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Modal title</h4>
                 </div>
                 <div class="modal-body">
