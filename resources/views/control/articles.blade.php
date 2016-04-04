@@ -1,7 +1,7 @@
 @extends('layouts._control')
 @section('subNavigation')
     <div class="collapse navbar-collapse">
-        <form class="navbar-form navbar-left" role="search">
+        <form class="navbar-form navbar-left">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search">
             </div>
@@ -47,7 +47,7 @@
                         <li class="list-group-item pull-left"><a href="" target="_blank">浏览</a></li>
                         <li class="list-group-item pull-left"><a href="">编辑</a></li>
                         <li class="list-group-item pull-left"><a href="">删除</a></li>
-                        <li class="list-group-item pull-left"><a href="javascript:;" data-toggle="modal"
+                        <li class="list-group-item pull-left"><a href="" data-toggle="modal"
                                                                  data-target="#myModal">加入待办</a></li>
                     </ul>
                 </td>
@@ -73,7 +73,7 @@
                         <li class="list-group-item pull-left"><a href="" target="_blank">浏览</a></li>
                         <li class="list-group-item pull-left"><a href="">编辑</a></li>
                         <li class="list-group-item pull-left"><a href="">删除</a></li>
-                        <li class="list-group-item pull-left"><a href="javascript:;" data-toggle="modal"
+                        <li class="list-group-item pull-left"><a href="" data-toggle="modal"
                                                                  data-target="#myModal">加入待办</a></li>
                     </ul>
                 </td>
@@ -99,7 +99,7 @@
                         <li class="list-group-item pull-left"><a href="" target="_blank">浏览</a></li>
                         <li class="list-group-item pull-left"><a href="">编辑</a></li>
                         <li class="list-group-item pull-left"><a href="">删除</a></li>
-                        <li class="list-group-item pull-left"><a href="javascript:;" data-toggle="modal"
+                        <li class="list-group-item pull-left"><a href="" data-toggle="modal"
                                                                  data-target="#myModal">加入待办</a></li>
                     </ul>
                 </td>

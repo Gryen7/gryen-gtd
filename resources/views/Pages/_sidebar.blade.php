@@ -1,13 +1,8 @@
 <div class="col-md-4">
-    {!! Form::open(['action' => 'SearchesController@search','class'=>'form-inline','method'=>'GET']) !!}
-    <div class="form-group">
-        {!! Form::submit('Search',['class'=>'btn btn-primary form-control']) !!}
-        <div class="input-group">
-            {!! Form::input('text','search','',['class' => 'form-control','placeholder'=>'Search...']) !!}
-        </div>
+    <div class="form-group has-feedback">
+        {!! Form::input('text','search','',['class' => 'form-control','placeholder'=>'Search...']) !!}
+        <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
     </div>
-    {!! Form::close() !!}
-
     <div class="panel panel-default tar-sidebar-panel">
         <div class="panel-heading">标签云</div>
         <div class="panel-body tar-tags-box">
