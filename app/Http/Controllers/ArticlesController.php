@@ -32,14 +32,14 @@ class ArticlesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param CreateArticleRequest|\Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(CreateArticleRequest $request)
     {
 
-        Article::create($request->all());
-        return redirect('articles');
+        $result = Article::create($request->all());
+        return redirect('articles/show/'.$result->id);
     }
 
     /**
@@ -69,8 +69,8 @@ class ArticlesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
      * @param  int $id
+     * @param CreateArticleRequest|\Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function update($id, CreateArticleRequest $request)
