@@ -26,9 +26,10 @@
                 <th>Status</th>
                 <th>Options</th>
             </tr>
+            @foreach($articles as $article)
             <tr>
-                <td>1</td>
-                <td>这是一篇文章</td>
+                <td>{{ $article->id }}</td>
+                <td>{{ $article->title }}</td>
                 <td>
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
@@ -44,66 +45,15 @@
                 </td>
                 <td>
                     <ul class="list-group">
-                        <li class="list-group-item pull-left"><a href="" target="_blank">浏览</a></li>
-                        <li class="list-group-item pull-left"><a href="">编辑</a></li>
+                        <li class="list-group-item pull-left"><a href="{{ action('ArticlesController@show',[$article->id]) }}" target="_blank">浏览</a></li>
+                        <li class="list-group-item pull-left"><a href="{{ action('ArticlesController@edit',[$article->id]) }}" target="_blank">编辑</a></li>
                         <li class="list-group-item pull-left"><a href="">删除</a></li>
                         <li class="list-group-item pull-left"><a href="" data-toggle="modal"
                                                                  data-target="#myModal">加入待办</a></li>
                     </ul>
                 </td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>这是一篇文章</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            已发布<span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">已发布</a></li>
-                            <li><a href="#">未发布</a></li>
-                            <li><a href="#">草稿</a></li>
-                        </ul>
-                    </div>
-                </td>
-                <td>
-                    <ul class="list-group">
-                        <li class="list-group-item pull-left"><a href="" target="_blank">浏览</a></li>
-                        <li class="list-group-item pull-left"><a href="">编辑</a></li>
-                        <li class="list-group-item pull-left"><a href="">删除</a></li>
-                        <li class="list-group-item pull-left"><a href="" data-toggle="modal"
-                                                                 data-target="#myModal">加入待办</a></li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>这是一篇文章</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            已发布<span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">已发布</a></li>
-                            <li><a href="#">未发布</a></li>
-                            <li><a href="#">草稿</a></li>
-                        </ul>
-                    </div>
-                </td>
-                <td>
-                    <ul class="list-group">
-                        <li class="list-group-item pull-left"><a href="" target="_blank">浏览</a></li>
-                        <li class="list-group-item pull-left"><a href="">编辑</a></li>
-                        <li class="list-group-item pull-left"><a href="">删除</a></li>
-                        <li class="list-group-item pull-left"><a href="" data-toggle="modal"
-                                                                 data-target="#myModal">加入待办</a></li>
-                    </ul>
-                </td>
-            </tr>
+            @endforeach
         </table>
     </div>
     <nav>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use App\Http\Requests;
 
 class ControlPanelController extends Controller
@@ -15,9 +16,15 @@ class ControlPanelController extends Controller
         return view('control.index');
     }
 
+    /**
+     * 后台文章列表
+     *
+     * @return mixed
+     */
     public function articles()
     {
-        return view('control.articles');
+        $articles = Article::all();
+        return view('control.articles',compact('articles'));
     }
 
     public function comments()
