@@ -63,14 +63,5 @@ class UserController extends AuthController
         };
         return redirect('user/login');
     }
-
-    /**
-     * @return mixed
-     */
-    public function logout()
-    {
-        \Auth::logout();
-        return redirect('/home');
-    }
-
+    
 }

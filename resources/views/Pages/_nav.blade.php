@@ -26,7 +26,7 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="{{url('/user/login')}}">Login</a></li>
                         <li><a href="{{url('/user/register')}}">Register</a></li>
-                        <li><a href="{{url('/user/logout')}}">Logout</a></li>
+                        <li><a href="{{url('/logout')}}">Logout</a></li>
                     </ul>
                 </li>
             </ul>
