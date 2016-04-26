@@ -36,14 +36,14 @@ elixir(function (mix) {
         ], 'public/fonts/bootstrap');
 
     mix.scripts([// 编辑器 JS 文件合并输出到 simditor.js
-            'simditor/node_modules/simple-module/lib/module.js',
-            'simditor/node_modules/simple-hotkeys/lib/hotkeys.js',
-            'simditor/node_modules/simple-uploader/lib/uploader.js',
+            'simple-module/lib/module.js',
+            'simple-hotkeys/lib/hotkeys.js',
+            'simple-uploader/lib/uploader.js',
             'simditor/lib/simditor.js'
         ], 'public/vendor/js/simditor.js', 'node_modules')
         .scripts([// 编辑器 markdown 支持
-            'simditor-markdown/node_modules/to-markdown/dist/to-markdown.js',
-            'simditor-markdown/node_modules/marked/lib/marked.js',
+            'to-markdown/dist/to-markdown.js',
+            'marked/lib/marked.js',
             'simditor-markdown/lib/simditor-markdown.js'
         ], 'public/vendor/js/simditor-markdown.js', 'node_modules');
 });
