@@ -38,7 +38,7 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/handleRegister', 'UserController@handleRegister');
 });
 
-Route::get('/logout',function(){
+Route::get('/logout', function () {
     Auth::logout();
     return redirect('home');
 });
@@ -51,10 +51,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/articles/store', 'ArticlesController@store');
     Route::get('/articles/edit/{id}', 'ArticlesController@edit');
     Route::post('/articles/update/{id}', 'ArticlesController@update');
+    Route::get('/articles/delete/{ids}', 'ArticlesController@delete');
+    Route::get('/articles/destroy/{id}', 'ArticlesController@destroy');
 
     Route::post('/files/upload', 'FilesController@upload');
-
-
 });
 
 /**

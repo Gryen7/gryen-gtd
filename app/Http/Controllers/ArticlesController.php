@@ -39,7 +39,7 @@ class ArticlesController extends Controller
     {
 
         $result = Article::create($request->all());
-        return redirect('articles/show/'.$result->id);
+        return redirect('articles/show/' . $result->id);
     }
 
     /**
@@ -81,13 +81,39 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * 软删除文章
      *
-     * @param  int $id
+     * @param $ids
      * @return \Illuminate\Http\Response
+     * @internal param int $id
+     */
+    public function delete($ids)
+    {
+        Article::destroy($ids);
+    }
+
+    /**
+     * 彻底删除一篇文章
+     *
+     * @param $id
      */
     public function destroy($id)
     {
-        //
+        $article = Article::onlyTrashed()
+            ->where('id', $id)
+            ->first();
+        $article->forceDelete();
+    }
+
+    /**
+     * 恢复被删除的文章
+     *
+     * @param $ids
+     */
+    public function restore($ids)
+    {
+        Article::onlyTrashed()
+            ->where('id', $ids)
+            ->restore();
     }
 }

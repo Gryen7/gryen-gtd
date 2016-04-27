@@ -49,6 +49,7 @@ class ControlPanelController extends Controller
 
     public function ashcan()
     {
-        return view('control.ashcan');
+        $articles = Article::onlyTrashed()->get();
+        return view('control.ashcan',compact('articles'));
     }
 }
