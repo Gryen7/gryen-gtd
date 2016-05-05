@@ -36,7 +36,7 @@ elixir(function (mix) {
         ], 'public/fonts/bootstrap');
 
     mix.scripts([// 编辑器 JS 文件合并输出到 simditor.js
-            'simple-module/lib/module.js',
+            'simple-module/dist/simple-module.js',
             'simple-hotkeys/lib/hotkeys.js',
             'simple-uploader/lib/uploader.js',
             'simditor/lib/simditor.js'
