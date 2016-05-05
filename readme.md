@@ -1,4 +1,4 @@
-LaravelBlog
+LaravelBlog【开发中】
 ====
 
 基于 laravel 的 Blog 应用，提供以下功能：
