@@ -18,7 +18,7 @@
     </div>
 @stop
 @section('content')
-    <div class="table-responsive">
+    <div class="table-responsive tar-overflow-initial">
         <table class="table table-striped">
             <tr>
                 <th>ID</th>
@@ -38,7 +38,6 @@
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a href="#">已发布</a></li>
-                                <li><a href="#">未发布</a></li>
                                 <li><a href="#">草稿</a></li>
                             </ul>
                         </div>
