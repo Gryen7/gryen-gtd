@@ -36,11 +36,11 @@ elixir(function (mix) {
         ], 'public/fonts/bootstrap');
 
     mix.scripts([// 编辑器 JS 文件合并输出到 simditor.js
-            'simple-module/dist/simple-module.js',
-            'simple-hotkeys/lib/hotkeys.js',
-            'simple-uploader/lib/uploader.js',
-            'simditor/lib/simditor.js'
-        ], 'public/vendor/js/simditor.js', 'node_modules')
+            'node_modules/simple-module/lib/module.js',
+            'node_modules/simple-hotkeys/lib/hotkeys.js',
+            'node_modules/simple-uploader/lib/uploader.js',
+            'lib/simditor.js'
+        ], 'public/vendor/js/simditor.js', 'node_modules/simditor')
         .scripts([// 编辑器 markdown 支持
             'to-markdown/dist/to-markdown.js',
             'marked/lib/marked.js',

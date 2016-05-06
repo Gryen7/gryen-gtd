@@ -7,9 +7,6 @@
     "marked": "^0.3.5",
     "simditor": "^2.3.6",
     "simditor-markdown": "^1.1.2",
-    "simple-hotkeys": "^1.0.3",
-    "simple-module": "^3.0.2",
-    "simple-uploader": "^2.0.8",
     "to-markdown": "^3.0.0"
   },
   "dependencies": {
