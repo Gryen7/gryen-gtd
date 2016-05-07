@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Requests\CreateArticleRequest;
 use App\Article;
+use Carbon\Carbon;
 
 class ArticlesController extends Controller
 {
@@ -62,7 +63,7 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        $article = Article::findOrNew($id);
+        $article = Article::withTrashed()->findOrNew($id);
         return view('articles.edit', compact('article'));
     }
 
@@ -76,7 +77,10 @@ class ArticlesController extends Controller
     public function update($id, CreateArticleRequest $request)
     {
         $article = Article::findOrNew($id);
-        $article->update($request->all());
+        if ($article->trashed()) {
+            $article->restore();
+        }
+        $article->update(array_merge($request->all(), array('deleted_at' => null)));
         return redirect('articles');
     }
 

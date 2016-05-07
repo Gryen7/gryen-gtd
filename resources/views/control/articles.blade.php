@@ -34,7 +34,9 @@
                         <div class="btn-group">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
-                                已发布<span class="caret"></span>
+                                @if($article->status == 1)已发布
+                                @elseif($article->status == 0)草稿
+                                @endif<span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a href="#">已发布</a></li>
