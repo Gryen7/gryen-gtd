@@ -16,7 +16,10 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::where('status', '>', 0)
+            ->orderBy('created_at', 'desc')
+            ->take(20)
+            ->get();
         return view('articles.index', compact('articles'));
     }
 
@@ -38,7 +41,6 @@ class ArticlesController extends Controller
      */
     public function store(CreateArticleRequest $request)
     {
-
         $result = Article::create($request->all());
         return redirect('articles/show/' . $result->id);
     }

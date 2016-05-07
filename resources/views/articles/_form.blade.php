@@ -8,12 +8,13 @@
 </div>
 <div class="col-md-4">
     <div class="form-group">
-        {!! Form::submit($submitButtonText,['class' => 'btn btn-primary form-control']) !!}
+        {!! Form::button($submitButtonText,['class' => 'btn btn-primary form-control','onclick' => 'saveOrSubmitArticle(1)']) !!}
+        {!! Form::button($submitButtonText2,['class' => 'btn btn-primary form-control','onclick' => 'saveOrSubmitArticle(0)']) !!}
     </div>
     <div class="form-group">
         {!! Form::textarea('description',null,['class' => 'form-control','rows' =>'1','placeholder'=>'Please input description ...']) !!}
     </div>
 </div>
-<script type="text/javascript" src="/vendor/js/simditor.js"></script>
-<script type="text/javascript" src="/vendor/js/simditor-markdown.js"></script>
-<script type="text/javascript" src="/js/article.js"></script>
+{!! Html::script(asset('/vendor/js/simditor.js')) !!}
+{!! Html::script(asset('/vendor/js/simditor-markdown.js')) !!}
+{!! Html::script(asset('/js/article-form.js')) !!}

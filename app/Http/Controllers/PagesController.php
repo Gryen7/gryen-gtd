@@ -14,7 +14,10 @@ class PagesController extends Controller
      */
     public function home()
     {
-        $articles = Article::all();
+        $articles = Article::where('status','>',0)
+            ->orderBy('created_at' ,'desc')
+            ->take(20)
+            ->get();
         return view('pages.home', compact('articles'));
     }
 
