@@ -13,7 +13,8 @@ class Article extends Model
         'title',
         'content',
         'description',
-        'status'
+        'status',
+        'deleted_at'
     ];
 
     protected $dates = ['deleted_at'];

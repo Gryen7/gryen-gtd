@@ -79,10 +79,7 @@ class ArticlesController extends Controller
     public function update($id, CreateArticleRequest $request)
     {
         $article = Article::findOrNew($id);
-        if ($article->trashed()) {
-            $article->restore();
-        }
-        $article->update(array_merge($request->all(), array('deleted_at' => null)));
+        $article->update(array_merge($request->all(), ['deleted_at' => '']));
         return redirect('articles');
     }
 
@@ -96,6 +93,7 @@ class ArticlesController extends Controller
     public function delete($ids)
     {
         Article::destroy($ids);
+        return redirect($_SERVER['HTTP_REFERER']);
     }
 
     /**
