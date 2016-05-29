@@ -4,7 +4,7 @@
     管理员登录 - @parent
 @stop
 @section('content')
-    {!! Form::open(['method' => 'post' , 'url' => 'user/handleLogin']) !!}
+    {!! Form::open(['method' => 'post' , 'url' => '/handleLogin']) !!}
     <div class="form-group">
         {!! Form::label('email','Email:') !!}
         {!! Form::text('email',null,['class' => 'form-control']) !!}

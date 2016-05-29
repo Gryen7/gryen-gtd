@@ -1,7 +1,7 @@
 @extends('layouts._default')
 {{--注册页面--}}
 @section('content')
-    {!! Form::open(['method' => 'post' , 'url' => 'user/handleRegister']) !!}
+    {!! Form::open(['method' => 'post' , 'url' => '/handleRegister']) !!}
     <div class="form-group">
         {!! Form::label('name','Name:') !!}
         {!! Form::text('name',null,['class'=>'form-control']) !!}

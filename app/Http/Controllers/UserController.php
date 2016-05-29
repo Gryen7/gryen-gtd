@@ -61,7 +61,7 @@ class UserController extends AuthController
         if (!$this->create($request->all())) {
             return redirect('error');
         };
-        return redirect('user/login');
+        return redirect('/login');
     }
     
 }

@@ -31,12 +31,10 @@ Route::group(['prefix' => 'searches'], function () {
 /**
  * 用户
  */
-Route::group(['prefix' => 'user'], function () {
-    Route::get('/login', 'UserController@login');
-    Route::get('/register', 'UserController@register');
-    Route::post('/handleLogin', 'UserController@handleLogin');
-    Route::post('/handleRegister', 'UserController@handleRegister');
-});
+Route::get('/login', 'UserController@login');
+Route::get('/register', 'UserController@register');
+Route::post('/handleLogin', 'UserController@handleLogin');
+Route::post('/handleRegister', 'UserController@handleRegister');
 
 Route::get('/logout', function () {
     Auth::logout();

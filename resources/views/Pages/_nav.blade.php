@@ -24,8 +24,8 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="{{url('/control/index')}}">Control Panel</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="{{url('/user/login')}}">Login</a></li>
-                        <li><a href="{{url('/user/register')}}">Register</a></li>
+                        <li><a href="{{url('/login')}}">Login</a></li>
+                        <li><a href="{{url('/register')}}">Register</a></li>
                         <li><a href="{{url('/logout')}}">Logout</a></li>
                     </ul>
                 </li>
