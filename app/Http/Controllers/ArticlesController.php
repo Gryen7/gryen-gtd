@@ -11,8 +11,8 @@ class ArticlesController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
      * @return \Illuminate\Http\Response
+     * @internal param Article $article
      */
     public function index()
     {
@@ -38,6 +38,7 @@ class ArticlesController extends Controller
      *
      * @param CreateArticleRequest|\Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @internal param Article $article
      */
     public function store(CreateArticleRequest $request)
     {
@@ -53,7 +54,7 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        $article = Article::findOrNew($id);
+        $article = Article::find($id);
         return view('articles.show', compact('article'));
     }
 
@@ -65,7 +66,7 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        $article = Article::withTrashed()->findOrNew($id);
+        $article = Article::withTrashed()->find($id);
         return view('articles.edit', compact('article'));
     }
 
@@ -78,8 +79,12 @@ class ArticlesController extends Controller
      */
     public function update($id, CreateArticleRequest $request)
     {
-        $article = Article::findOrNew($id);
-        $article->update(array_merge($request->all(), ['deleted_at' => '']));
+        $article = Article::withTrashed()
+            ->find($id);
+        if ($article->trashed()){
+            $article->restore();
+        }
+        $article->update($request->all());
         return redirect('articles');
     }
 
@@ -104,8 +109,7 @@ class ArticlesController extends Controller
     public function destroy($id)
     {
         $article = Article::onlyTrashed()
-            ->where('id', $id)
-            ->first();
+            ->find($id);
         $article->forceDelete();
     }
 

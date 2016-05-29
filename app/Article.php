@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Article extends Model
+class Article extends Eloquent
 {
     use SoftDeletes;
 
@@ -13,8 +13,7 @@ class Article extends Model
         'title',
         'content',
         'description',
-        'status',
-        'deleted_at'
+        'status'
     ];
 
     protected $dates = ['deleted_at'];
