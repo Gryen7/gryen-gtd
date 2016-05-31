@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
+use App\Comment;
 use App\Http\Requests;
 use App\Http\Requests\CreateArticleRequest;
-use App\Article;
-use Carbon\Carbon;
 
 class ArticlesController extends Controller
 {
@@ -55,7 +55,8 @@ class ArticlesController extends Controller
     public function show($id)
     {
         $article = Article::find($id);
-        return view('articles.show', compact('article'));
+        $comments = Comment::where('article_id', $id)->get();
+        return view('articles.show', compact('article', 'comments'));
     }
 
     /**
@@ -81,7 +82,7 @@ class ArticlesController extends Controller
     {
         $article = Article::withTrashed()
             ->find($id);
-        if ($article->trashed()){
+        if ($article->trashed()) {
             $article->restore();
         }
         $article->update($request->all());
@@ -105,23 +106,27 @@ class ArticlesController extends Controller
      * 彻底删除一篇文章
      *
      * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy($id)
     {
         $article = Article::onlyTrashed()
             ->find($id);
         $article->forceDelete();
+        return redirect($_SERVER['HTTP_REFERER']);
     }
 
     /**
      * 恢复被删除的文章
      *
      * @param $ids
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function restore($ids)
     {
         Article::onlyTrashed()
             ->where('id', $ids)
             ->restore();
+        return redirect($_SERVER['HTTP_REFERER']);
     }
 }

@@ -6,6 +6,10 @@
         <div class="article_content">
             {!! $article->content !!}
         </div>
+        @foreach($comments as $comment)
+            <div>{{$comment->content}}</div>
+        @endforeach
+        @include('comments.create',['articleId' => $article->id])
     </div>
     @include('pages._sidebar')
 @stop
