@@ -23,5 +23,4 @@
             </div>
         </div>
     </div>
-    {!! Html::script(asset('js/control.js')) !!}
 @endsection

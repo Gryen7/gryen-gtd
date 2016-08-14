@@ -3,13 +3,13 @@
         {!! Form::text('title',null,['class' => 'form-control','placeholder' =>'Please input title ...']) !!}
     </div>
     <div class="form-group">
-        {!! Form::textarea('content',null,['class' => 'form-control','id'=>'content']) !!}
+        {!! Form::textarea('content',null,['class' => 'form-control','id'=>'content-textarea']) !!}
     </div>
 </div>
 <div class="col-md-4">
     <div class="form-group">
-        {!! Form::button($submitButtonText,['class' => 'btn btn-primary form-control','onclick' => 'saveOrSubmitArticle(1)']) !!}
-        {!! Form::button($submitButtonText2,['class' => 'btn btn-primary form-control','onclick' => 'saveOrSubmitArticle(0)']) !!}
+        {!! Form::button($submitButtonText,['class' => 'btn btn-primary form-control','id' => 'submit-article']) !!}
+        {!! Form::button($submitButtonText2,['class' => 'btn btn-primary form-control','id' => 'save-article']) !!}
     </div>
     <div class="form-group">
         {!! Form::textarea('description',null,['class' => 'form-control','rows' =>'1','placeholder'=>'Please input description ...']) !!}

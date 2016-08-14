@@ -2,8 +2,6 @@
 @import "../../../node_modules/simditor/styles/simditor.scss";
 @import "../../../node_modules/simditor-markdown/styles/simditor-markdown.scss";
 
-
-
 input, textarea:focus {
   outline: none;
 }
@@ -14,11 +12,11 @@ input, textarea:focus {
   bottom: 0;
   z-index: 999;
 
-    ul {
-      li {
-        list-style: none;
-      }
+  ul {
+    li {
+      list-style: none;
     }
+  }
 }
 
 // 侧边栏
@@ -49,31 +47,41 @@ input, textarea:focus {
     width: 60px;
   }
 
-  ul > li > a > span {
-    font-size: 1em;
-    margin-right: 0.5em;
+  ul {
+    background-color: #333;
+
+    li {
+      background-color: #333;
+      border: 0;
+
+      span {
+        font-size: 1em;
+        margin-right: 0.5em;
+      }
+
+    }
   }
-}
-
-.tar-cp-main {
-
 }
 
 .tar-cp-top {
+  font-size: 0.8em;
+
   ul {
     margin-bottom: 0;
-  }
-  li {
-    padding: 0;
-    margin-right: 5px;
-  }
-  font-size: 0.8em;
-  a {
-    color: $gray-light;
-    text-decoration: none;
+
+    li {
+      padding: 0;
+      margin-right: 5px;
+      border: 0;
+
+      a {
+        color: $gray-light;
+        text-decoration: none;
+      }
+    }
   }
 }
 
-.tar-overflow-initial{
+.tar-overflow-initial {
   overflow: initial;
 }
