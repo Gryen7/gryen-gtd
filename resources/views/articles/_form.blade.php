@@ -15,6 +15,3 @@
         {!! Form::textarea('description',null,['class' => 'form-control','rows' =>'1','placeholder'=>'Please input description ...']) !!}
     </div>
 </div>
-{!! Html::script(asset('/vendor/js/simditor.js')) !!}
-{!! Html::script(asset('/vendor/js/simditor-markdown.js')) !!}
-{!! Html::script(asset('/js/article-form.js')) !!}

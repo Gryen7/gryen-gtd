@@ -12,6 +12,10 @@ window.onload = function () {
 /**
  * 调整侧边栏高度
  */
-function adjustNavHeight() {
+const adjustNavHeight = () => {
     $('.tar-cp-nav').height($(window).height());
-}
+};
+
+module.exports = {
+    adjustNavHeight
+};

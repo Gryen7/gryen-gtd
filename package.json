@@ -4,7 +4,7 @@
     "prod": "gulp --production",
     "dev": "gulp watch"
   },
-  "devDependencies": {
+  "dependencies": {
     "bootstrap-sass": "^3.0.0",
     "gulp": "^3.9.1",
     "jquery": "^2.2.4",
@@ -13,5 +13,8 @@
     "simditor": "^2.3.6",
     "simditor-markdown": "^1.1.2",
     "to-markdown": "^3.0.0"
+  },
+  "devDependencies": {
+
   }
 }
