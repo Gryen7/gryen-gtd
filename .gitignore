@@ -282,3 +282,4 @@ local.properties
 *.iml
 out
 gen
+*.log
