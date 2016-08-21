@@ -283,3 +283,4 @@ local.properties
 out
 gen
 *.log
+composer.phar
