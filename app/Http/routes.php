@@ -70,3 +70,5 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
 });
 
 Route::resource('comments','CommentsController');
+
+Route::resource('todos', 'ToDosController');

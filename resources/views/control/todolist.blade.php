@@ -8,7 +8,7 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
         <li>
-            <a href="">新任务</a>
+            <a href="javascript(0);" data-toggle="modal" data-target="#myModal">新任务</a>
         </li>
         <li>
             <a href=""><span class="glyphicon glyphicon-object-align-bottom"></span></a>
@@ -16,36 +16,27 @@
     </ul>
 @endsection
 @section('content')
-    <ul class="list-group">
-        <li>
-            <span><label for=""><input type="checkbox" value=""></label></span>
-            <span>2016.08.16</span>
-            <span>这是一条任务</span>
-            <span>子任务 8</span>
-            <span>
-                <a href="">delete</a>
-                <a href="">done</a>
-            </span>
-        </li>
-        <li>
-            <span><label for=""><input type="checkbox" value=""></label></span>
-            <span>2016.08.16</span>
-            <span>这是一条任务</span>
-            <span>子任务 8</span>
-            <span>
-                <a href="">delete</a>
-                <a href="">done</a>
-            </span>
-        </li>
-        <li>
-            <span><label for=""><input type="checkbox" value=""></label></span>
-            <span>2016.08.16</span>
-            <span>这是一条任务</span>
-            <span>子任务 8</span>
-            <span>
-                <a href="">delete</a>
-                <a href="">done</a>
-            </span>
-        </li>
-    </ul>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>日期</th>
+                <th>任务描述</th>
+                <th>子任务</th>
+                <th>操作</th>
+            </tr>
+            <tr>
+                <td><span><label for=""><input type="checkbox" value=""></label></span></td>
+                <td><span>2016.08.16</span></td>
+                <td><span>这是一条任务</span></td>
+                <td><span>子任务 8</span></td>
+                <td>
+                    <span>
+                        <a href="">delete</a>
+                        <a href="">done</a>
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
 @endsection

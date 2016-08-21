@@ -5,3 +5,4 @@ window.$ = window.jQuery = require('jquery');
 require('bootstrap-sass');
 require('./control');
 require('./article-form');
+require('./todo');
