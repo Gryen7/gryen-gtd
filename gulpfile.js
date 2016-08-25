@@ -19,7 +19,7 @@ elixir(function (mix) {
             'resources/assets/img'
         ], 'public/img')
         .copy([// 复制 bootstrap 的字库
-            'node_modules/bootstrap/fonts'
+            'node_modules/bootstrap-sass/assets/fonts/bootstrap'
         ], 'public/fonts/bootstrap');
 
     // 自动刷新
