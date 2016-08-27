@@ -24,4 +24,3 @@
         </div>
     </div>
 @endsection
-@include('common._modal')

@@ -23,7 +23,7 @@ elixir(function (mix) {
         ], 'public/fonts/bootstrap');
 
     // 自动刷新
-    mix.browserSync({
-        proxy: 'laravelblog.app'
-    });
+    // mix.browserSync({
+    //     proxy: 'laravelblog.app'
+    // });
 });

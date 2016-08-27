@@ -1,7 +1,5 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: gcy77
- * Date: 2016/8/21
- * Time: 14:05
- */
+<div>
+    {!! Form::open(['action' => 'ToDosController@store']) !!}
+    @include('todos._form')
+    {!! Form::close() !!}
+</div>

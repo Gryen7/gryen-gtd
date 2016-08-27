@@ -8,7 +8,7 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
         <li>
-            <a href="javascript(0);" data-toggle="modal" data-target="#myModal">新任务</a>
+            <a data-toggle="modal" data-target="#ctrl-new-todo">新任务</a>
         </li>
         <li>
             <a href=""><span class="glyphicon glyphicon-object-align-bottom"></span></a>
@@ -40,3 +40,5 @@
         </table>
     </div>
 @endsection
+
+@include('common._modal', ['modalId' => 'ctrl-new-todo', 'modalTitle' => 'New Todo'])
