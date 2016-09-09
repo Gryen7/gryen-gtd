@@ -9,7 +9,7 @@
         </form>
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a href="">New Article</a>
+                <a href="{{ action('ArticlesController@create') }}">New Article</a>
             </li>
             <li>
                 <a href=""><span class="glyphicon glyphicon-object-align-bottom"></span></a>
@@ -34,13 +34,13 @@
                         <div class="btn-group">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
-                                @if($article->status == 1)已发布
-                                @elseif($article->status == 0)草稿
+                                @if($article->status == 1)published
+                                @elseif($article->status == 0)editing
                                 @endif<span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">已发布</a></li>
-                                <li><a href="#">草稿</a></li>
+                                <li><a data-id="{{ $article->id }}">published</a></li>
+                                <li><a data-id="{{ $article->id }}">editing</a></li>
                             </ul>
                         </div>
                     </td>
@@ -48,14 +48,14 @@
                         <ul class="list-group">
                             <li class="list-group-item pull-left"><a
                                         href="{{ action('ArticlesController@show',[$article->id]) }}"
-                                        target="_blank">浏览</a></li>
+                                        target="_blank">view</a></li>
                             <li class="list-group-item pull-left"><a
                                         href="{{ action('ArticlesController@edit',[$article->id]) }}"
-                                        target="_blank">编辑</a></li>
+                                        target="_blank">edit</a></li>
                             <li class="list-group-item pull-left"><a
-                                        href="{{ action('ArticlesController@delete',[$article->id]) }}">删除</a></li>
+                                        href="{{ action('ArticlesController@delete',[$article->id]) }}" data-a-type="ajax">delete</a></li>
                             <li class="list-group-item pull-left"><a href="" data-toggle="modal"
-                                                                     data-target="#myModal">加入待办</a></li>
+                                                                     data-target="#myModal">add todo</a></li>
                         </ul>
                     </td>
                 </tr>
@@ -81,27 +81,9 @@
             </li>
         </ul>
     </nav>
-    {{--模态框开始--}}
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Description</h4>
-                </div>
-                {!! Form::open() !!}
-                <div class="modal-body">
-                    <div class="form-group">
-                        {!! Form::input('text','description','',['class' => 'form-control','placeholder'=>'Please input description for the todo...']) !!}
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">OK</button>
-                </div>
-                {!! Form::close() !!}
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
 @stop
+@include('common._modal', [
+    'modalId' => 'ctrl-new-article',
+    'modalTitle' => 'New Article',
+    'exClass' => 'modal-lg bg-white scroll-x'
+])

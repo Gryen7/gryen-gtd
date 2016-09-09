@@ -1,8 +1,12 @@
 /**
  * Created by gcy77 on 2016/8/14.
  */
+
+
 window.$ = window.jQuery = require('jquery');
 require('bootstrap-sass');
+
+require('./common');
 require('./control');
-require('./article-form');
+require('./article');
 require('./todo');
