@@ -41,4 +41,4 @@
     </div>
 @endsection
 
-@include('common._modal', ['modalId' => 'ctrl-new-todo', 'modalTitle' => 'New Todo'])
+@include('common._modal', ['modalId' => 'ctrl-new-todo', 'modalTitle' => 'New Todo', 'exClass' => null])

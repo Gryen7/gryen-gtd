@@ -25,12 +25,12 @@
                         <ul class="list-group">
                             <li class="list-group-item pull-left"><a
                                         href="{{ action('ArticlesController@show',[$article->id]) }}"
-                                        target="_blank">浏览</a></li>
+                                        target="_blank">view</a></li>
                             <li class="list-group-item pull-left"><a
                                         href="{{ action('ArticlesController@edit',[$article->id]) }}"
-                                        target="_blank">恢复</a></li>
+                                        target="_blank">resume</a></li>
                             <li class="list-group-item pull-left"><a
-                                        href="{{ action('ArticlesController@destroy',[$article->id]) }}">彻底删除</a></li>
+                                        href="{{ action('ArticlesController@destroy',[$article->id]) }}">force delete</a></li>
                         </ul>
                     </td>
                 </tr>
