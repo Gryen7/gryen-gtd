@@ -23,12 +23,19 @@ class ControlPanelController extends Controller
      */
     public function articles($page)
     {
-        $take = 10;
+        $take = 10; // 每页文章数目
+        $titleLength = 50; // 文章标题截取长度
         $skip = ($page - 1) * $take;
 
         $articles = Article::skip($skip)
             ->take($take)
             ->get();
+
+        foreach ($articles as &$article) {
+            if (mb_strlen($article->title, 'utf-8') > $titleLength) {
+                $article->title = mb_substr($article->title, 0, $titleLength, 'utf-8') . '...';
+            }
+        }
 
         $pageCount = ceil(Article::all()->count() / $take);
         $prev = $page - 1 > 0 ? $page - 1 : 0;

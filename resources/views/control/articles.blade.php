@@ -9,7 +9,7 @@
         </form>
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a href="{{ action('ArticlesController@create') }}">New Article</a>
+                <a href="{{ action('ArticlesController@create') }}" target="_blank">New Article</a>
             </li>
             <li>
                 <a href=""><span class="glyphicon glyphicon-object-align-bottom"></span></a>

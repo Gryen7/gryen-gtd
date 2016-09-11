@@ -1,0 +1,19 @@
+// 控制面板顶部
+.tar-cp-top {
+  font-size: 0.8em;
+
+  ul {
+    margin-bottom: 0;
+
+    li {
+      padding: 0;
+      margin-right: 5px;
+      border: 0;
+
+      a {
+        color: $gray-light;
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -43,7 +43,7 @@ class ArticlesController extends Controller
     public function store(CreateArticleRequest $request)
     {
         /* 处理文章描述 */
-        $description = mb_substr($request->get('content'), 0, 200, 'utf-8') . '...';
+        $description = mb_substr(strip_tags($request->get('content')), 0, 200, 'utf-8') . '...';
         $request->merge(['description' => $description]);
 
         $result = Article::create($request->all());
