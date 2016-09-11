@@ -1,5 +1,26 @@
 @import "dialog";
 
+input, textarea:focus {
+  outline: none;
+}
+
 .bg-white {
   background: #fff;
+}
+
+.tar-error {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+
+  ul {
+    li {
+      list-style: none;
+    }
+  }
+}
+
+.tar-overflow-initial {
+  overflow: initial;
 }
