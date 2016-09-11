@@ -21,10 +21,20 @@ class ControlPanelController extends Controller
      *
      * @return mixed
      */
-    public function articles()
+    public function articles($page)
     {
-        $articles = Article::all();
-        return view('control.articles',compact('articles'));
+        $take = 10;
+        $skip = ($page - 1) * $take;
+
+        $articles = Article::skip($skip)
+            ->take($take)
+            ->get();
+
+        $pageCount = ceil(Article::all()->count() / $take);
+        $prev = $page - 1 > 0 ? $page - 1 : 0;
+        $next = $page + 1 <= $pageCount ? $page + 1 : $pageCount;
+
+        return view('control.articles',compact('articles', 'prev', 'next', 'pageCount'));
     }
 
     public function comments()

@@ -61,7 +61,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
     Route::get('/', 'ControlPanelController@index');
     Route::get('/index', 'ControlPanelController@index');
-    Route::get('/articles', 'ControlPanelController@articles');
+    Route::get('/articles/{page}', 'ControlPanelController@articles');
     Route::get('/comments', 'ControlPanelController@comments');
     Route::get('/todolist', 'ControlPanelController@todolist');
     Route::get('/user', 'ControlPanelController@user');
