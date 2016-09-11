@@ -40,8 +40,8 @@
                                         target="_blank">edit</a></li>
                             <li class="btn btn-default"><a href="{{ action('ArticlesController@delete',[$article->id]) }}"
                                         data-a-type="ajax">soft delete</a></li>
-                            <li class="btn btn-default"><a href="" data-toggle="modal"
-                                   data-target="#ctrl-new-article">add todo</a></li>
+                            {{--<li class="btn btn-default"><a href="" data-toggle="modal"--}}
+                                   {{--data-target="#ctrl-new-article">add todo</a></li>--}}
                         </ul>
                     </td>
                 </tr>
