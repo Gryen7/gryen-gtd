@@ -11,7 +11,4 @@
         {!! Form::button($submitButtonText,['class' => 'btn btn-primary form-control','id' => 'submit-article']) !!}
         {!! Form::button($submitButtonText2,['class' => 'btn btn-primary form-control','id' => 'save-article']) !!}
     </div>
-    <div class="form-group">
-        {!! Form::textarea('description',null,['class' => 'form-control','rows' =>'1','placeholder'=>'Please input description ...']) !!}
-    </div>
 </div>
