@@ -5,17 +5,18 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=5.5.9",
-        "laravel/framework": "5.2.*",
+        "php": ">=5.6.4",
+        "laravel/framework": "5.3.*",
         "barryvdh/laravel-ide-helper": "2.*",
-	"qiniu/php-sdk": "^7.0",
-	"league/flysystem-aws-s3-v3": "^1.0",
+        "qiniu/php-sdk": "^7.0",
+        "league/flysystem-aws-s3-v3": "^1.0",
         "laravelcollective/html": "^5.2",
         "doctrine/cache": "^1.6",
         "aws/aws-php-sns-message-validator": "^1.1",
         "symfony/psr-http-message-bridge": "^0.2.0",
         "league/flysystem-rackspace": "^1.0",
-	"zgldh/qiniu-laravel-storage": "^0.3.0"
+	    "zgldh/qiniu-laravel-storage": "^0.3.0",
+        "vinkla/pusher": "^2.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
