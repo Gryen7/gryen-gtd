@@ -1,4 +1,4 @@
-var elixir = require('laravel-elixir');
+const elixir = require('laravel-elixir');
 
 /*
  |--------------------------------------------------------------------------
@@ -13,7 +13,7 @@ var elixir = require('laravel-elixir');
 
 elixir(function (mix) {
     mix.sass('app.scss');
-    mix.browserify('main.js');
+    mix.browserify('app.js');
 
     mix.copy([// 复制图片
             'resources/assets/img'

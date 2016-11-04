@@ -11,5 +11,5 @@
         @endforeach
         @include('comments.create',['articleId' => $article->id])
     </div>
-    @include('pages._sidebar')
+    @include('common._sidebar')
 @stop

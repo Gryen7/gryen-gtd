@@ -3,5 +3,5 @@
     <div class="col-md-8">
         Search...
     </div>
-    @include('pages.sidebar')
+    @include('common.sidebar')
 @stop

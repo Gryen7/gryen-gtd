@@ -1,7 +1,7 @@
 @extends('layouts._base')
 @section('base_content')
     @parent
-@include('pages._nav')
+@include('common._nav')
 <div class="container">
     <div class="row">
         @yield('content')

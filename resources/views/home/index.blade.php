@@ -1,7 +1,7 @@
 @extends('layouts._base')
 @section('base_content')
     @parent
-    @include('pages._nav')
+    @include('common._nav')
     <div class="jumbotron tar-jumbotron">
         <div class="container">
             <h1>Hello, world!</h1>
@@ -23,7 +23,7 @@
                     @endforeach
                 </ul>
             </div>
-            @include('pages._sidebar')
+            @include('common._sidebar')
         </div>
     </div>
 @endsection
