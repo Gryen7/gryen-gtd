@@ -6,6 +6,7 @@
         <div class="article_content">
             {!! $article->content !!}
         </div>
+        <hr>
         @foreach($comments as $comment)
             <div>{{$comment->content}}</div>
         @endforeach
