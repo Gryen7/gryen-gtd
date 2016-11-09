@@ -8,6 +8,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/about', 'HomeController@about');
 
 Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/error', function () {
     return view('errors.503');
