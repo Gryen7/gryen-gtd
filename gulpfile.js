@@ -21,9 +21,6 @@ elixir(function (mix) {
         .copy([// 复制 bootstrap 的字库
             'node_modules/bootstrap-sass/assets/fonts/bootstrap'
         ], 'public/fonts/bootstrap');
-
-    // 自动刷新
-    // mix.browserSync({
-    //     proxy: 'laravelblog.app'
-    // });
 });
+
+elixir.Task.find('sass').watch('resources/assets/sass');
