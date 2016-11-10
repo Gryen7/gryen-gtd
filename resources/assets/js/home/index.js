@@ -1,5 +1,5 @@
 require('jquery-unslider');
 
 $(() => {
-    $('.my-slider').unslider();
+    $('.tar-index-slider').unslider();
 });

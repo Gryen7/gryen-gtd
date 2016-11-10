@@ -2,7 +2,7 @@
 @section('base_content')
     @parent
     @include('common._nav')
-    <div class="my-slider">
+    <div class="tar-index-slider">
         <ul>
             <li>My slide</li>
             <li>Another slide</li>
