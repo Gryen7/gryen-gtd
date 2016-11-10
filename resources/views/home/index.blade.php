@@ -2,12 +2,12 @@
 @section('base_content')
     @parent
     @include('common._nav')
-    <div class="jumbotron tar-jumbotron">
-        <div class="container">
-            <h1>Hello, world!</h1>
-            <p>...</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-        </div>
+    <div class="my-slider">
+        <ul>
+            <li>My slide</li>
+            <li>Another slide</li>
+            <li>My last slide</li>
+        </ul>
     </div>
     <div class="container">
         <div class="row">

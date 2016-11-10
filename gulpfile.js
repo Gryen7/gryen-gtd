@@ -21,6 +21,11 @@ elixir(function (mix) {
         .copy([// 复制 bootstrap 的字库
             'node_modules/bootstrap-sass/assets/fonts/bootstrap'
         ], 'public/fonts/bootstrap');
+
+    // mix.version(['css/app.css', 'js/app.js'])
+    //     .copy([// 复制 bootstrap 的字库
+    //         'node_modules/bootstrap-sass/assets/fonts/bootstrap'
+    //     ], 'public/build/fonts/bootstrap');
 });
 
 elixir.Task.find('sass').watch('resources/assets/sass');

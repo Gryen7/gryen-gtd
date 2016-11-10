@@ -11,6 +11,7 @@
     "bootstrap-sass": "^3.0.0",
     "gulp": "^3.9.1",
     "jquery": "^2.2.4",
+    "jquery-unslider": "^1.2.0",
     "laravel-elixir": "^5.0.0",
     "marked": "^0.3.5",
     "simditor": "^2.3.6",

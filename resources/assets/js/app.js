@@ -8,5 +8,6 @@ require('bootstrap-sass');
 
 require('./common');
 require('./control');
+require('./home');
 require('./article');
 require('./todo');
