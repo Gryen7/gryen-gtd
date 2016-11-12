@@ -51,7 +51,7 @@ class FilesController extends Controller
     }
 
     /**
-     * 获取文件后悔
+     * 获取文件后缀
      *
      * @param $type
      * @return string
