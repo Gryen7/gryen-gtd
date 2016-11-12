@@ -19,7 +19,7 @@ class FilesController extends Controller
      */
     public function upload(Request $request)
     {
-        $disk = \Storage::disk('qiniu');
+        $disk = \Storage::disk(env('disk'));
         $fileType = $this->getFilePostfix(getimagesize($request->upload_file)['mime']);
         if ($fileType == 'type_error') {
             return $this->returnResults(null, '非法文件类型！', false);
