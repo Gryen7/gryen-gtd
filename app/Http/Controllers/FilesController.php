@@ -27,7 +27,7 @@ class FilesController extends Controller
         $filePath = self::$UPLOAD_PATH . '/' . Carbon::now()->toDateString() . '/' . md5(Carbon::now()->timestamp) . $fileType;
         $results = $disk->put($filePath, file_get_contents($request->upload_file));
         if ($results) {
-            return $this->returnResults(\Config::get('filesystems.disks.qiniu.domains.default') . $filePath);
+            return $this->returnResults('//' . \Config::get('filesystems.disks.qiniu.domains.default') . $filePath);
         } else {
             return $this->returnResults(null, 'error!', false);
         }
