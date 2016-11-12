@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@section('title')Tar-Blog
         @show</title>
     <link rel="stylesheet" media="screen" charset="utf-8" href={{asset('css/app.css')}}>
