@@ -1,6 +1,3 @@
-@import "dialog";
-@import "simditor";
-
 input, textarea:focus {
   outline: none;
 }
@@ -29,3 +26,6 @@ input, textarea:focus {
 .no-resize {
   resize: none;
 }
+
+@import "dialog";
+@import "simditor";
