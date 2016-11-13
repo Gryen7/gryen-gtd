@@ -3,3 +3,4 @@
  */
 require('./article-form');
 require('./new-article-ajax');
+require('./content');
