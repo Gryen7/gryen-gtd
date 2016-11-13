@@ -12,16 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <ul>
-                    @foreach($articles as $article)
-                        <li>
-                            <h2>
-                                <a href="{{ action('ArticlesController@show',[$article->id]) }}">{{ $article->title }}</a>
-                            </h2>
-                            <div class="article_content">{{ $article->description }}</div>
-                        </li>
-                    @endforeach
-                </ul>
+                @include('articles._list')
             </div>
             @include('common._sidebar')
         </div>
