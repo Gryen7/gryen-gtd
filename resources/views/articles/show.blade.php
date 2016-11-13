@@ -3,7 +3,7 @@
     <div class="col-md-8">
         <h2>{{ $article->title }}</h2>
         <hr>
-        <div class="article_content">
+        <div class="article-content">
             {!! $article->content !!}
         </div>
         <hr>
