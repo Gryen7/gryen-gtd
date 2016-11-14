@@ -10,7 +10,7 @@
                 </span>
             </div>
             <hr>
-            <div class="article-content">{{ $article->description }}</div>
+            <div class="tar-article-list-decs">{{ $article->description }}</div>
         </li>
     @endforeach
 </ul>

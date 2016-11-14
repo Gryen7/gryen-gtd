@@ -13,4 +13,10 @@
   hr {
     margin-top: 0.5rem;
   }
+
+  .tar-article-list-decs {
+    word-break: break-all;
+    word-wrap: break-word;
+    overflow: hidden;
+  }
 }
