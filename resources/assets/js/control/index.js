@@ -4,5 +4,4 @@
 
 window.$ = window.jQuery = require('jquery');
 
-require('./control');
 require('./todo');
