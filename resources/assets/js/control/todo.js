@@ -3,7 +3,15 @@
  */
 require('bootstrap-datetime-picker');
 
-$('#crt-td-dtpckr').datetimepicker({
+$('#crt-td-strt-dtpckr').datetimepicker({
+    autoclose: true,
+    todayBtn: true,
+    minView: 1,
+    linkField: 'crt-td-dtpckr',
+    linkFormat: "yyyy-mm-dd"
+});
+
+$('#crt-td-end-dtpckr').datetimepicker({
     autoclose: true,
     todayBtn: true,
     minView: 1,

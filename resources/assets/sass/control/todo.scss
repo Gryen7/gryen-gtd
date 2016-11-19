@@ -1,0 +1,24 @@
+.tar-add-todo {
+  background-color: #e7e7e7;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+
+  > form {
+    > .form-group {
+      > input {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.tar-todo-list {
+  li {
+    margin-bottom: 1rem;
+
+    .glyphicon-arrow-right {
+      float: left;
+      padding-top: 0.75rem;
+    }
+  }
+}
