@@ -6,6 +6,8 @@
             <div class="col-xs-2 tar-cp-nav">
                 @include('control._nav')
             </div>
+            <div class="col-xs-2">
+            </div>
             <div class="col-xs-10">
                 @include('control._top')
                 <hr style="margin: 5px auto">

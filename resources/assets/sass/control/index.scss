@@ -2,6 +2,10 @@
 .tar-cp-nav {
   background-color: #333;
   max-width: 150px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
 
   img {
     width: 60px;
