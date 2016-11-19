@@ -12,8 +12,10 @@ const elixir = require('laravel-elixir');
  */
 
 elixir(function (mix) {
-    mix.sass('app.scss');
-    mix.browserify('app.js');
+    mix.sass('app.scss')
+        .webpack('home.js')
+        .webpack('article.js')
+        .webpack('control.js');
 
     mix.copy([// 复制图片
             'resources/assets/img'
@@ -22,10 +24,4 @@ elixir(function (mix) {
             'node_modules/bootstrap-sass/assets/fonts/bootstrap'
         ], 'public/fonts/bootstrap');
 
-    // mix.version(['css/app.css', 'js/app.js'])
-    //     .copy([// 复制 bootstrap 的字库
-    //         'node_modules/bootstrap-sass/assets/fonts/bootstrap'
-    //     ], 'public/build/fonts/bootstrap');
 });
-
-elixir.Task.find('sass').watch('resources/assets/sass');

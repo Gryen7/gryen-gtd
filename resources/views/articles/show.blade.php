@@ -1,4 +1,4 @@
-@extends('layouts._default')
+@extends('layouts._default', ['module' => 'article'])
 @section('content')
     <div class="col-md-8 tar-article-box">
         <h2>{{ $article->title }}</h2>

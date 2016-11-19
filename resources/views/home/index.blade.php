@@ -1,4 +1,4 @@
-@extends('layouts._base')
+@extends('layouts._base', ['module' => 'home'])
 @section('base_content')
     @parent
     @include('common._nav', ['extraClass' => 'indxNavMrgnBtm'])

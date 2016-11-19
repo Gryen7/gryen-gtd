@@ -1,4 +1,4 @@
-@extends('layouts._control')
+@extends('layouts._control', ['module' => 'control'])
 @section('subNavigation')
     <div class="collapse navbar-collapse">
         <form class="navbar-form navbar-left">

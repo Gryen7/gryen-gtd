@@ -284,3 +284,4 @@ out
 gen
 *.log
 composer.phar
+/composer.lock

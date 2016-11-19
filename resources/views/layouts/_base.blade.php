@@ -10,6 +10,6 @@
 <body>
 @section('base_content')
 @show
-<script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/' . $module . '.js')}}"></script>
 </body>
 </html>
