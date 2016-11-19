@@ -8,7 +8,7 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
         <li>
-            <a data-toggle="modal" data-target="#ctrl-new-todo">New Todo</a>
+            <a href="{{ action('ToDosController@create') }}">New Todo</a>
         </li>
         <li>
             <a href=""><span class="glyphicon glyphicon-object-align-bottom"></span></a>
@@ -40,5 +40,3 @@
         </table>
     </div>
 @endsection
-
-@include('common._modal', ['modalId' => 'ctrl-new-todo', 'modalTitle' => 'New Todo', 'exClass' => null])
