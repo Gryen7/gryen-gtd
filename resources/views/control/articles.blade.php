@@ -7,14 +7,12 @@
             </div>
             <button type="submit" class="btn btn-default">Search</button>
         </form>
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="{{ action('ArticlesController@create') }}">New Article</a>
-            </li>
-            <li>
-                <a href=""><span class="glyphicon glyphicon-object-align-bottom"></span></a>
-            </li>
-        </ul>
+        <div class="navbar-right">
+            <a href="{{ action('ArticlesController@create') }}" class="btn btn-success navbar-btn">New Article</a>
+            <button class="btn btn-default navbar-btn">
+                <span class="glyphicon glyphicon-object-align-bottom"></span>
+            </button>
+        </div>
     </div>
 @stop
 @section('content')
