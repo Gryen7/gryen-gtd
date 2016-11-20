@@ -6,6 +6,13 @@
   border-radius: 0.25rem;
   display: none;
 
+  .tar-todo-content {
+    width: 100% !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
   > form {
     > .form-group {
       > input {
@@ -32,4 +39,11 @@
       text-align: left;
     }
   }
+}
+
+.tar-todo-desc {
+  width: 100% !important;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
