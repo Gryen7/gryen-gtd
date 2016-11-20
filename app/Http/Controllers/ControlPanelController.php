@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use App\Http\Requests;
+use App\Todo;
 
 class ControlPanelController extends Controller
 {
@@ -42,9 +42,14 @@ class ControlPanelController extends Controller
         return view('control.comments');
     }
 
+    /**
+     * todolist view
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function todolist()
     {
-        return view('control.todolist');
+        $todos = Todo::all();
+        return view('control.todolist', compact('todos'));
     }
 
     public function user()

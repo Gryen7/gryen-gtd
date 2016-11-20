@@ -18,6 +18,7 @@
 @section('content')
     @include('todos.create')
     <ul class="list-unstyled tar-todo-list">
+        @foreach($todos as $todo)
         <li class="btn-toolbar col-xs-12">
             <div class="btn-group">
                 <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
@@ -33,12 +34,13 @@
                 <span class="glyphicon glyphicon-arrow-right"></span>
             </div>
             <div class="btn-group">
-                <button class="btn btn-default">这是一条任务</button>
-                <button class="btn btn-default">2016.11.20</button>
-                <button class="btn btn-default">2016.11.21</button>
+                <button class="btn btn-default">{{ $todo->content }}</button>
+                <button class="btn btn-default">{{ $todo->begin_at }}</button>
+                <button class="btn btn-default">{{ $todo->end_at }}</button>
                 <button class="btn btn-default">delete</button>
             </div>
         </li>
+        @endforeach
         <li class="btn-toolbar col-xs-12">
             <div class="btn-group">
                 <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
