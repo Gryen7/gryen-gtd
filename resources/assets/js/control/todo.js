@@ -4,19 +4,17 @@
 require('bootstrap-datetime-picker');
 
 $('#crt-td-strt-dtpckr').datetimepicker({
-    autoclose: true,
-    todayBtn: true,
-    minView: 1,
-    linkField: 'crt-td-dtpckr',
-    linkFormat: "yyyy-mm-dd"
+    format: 'yyyy-mm-dd',
+    startView: 2,
+    minView: 2,
+    autoclose: true
 });
 
 $('#crt-td-end-dtpckr').datetimepicker({
-    autoclose: true,
-    todayBtn: true,
-    minView: 1,
-    linkField: 'crt-td-dtpckr',
-    linkFormat: "yyyy-mm-dd"
+    format: 'yyyy-mm-dd',
+    startView: 2,
+    minView: 2,
+    autoclose: true
 });
 
 $('#tar-new-todo-btn').on('click', () => {

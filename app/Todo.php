@@ -22,4 +22,24 @@ class Todo extends Eloquent
         'begin_at',
         'end_at',
     ];
+
+    protected $dates = ['deleted_at'];
+
+    /**
+     * get todolist for control pannel
+     * @param $page
+     * @return array
+     */
+    public static function getTodoListForControlPannel ($page) {
+        $take = 10;
+        $skip = ($page -1 ) * $take;
+        $todos = Todo::skip($skip)
+            ->take($take)
+            ->get();
+        $pageCount = ceil(Todo::all()->count() / $take);
+        $prev = $page - 1 > 0 ? $page - 1 : 0;
+        $next = $page + 1 <= $pageCount ? $page + 1 : $pageCount;
+
+        return compact('todos', 'prev', 'next', 'pageCount');
+    }
 }

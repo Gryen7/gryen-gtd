@@ -19,22 +19,12 @@ class ControlPanelController extends Controller
     /**
      * 后台文章列表
      *
+     * @param $page
      * @return mixed
      */
-    public function articles($page)
+    public function articles($page = 1)
     {
-        $take = 10;
-        $skip = ($page - 1) * $take;
-
-        $articles = Article::skip($skip)
-            ->take($take)
-            ->get();
-
-        $pageCount = ceil(Article::all()->count() / $take);
-        $prev = $page - 1 > 0 ? $page - 1 : 0;
-        $next = $page + 1 <= $pageCount ? $page + 1 : $pageCount;
-
-        return view('control.articles',compact('articles', 'prev', 'next', 'pageCount'));
+        return view('control.articles', Article::getArticleListForControlPannel($page));
     }
 
     public function comments()
@@ -44,12 +34,12 @@ class ControlPanelController extends Controller
 
     /**
      * todolist view
+     * @param $page
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function todolist()
+    public function todolist($page = 1)
     {
-        $todos = Todo::all();
-        return view('control.todolist', compact('todos'));
+        return view('control.todolist', Todo::getTodoListForControlPannel($page));
     }
 
     public function user()
