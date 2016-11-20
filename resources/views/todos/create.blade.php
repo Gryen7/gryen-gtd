@@ -22,7 +22,6 @@
     <div class="form-group col-xs-3">
         {!! Form::text('description', null, [
             'class' => 'form-control',
-            'readonly',
             'placeholder' => 'Description about the Todo'
         ]) !!}
     </div>
