@@ -15,13 +15,15 @@ elixir(function (mix) {
     mix.sass('app.scss')
         .webpack('home.js')
         .webpack('article.js')
-        .webpack('control.js');
-
-    mix.copy([// 复制图片
-            'resources/assets/img'
-        ], 'public/img')
+        .webpack('control.js')
+        .copy([// 复制图片
+        'resources/assets/img'
+    ], 'public/img')
         .copy([// 复制 bootstrap 的字库
             'node_modules/bootstrap-sass/assets/fonts/bootstrap'
-        ], 'public/fonts/bootstrap');
+        ], 'public/fonts/bootstrap')
+        .browserSync({
+            proxy: 'laravelblog.app'
+    });
 
 });
