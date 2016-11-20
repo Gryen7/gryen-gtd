@@ -7,6 +7,7 @@
  */
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -36,6 +37,10 @@ class Todo extends Eloquent
         $todos = Todo::skip($skip)
             ->take($take)
             ->get();
+        foreach ($todos as &$todo) {
+            $todo->begin_at = Carbon::parse($todo->begin_at)->format('Y-m-d');
+            $todo->end_at = Carbon::parse($todo->end_at)->format('Y-m-d');
+        }
         $pageCount = ceil(Todo::all()->count() / $take);
         $prev = $page - 1 > 0 ? $page - 1 : 0;
         $next = $page + 1 <= $pageCount ? $page + 1 : $pageCount;
