@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateTodosTable extends Migration
 {
@@ -18,8 +18,10 @@ class CreateTodosTable extends Migration
             $table->integer('grandparents_id');
             $table->string('content');
             $table->tinyInteger('status');
+            $table->tinyInteger('importance');
             $table->timestamp('begin_at');
             $table->timestamp('end_at');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
