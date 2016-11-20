@@ -40,6 +40,37 @@ class Todo extends Eloquent
         foreach ($todos as &$todo) {
             $todo->begin_at = Carbon::parse($todo->begin_at)->format('Y-m-d');
             $todo->end_at = Carbon::parse($todo->end_at)->format('Y-m-d');
+
+            switch ($todo->status) {
+                case 0:
+                    $todo->status = 'Todo';
+                    break;
+                case 1:
+                    $todo->status = 'Doing';
+                    break;
+                case 2:
+                    $todo->status = 'Done';
+                    break;
+                default:
+                    break;
+            }
+
+            switch ($todo->importance) {
+                case 0:
+                    $todo->importance = 'default';
+                    break;
+                case 1:
+                    $todo->importance = 'success';
+                    break;
+                case 2:
+                    $todo->importance = 'warning';
+                    break;
+                case 3:
+                    $todo->importance = 'danger';
+                    break;
+                default:
+                    break;
+            }
         }
         $pageCount = ceil(Todo::all()->count() / $take);
         $prev = $page - 1 > 0 ? $page - 1 : 0;

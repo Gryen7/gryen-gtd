@@ -17,29 +17,28 @@
 @endsection
 @section('content')
     @include('todos.create')
-    <ul class="list-unstyled tar-todo-list">
+    <ul class="list-unstyled tar-todo-list col-xs-12">
         @foreach($todos as $todo)
-        <li class="btn-toolbar col-xs-12">
-            <div class="btn-group">
-                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                    未开始
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">未开始</a></li>
-                    <li><a href="#">进行中</a></li>
-                    <li><a href="#">已完成</a></li>
-                </ul>
-            </div>
-            <div class="btn-group">
-                <span class="glyphicon glyphicon-arrow-right"></span>
-            </div>
-            <div class="btn-group">
-                <button class="btn btn-default">{{ $todo->content }}</button>
-                <button class="btn btn-default">{{ $todo->begin_at }}</button>
-                <button class="btn btn-default">{{ $todo->end_at }}</button>
-                <button class="btn btn-default">delete</button>
-            </div>
-        </li>
+            <li class="btn-toolbar row">
+                <div class="btn-group col-xs-12 row">
+                    <button type="button" class="btn btn-{{ $todo->importance }} col-xs-1">
+                        {{ $todo->status }}
+                    </button>
+                    <button type="button" class="btn btn-{{ $todo->importance }} dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Todo</a></li>
+                        <li><a href="#">Doing</a></li>
+                        <li><a href="#">Done</a></li>
+                    </ul>
+                    <button class="btn btn-default col-xs-4 tar-todo-content">{{ $todo->content }}</button>
+                    <button class="btn btn-default col-xs-2">{{ $todo->begin_at }}</button>
+                    <button class="btn btn-default col-xs-2">{{ $todo->end_at }}</button>
+                    <button class="btn btn-danger col-xs-1">Delete</button>
+                    <button class="btn btn-success col-xs-1">Done</button>
+                </div>
+            </li>
         @endforeach
     </ul>
 @endsection
