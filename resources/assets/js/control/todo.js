@@ -18,3 +18,8 @@ $('#crt-td-end-dtpckr').datetimepicker({
     linkField: 'crt-td-dtpckr',
     linkFormat: "yyyy-mm-dd"
 });
+
+$('#tar-new-todo-btn').on('click', () => {
+    let addTodoForm = $('#tar-add-todo');
+    addTodoForm.slideToggle();
+});

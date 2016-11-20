@@ -1,4 +1,4 @@
-<div class="tar-add-todo col-xs-12 clearfix">
+<div id="tar-add-todo" class="tar-add-todo col-xs-12 clearfix">
     {!! Form::open(['action' => 'ToDosController@store', 'class' => 'navbar-form row']) !!}
     <div class="form-group col-xs-3">
         {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Please Input Todo\'s Title']) !!}

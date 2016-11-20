@@ -1,19 +1,19 @@
 @extends('layouts._control', ['module' => 'control'])
 @section('subNavigation')
-    <form class="navbar-form navbar-left">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
+    <div class="collapse navbar-collapse">
+        <form class="navbar-form navbar-left">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Search</button>
+        </form>
+        <div class="navbar-right">
+            <button type="button" id="tar-new-todo-btn" class="btn btn-success navbar-btn">New Todo</button>
+            <button type="button" class="btn btn-default navbar-btn">
+                <span class="glyphicon glyphicon-object-align-bottom"></span>
+            </button>
         </div>
-        <button type="submit" class="btn btn-default">Search</button>
-    </form>
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            <a href="#">New Todo</a>
-        </li>
-        <li>
-            <a href=""><span class="glyphicon glyphicon-object-align-bottom"></span></a>
-        </li>
-    </ul>
+    </div>
 @endsection
 @section('content')
     @include('todos.create')
