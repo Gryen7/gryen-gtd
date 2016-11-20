@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
+use App\Http\Requests\CreateTodoRequest;
+use App\Todo;
 
 class ToDosController extends Controller
 {
@@ -17,10 +16,12 @@ class ToDosController extends Controller
     }
 
     /**
-     * @return int
+     * @param CreateTodoRequest $request
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function store()
+    public function store(CreateTodoRequest $request)
     {
-        return 1;
+        Todo::create($request->all());
+        return redirect('control/todolist');
     }
 }

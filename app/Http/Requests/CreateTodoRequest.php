@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
-class CreateArticleRequest extends Request
+use Illuminate\Foundation\Http\FormRequest;
+
+class CreateTodoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +24,8 @@ class CreateArticleRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required',
             'content' => 'required',
-            'description' => 'required'
+            'end_at' => 'required'
         ];
     }
 }
