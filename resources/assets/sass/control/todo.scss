@@ -14,7 +14,13 @@
   }
 
   > form {
+    padding-left: 0;
+    padding-right: 0;
+
     > .form-group {
+      padding-left: 2px;
+      padding-right: 2px;
+
       > input {
         width: 100%;
       }
