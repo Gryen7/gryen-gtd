@@ -21,6 +21,7 @@ class ToDosController extends Controller
      */
     public function store(CreateTodoRequest $request)
     {
+//        dd($request->all());
         Todo::create($request->all());
         return redirect('control/todolist');
     }

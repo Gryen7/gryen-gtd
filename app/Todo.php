@@ -18,6 +18,7 @@ class Todo extends Eloquent
     protected $fillable = [
         'parents_id',
         'grandparents_id',
+        'importance',
         'content',
         'status',
         'begin_at',
@@ -56,11 +57,8 @@ class Todo extends Eloquent
             }
 
             switch ($todo->importance) {
-                case 0:
-                    $todo->importance = 'default';
-                    break;
                 case 1:
-                    $todo->importance = 'success';
+                    $todo->importance = 'primary';
                     break;
                 case 2:
                     $todo->importance = 'warning';
@@ -69,6 +67,7 @@ class Todo extends Eloquent
                     $todo->importance = 'danger';
                     break;
                 default:
+                    $todo->importance = 'info';
                     break;
             }
         }

@@ -24,6 +24,7 @@ class CreateTodoRequest extends FormRequest
     public function rules()
     {
         return [
+            'importance' => 'required',
             'content' => 'required',
             'end_at' => 'required'
         ];
