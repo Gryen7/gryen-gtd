@@ -62,4 +62,5 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
 
 Route::resource('comments','CommentsController');
 
+Route::get('todos/delete/{ids}', 'ToDosController@delete');
 Route::resource('todos', 'ToDosController');

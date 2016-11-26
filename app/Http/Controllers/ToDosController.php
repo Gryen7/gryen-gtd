@@ -25,4 +25,15 @@ class ToDosController extends Controller
         Todo::create($request->all());
         return redirect('control/todolist');
     }
+
+    public function delete($ids)
+    {
+        Todo::destroy($ids);
+        return response()->json(
+            [
+                'code' => 200,
+                'msg' => 'success'
+            ]
+        );
+    }
 }

@@ -35,9 +35,14 @@
                     <button class="btn btn-default col-xs-4 tar-todo-content">{{ $todo->content }}</button>
                     <button class="btn btn-default col-xs-2">{{ $todo->begin_at }}</button>
                     <button class="btn btn-default col-xs-2">{{ $todo->end_at }}</button>
-                    <button class="btn btn-danger col-xs-1">Delete</button>
+                    <button class="btn btn-danger col-xs-1 tar-del-todo" data-val="{{ $todo->id }}">Delete</button>
                 </div>
             </li>
         @endforeach
     </ul>
+    @include('common._modal', [
+        'modalId' => 'deleteTodo' ,
+        'modalContent' => 'Delete Todo?',
+        'doneFunction' => 'deleteTodo'
+    ])
 @endsection

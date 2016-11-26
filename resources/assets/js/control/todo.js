@@ -3,6 +3,12 @@
  */
 require('bootstrap-datetime-picker');
 
+let DeleteTodoModal = $('#deleteTodo');
+let ModalParams = $('#tar-modal-params');
+
+/**
+ * todostart datepicker
+ */
 $('#crt-td-strt-dtpckr').datetimepicker({
     format: 'yyyy-mm-dd',
     startView: 2,
@@ -10,6 +16,9 @@ $('#crt-td-strt-dtpckr').datetimepicker({
     autoclose: true
 });
 
+/**
+ * todoend datepicker
+ */
 $('#crt-td-end-dtpckr').datetimepicker({
     format: 'yyyy-mm-dd',
     startView: 2,
@@ -17,7 +26,49 @@ $('#crt-td-end-dtpckr').datetimepicker({
     autoclose: true
 });
 
+/**
+ * add onetodo toggle
+ */
 $('#tar-new-todo-btn').on('click', () => {
     let addTodoForm = $('#tar-add-todo');
     addTodoForm.slideToggle();
+});
+
+/**
+ * show delete ensure modal box
+ */
+const showDeleteEnsure = (todoId) => {
+    ModalParams.val('deleteTodo(' + todoId + ')');
+    DeleteTodoModal.modal('show');
+};
+
+/**
+ * delete onetodo
+ * @param todoId
+ */
+const deleteTodo = (todoId) => {
+   $.ajax({
+       url: '/todos/delete/' + todoId,
+       method: 'GET',
+       dataType: 'json',
+       success: function (data) {
+           if (data.code === 200) {
+               DeleteTodoModal.modal('hide');
+               location.reload();
+           } else {
+               console.log(data);
+           }
+       },
+       error: function (error) {
+           console.log(error);
+       }
+   });
+};
+
+$('.tar-del-todo').on('click', function () {
+    showDeleteEnsure($(this).data('val'));
+});
+
+$('#tar-modal-ensurebtn').on('click', () => {
+    eval(ModalParams.val());
 });
