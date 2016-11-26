@@ -36,7 +36,6 @@
                     <button class="btn btn-default col-xs-2">{{ $todo->begin_at }}</button>
                     <button class="btn btn-default col-xs-2">{{ $todo->end_at }}</button>
                     <button class="btn btn-danger col-xs-1">Delete</button>
-                    <button class="btn btn-success col-xs-1">Done</button>
                 </div>
             </li>
         @endforeach
