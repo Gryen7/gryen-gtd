@@ -65,10 +65,26 @@ const deleteTodo = (todoId) => {
    });
 };
 
+/**
+ * open delete onetodo ensure box
+ */
 $('.tar-del-todo').on('click', function () {
     showDeleteEnsure($(this).data('val'));
 });
 
+/**
+ * action delete onetodo
+ */
 $('#tar-modal-ensurebtn').on('click', () => {
     eval(ModalParams.val());
+});
+
+$('select[name^="importance"]').on('change', function () {
+    console.log($(this).data('id'));
+    console.log($(this).val());
+
+    $.post('/todos/status', {
+        id: $(this).data('id'),
+        status: $(this).val()
+    });
 });

@@ -42,20 +42,6 @@ class Todo extends Eloquent
             $todo->begin_at = Carbon::parse($todo->begin_at)->format('Y-m-d');
             $todo->end_at = Carbon::parse($todo->end_at)->format('Y-m-d');
 
-            switch ($todo->status) {
-                case 0:
-                    $todo->status = 'Todo';
-                    break;
-                case 1:
-                    $todo->status = 'Doing';
-                    break;
-                case 2:
-                    $todo->status = 'Done';
-                    break;
-                default:
-                    break;
-            }
-
             switch ($todo->importance) {
                 case 1:
                     $todo->importanceStyle = 'primary';

@@ -22,7 +22,9 @@
             <li class="btn-toolbar row">
                 <div class="btn-group col-xs-12 row">
                     <button class="btn col-xs-1 tar-btn-select btn-{{ $todo->importanceStyle }}">
-                        {!! Form::select('importance', [0=> 'TODO', 1=> 'DOING', 2=> 'DONE'], $todo->status) !!}
+                        {!! Form::select('importance-' . $todo->id,
+                        [0=> 'TODO', 1=> 'DOING', 2=> 'DONE'],
+                        $todo->status, ['data-id' => $todo->id]) !!}
                     </button>
                     <button class="btn btn-default col-xs-6 tar-todo-content">{{ $todo->content }}</button>
                     <button class="btn btn-default col-xs-2">{{ $todo->begin_at }}</button>

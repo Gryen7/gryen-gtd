@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateTodoRequest;
+use Illuminate\Http\Request;
 use App\Todo;
 
 class ToDosController extends Controller
@@ -21,14 +22,36 @@ class ToDosController extends Controller
      */
     public function store(CreateTodoRequest $request)
     {
-//        dd($request->all());
         Todo::create($request->all());
         return redirect('control/todolist');
     }
 
+    /**
+     * delete onetodo
+     * @param $ids
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function delete($ids)
     {
         Todo::destroy($ids);
+        return response()->json(
+            [
+                'code' => 200,
+                'msg' => 'success'
+            ]
+        );
+    }
+
+    /**
+     * change onetodo status
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function changeStatus(Request $request)
+    {
+        $todo = Todo::find($request->id);
+        $todo->status = $request->status;
+        $todo->save();
         return response()->json(
             [
                 'code' => 200,
