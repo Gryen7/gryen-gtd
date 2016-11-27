@@ -58,16 +58,16 @@ class Todo extends Eloquent
 
             switch ($todo->importance) {
                 case 1:
-                    $todo->importance = 'primary';
+                    $todo->importanceStyle = 'primary';
                     break;
                 case 2:
-                    $todo->importance = 'warning';
+                    $todo->importanceStyle = 'warning';
                     break;
                 case 3:
-                    $todo->importance = 'danger';
+                    $todo->importanceStyle = 'danger';
                     break;
                 default:
-                    $todo->importance = 'info';
+                    $todo->importanceStyle = 'info';
                     break;
             }
         }

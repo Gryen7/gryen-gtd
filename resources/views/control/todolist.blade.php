@@ -21,18 +21,10 @@
         @foreach($todos as $todo)
             <li class="btn-toolbar row">
                 <div class="btn-group col-xs-12 row">
-                    <button type="button" class="btn btn-{{ $todo->importance }} col-xs-1">
-                        {{ $todo->status }}
+                    <button class="btn col-xs-1 tar-btn-select btn-{{ $todo->importanceStyle }}">
+                        {!! Form::select('importance', [0=> 'TODO', 1=> 'DOING', 2=> 'DONE'], $todo->status) !!}
                     </button>
-                    <button type="button" class="btn btn-{{ $todo->importance }} dropdown-toggle" data-toggle="dropdown">
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Todo</a></li>
-                        <li><a href="#">Doing</a></li>
-                        <li><a href="#">Done</a></li>
-                    </ul>
-                    <button class="btn btn-default col-xs-4 tar-todo-content">{{ $todo->content }}</button>
+                    <button class="btn btn-default col-xs-6 tar-todo-content">{{ $todo->content }}</button>
                     <button class="btn btn-default col-xs-2">{{ $todo->begin_at }}</button>
                     <button class="btn btn-default col-xs-2">{{ $todo->end_at }}</button>
                     <button class="btn btn-danger col-xs-1 tar-del-todo" data-val="{{ $todo->id }}">Delete</button>

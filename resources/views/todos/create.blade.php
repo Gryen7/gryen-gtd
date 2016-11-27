@@ -3,7 +3,7 @@
     <div class="form-group col-xs-1">
         {!! Form::select('importance', [1=> 'IMP', 2=> 'VIO', 3=> 'IMMD'], 1, ['class' => 'form-control']) !!}
     </div>
-    <div class="form-group col-xs-2">
+    <div class="form-group col-xs-5">
         {!! Form::text('content', null, ['class' => 'form-control tar-todo-content', 'placeholder' => 'todo\'s content']) !!}
     </div>
     <div class="form-group col-xs-2">
@@ -22,8 +22,8 @@
             'placeholder' => 'End at'
         ]) !!}
     </div>
-    <div class="form-group col-xs-4">
-       {!! Form::text('description', '', ['class' => 'form-control', 'placeholder' => 'description']) !!}
+    <div class="form-group col-xs-1">
+       {!! Form::button('note', ['class' => 'btn btn-default']) !!}
     </div>
     <div class="form-group col-xs-1">
         {!! Form::submit('create', ['class' => 'btn btn-primary form-control']) !!}
