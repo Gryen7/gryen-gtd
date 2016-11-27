@@ -18,4 +18,25 @@ class Article extends Eloquent
 
     protected $dates = ['deleted_at'];
 
+    /**
+     * get article list for control pannel
+     * @param $page
+     * @return array
+     */
+    public static function getArticleListForControlPannel($page)
+    {
+        $take = 10;
+        $skip = ($page - 1) * $take;
+
+        $articles = Article::skip($skip)
+            ->take($take)
+            ->get();
+
+        $pageCount = ceil(Article::all()->count() / $take);
+        $prev = $page - 1 > 0 ? $page - 1 : 0;
+        $next = $page + 1 <= $pageCount ? $page + 1 : $pageCount;
+
+        return compact('articles', 'prev', 'next', 'pageCount');
+    }
+
 }

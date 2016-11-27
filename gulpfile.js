@@ -1,4 +1,4 @@
-var elixir = require('laravel-elixir');
+const elixir = require('laravel-elixir');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,18 +12,18 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function (mix) {
-    mix.sass('app.scss');
-    mix.browserify('main.js');
-
-    mix.copy([// 复制图片
-            'resources/assets/img'
-        ], 'public/img')
+    mix.sass('app.scss')
+        .webpack('home.js')
+        .webpack('article.js')
+        .webpack('control.js')
+        .copy([// 复制图片
+        'resources/assets/img'
+    ], 'public/img')
         .copy([// 复制 bootstrap 的字库
             'node_modules/bootstrap-sass/assets/fonts/bootstrap'
         ], 'public/fonts/bootstrap');
-
-    // 自动刷新
-    // mix.browserSync({
-    //     proxy: 'laravelblog.app'
+    //     .browserSync({
+    //         proxy: 'laravelblog.app'
     // });
+
 });

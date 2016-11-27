@@ -1,0 +1,22 @@
+.tar-article-list {
+  .tar-article-info {
+    h2 {
+      margin: 0;
+    }
+
+    .tar-article-extra {
+      padding-top: 1rem;
+      color: #ddd;
+    }
+  }
+
+  hr {
+    margin-top: 0.5rem;
+  }
+
+  .tar-article-list-decs {
+    word-break: break-all;
+    word-wrap: break-word;
+    overflow: hidden;
+  }
+}

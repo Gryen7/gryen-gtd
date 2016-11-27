@@ -20,7 +20,7 @@ $(() => {
 
         new Simditor({
             textarea: textarea,
-            markdown: true,
+            markdown: false,
             toolbar: ['title', 'bold', 'italic', 'underline', 'strikethrough', 'ol', 'ul', 'blockquote', 'code', 'link', 'image', 'hr', 'indent', 'outdent', 'alignment', 'markdown'],
             upload: {
                 url: '/files/upload',

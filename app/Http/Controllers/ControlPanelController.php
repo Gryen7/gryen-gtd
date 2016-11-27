@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use App\Http\Requests;
+use App\Todo;
 
 class ControlPanelController extends Controller
 {
@@ -19,29 +19,12 @@ class ControlPanelController extends Controller
     /**
      * 后台文章列表
      *
+     * @param $page
      * @return mixed
      */
-    public function articles($page)
+    public function articles($page = 1)
     {
-        $take = 10; // 每页文章数目
-        $titleLength = 50; // 文章标题截取长度
-        $skip = ($page - 1) * $take;
-
-        $articles = Article::skip($skip)
-            ->take($take)
-            ->get();
-
-        foreach ($articles as &$article) {
-            if (mb_strlen($article->title, 'utf-8') > $titleLength) {
-                $article->title = mb_substr($article->title, 0, $titleLength, 'utf-8') . '...';
-            }
-        }
-
-        $pageCount = ceil(Article::all()->count() / $take);
-        $prev = $page - 1 > 0 ? $page - 1 : 0;
-        $next = $page + 1 <= $pageCount ? $page + 1 : $pageCount;
-
-        return view('control.articles',compact('articles', 'prev', 'next', 'pageCount'));
+        return view('control.articles', Article::getArticleListForControlPannel($page));
     }
 
     public function comments()
@@ -49,9 +32,14 @@ class ControlPanelController extends Controller
         return view('control.comments');
     }
 
-    public function todolist()
+    /**
+     * todolist view
+     * @param $page
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function todolist($page = 1)
     {
-        return view('control.todolist');
+        return view('control.todolist', Todo::getTodoListForControlPannel($page));
     }
 
     public function user()

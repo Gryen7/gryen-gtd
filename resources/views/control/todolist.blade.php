@@ -1,44 +1,42 @@
-@extends('layouts._control')
+@extends('layouts._control', ['module' => 'control'])
 @section('subNavigation')
-    <form class="navbar-form navbar-left">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
+    <div class="collapse navbar-collapse">
+        <form class="navbar-form navbar-left">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Search</button>
+        </form>
+        <div class="navbar-right">
+            <button type="button" id="tar-new-todo-btn" class="btn btn-success navbar-btn">New Todo</button>
+            <button type="button" class="btn btn-default navbar-btn">
+                <span class="glyphicon glyphicon-object-align-bottom"></span>
+            </button>
         </div>
-        <button type="submit" class="btn btn-default">Search</button>
-    </form>
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            <a data-toggle="modal" data-target="#ctrl-new-todo">New Todo</a>
-        </li>
-        <li>
-            <a href=""><span class="glyphicon glyphicon-object-align-bottom"></span></a>
-        </li>
-    </ul>
-@endsection
-@section('content')
-    <div class="table-responsive">
-        <table class="table">
-            <tr>
-                <th></th>
-                <th>日期</th>
-                <th>任务描述</th>
-                <th>子任务</th>
-                <th>操作</th>
-            </tr>
-            <tr>
-                <td><span><label for=""><input type="checkbox" value=""></label></span></td>
-                <td><span>2016.08.16</span></td>
-                <td><span>这是一条任务</span></td>
-                <td><span>子任务 8</span></td>
-                <td>
-                    <span>
-                        <a href="">delete</a>
-                        <a href="">done</a>
-                    </span>
-                </td>
-            </tr>
-        </table>
     </div>
 @endsection
-
-@include('common._modal', ['modalId' => 'ctrl-new-todo', 'modalTitle' => 'New Todo', 'exClass' => null])
+@section('content')
+    @include('todos.create')
+    <ul class="list-unstyled tar-todo-list col-xs-12">
+        @foreach($todos as $todo)
+            <li class="btn-toolbar row">
+                <div class="btn-group col-xs-12 row">
+                    <button class="btn col-xs-1 tar-btn-select btn-{{ $todo->importanceStyle }}">
+                        {!! Form::select('importance-' . $todo->id,
+                        [0=> 'TODO', 1=> 'DOING', 2=> 'DONE'],
+                        $todo->status, ['data-id' => $todo->id]) !!}
+                    </button>
+                    <button class="btn btn-default col-xs-6 tar-todo-content">{{ $todo->content }}</button>
+                    <button class="btn btn-default col-xs-2">{{ $todo->begin_at }}</button>
+                    <button class="btn btn-default col-xs-2">{{ $todo->end_at }}</button>
+                    <button class="btn btn-danger col-xs-1 tar-del-todo" data-val="{{ $todo->id }}">Delete</button>
+                </div>
+            </li>
+        @endforeach
+    </ul>
+    @include('common._modal', [
+        'modalId' => 'deleteTodo' ,
+        'modalContent' => 'Delete Todo?',
+        'doneFunction' => 'deleteTodo'
+    ])
+@endsection

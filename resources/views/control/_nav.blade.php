@@ -10,7 +10,7 @@
         </a>
     </li>
     <li class="list-group-item">
-        <a href="{{ action('ControlPanelController@articles', 1) }}">
+        <a href="{{ action('ControlPanelController@articles') }}">
             <span class="glyphicon glyphicon-pencil"></span>Articles
         </a>
     </li>

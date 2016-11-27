@@ -1,0 +1,61 @@
+@import "../../../../node_modules/bootstrap-datetime-picker/css/bootstrap-datetimepicker.min";
+
+.tar-add-todo {
+    background-color: #e7e7e7;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    display: none;
+
+    .tar-todo-content {
+        width: 100% !important;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    > form {
+        padding-left: 0;
+        padding-right: 0;
+
+        > .form-group {
+            padding-left: 2px;
+            padding-right: 2px;
+
+            > input {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.tar-todo-list {
+    padding-left: 0;
+
+    li {
+        margin-bottom: 1rem;
+
+        .tar-todo-content {
+            overflow: hidden;
+            text-align: left;
+        }
+    }
+}
+
+.tar-todo-desc {
+    width: 100% !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.tar-btn-select {
+    padding-left: 0;
+    padding-right: 0;
+
+    select {
+        margin-left: auto;
+        margin-right: auto;
+        background-color: transparent;
+        border: 0;
+    }
+}

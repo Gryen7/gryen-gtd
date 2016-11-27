@@ -1,4 +1,4 @@
-@extends('layouts._default')
+@extends('layouts._default', ['module' => 'article'])
 @section('content')
     <div class="tar-article-form">
     {!! Form::model($article , ['method' => 'POST' , 'action' => ['ArticlesController@update' , $article->id]]) !!}

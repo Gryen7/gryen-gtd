@@ -19,7 +19,7 @@ class FilesController extends Controller
      */
     public function upload(Request $request)
     {
-        $disk = \Storage::disk('qiniu');
+        $disk = \Storage::disk(env('disk'));
         $fileType = $this->getFilePostfix(getimagesize($request->upload_file)['mime']);
         if ($fileType == 'type_error') {
             return $this->returnResults(null, '非法文件类型！', false);
@@ -27,7 +27,7 @@ class FilesController extends Controller
         $filePath = self::$UPLOAD_PATH . '/' . Carbon::now()->toDateString() . '/' . md5(Carbon::now()->timestamp) . $fileType;
         $results = $disk->put($filePath, file_get_contents($request->upload_file));
         if ($results) {
-            return $this->returnResults(\Config::get('filesystems.disks.qiniu.domains.default') . $filePath);
+            return $this->returnResults('//' . \Config::get('filesystems.disks.qiniu.domains.default') . $filePath);
         } else {
             return $this->returnResults(null, 'error!', false);
         }
@@ -51,7 +51,7 @@ class FilesController extends Controller
     }
 
     /**
-     * 获取文件后悔
+     * 获取文件后缀
      *
      * @param $type
      * @return string

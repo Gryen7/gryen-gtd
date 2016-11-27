@@ -10,8 +10,8 @@
             </div>
             <div class="col-xs-10">
                 @include('control._top')
-                <hr style="margin: 5px auto">
-                <div class="navbar navbar-default">
+                <hr style="margin: 0.5rem auto">
+                <div class="navbar navbar-default tar-ctl-navbar">
                     <div class="container-fluid">
                         @yield('subNavigation')
                     </div>

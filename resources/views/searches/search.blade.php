@@ -1,7 +1,7 @@
-@extends('layouts._default')
+@extends('layouts._default', ['module' => ''])
 @section('content')
     <div class="col-md-8">
         Search...
     </div>
-    @include('pages.sidebar')
+    @include('common.sidebar')
 @stop
