@@ -51,11 +51,12 @@ class ToDosController extends Controller
     {
         $todo = Todo::find($request->id);
         $todo->status = $request->status;
-        $todo->save();
+        $result = $todo->save();
+
         return response()->json(
             [
-                'code' => 200,
-                'msg' => 'success'
+                'code' => $todo->status == 2 ? 201 : 200,
+                'msg' => $result
             ]
         );
     }

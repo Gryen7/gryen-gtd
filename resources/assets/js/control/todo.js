@@ -80,11 +80,15 @@ $('#tar-modal-ensurebtn').on('click', () => {
 });
 
 $('select[name^="importance"]').on('change', function () {
-    console.log($(this).data('id'));
-    console.log($(this).val());
+    var todoId = $(this).data('id'),
+        status = $(this).val();
 
     $.post('/todos/status', {
-        id: $(this).data('id'),
-        status: $(this).val()
+        id: todoId,
+        status: status
+    }, function (data) {
+        if (data.code === 201) {
+            $('button[data-val="' + todoId + '"]').click();
+        }
     });
 });
