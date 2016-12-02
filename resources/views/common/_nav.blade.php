@@ -23,9 +23,9 @@
                 {!! Form::close() !!}
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
-                <li><a href="{{url('/articles')}}">Blog</a></li>
-                <li><a href="{{url('/about')}}">About</a></li>
+                <li @if ($module === 'home')class="active"@endif><a href="/">Home</a></li>
+                <li @if ($module === 'article')class="active" @endif><a href="{{url('/articles')}}">Articles</a></li>
+                <li @if ($module === 'about')class="active" @endif><a href="{{url('/about')}}">About</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">GO!</a>

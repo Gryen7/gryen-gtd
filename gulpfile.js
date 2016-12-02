@@ -16,6 +16,7 @@ elixir(function (mix) {
         .webpack('home.js')
         .webpack('article.js')
         .webpack('control.js')
+        .webpack('about.js')
         .copy([// 复制图片
         'resources/assets/img'
     ], 'public/img')
