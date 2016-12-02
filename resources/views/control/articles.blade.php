@@ -33,11 +33,11 @@
                     <td>
                         <ul class="list-inline btn-group tar-ul-nomargin">
                             <li class="btn btn-default"><a href="{{ action('ArticlesController@show',[$article->id]) }}"
-                                        target="_blank">view</a></li>
+                                        target="_blank">View</a></li>
                             <li class="btn btn-default"><a href="{{ action('ArticlesController@edit',[$article->id]) }}"
-                                        target="_blank">edit</a></li>
+                                        target="_blank">Edit</a></li>
                             <li class="btn btn-default"><a href="{{ action('ArticlesController@delete',[$article->id]) }}"
-                                        data-a-type="ajax">soft delete</a></li>
+                                        data-a-type="ajax">Delete</a></li>
                             {{--<li class="btn btn-default"><a href="" data-toggle="modal"--}}
                                    {{--data-target="#ctrl-new-article">add todo</a></li>--}}
                         </ul>
