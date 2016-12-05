@@ -1,8 +1,8 @@
-require('jquery-unslider');
+require('swiper');
 
-/**
- * 首页焦点图
- */
-$('.tar-index-slider').unslider({
-    autoplay: true
+let indexSlide = new Swiper('.tar-index-slider', {
+    autoplay: 3000,
+    loop: true,
+    parallax: true,
+    speed: 2000
 });
