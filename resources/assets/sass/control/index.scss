@@ -1,55 +1,60 @@
 // 控制面板左侧导航栏
 .tar-cp-nav {
-  background-color: #333;
-  max-width: 150px;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  position: fixed;
-
-  img {
-    width: 60px;
-  }
-
-  ul {
     background-color: #333;
+    max-width: 150px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
 
-    li {
-      background-color: #333;
-      border: 0;
 
-      span {
-        font-size: 1em;
-        margin-right: 0.5em;
-      }
-
+    img {
+        width: 60px;
     }
-  }
+
+    ul {
+        background-color: #333;
+
+        li {
+            background-color: #333;
+            border: 0;
+            text-align: center;
+
+            span {
+                font-size: 2em;
+            }
+        }
+
+        .tar-avatar {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
 }
 
 // 控制面板顶部
 .tar-cp-top {
-  font-size: 0.8em;
+    font-size: 0.8em;
 
-  ul {
-    margin-bottom: 0;
+    ul {
+        margin-bottom: 0;
 
-    li {
-      padding: 0;
-      margin-right: 5px;
-      border: 0;
+        li {
+            padding: 0;
+            margin-right: 5px;
+            border: 0;
 
-      a {
-        color: $gray-light;
-        text-decoration: none;
-      }
+            a {
+                color: $gray-light;
+                text-decoration: none;
+            }
+        }
     }
-  }
 }
 
 // 控制面板子导航
 .tar-ctl-navbar {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 @import "todo";
