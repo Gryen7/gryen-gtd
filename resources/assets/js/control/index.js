@@ -7,6 +7,15 @@ window.$ = window.jQuery = require('jquery');
 require('bootstrap');
 require('./todo');
 
+let cpMain = $('.tar-cp-main');
+let cpMainHeight = window.screen.availHeight - 212;
+
 $.ajaxSetup({ headers: {
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 } });
+
+cpMain.height(cpMainHeight);
+
+$(window).resize(function() {
+    cpMain.height(cpMainHeight);
+});

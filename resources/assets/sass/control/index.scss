@@ -1,3 +1,7 @@
+body {
+    height: 100%;
+}
+
 // 控制面板左侧导航栏
 .tar-cp-nav {
     background-color: #333;
@@ -56,6 +60,18 @@
 // 控制面板子导航
 .tar-ctl-navbar {
     margin-bottom: 1rem;
+}
+
+.tar-cp-main {
+    overflow-y: auto;
+    border: 1px solid #e7e7e7;
+    border-radius: 0.4em;
+    padding-top: 1em;
+    background-color: #f8f8f8;
+
+    > .row {
+        margin: 0;
+    }
 }
 
 @import "todo";
