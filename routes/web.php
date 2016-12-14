@@ -55,6 +55,9 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
     Route::get('/articles/{page?}', 'ControlPanelController@articles');
     Route::get('/comments', 'ControlPanelController@comments');
     Route::get('/todolist{page?}', 'ControlPanelController@todolist');
+    Route::get('/todos/delete/{ids}', 'Control\ToDosController@delete');
+    Route::post('/todos/status', 'Control\ToDosController@changeStatus');
+    Route::resource('/todos', 'Control\ToDosController');
     Route::get('/user', 'ControlPanelController@user');
     Route::get('/settings', 'ControlPanelController@settings');
     Route::get('/ashcan', 'ControlPanelController@ashcan');
@@ -63,7 +66,3 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
 });
 
 Route::resource('comments','CommentsController');
-
-Route::get('todos/delete/{ids}', 'ToDosController@delete');
-Route::post('todos/status', 'ToDosController@changeStatus');
-Route::resource('todos', 'ToDosController');

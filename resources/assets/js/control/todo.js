@@ -48,7 +48,7 @@ const showDeleteEnsure = (todoId) => {
  */
 const deleteTodo = (todoId) => {
    $.ajax({
-       url: '/todos/delete/' + todoId,
+       url: '/control/todos/delete/' + todoId,
        method: 'GET',
        dataType: 'json',
        success: function (data) {

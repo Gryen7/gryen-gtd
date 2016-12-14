@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Control;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateTodoRequest;
 use Illuminate\Http\Request;
 use App\Todo;

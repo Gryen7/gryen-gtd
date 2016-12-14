@@ -16,7 +16,7 @@
     </div>
 @endsection
 @section('content')
-    @include('todos.create')
+    @include('control.todos.create')
     <ul class="list-unstyled tar-todo-list col-xs-12">
         @foreach($todos as $todo)
             <li class="btn-toolbar row">

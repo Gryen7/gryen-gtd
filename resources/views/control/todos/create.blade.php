@@ -1,5 +1,5 @@
 <div id="tar-add-todo" class="tar-add-todo col-xs-12 clearfix">
-    {!! Form::open(['action' => 'ToDosController@store', 'class' => 'navbar-form row']) !!}
+    {!! Form::open(['action' => 'Control\ToDosController@store', 'class' => 'navbar-form row']) !!}
     <div class="form-group col-xs-1">
         {!! Form::select('importance', [1=> 'IMP', 2=> 'VIO', 3=> 'IMMD'], 1, ['class' => 'form-control']) !!}
     </div>
