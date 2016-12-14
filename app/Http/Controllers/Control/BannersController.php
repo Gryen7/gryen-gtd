@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Control;
 
 use App\Article;
+use App\Http\Controllers\Controller;
 
 class BannersController extends Controller
 {

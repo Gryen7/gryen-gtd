@@ -58,7 +58,8 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
     Route::get('/user', 'ControlPanelController@user');
     Route::get('/settings', 'ControlPanelController@settings');
     Route::get('/ashcan', 'ControlPanelController@ashcan');
-    Route::get('/setting/banners', 'BannersController@setting');
+    Route::get('/setting/banners', 'Control\BannersController@setting');
+    Route::get('/setting/image-quality', 'Control\SettingsController@imageQuality');
 });
 
 Route::resource('comments','CommentsController');
