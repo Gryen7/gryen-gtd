@@ -1,11 +1,11 @@
 <ul class="list-group">
     <li class="list-group-item tar-avatar">
-        <a href="{{url('/control/index')}}">
+        <a href="{{url('/control')}}">
             <img class="img-circle" src="{{asset('img/brand80.png')}}" alt="">
         </a>
     </li>
     <li class="list-group-item">
-        <a href="{{url('/control/index')}}">
+        <a href="{{url('/control')}}">
             <span class="glyphicon glyphicon-th-large" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="Dashboard"></span>
         </a>
     </li>
@@ -20,7 +20,7 @@
         </a>
     </li>
     <li class="list-group-item">
-        <a href="{{url('/control/todolist')}}">
+        <a href="{{url('/control/todos')}}">
             <span class="glyphicon glyphicon-list-alt" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="TodoList"></span>
         </a>
     </li>
