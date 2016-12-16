@@ -6,6 +6,7 @@ window.$ = window.jQuery = require('jquery');
 
 require('bootstrap');
 require('./todo');
+require('./setting');
 
 let cpMain = $('.tar-cp-main');
 let cpMainHeight = window.screen.availHeight - 212;
