@@ -6,7 +6,12 @@
     </li>
     <li class="list-group-item">
         <a href="{{url('/control')}}">
-            <span class="glyphicon glyphicon-th-large" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="Dashboard"></span>
+            <span class="glyphicon glyphicon-dashboard" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="Dashboard"></span>
+        </a>
+    </li>
+    <li class="list-group-item">
+        <a href="{{url('/control/todos')}}">
+            <span class="glyphicon glyphicon-list-alt" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="TodoList"></span>
         </a>
     </li>
     <li class="list-group-item">
@@ -17,11 +22,6 @@
     <li class="list-group-item">
         <a href="{{url('/control/comments')}}">
             <span class="glyphicon glyphicon-comment" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="Comments"></span>
-        </a>
-    </li>
-    <li class="list-group-item">
-        <a href="{{url('/control/todos')}}">
-            <span class="glyphicon glyphicon-list-alt" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="TodoList"></span>
         </a>
     </li>
     <li class="list-group-item">

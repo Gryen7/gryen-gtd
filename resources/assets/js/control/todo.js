@@ -83,7 +83,7 @@ $('select[name^="importance"]').on('change', function () {
     var todoId = $(this).data('id'),
         status = $(this).val();
 
-    $.post('/todos/status', {
+    $.post('/control/todos/status', {
         id: todoId,
         status: status
     }, function (data) {

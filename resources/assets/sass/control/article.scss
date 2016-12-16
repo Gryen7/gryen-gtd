@@ -1,0 +1,9 @@
+.tar-cpa-list {
+    > li {
+        overflow: hidden;
+    }
+
+    > li:not(:first-child) {
+        line-height: 3rem;
+    }
+}

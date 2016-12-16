@@ -33,7 +33,7 @@
                         @if (Auth::check())
                             <li><a href="{{url('/articles/create')}}">New Article</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{url('/control/index')}}">Control Panel</a></li>
+                            <li><a href="{{url('/control')}}">Control Panel</a></li>
                             <li role="separator" class="divider"></li>
                         @endif
                         @if (Auth::check())
