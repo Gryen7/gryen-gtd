@@ -10,7 +10,6 @@ class HomeController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @return void
      */
     public function __construct()
     {
@@ -28,7 +27,8 @@ class HomeController extends Controller
             ->orderBy('created_at' ,'desc')
             ->take(20)
             ->get();
-        return view('home.index', compact('articles'));
+        $module = 'home';
+        return view('home.index', compact('articles', 'module'));
     }
 
     /**

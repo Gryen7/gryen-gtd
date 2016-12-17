@@ -32,16 +32,6 @@ class ControlPanelController extends Controller
         return view('control.comments');
     }
 
-    /**
-     * todolist view
-     * @param $page
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function todolist($page = 1)
-    {
-        return view('control.todolist', Todo::getTodoListForControlPannel($page));
-    }
-
     public function user()
     {
         return view('control.user');

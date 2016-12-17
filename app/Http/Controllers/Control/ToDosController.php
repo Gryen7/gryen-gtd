@@ -1,13 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Control;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateTodoRequest;
 use Illuminate\Http\Request;
 use App\Todo;
 
 class ToDosController extends Controller
 {
+
+    /**
+     * todolist view
+     * @param $page
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index($page = 1)
+    {
+        return view('control.todolist', Todo::getTodoListForControlPannel($page));
+    }
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -23,7 +34,7 @@ class ToDosController extends Controller
     public function store(CreateTodoRequest $request)
     {
         Todo::create($request->all());
-        return redirect('control/todolist');
+        return redirect('control/todos');
     }
 
     /**

@@ -1,34 +1,38 @@
-$unsliderTop: -4rem;
-
 .tar-index-slider {
-  overflow: hidden;
-  ul {
-    li {
-      a {
-        img {
-          width: 100%;
+    overflow: hidden;
+    margin-bottom: 2em;
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+            list-style: none;
+            position: relative;
+
+            img {
+                width: 100%;
+            }
+
+            .tar-slider-cover {
+                position: absolute;
+                bottom: 2em;
+                right: 15em;
+                z-index: 2;
+                width: 30em;
+                height: 15em;
+                border-radius: 1em;
+                padding: 1em;
+                background-color: rgba(100%, 100%, 100%, 0.7);
+
+                a {
+                    font-size: 2em;
+                }
+
+                .tar-description {
+
+                }
+            }
         }
-      }
     }
-  }
-}
-
-.unslider {
-  .unslider-nav {
-    position: relative;
-    top: $unsliderTop;
-
-    ol {
-      li {
-        width: 1rem;
-        height: 1rem;
-        border-radius: 1rem;
-      }
-    }
-  }
-
-  .unslider-arrow {
-    display: none;
-    margin-top: $unsliderTop;
-  }
 }

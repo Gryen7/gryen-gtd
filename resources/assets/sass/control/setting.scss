@@ -1,0 +1,65 @@
+.tar-cps-banner {
+    padding: 1.5em;
+
+    li {
+        overflow: hidden;
+
+        .tar-cps-bimg {
+            text-align: center;
+            overflow: hidden;
+            font-size: 7rem;
+            background: url("http://7xnswo.com1.z0.glb.clouddn.com/uploads/2016-11-12/0ed742a6f8a3d58f87cfa5ca74a56afc.jpg?imageView2/1/w/960/h/400") no-repeat;
+            background-size: 100%;
+
+            span {
+                cursor: pointer;
+                margin: 1rem auto;
+                color: #fff;
+                opacity: 0.5;
+                filter: Alpha(opacity=50);
+            }
+
+            span:hover {
+                color: #337ab7;
+                opacity: 1;
+                filter: Alpha(opacity=100);
+            }
+        }
+
+        .tar-cps-binfo {
+
+        }
+    }
+}
+
+.tar-cps-artl {
+    .input-group {
+        margin-bottom: 1em;
+    }
+
+    ul {
+        li {
+            line-height: 2.4em;
+        }
+    }
+}
+
+.tar-cps-upfile {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    span {
+
+    }
+
+    input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        opacity: 0;
+        font-size: 100px;
+        cursor: pointer;
+        width: 100%;
+    }
+}

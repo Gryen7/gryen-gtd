@@ -16,52 +16,43 @@
     </div>
 @stop
 @section('content')
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Options</th>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach($articles as $article)
-                <tr class="tar-tbltd-vcenter">
-                    <td>{{ $article->id }}</td>
-                    <td>{{ $article->title }}</td>
-                    <td>
-                        <ul class="list-inline btn-group tar-ul-nomargin">
-                            <li class="btn btn-default"><a href="{{ action('ArticlesController@show',[$article->id]) }}"
-                                        target="_blank">view</a></li>
-                            <li class="btn btn-default"><a href="{{ action('ArticlesController@edit',[$article->id]) }}"
-                                        target="_blank">edit</a></li>
-                            <li class="btn btn-default"><a href="{{ action('ArticlesController@delete',[$article->id]) }}"
-                                        data-a-type="ajax">soft delete</a></li>
-                            {{--<li class="btn btn-default"><a href="" data-toggle="modal"--}}
-                                   {{--data-target="#ctrl-new-article">add todo</a></li>--}}
-                        </ul>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-    </div>
+
+    <ul class="list-group tar-cpa-list">
+        <li class="list-group-item">
+            <span class="col-xs-1">ID</span>
+            <span class="col-xs-6">Title</span>
+            <span class="col-xs-5">Options</span>
+        </li>
+        @foreach($articles as $article)
+            <li class="list-group-item">
+                <span class="col-xs-1">{{ $article->id }}</span>
+                <span class="col-xs-6">{{ $article->title }}</span>
+                <ul class="list-inline btn-group col-xs-5 tar-ul-nomargin">
+                    <li class="btn btn-default"><a href="{{ action('ArticlesController@show',[$article->id]) }}"
+                                                   target="_blank">View</a></li>
+                    <li class="btn btn-default"><a href="{{ action('ArticlesController@edit',[$article->id]) }}"
+                                                   target="_blank">Edit</a></li>
+                    <li class="btn btn-default"><a href="{{ action('ArticlesController@delete',[$article->id]) }}"
+                                                   data-a-type="ajax">Delete</a></li>
+                </ul>
+            </li>
+        @endforeach
+    </ul>
     <nav>
         <ul class="pagination">
             @if ($prev !== 0)
-            <li>
-                <a href="{{ action('ControlPanelController@articles', $prev) }}" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;prev</span>
-                </a>
-            </li>
+                <li>
+                    <a href="{{ action('ControlPanelController@articles', $prev) }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;prev</span>
+                    </a>
+                </li>
             @endif
             @if ($next !== $pageCount)
-            <li>
-                <a href="{{ action('ControlPanelController@articles', $next) }}" aria-label="Next">
-                    <span aria-hidden="true">next&raquo;</span>
-                </a>
-            </li>
+                <li>
+                    <a href="{{ action('ControlPanelController@articles', $next) }}" aria-label="Next">
+                        <span aria-hidden="true">next&raquo;</span>
+                    </a>
+                </li>
             @endif
         </ul>
     </nav>

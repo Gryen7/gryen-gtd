@@ -7,7 +7,9 @@
                 <h4 class="modal-title" id="myModalLabel">{{ $modalTitle or ''}}</h4>
             </div>
             <div class="modal-body">
-                {{ $modalContent or ''}}
+                {!! $modalContent or '' !!}
+                @section('rich-content')
+                @show
                 {!! Form::hidden('tar-modal-params', null, ['id' => 'tar-modal-params']) !!}
             </div>
             <div class="modal-footer">

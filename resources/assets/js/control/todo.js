@@ -48,7 +48,7 @@ const showDeleteEnsure = (todoId) => {
  */
 const deleteTodo = (todoId) => {
    $.ajax({
-       url: '/todos/delete/' + todoId,
+       url: '/control/todos/delete/' + todoId,
        method: 'GET',
        dataType: 'json',
        success: function (data) {
@@ -83,7 +83,7 @@ $('select[name^="importance"]').on('change', function () {
     var todoId = $(this).data('id'),
         status = $(this).val();
 
-    $.post('/todos/status', {
+    $.post('/control/todos/status', {
         id: todoId,
         status: status
     }, function (data) {

@@ -40,8 +40,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/articles/store', 'ArticlesController@store');
     Route::get('/articles/edit/{id}', 'ArticlesController@edit');
     Route::post('/articles/update/{id}', 'ArticlesController@update');
-    Route::get('/articles/delete/{ids}', 'ArticlesController@delete');
-    Route::get('/articles/destroy/{id}', 'ArticlesController@destroy');
 
     Route::post('/files/upload', 'FilesController@upload');
 });
@@ -51,17 +49,24 @@ Route::group(['middleware' => 'auth'], function () {
  */
 Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
     Route::get('/', 'ControlPanelController@index');
-    Route::get('/index', 'ControlPanelController@index');
+
     Route::get('/articles/{page?}', 'ControlPanelController@articles');
+    Route::get('/articles/delete/{ids}', 'ArticlesController@delete');
+    Route::get('/articles/destroy/{id}', 'ArticlesController@destroy');
+
     Route::get('/comments', 'ControlPanelController@comments');
-    Route::get('/todolist{page?}', 'ControlPanelController@todolist');
+
+    Route::get('/todos/delete/{ids}', 'Control\ToDosController@delete');
+    Route::post('/todos/status', 'Control\ToDosController@changeStatus');
+    Route::resource('/todos', 'Control\ToDosController');
+
     Route::get('/user', 'ControlPanelController@user');
+
     Route::get('/settings', 'ControlPanelController@settings');
+    Route::get('/setting/banners', 'Control\SettingsController@banners');
+    Route::get('/setting/image-quality', 'Control\SettingsController@imageQuality');
+
     Route::get('/ashcan', 'ControlPanelController@ashcan');
 });
 
 Route::resource('comments','CommentsController');
-
-Route::get('todos/delete/{ids}', 'ToDosController@delete');
-Route::post('todos/status', 'ToDosController@changeStatus');
-Route::resource('todos', 'ToDosController');

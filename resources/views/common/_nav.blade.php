@@ -23,20 +23,25 @@
                 {!! Form::close() !!}
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
-                <li><a href="{{url('/articles')}}">Blog</a></li>
-                <li><a href="{{url('/about')}}">About</a></li>
+                <li @if ($module === 'home')class="active"@endif><a href="/">Home</a></li>
+                <li @if ($module === 'article')class="active" @endif><a href="{{url('/articles')}}">Articles</a></li>
+                <li @if ($module === 'about')class="active" @endif><a href="{{url('/about')}}">About</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">GO!</a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{url('/articles/create')}}">New Article</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{{url('/control/index')}}">Control Panel</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{{url('/login')}}">Login</a></li>
-                        <li><a href="{{url('/register')}}">Register</a></li>
-                        <li><a href="{{url('/logout')}}">Logout</a></li>
+                        @if (Auth::check())
+                            <li><a href="{{url('/articles/create')}}">New Article</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{{url('/control')}}">Control Panel</a></li>
+                            <li role="separator" class="divider"></li>
+                        @endif
+                        @if (Auth::check())
+                            <li><a href="{{url('/logout')}}">Logout</a></li>
+                        @else
+                            <li><a href="{{url('/login')}}">Login</a></li>
+                            <li><a href="{{url('/register')}}">Register</a></li>
+                        @endif
                     </ul>
                 </li>
             </ul>
