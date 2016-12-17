@@ -3,7 +3,7 @@
  */
 require('bootstrap-datetime-picker');
 
-let $ = require('jquery');
+let CONSTANT = require('../common/constant');
 let DeleteTodoModal = $('#deleteTodo');
 
 /**
@@ -38,17 +38,18 @@ $('#tar-new-todo-btn').on('click', () => {
  * show delete ensure modal box
  */
 const showDeleteEnsure = (todoId) => {
-    DeleteTodoModal.find('.tar-modal-params').val('deleteTodo(' + todoId + ')');
+    console.log('ok');
+    DeleteTodoModal.find('input[name=todo_id]').val(todoId);
+    DeleteTodoModal.find(CONSTANT.MODAL_ENSURE).val('deleteTodo');
     DeleteTodoModal.modal('show');
 };
 
 /**
  * delete onetodo
- * @param todoId
  */
-const deleteTodo = (todoId) => {
+const deleteTodo = () => {
    $.ajax({
-       url: '/control/todos/delete/' + todoId,
+       url: '/control/todos/delete/' + DeleteTodoModal.find('input[name=todo_id]').val(),
        method: 'GET',
        dataType: 'json',
        success: function (data) {
@@ -76,7 +77,7 @@ $('.tar-del-todo').on('click', function () {
  * action delete onetodo
  */
 DeleteTodoModal.find('.tar-modal-ensurebtn').on('click', () => {
-    eval(DeleteTodoModal.find('.tar-modal-params').val());
+    eval(DeleteTodoModal.find(CONSTANT.MODAL_ENSURE).val() + '()');
 });
 
 $('select[name^="importance"]').on('change', function () {
