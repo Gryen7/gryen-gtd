@@ -34,7 +34,7 @@
             </li>
         @endforeach
     </ul>
-    @include('common._modal', [
+    @include('control.todos._modal-del-todo', [
         'modalId' => 'deleteTodo' ,
         'modalContent' => 'Delete Todo?',
         'doneFunction' => 'deleteTodo'

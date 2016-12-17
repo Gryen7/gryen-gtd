@@ -1,0 +1,50 @@
+.tar-article-form {
+    #content-textarea {
+        border: none;
+        box-shadow: none;
+    }
+
+    .simditor {
+        border: none;
+
+        .simditor-wrapper {
+            background-color: #fbf7ed;
+            box-shadow: 0 0 5px #ccc;
+        }
+
+        .simditor-body {
+            min-height: 450px;
+        }
+
+    }
+}
+
+.tar-artl-title {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    line-height: 2.5rem;
+    font-size: 2rem;
+    border-bottom: 1px solid #c9d8db;
+    text-align: center;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    background-color: #fbf7ed;
+}
+
+.tar-artl-title:focus {
+    box-shadow: none;
+}
+
+.tar-artl-ttlbox {
+    display: none;
+}
+
+.tar-artl-ssbtn {
+    z-index: 2;
+    position: fixed;
+    bottom: 0;
+    right: 0.2em;
+}
