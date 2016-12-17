@@ -2,30 +2,39 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Http\Requests;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class FilesController extends Controller
 {
     protected static $UPLOAD_PATH = '/uploads';
 
+    /* 允许上传的文件类型 */
+    protected static $ALLOW_FILE_TYPE = [
+        'image/jpeg',
+        'image/png',
+        'image/gif'
+    ];
+
     /**
      * 上传图片
-     *
-     * @param Request $request
      * @return array
+     * @internal param Request $request
      */
-    public function upload(Request $request)
+    public function upload()
     {
-        $disk = \Storage::disk(env('disk'));
-        $fileType = $this->getFilePostfix(getimagesize($request->upload_file)['mime']);
-        if ($fileType == 'type_error') {
+        $Disk = \Storage::disk(env('DISK'));
+        $File = Input::file('upload_file');
+
+        if (!$File->getMimeType() || !in_array($File->getMimeType(), self::$ALLOW_FILE_TYPE)) {
             return $this->returnResults(null, '非法文件类型！', false);
         }
-        $filePath = self::$UPLOAD_PATH . '/' . Carbon::now()->toDateString() . '/' . md5(Carbon::now()->timestamp) . $fileType;
-        $results = $disk->put($filePath, file_get_contents($request->upload_file));
+
+        $fileType = $File->getClientOriginalExtension();
+        $filePath = self::$UPLOAD_PATH . '/' . Carbon::now()->toDateString() . '/' . md5(Carbon::now()->timestamp) . '.' . $fileType;
+
+        $results = $Disk->put($filePath, file_get_contents($File));
+
         if ($results) {
             return $this->returnResults('//' . \Config::get('filesystems.disks.qiniu.domains.default') . $filePath);
         } else {
@@ -48,29 +57,5 @@ class FilesController extends Controller
             'msg' => $msg,
             'success' => $success,
         ];
-    }
-
-    /**
-     * 获取文件后缀
-     *
-     * @param $type
-     * @return string
-     */
-    public function getFilePostfix($type)
-    {
-        switch ($type) {
-            case 'image/jpeg':
-                return '.jpg';
-                break;
-            case 'image/png':
-                return '.png';
-                break;
-            case 'image/gif':
-                return '.gif';
-                break;
-            default:
-                return 'type_error';
-                break;
-        }
     }
 }
