@@ -16,6 +16,14 @@ class FilesController extends Controller
         'image/gif'
     ];
 
+    /* 服务器端的文件路径 */
+    protected static $FILE_RETURN_PATH = [
+        'local' => 'filesystems.disks.local.root',
+        'public' => 'filesystems.disks.public.root',
+        's3' => 'filesystems.disks.s3.region' . '/' .'filesystems.disks.s3.bucket',
+        'qiniu' => 'filesystems.disks.qiniu.domains.default',
+    ];
+
     /**
      * 上传图片
      * @return array
@@ -27,7 +35,7 @@ class FilesController extends Controller
         $File = Input::file('upload_file');
 
         if (!$File->getMimeType() || !in_array($File->getMimeType(), self::$ALLOW_FILE_TYPE)) {
-            return $this->returnResults(null, '非法文件类型！', false);
+            return $this->returnResults(null, 'error file type！', false);
         }
 
         $fileType = $File->getClientOriginalExtension();
@@ -36,7 +44,7 @@ class FilesController extends Controller
         $results = $Disk->put($filePath, file_get_contents($File));
 
         if ($results) {
-            return $this->returnResults('//' . \Config::get('filesystems.disks.qiniu.domains.default') . $filePath);
+            return $this->returnResults('//' . \Config::get(self::$FILE_RETURN_PATH[env('DISK')]) . $filePath);
         } else {
             return $this->returnResults(null, 'error!', false);
         }
