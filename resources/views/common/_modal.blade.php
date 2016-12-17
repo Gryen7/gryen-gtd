@@ -8,6 +8,8 @@
             </div>
             <div class="modal-body">
                 {!! $modalContent or '' !!}
+                @section('rich-content')
+                @show
                 {!! Form::hidden('tar-modal-params', null, ['id' => 'tar-modal-params']) !!}
             </div>
             <div class="modal-footer">

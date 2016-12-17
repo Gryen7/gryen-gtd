@@ -40,15 +40,16 @@
                             <a href="{{ action('ArticlesController@show',[$article->id]) }}" target="_blank">{{
                         $article->title
                          }}</a>
-                            <button type="button" class="btn btn-success pull-right tar-btn-stbnr" data-id="{{ $article->id }}">Set Banner</button>
+                            <button type="button" class="btn btn-success pull-right tar-btn-stbnr" data-id="{{ $article->id }}" data-title="{{ $article->title }}">Set Banner</button>
                         </li>
                     @endforeach
                 </ul>
             </div>
         </div>
     </div>
-@stop
+@endsection
 
-@include('common._modal', [
+@include('control.settings._modal-set-banner', [
       'modalId' => 'set-banner',
+      'modalTitle' => 'Set Banner',
 ])
