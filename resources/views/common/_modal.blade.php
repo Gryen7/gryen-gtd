@@ -4,17 +4,17 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">{{ $modalTitle or ''}}</h4>
+                <h4 class="modal-title">{{ $modalTitle or ''}}</h4>
             </div>
             <div class="modal-body">
                 {!! $modalContent or '' !!}
                 @section('rich-content')
                 @show
-                {!! Form::hidden('tar-modal-params', null, ['id' => 'tar-modal-params']) !!}
+                {!! Form::hidden('tar-modal-params', null, ['class' => 'tar-modal-params']) !!}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ $esc or 'No'}}</button>
-                <button type="button" id="tar-modal-ensurebtn" class="btn btn-primary">{{ $ok or 'Yes'}}</button>
+                <button type="button" class="tar-modal-ensurebtn btn btn-primary">{{ $ok or 'Yes'}}</button>
             </div>
         </div>
     </div>

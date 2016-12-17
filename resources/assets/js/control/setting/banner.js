@@ -5,8 +5,6 @@ let Fun = require('../../common/function');
 
 let SetBannerBtn = $('.tar-btn-stbnr');
 let SetBannerModal = $('#set-banner');
-let MyModalLabel = $('#myModalLabel');
-let ModalParams = $('#tar-modal-params');
 
 /**
  * 设置参数，弹出模态框
@@ -19,14 +17,26 @@ SetBannerBtn.on('click', function () {
 });
 
 /**
- * 向服务端发起请求
+ * 向服务端发起请求上传图片并
  */
 const setBanner = (articleId) => {
-
+    console.log(articleId);
 };
 
+/**
+ * 设置并打开模态框
+ * @param articleId
+ * @param articleTitle
+ */
 const setBannerModal = (articleId, articleTitle) => {
-    MyModalLabel.html(articleTitle);
-    ModalParams.val(Fun.setModalFunction('setBanner',  articleId));
+    SetBannerModal.find('.modal-title').html(articleTitle);
+    SetBannerModal.find('.tar-modal-params').val(Fun.setModalFunction('setBanner',  articleId));
     SetBannerModal.modal('show');
 };
+
+/**
+ * 确认上传
+ */
+SetBannerModal.find('.tar-modal-ensurebtn').on('click', () => {
+    eval(SetBannerModal.find('.tar-modal-params').val());
+});

@@ -3,8 +3,8 @@
  */
 require('bootstrap-datetime-picker');
 
+let $ = require('jquery');
 let DeleteTodoModal = $('#deleteTodo');
-let ModalParams = $('#tar-modal-params');
 
 /**
  * todostart datepicker
@@ -38,7 +38,7 @@ $('#tar-new-todo-btn').on('click', () => {
  * show delete ensure modal box
  */
 const showDeleteEnsure = (todoId) => {
-    ModalParams.val('deleteTodo(' + todoId + ')');
+    DeleteTodoModal.find('.tar-modal-params').val('deleteTodo(' + todoId + ')');
     DeleteTodoModal.modal('show');
 };
 
@@ -75,8 +75,8 @@ $('.tar-del-todo').on('click', function () {
 /**
  * action delete onetodo
  */
-$('#tar-modal-ensurebtn').on('click', () => {
-    eval(ModalParams.val());
+DeleteTodoModal.find('.tar-modal-ensurebtn').on('click', () => {
+    eval(DeleteTodoModal.find('.tar-modal-params').val());
 });
 
 $('select[name^="importance"]').on('change', function () {

@@ -1,9 +1,9 @@
 @extends('common._modal')
 @section('rich-content')
     <div class="form-group">
-        <a href="javascript:void(0)" class="tar-cps-upfile">
+        <button class="btn btn-default tar-cps-upfile">
         <span>Upload</span>
-        {!! Form::input('file', 'Upload', '', ['multiple' => 'multiple', 'accept' => 'image/*']) !!}
-        </a>
+        {!! Form::input('file', 'upload_file', '', ['multiple' => 'multiple', 'accept' => 'image/*']) !!}
+        </button>
     </div>
 @endsection
