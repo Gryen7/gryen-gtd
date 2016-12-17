@@ -1,7 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: targaryen
- * Date: 2016/12/17
- * Time: 下午10:32
- */
+@extends('common._modal')
+@section('rich-content')
+    {!! Form::hidden('todo_id') !!}
+@endsection

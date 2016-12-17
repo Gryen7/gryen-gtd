@@ -3,7 +3,7 @@
  */
 require('bootstrap-datetime-picker');
 
-let CONSTANT = require('../common/constant');
+let Fun = require('../function');
 let DeleteTodoModal = $('#deleteTodo');
 
 /**
@@ -38,9 +38,8 @@ $('#tar-new-todo-btn').on('click', () => {
  * show delete ensure modal box
  */
 const showDeleteEnsure = (todoId) => {
-    console.log('ok');
     DeleteTodoModal.find('input[name=todo_id]').val(todoId);
-    DeleteTodoModal.find(CONSTANT.MODAL_ENSURE).val('deleteTodo');
+    DeleteTodoModal.find(window.MODAL_ENSURE).val('deleteTodo');
     DeleteTodoModal.modal('show');
 };
 
@@ -77,7 +76,7 @@ $('.tar-del-todo').on('click', function () {
  * action delete onetodo
  */
 DeleteTodoModal.find('.tar-modal-ensurebtn').on('click', () => {
-    eval(DeleteTodoModal.find(CONSTANT.MODAL_ENSURE).val() + '()');
+    eval(Fun.modalEnsureCallback(DeleteTodoModal));
 });
 
 $('select[name^="importance"]').on('change', function () {
@@ -93,3 +92,7 @@ $('select[name^="importance"]').on('change', function () {
         }
     });
 });
+
+module.exports = {
+    deleteTodo
+};

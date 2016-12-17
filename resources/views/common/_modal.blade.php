@@ -10,7 +10,7 @@
                 {!! $modalContent or '' !!}
                 @section('rich-content')
                 @show
-                {!! Form::hidden('tar-modal-params', null, ['class' => 'tar-modal-params']) !!}
+                {!! Form::hidden('tar-modal-ensure') !!}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ $esc or 'No'}}</button>
