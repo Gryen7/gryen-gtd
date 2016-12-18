@@ -21,12 +21,12 @@ SetBannerBtn.on('click', function () {
  */
 const setBanner = () => {
     console.log('ok');
-    // $.ajax({
-    //     method: 'POST',
-    //     data: {
-    //
-    //     }
-    // });
+    $.ajax({
+        method: 'POST',
+        data: {
+
+        }
+    });
 };
 
 /**
