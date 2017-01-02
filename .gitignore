@@ -285,3 +285,4 @@ gen
 *.log
 composer.phar
 /composer.lock
+.vscode/
