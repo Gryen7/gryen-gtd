@@ -6,5 +6,8 @@ use App\Http\Controllers\Controller;
 
 class BannersController extends Controller
 {
-
+    public function set()
+    {
+        
+    }
 }

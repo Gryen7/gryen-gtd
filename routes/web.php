@@ -64,6 +64,7 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
 
     Route::get('/settings', 'ControlPanelController@settings');
     Route::get('/setting/banners', 'Control\SettingsController@banners');
+    Route::post('/setting/banners/set', 'Control\BannersController@set');
     Route::get('/setting/image-quality', 'Control\SettingsController@imageQuality');
 
     Route::get('/ashcan', 'ControlPanelController@ashcan');
