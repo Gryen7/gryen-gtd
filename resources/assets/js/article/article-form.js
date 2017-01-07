@@ -35,7 +35,7 @@ if (textarea.length > 0) {
         }
     });
 
-    let simditorBody = trArtclFrm.find('.simditor-body');
+    let simditorBody = trArtclFrm.find('.simditor-placeholder');
 
     simditorBody.before(trArtTtl);
 }
