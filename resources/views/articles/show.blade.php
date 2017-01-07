@@ -1,7 +1,7 @@
 @extends('layouts._default', ['module' => 'article'])
 @section('content')
     <div class="col-md-8 tar-article-box">
-        <h2>{{ $article->title }}</h2>
+        <h4>{{ $article->title }}</h4>
         <hr>
         <div class="article-content">
             {!! $article->content !!}
