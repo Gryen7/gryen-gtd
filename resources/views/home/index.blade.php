@@ -8,7 +8,7 @@
             <li class="swiper-slide">
                 <img src="{{ $banner->cover }}?imageView2/1/w/960/h/400" alt="" data-swiper-parallax="0">
                 <div class="tar-slider-cover" data-swiper-parallax="35%">
-                    <a href="">{{ $banner->article_title }}</a>
+                    <a href="{{ action('ArticlesController@show', ['id' => $banner->article_id]) }}">{{ $banner->article_title }}</a>
                     <div class="tar-slider-desc">{{ $banner->article_description }}</div>
                 </div>
             </li>

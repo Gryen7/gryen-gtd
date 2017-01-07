@@ -33,6 +33,7 @@ class HomeController extends Controller
 
         $banners = Banner::where('cover', '<>', '')->get();
         foreach ($banners as &$banner) {
+            $banner['article_id'] = $banner->article->id;
             $banner['article_title'] = $banner->article->title;
             $banner['article_description'] = $banner->article->description;
         }
