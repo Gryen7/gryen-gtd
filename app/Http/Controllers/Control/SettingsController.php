@@ -19,8 +19,8 @@ class SettingsController extends Controller
         return view('control.settings.banners', compact('articles', 'banners'));
     }
 
-    public function imageQuality()
+    public function site()
     {
-        return view('control.settings.image-quality');
+        return view('control.settings.site');
     }
 }
