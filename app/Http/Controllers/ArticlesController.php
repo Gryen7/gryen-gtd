@@ -41,9 +41,11 @@ class ArticlesController extends Controller
      */
     public function store(CreateArticleRequest $request)
     {
-        /** @noinspection PhpUndefinedFieldInspection */
-        $request->description = mb_substr($request->get('content'), 0, 200);
-        $result = Article::create($request->all());
+        $resParams = $request->all();
+        $textCentent = strip_tags($request->get('content'));
+        $resParams['description'] = mb_substr($textCentent, 0, 200);
+        $result = Article::create($resParams);
+
         /** @noinspection PhpUndefinedFieldInspection */
         return redirect('articles/show/' . $result->id);
     }
