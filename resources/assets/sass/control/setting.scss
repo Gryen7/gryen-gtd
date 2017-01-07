@@ -9,7 +9,7 @@
             overflow: hidden;
             font-size: 7rem;
             background: url("http://7xnswo.com1.z0.glb.clouddn.com/uploads/2016-11-12/0ed742a6f8a3d58f87cfa5ca74a56afc.jpg?imageView2/1/w/960/h/400") no-repeat;
-            background-size: 100%;
+            background-size: 100%!important;
 
             span {
                 cursor: pointer;
@@ -50,7 +50,7 @@
     cursor: default;
     text-align: center;
     background: url("http://7xnswo.com1.z0.glb.clouddn.com/uploads/2016-11-12/0ed742a6f8a3d58f87cfa5ca74a56afc.jpg?imageView2/1/w/960/h/400") no-repeat;
-    background-size: 100%;
+    background-size: 100%!important;
     width: 36em;
     height: 15em;
     margin-left: auto;

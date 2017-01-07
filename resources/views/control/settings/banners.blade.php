@@ -7,12 +7,13 @@
             </div>
             <div class="panel-body">
                 <ul class="list-group row tar-cps-banner">
+                    @foreach($banners as $banner)
                     <li class="list-group-item">
-                        <div class="col-xs-6 tar-cps-bimg">
+                        <div class="col-xs-6 tar-cps-bimg" style='background: url("{{ $banner->cover }}")'>
                             <span class="glyphicon glyphicon-cloud-upload"></span>
                         </div>
                         <div class="col-xs-6">
-                            <h5>标题</h5>
+                            <h5>{{ $banner->article_title }}</h5>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default">Top</button>
                                 <button type="button" class="btn btn-default">Weight</button>
@@ -20,6 +21,7 @@
                             </div>
                         </div>
                     </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -35,7 +37,7 @@
                     <input type="text" class="form-control" placeholder="Keywords">
                 </div>
                 <ul class="list-group">
-                    @foreach($articles as $article)
+                    @foreach($articles['articles'] as $article)
                         <li class="list-group-item">
                             <a href="{{ action('ArticlesController@show',[$article->id]) }}" target="_blank">{{
                         $article->title

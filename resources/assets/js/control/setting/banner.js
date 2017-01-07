@@ -80,8 +80,7 @@ const choseBanner = () => {
 
         fr.readAsDataURL(file);
         fr.onload = function (e) {
-            Banner.css('background', 'url(' + e.target.result + ') no-repeat');
-            Banner.css('background-size', '100%');
+            Banner.attr({'style': 'background: url(' + e.target.result + ') no-repeat'});
         };
         uploadBanner(file);
     });
@@ -92,7 +91,7 @@ const choseBanner = () => {
  */
 const setBanner = () => {
     $.ajax({
-        url: '',
+        url: '/control/setting/banners/set',
         method: 'POST',
         data: {
             article_id: ArticleId.val(),
@@ -101,7 +100,11 @@ const setBanner = () => {
         },
         dataType: 'json',
         success: function (resData) {
-            alert(resData);
+            if (resData.code === 200) {
+                SetBannerModal.modal('hide');
+                Banner.removeAttr('style');
+            }
+
         },
         error: function (err) {
             console.log(err);
@@ -113,6 +116,7 @@ const setBanner = () => {
  * 设置并打开模态框
  * @param articleId
  * @param articleTitle
+ * @param modalTitle
  */
 const setBannerModal = (articleId, articleTitle, modalTitle) => {
     SetBannerModal.find(window.MODAL_ENSURE).val('setBanner');

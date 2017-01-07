@@ -29,8 +29,9 @@
                     font-size: 2em;
                 }
 
-                .tar-description {
-
+                .tar-slider-desc {
+                    overflow: hidden;
+                    word-break: break-all;
                 }
             }
         }

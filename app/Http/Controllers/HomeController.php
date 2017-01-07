@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Banner;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,12 +24,20 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $module = 'home';
+
         $articles = Article::where('status','>',0)
             ->orderBy('created_at' ,'desc')
             ->take(20)
             ->get();
-        $module = 'home';
-        return view('home.index', compact('articles', 'module'));
+
+        $banners = Banner::where('cover', '<>', '')->get();
+        foreach ($banners as &$banner) {
+            $banner['article_title'] = $banner->article->title;
+            $banner['article_description'] = $banner->article->description;
+        }
+
+        return view('home.index', compact('banners', 'articles', 'module'));
     }
 
     /**
