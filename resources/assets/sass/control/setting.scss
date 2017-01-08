@@ -87,7 +87,18 @@
         filter: Alpha(opacity=0);
     }
 }
+#set-banner {
+    .form-group {
+        margin-bottom: 0;
+    }
 
-.tar-cps-bnrprgrs {
-    margin-top: 1em;
+    .tar-cps-bnrprgrs {
+        margin-top: 20px;
+    }
+
+    .tar-upbnnr-result {
+        height: 1.5rem;
+        text-align: center;
+        color: #c9302c;
+    }
 }

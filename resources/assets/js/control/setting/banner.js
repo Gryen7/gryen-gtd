@@ -8,14 +8,26 @@ let SetBannerBtn = $('.tar-btn-stbnr');
 let SetBannerModal = $('#set-banner');
 let UpPrcsTxt = $('#tar-upprcs-txt');
 let UpPrcsBr = $('#tar-upprcs-br');
+let UpprcsRslt = $('.tar-upbnnr-result').find('span').eq(0);
 let Cover = $('input[name="cover"]');
 let ArticleId = $('input[name="article_id"]');
 let ArticleTitle = $('input[name="article_title"]');
 
 /**
+ * 模态框初始化
+ */
+SetBannerModal.init = function () {
+    Banner.removeAttr('style');
+    UpPrcsBr.css('width', '0%');
+    UpPrcsTxt.html('0% Complete');
+    UpPrcsBr.addClass('active');
+    UpprcsRslt.html('');
+};
+/**
  * 设置参数，弹出模态框
  */
 SetBannerBtn.on('click', function () {
+    SetBannerModal.init();
     setBannerModal(
         $(this).data('id'),
         $(this).data('title'),
@@ -60,10 +72,18 @@ const uploadBanner = (file) => {
         success: function (resData) {
             if (resData.success) {
                 Cover.val(resData.file_path);
+                UpPrcsBr.removeClass('active');
+                UpprcsRslt.html('Upload Success! Please continue...');
+            } else {
+                UpPrcsBr.removeClass('active');
+                Banner.removeAttr('style');
+                UpprcsRslt.html('Upload failed! Please try again...');
             }
         },
         error: function (err) {
-            console.log(err);
+            UpPrcsBr.removeClass('active');
+            Banner.removeAttr('style');
+            UpprcsRslt.html(err.statusText);
         }
     });
 };
@@ -75,6 +95,8 @@ const choseBanner = () => {
     let fileInput = $('input[name="upload_file"]');
 
     fileInput.on('change', function () {
+        UpPrcsBr.addClass('active');
+
         let file = fileInput.prop('files')[0];
         let fr = new FileReader();
 
@@ -90,6 +112,10 @@ const choseBanner = () => {
  * 向服务端发起请求设置 banner
  */
 const setBanner = () => {
+    if(!Cover.val()) {
+        UpprcsRslt.html('No uploads, or images are being uploaded. Please wait');
+        return;
+    }
     $.ajax({
         url: '/control/setting/banners/set',
         method: 'POST',
@@ -102,12 +128,21 @@ const setBanner = () => {
         success: function (resData) {
             if (resData.code === 200) {
                 SetBannerModal.modal('hide');
-                Banner.removeAttr('style');
+                window.location.reload();
+            } else if (resData.code === 403) {
+                //noinspection JSUnresolvedVariable
+                UpprcsRslt.html(resData.msg);
+                setTimeout(function () {
+                    SetBannerModal.modal('hide');
+                }, 2000);
             }
 
         },
         error: function (err) {
-            console.log(err);
+            if (err.code !== 200) {
+                Banner.removeClass('style');
+                UpprcsRslt.html(err.statusText + ', please try again');
+            }
         }
     });
 };

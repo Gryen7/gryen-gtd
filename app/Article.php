@@ -30,6 +30,7 @@ class Article extends Eloquent
 
         $articles = Article::skip($skip)
             ->take($take)
+            ->orderBy('created_at', 'desc')
             ->get();
 
         $pageCount = ceil(Article::all()->count() / $take);

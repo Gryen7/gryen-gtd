@@ -13,5 +13,8 @@
                 <span class="sr-only" id="tar-upprcs-txt">0% Complete</span>
             </div>
         </div>
+        <div class="tar-upbnnr-result">
+            <span></span>
+        </div>
     </div>
 @endsection
