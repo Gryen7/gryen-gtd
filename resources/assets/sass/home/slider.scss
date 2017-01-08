@@ -26,12 +26,21 @@
                 background-color: rgba(100%, 100%, 100%, 0.7);
 
                 a {
-                    font-size: 2em;
+                    font-size: 2rem;
+                    overflow: hidden;
+                    text-overflow:ellipsis;
+                    white-space: nowrap;
                 }
 
                 .tar-slider-desc {
+                    line-height: 2.2rem;
+                    margin-top: 1em;
                     overflow: hidden;
                     word-break: break-all;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    //noinspection CssUnknownProperty
+                    -webkit-line-clamp: 5;
                 }
             }
         }
