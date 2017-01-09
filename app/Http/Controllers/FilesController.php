@@ -20,7 +20,7 @@ class FilesController extends Controller
     protected static $FILE_RETURN_PATH = [
         'local' => 'filesystems.disks.local.root',
         'public' => 'filesystems.disks.public.root',
-        's3' => 'filesystems.disks.s3.region' . '/' .'filesystems.disks.s3.bucket',
+        's3' => 'filesystems.disks.s3.region' . '/' . 'filesystems.disks.s3.bucket',
         'qiniu' => 'filesystems.disks.qiniu.domains.default',
     ];
 
@@ -51,7 +51,7 @@ class FilesController extends Controller
     }
 
     /**
-     * 处理返回信息
+     * 处理返回信息，兼容 simditor
      *
      * @param string $file_path
      * @param string $msg
