@@ -1,3 +1,4 @@
+//noinspection NpmUsedModulesInstalled
 const elixir = require('laravel-elixir');
 
 /*
@@ -12,6 +13,7 @@ const elixir = require('laravel-elixir');
  */
 
 elixir(function (mix) {
+    //noinspection JSUnresolvedFunction
     mix.sass('app.scss')
         .webpack('home.js')
         .webpack('article.js')

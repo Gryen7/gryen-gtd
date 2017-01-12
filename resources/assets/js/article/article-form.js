@@ -13,8 +13,10 @@ trArtTtlBox.html(null);
  * 加载编辑器
  */
 if (textarea.length > 0) {
+    //noinspection NpmUsedModulesInstalled
     require('simple-module');
     require('simple-hotkeys');
+    //noinspection NpmUsedModulesInstalled
     require('simple-uploader');
     require('to-markdown');
     require('marked');
