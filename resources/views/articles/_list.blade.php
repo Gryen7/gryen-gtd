@@ -9,7 +9,6 @@
                     {{ $article->updated_at }}
                 </span>
             </div>
-            <hr>
             <div class="tar-article-list-decs">{{ $article->description }}</div>
         </li>
     @endforeach

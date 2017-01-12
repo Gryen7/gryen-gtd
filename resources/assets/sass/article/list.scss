@@ -1,22 +1,23 @@
 .tar-article-list {
-  .tar-article-info {
-    h2 {
-      margin: 0;
+    height: 10em;
+
+    .tar-article-info {
+        h2 {
+            margin: 0;
+        }
+
+        .tar-article-extra {
+            padding-top: 1rem;
+            color: #ddd;
+        }
     }
 
-    .tar-article-extra {
-      padding-top: 1rem;
-      color: #ddd;
+    .tar-article-list-decs {
+        word-break: break-all;
+        word-wrap: break-word;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
     }
-  }
-
-  hr {
-    margin-top: 0.5rem;
-  }
-
-  .tar-article-list-decs {
-    word-break: break-all;
-    word-wrap: break-word;
-    overflow: hidden;
-  }
 }

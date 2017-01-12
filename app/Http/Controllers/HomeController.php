@@ -28,7 +28,7 @@ class HomeController extends Controller
 
         $articles = Article::where('status','>',0)
             ->orderBy('created_at' ,'desc')
-            ->take(20)
+            ->take(10)
             ->get();
 
         $banners = Banner::where('cover', '<>', '')->get();
