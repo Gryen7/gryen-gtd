@@ -14,11 +14,9 @@ const elixir = require('laravel-elixir');
 
 elixir(function (mix) {
     //noinspection JSUnresolvedFunction
-    mix.sass('app.scss')
-        .webpack('home.js')
-        .webpack('article.js')
-        .webpack('control.js')
-        .webpack('about.js')
+    mix.sass('app.scss', 'public/css/app.css')
+        .sass('control.scss', 'public/css/control.css')
+        .webpack(['home.js', 'article.js', 'control.js', 'about.js'])
         .copy([// 复制图片
         'resources/assets/img'
     ], 'public/img')

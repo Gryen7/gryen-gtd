@@ -1,4 +1,4 @@
-@extends('layouts._base')
+@extends('layouts._base-control')
 @section('base_content')
     @parent
     <div class="container-fluid">
