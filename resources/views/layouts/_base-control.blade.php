@@ -10,6 +10,7 @@
 <body>
 @section('base_content')
 @show
+<script type="text/javascript" src="{{asset('dist/js/manifest.bundle.js')}}"></script>
 <script type="text/javascript" src="{{asset('dist/js/vendor.bundle.js')}}"></script>
 <script type="text/javascript" src="{{asset('dist/js/' . $module . '.bundle.js')}}"></script>
 </body>
