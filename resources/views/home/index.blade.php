@@ -24,6 +24,3 @@
         </div>
     </div>
 @endsection
-
-{{-- 文件过大，单独加载 --}}
-<script type="text/javascript" src="{{asset('dist/js/swiper.bundle.js')}}"></script>

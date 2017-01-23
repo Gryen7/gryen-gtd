@@ -11,7 +11,6 @@ module.exports = {
         about: path.resolve(__dirname, './resources/assets/js/about.js'),
         control: path.resolve(__dirname, './resources/assets/js/control.js'),
         vendor: ['jquery', 'bootstrap-sass'],
-        swiper: ['swiper']
     },
     output: {
         path: path.resolve(__dirname, './public/dist/js'),
@@ -24,7 +23,7 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
-            names: ['vendor', 'swiper'],
+            names: ['vendor', 'manifest'],
         }),
     ],
 };
