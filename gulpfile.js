@@ -14,13 +14,13 @@ const elixir = require('laravel-elixir');
 
 elixir(function (mix) {
     //noinspection JSUnresolvedFunction
-    mix.sass('app.scss', 'public/css/app.css')
-        .sass('control.scss', 'public/css/control.css')
-        .webpack(['home.js', 'article.js', 'control.js', 'about.js'])
+    mix.sass('app.scss', 'public/dist/css/app.css')
+        .sass('control.scss', 'public/dist/css/control.css')
+        .webpack(['home.js', 'article.js', 'control.js', 'about.js'],'./public/dist/js')
         .copy([// 复制图片
         'resources/assets/img'
-    ], 'public/img')
+    ], 'public/dist/img')
         .copy([// 复制 bootstrap 的字库
             'node_modules/bootstrap-sass/assets/fonts/bootstrap'
-        ], 'public/fonts/bootstrap');
+        ], 'public/dist/fonts/bootstrap');
 });

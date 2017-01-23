@@ -16,6 +16,7 @@
     "laravel-elixir-webpack-official": "^1.0.10",
     "lodash": "^4.17.4",
     "marked": "^0.3.5",
+    "path": "^0.12.7",
     "simditor": "^2.3.6",
     "simditor-markdown": "^1.1.2",
     "simple-hotkeys": "^1.0.3",
@@ -24,6 +25,7 @@
     "swiper": "^3.4.1",
     "to-markdown": "^3.0.0",
     "vue": "^2.1.8",
-    "vue-resource": "^1.0.3"
+    "vue-resource": "^1.0.3",
+    "webpack": "^2.2.0"
   }
 }
