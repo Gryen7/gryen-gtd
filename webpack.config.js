@@ -10,16 +10,21 @@ module.exports = {
         article: path.resolve(__dirname, './resources/assets/js/article.js'),
         about: path.resolve(__dirname, './resources/assets/js/about.js'),
         control: path.resolve(__dirname, './resources/assets/js/control.js'),
-        vendor: ['jquery']
+        vendor: ['jquery', 'bootstrap-sass'],
+        swiper: ['swiper']
     },
     output: {
         path: path.resolve(__dirname, './public/dist/js'),
         filename: '[name].bundle.js'
     },
+    resolve: {
+        alias: {
+            'jquery': path.join(__dirname, 'node_modules/jquery/src/jquery')
+        }
+    },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            minChunks: Infinity,
+            names: ['vendor', 'swiper'],
         }),
-    ]
+    ],
 };
