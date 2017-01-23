@@ -5,6 +5,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@section('title')Tar-Blog
         @show</title>
+    <link rel="stylesheet" media="screen" charset="utf-8" href={{asset('dist/css/lib.css')}}>
     <link rel="stylesheet" media="screen" charset="utf-8" href={{asset('dist/css/app.css')}}>
 </head>
 <body>
