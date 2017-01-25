@@ -1,11 +1,15 @@
 .navbar-default {
-    background-color: #000;
+    background-color: $black;
     border: 0;
+
+    .navbar-brand {
+        color: $wineRed;
+    }
 
     .navbar-nav {
         >li {
             >a {
-                color: #7d0000;;
+                color: $wineRed;
             }
         }
     }

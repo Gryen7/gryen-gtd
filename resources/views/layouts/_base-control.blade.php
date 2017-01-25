@@ -7,6 +7,13 @@
         @show</title>
     <link rel="stylesheet" media="screen" charset="utf-8" href={{asset('dist/css/lib.css')}}>
     <link rel="stylesheet" media="screen" charset="utf-8" href={{asset('dist/css/control.css')}}>
+
+    <!-- Scripts -->
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
 </head>
 <body>
 @section('base_content')
