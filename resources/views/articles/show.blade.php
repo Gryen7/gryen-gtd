@@ -6,17 +6,17 @@
         <div class="article-content">
             {!! $article->content !!}
         </div>
-        Comments(10)
-        <hr>
-        <ul class="list-group">
-            @foreach($comments as $comment)
-                <li class="list-group-item">
-                    {{$comment->content}}
-                </li>
-            @endforeach
-        </ul>
+        {{--Comments(10)--}}
+        {{--<hr>--}}
+        {{--<ul class="list-group">--}}
+            {{--@foreach($comments as $comment)--}}
+                {{--<li class="list-group-item">--}}
+                    {{--{{$comment->content}}--}}
+                {{--</li>--}}
+            {{--@endforeach--}}
+        {{--</ul>--}}
 
-        @include('comments.create',['articleId' => $article->id])
+        {{--@include('comments.create',['articleId' => $article->id])--}}
     </div>
     @include('common._sidebar')
 @stop
