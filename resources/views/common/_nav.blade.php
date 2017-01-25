@@ -23,24 +23,24 @@
                 {{--{!! Form::close() !!}--}}
             {{--</div>--}}
             <ul class="nav navbar-nav navbar-right">
-                <li @if ($module === 'home')class="active"@endif><a href="/">Home</a></li>
-                <li @if ($module === 'article')class="active" @endif><a href="{{url('/articles')}}">Articles</a></li>
-                <li @if ($module === 'about')class="active" @endif><a href="{{url('/about')}}">About</a></li>
+                <li @if ($module === 'home')class="active"@endif><a href="/">首页</a></li>
+                <li @if ($module === 'article')class="active" @endif><a href="{{url('/articles')}}">文章</a></li>
+                <li @if ($module === 'about')class="active" @endif><a href="{{url('/about')}}">关于</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle tar-go" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">GO!</a>
+                       aria-expanded="false">设置</a>
                     <ul class="dropdown-menu">
                         @if (Auth::check())
-                            <li><a href="{{url('/articles/create')}}">New Article</a></li>
+                            <li><a href="{{url('/articles/create')}}">新文章</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{url('/control')}}">Control Panel</a></li>
+                            <li><a href="{{url('/control')}}">控制面板</a></li>
                             <li role="separator" class="divider"></li>
                         @endif
                         @if (Auth::check())
-                            <li><a href="{{url('/logout')}}">Logout</a></li>
+                            <li><a href="{{url('/logout')}}">登出</a></li>
                         @else
-                            <li><a href="{{url('/login')}}">Login</a></li>
-                            <li><a href="{{url('/register')}}">Register</a></li>
+                            <li><a href="{{url('/login')}}">登录</a></li>
+                            {{--<li><a href="{{url('/register')}}">注册</a></li>--}}
                         @endif
                     </ul>
                 </li>
