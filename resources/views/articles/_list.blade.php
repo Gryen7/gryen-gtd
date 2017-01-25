@@ -13,3 +13,4 @@
         </li>
     @endforeach
 </ul>
+{{ $articles->links() }}

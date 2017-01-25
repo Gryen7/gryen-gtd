@@ -26,10 +26,9 @@ class HomeController extends Controller
     {
         $module = 'home';
 
-        $articles = Article::where('status','>',0)
-            ->orderBy('created_at' ,'desc')
-            ->take(10)
-            ->get();
+        $articles = Article::where('status', '>', 0)
+            ->orderBy('created_at', 'desc')
+            ->paginate(7);
 
         $banners = Banner::where('cover', '<>', '')->get();
         foreach ($banners as &$banner) {
