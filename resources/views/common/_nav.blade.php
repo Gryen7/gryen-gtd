@@ -25,7 +25,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li @if ($module === 'home')class="active"@endif><a href="/">首页</a></li>
                 <li @if ($module === 'article')class="active" @endif><a href="{{url('/articles')}}">文章</a></li>
-                <li @if ($module === 'about')class="active" @endif><a href="{{url('/about')}}">关于</a></li>
+                {{--<li @if ($module === 'about')class="active" @endif><a href="{{url('/about')}}">关于</a></li>--}}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle tar-go" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">设置</a>

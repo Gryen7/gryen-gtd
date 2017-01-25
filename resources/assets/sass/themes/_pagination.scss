@@ -1,0 +1,35 @@
+.pagination {
+    border-radius: 0;
+
+    > li {
+        > a,
+        > span {
+            color: $black;
+        }
+        &:first-child {
+            > a,
+            > span {
+                border-radius: 0;
+            }
+        }
+        &:last-child {
+            > a,
+            > span {
+                border-radius: 0;
+            }
+        }
+    }
+
+    > .active > a,
+    > .active > span {
+        &,
+        &:hover,
+        &:focus {
+            z-index: 3;
+            color: $black;
+            background-color: $wineRed;
+            border-color: $wineRed;
+        }
+    }
+
+}
