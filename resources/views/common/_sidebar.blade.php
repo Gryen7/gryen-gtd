@@ -18,10 +18,11 @@
     {{--</div>--}}
 
     <div class="panel panel-default">
-        <div class="panel-heading">Web site information</div>
+        <div class="panel-heading">Site Info</div>
         <div class="panel-body">
             <ul class="list-group">
-                <li class="list-group-item">鲁ICP备 1234567</li>
+                <li class="list-group-item">Email: <a href="mailto:gcy77@live.com">gcy77@live.com</a></li>
+                <li class="list-group-item"><a href="http://www.miitbeian.gov.cn/">鲁ICP备15009847号</a></li>
                 <li class="list-group-item">Powered by Targaryen</li>
             </ul>
         </div>
