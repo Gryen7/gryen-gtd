@@ -27,7 +27,7 @@
                 <li @if ($module === 'article')class="active" @endif><a href="{{url('/articles')}}">Articles</a></li>
                 <li @if ($module === 'about')class="active" @endif><a href="{{url('/about')}}">About</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    <a href="#" class="dropdown-toggle tar-go" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">GO!</a>
                     <ul class="dropdown-menu">
                         @if (Auth::check())

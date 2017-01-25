@@ -1,15 +1,35 @@
 .navbar-default {
     background-color: $black;
     border: 0;
+    border-top: 2px solid $wineRed;
 
     .navbar-brand {
         color: $wineRed;
+
+        &:hover,
+        &:focus {
+            color: $white;
+            background-color: $black;
+        }
     }
 
     .navbar-nav {
-        >li {
-            >a {
+        > li > a{
+            color: $wineRed;
+
+            &:hover,
+            &:focus {
                 color: $wineRed;
+                background-color: $black;
+            }
+        }
+
+        > .active > a {
+            &,
+            &:hover,
+            &:focus {
+                color: $black;
+                background-color: $wineRed;
             }
         }
     }
