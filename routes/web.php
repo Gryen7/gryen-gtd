@@ -50,7 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
     Route::get('/', 'ControlPanelController@index');
 
-    Route::get('/articles/{page?}', 'ControlPanelController@articles');
+    Route::get('/articles', 'ControlPanelController@articles');
     Route::get('/articles/delete/{ids}', 'ArticlesController@delete');
     Route::get('/articles/destroy/{id}', 'ArticlesController@destroy');
 

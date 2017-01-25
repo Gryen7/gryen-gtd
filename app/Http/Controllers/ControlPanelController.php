@@ -18,13 +18,15 @@ class ControlPanelController extends Controller
 
     /**
      * 后台文章列表
-     *
-     * @param $page
      * @return mixed
+     * @internal param $page
      */
-    public function articles($page = 1)
+    public function articles()
     {
-        return view('control.articles', Article::getArticleListForControlPannel($page));
+        $articles = Article::orderBy('created_at', 'desc')
+            -> paginate(15);
+//        dd($article);
+        return view('control.articles', compact('articles'));
     }
 
     public function comments()

@@ -8,7 +8,7 @@
             <button type="submit" class="btn btn-default">Search</button>
         </form>
         <div class="navbar-right">
-            <a href="{{ action('ArticlesController@create') }}" class="btn btn-success navbar-btn">New Article</a>
+            <a href="{{ action('ArticlesController@create') }}" class="btn btn-success navbar-btn">新文章</a>
             <button class="btn btn-default navbar-btn">
                 <span class="glyphicon glyphicon-object-align-bottom"></span>
             </button>
@@ -19,15 +19,13 @@
 
     <ul class="list-group tar-cpa-list">
         <li class="list-group-item">
-            <span class="col-xs-1">ID</span>
-            <span class="col-xs-6">Title</span>
-            <span class="col-xs-5">Options</span>
+            <span class="col-xs-8">Title</span>
+            <span class="col-xs-4">Options</span>
         </li>
         @foreach($articles as $article)
             <li class="list-group-item">
-                <span class="col-xs-1">{{ $article->id }}</span>
-                <span class="col-xs-6">{{ $article->title }}</span>
-                <ul class="list-inline btn-group col-xs-5 tar-ul-nomargin">
+                <span class="col-xs-8">{{ $article->title }}</span>
+                <ul class="list-inline btn-group col-xs-4 tar-ul-nomargin">
                     <li class="btn btn-default"><a href="{{ action('ArticlesController@show',[$article->id]) }}"
                                                    target="_blank">View</a></li>
                     <li class="btn btn-default"><a href="{{ action('ArticlesController@edit',[$article->id]) }}"
@@ -38,22 +36,4 @@
             </li>
         @endforeach
     </ul>
-    <nav>
-        <ul class="pagination">
-            @if ($prev !== 0)
-                <li>
-                    <a href="{{ action('ControlPanelController@articles', $prev) }}" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;prev</span>
-                    </a>
-                </li>
-            @endif
-            @if ($next !== $pageCount)
-                <li>
-                    <a href="{{ action('ControlPanelController@articles', $next) }}" aria-label="Next">
-                        <span aria-hidden="true">next&raquo;</span>
-                    </a>
-                </li>
-            @endif
-        </ul>
-    </nav>
 @stop

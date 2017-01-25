@@ -9,9 +9,10 @@ use App\Http\Controllers\Controller;
 class SettingsController extends Controller
 {
 
-    public function banners($page = 1)
+    public function banners()
     {
-        $articles = Article::getArticleListForControlPannel($page);
+        $articles = Article::orderBy('created_at', 'desc')
+            -> paginate(15);
         $banners = Banner::where('cover', '<>', '')->get();
         foreach ($banners as &$banner) {
             $banner['article_title'] = $banner->article->title;

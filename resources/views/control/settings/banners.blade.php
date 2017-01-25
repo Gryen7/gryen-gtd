@@ -37,7 +37,7 @@
                     <input type="text" class="form-control" placeholder="Keywords">
                 </div>
                 <ul class="list-group">
-                    @foreach($articles['articles'] as $article)
+                    @foreach($articles as $article)
                         <li class="list-group-item">
                             <a href="{{ action('ArticlesController@show',[$article->id]) }}" target="_blank">{{
                         $article->title
