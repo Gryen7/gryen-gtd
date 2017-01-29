@@ -3,8 +3,12 @@
  */
 require('bootstrap-datetime-picker');
 
-let Fun = require('../function');
-let DeleteTodoModal = $('#deleteTodo');
+const Fun = require('../function');
+const $ = require("jquery");
+const DeleteTodoModal = $('#deleteTodo');
+const TarTodoContent = $('.tar-todo-content');
+const TarTodoBeginat = $('.tar-todo-beginat');
+const TarTodoEndat = $('.tar-todo-endat');
 
 /**
  * todostart datepicker
@@ -32,6 +36,64 @@ $('#crt-td-end-dtpckr').datetimepicker({
 $('#tar-new-todo-btn').on('click', () => {
     let addTodoForm = $('#tar-add-todo');
     addTodoForm.slideToggle();
+});
+
+/**
+ * change content
+ */
+TarTodoContent.on('click', function () {
+    // let self = $(this);
+    //
+    // if (self.attr('readonly') === 'readonly') {
+    //     self.removeAttr('readonly').focus();
+    // } else {
+    //     self.attr('readonly', 'readonly');
+    // }
+
+});
+
+/**
+ * change start time
+ */
+TarTodoBeginat.on('click', function () {
+    let self = $(this);
+
+    self.datetimepicker({
+        initialDate: self.html(),
+        format: 'yyyy-mm-dd',
+        startView: 2,
+        minView: 2,
+        autoclose: true
+    }).on('changeDate', function () {
+        $.post('/control/todos/date', {
+            id: self.data('id'),
+            begin_at: self.val()
+        });
+    });
+
+    self.datetimepicker('show');
+});
+
+/**
+ * change end time
+ */
+TarTodoEndat.on('click', function () {
+    let self = $(this);
+
+    self.datetimepicker({
+        initialDate: self.html(),
+        format: 'yyyy-mm-dd',
+        startView: 2,
+        minView: 2,
+        autoclose: true
+    }).on('changeDate', function () {
+        $.post('/control/todos/date', {
+            id: self.data('id'),
+            end_at: self.val()
+        });
+    });
+
+    self.datetimepicker('show');
 });
 
 /**
@@ -69,7 +131,7 @@ const deleteTodo = () => {
  * open delete onetodo ensure box
  */
 $('.tar-del-todo').on('click', function () {
-    showDeleteEnsure($(this).data('val'));
+    showDeleteEnsure($(this).data('id'));
 });
 
 /**

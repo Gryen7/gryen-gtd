@@ -71,4 +71,27 @@ class ToDosController extends Controller
             ]
         );
     }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function changeDate(Request $request)
+    {
+        $todo = Todo::find($request->id);
+        if ($request->begin_at) {
+            $todo->begin_at = $request->begin_at;
+        }
+        if ($request->end_at) {
+            $todo->end_at = $request->end_at;
+        }
+        $result = $todo->save();
+
+        return response()->json(
+            [
+                'code' => 200,
+                'msg' => $result
+            ]
+        );
+    }
 }

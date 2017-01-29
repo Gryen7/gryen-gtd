@@ -58,6 +58,7 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
 
     Route::get('/todos/delete/{ids}', 'Control\ToDosController@delete');
     Route::post('/todos/status', 'Control\ToDosController@changeStatus');
+    Route::post('/todos/date', 'Control\ToDosController@changeDate');
     Route::resource('/todos', 'Control\ToDosController');
 
     Route::get('/user', 'ControlPanelController@user');

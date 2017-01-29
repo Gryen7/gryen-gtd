@@ -1,32 +1,35 @@
 <div id="tar-add-todo" class="tar-add-todo col-xs-12 clearfix">
     {!! Form::open(['action' => 'Control\ToDosController@store', 'class' => 'navbar-form row']) !!}
     <div class="form-group col-xs-1">
-        {!! Form::select('importance', [1=> 'IMP', 2=> 'VIO', 3=> 'IMMD'], 1, ['class' => 'form-control']) !!}
+        {!! Form::select('importance', [1=> '低', 2=> '中', 3=> '高'], 1, ['class' => 'form-control']) !!}
     </div>
     <div class="form-group col-xs-5">
-        {!! Form::text('content', null, ['class' => 'form-control tar-todo-content', 'placeholder' => 'todo\'s content']) !!}
+        {!! Form::text('content', null, [
+            'class' => 'form-control tar-todo-content',
+            'placeholder' => '待办事项'
+        ]) !!}
     </div>
     <div class="form-group col-xs-2">
         {!! Form::text('begin_at', null, [
             'id' => 'crt-td-strt-dtpckr',
-            'class' => 'form-control',
+            'class' => 'btn btn-default',
             'readonly',
-            'placeholder' => 'Begin at'
+            'placeholder' => '开始时间'
         ]) !!}
     </div>
     <div class="form-group col-xs-2">
         {!! Form::text('end_at', null, [
             'id' => 'crt-td-end-dtpckr',
-            'class' => 'form-control',
+            'class' => 'btn btn-default',
             'readonly',
-            'placeholder' => 'End at'
+            'placeholder' => '结束时间'
         ]) !!}
     </div>
     <div class="form-group col-xs-1">
-       {!! Form::button('note', ['class' => 'btn btn-default']) !!}
+       {!! Form::button('详细', ['class' => 'btn btn-default']) !!}
     </div>
     <div class="form-group col-xs-1">
-        {!! Form::submit('create', ['class' => 'btn btn-primary form-control']) !!}
+        {!! Form::submit('创建', ['class' => 'btn btn-primary form-control']) !!}
     </div>
     {!! Form::close() !!}
 </div>
