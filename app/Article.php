@@ -13,7 +13,9 @@ class Article extends Eloquent
         'title',
         'content',
         'description',
-        'status'
+        'status',
+        'created_at',
+        'updated_at'
     ];
 
     protected $dates = ['deleted_at'];
