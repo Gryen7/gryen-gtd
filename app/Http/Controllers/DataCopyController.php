@@ -7,6 +7,9 @@ use Carbon\Carbon;
 
 class DataCopyController extends Controller
 {
+    /**
+     * 数据恢复
+     */
     public function index()
     {
         $host = 'localhost';
@@ -27,13 +30,12 @@ class DataCopyController extends Controller
         foreach ($result as $key => $value){
             $value['status'] = 1;
             $value['created_at'] = Carbon::createFromTimestamp($value['create_time']);
-            $value['updated_at'] = $value['update_time'];
+            $value['updated_at'] = Carbon::createFromTimestamp($value['update_time']);
             Article::create($value);
-            echo '<pre>';
-            print_r('Done');
-            echo '</pre>';
         }
-
-        Article::create();
+        $oldConn->close();
+        echo '<pre>';
+        print_r('Done');
+        echo '</pre>';
     }
 }
