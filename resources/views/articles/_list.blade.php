@@ -6,7 +6,7 @@
                     <a href="{{ action('ArticlesController@show',[$article->id]) }}">{{ $article->title }}</a>
                 </h4>
                 <span class="tar-article-extra pull-right">
-                    {{ $article->updated_at }}
+                    {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}
                 </span>
             </div>
             <div class="tar-article-list-decs">{{ $article->description }}</div>

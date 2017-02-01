@@ -2,7 +2,11 @@
     background-color: $white;
 
     hr {
-        margin-top: 0.5rem;
+        margin: 0.5rem auto;
+    }
+
+    .tar-article-time {
+        color: $gray-base;
     }
 
     .article-content {
