@@ -17,6 +17,7 @@
     "lodash": "^4.17.4",
     "marked": "^0.3.5",
     "path": "^0.12.7",
+    "phplint": "^1.7.1",
     "simditor": "^2.3.6",
     "simditor-markdown": "^1.1.2",
     "simple-hotkeys": "^1.0.3",

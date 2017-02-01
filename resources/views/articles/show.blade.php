@@ -3,6 +3,9 @@
     <div class="col-md-8 tar-article-box">
         <h4>{{ $article->title }}</h4>
         <hr>
+        <span class="pull-right tar-article-time">
+                {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}
+        </span>
         <div class="article-content">
             {!! $article->content !!}
         </div>
