@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use App\Todo;
 
 class ControlPanelController extends Controller
 {
@@ -25,7 +24,6 @@ class ControlPanelController extends Controller
     {
         $articles = Article::orderBy('created_at', 'desc')
             -> paginate(15);
-//        dd($article);
         return view('control.articles', compact('articles'));
     }
 
@@ -46,7 +44,7 @@ class ControlPanelController extends Controller
 
     public function ashcan()
     {
-        $articles = Article::onlyTrashed()->get();
+        $articles = Article::onlyTrashed()->paginate(15);
         return view('control.ashcan',compact('articles'));
     }
 }

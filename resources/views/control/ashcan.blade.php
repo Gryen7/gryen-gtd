@@ -11,51 +11,32 @@
 @stop
 @section('content')
     <div class="table-responsive">
-        <table class="table table-striped">
+        <table class="table table-striped tar-ctl-table">
+            <thead>
             <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Options</th>
+                <th>标题</th>
+                <th>操作</th>
             </tr>
+            </thead>
+            <tbody>
             @foreach($articles as $article)
                 <tr>
-                    <td>{{ $article->id }}</td>
                     <td>{{ $article->title }}</td>
                     <td>
-                        <ul class="list-group">
-                            <li class="list-group-item pull-left"><a
-                                        href="{{ action('ArticlesController@show',[$article->id]) }}"
-                                        target="_blank">view</a></li>
-                            <li class="list-group-item pull-left"><a
+                        <ul class="btn-group">
+                            <li class="btn btn-default"><a
                                         href="{{ action('ArticlesController@edit',[$article->id]) }}"
-                                        target="_blank">resume</a></li>
-                            <li class="list-group-item pull-left"><a
-                                        href="{{ action('ArticlesController@destroy',[$article->id]) }}">force delete</a></li>
+                                        target="_blank">恢复</a></li>
+                            <li class="btn btn-default"><a
+                                        href="{{ action('ArticlesController@destroy',[$article->id]) }}">彻底删除</a></li>
                         </ul>
                     </td>
                 </tr>
             @endforeach
+            </tbody>
         </table>
     </div>
-    <nav>
-        <ul class="pagination">
-            <li>
-                <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
-                <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    {{ $articles->links() }}
     {{--模态框开始--}}
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
