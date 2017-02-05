@@ -25,10 +25,10 @@
         <div class="row">
             <div class="col-xs-1"></div>
             <div class="col-xs-10 row t-index-pltbox">
-                @for($i=0; $i < 12; $i++)
-                    <div class="col-xs-3 t-index-pht">
+                @for($i = 0; $i < 6; $i++)
+                    <div class="col-xs-4 t-index-pht">
                         <a href="" class="thumbnail">
-                            <img src="http://7xnswo.com1.z0.glb.clouddn.com/wallhaven-85912.jpg?imageView2/1/w/360/h/360"
+                            <img src="http://7xnswo.com1.z0.glb.clouddn.com/wallhaven-85912.jpg?imageView2/1/w/480/h/360"
                                  alt="">
                         </a>
                     </div>
@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="container">
-        <h4 class="text-center t-index-plttl">艺术 · 音乐</h4>
+        <h4 class="text-center t-index-plttl">聆听 · 故事</h4>
         <div class="row">
             <div class="col-xs-1"></div>
             <div class="col-xs-10 row t-index-pltbox">
@@ -48,10 +48,9 @@
                 </div>
                 <div class="col-xs-8">
                     <div class="t-index-desc">
+                        @for($i = 0; $i < 10; $i++)
                         <p>这里可以有一些文字，这里可以有一些文字，这里可以有一些文字，这里可以有一些文字，这里可以有一些文字，</p>
-                        <p>这里可以有一些文字，这里可以有一些文字，这里可以有一些文字，这里可以有一些文字，这里可以有一些文字，这里可以有一些文字，</p>
-                        <p>这里可以有一些文字，这里可以有一些文字，这里可以有一些文字，这里可以有一些文字，这里可以有一些文字，这里可以有一些文字，</p>
-                        <p>这里可以有一些文字，这里可以有一些文字，这里可以有一些文字，这里可以有一些文字，这里可以有一些文字，这里可以有一些文字，</p>
+                        @endfor
                     </div>
                 </div>
             </div>
@@ -60,11 +59,9 @@
     </div>
     <div class="container">
         <h4 class="text-center t-index-plttl">随笔 · 感悟</h4>
-        <div class="row">
-            <div class="col-xs-1"></div>
-            <div class="col-xs-10 row t-index-pltbox">
-                @for($i = 0; $i < 6; $i++)
-                    <div class="col-xs-4">
+        <div class="row t-index-pltbox">
+                @for($i = 0; $i < 8; $i++)
+                    <div class="col-xs-3">
                         <a href="" class="thumbnail">
                             <img src="http://7xnswo.com1.z0.glb.clouddn.com/wallhaven-118609.jpg?imageView2/1/w/360/h/360"
                                  alt="...">
@@ -75,6 +72,14 @@
                         </a>
                     </div>
                 @endfor
+        </div>
+    </div>
+    <div class="container">
+        <h4 class="text-center t-index-plttl">格物 · 致知</h4>
+        <div class="row">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10 row t-index-pltbox">
+                <p>这里可以放一些话。。。</p>
             </div>
             <div class="col-xs-1"></div>
         </div>
