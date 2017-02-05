@@ -18,6 +18,7 @@
 <body>
 @section('base_content')
 @show
+@include('common._footer')
 <script type="text/javascript" src="{{asset('dist/js/manifest.bundle.js')}}"></script>
 <script type="text/javascript" src="{{asset('dist/js/vendor.bundle.js')}}"></script>
 <script type="text/javascript" src="{{asset('dist/js/' . $module . '.bundle.js')}}"></script>

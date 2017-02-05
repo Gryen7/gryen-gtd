@@ -18,13 +18,11 @@
     {{--</div>--}}
 
     <div class="panel panel-default">
-        <div class="panel-heading">站点信息</div>
+        <div class="panel-heading">附加信息</div>
         <div class="panel-body">
-            <ul class="list-group">
-                <li class="list-group-item">电子邮件：<a href="mailto:gcy77@live.com">联系我</a></li>
-                <li class="list-group-item"><a href="http://www.miitbeian.gov.cn/">鲁ICP备15009847号</a></li>
-                <li class="list-group-item">本站点由 Targaryen 维护</li>
-            </ul>
+           <div>
+               这里得有点儿东西，不然会很空
+           </div>
         </div>
     </div>
 </div>

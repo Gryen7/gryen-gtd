@@ -1,21 +1,19 @@
 .pagination {
-    border-radius: 0;
-
     > li {
         > a,
         > span {
-            color: $black;
+            color: $cfont;
         }
         &:first-child {
             > a,
             > span {
-                border-radius: 0;
+
             }
         }
         &:last-child {
             > a,
             > span {
-                border-radius: 0;
+
             }
         }
     }
@@ -26,10 +24,9 @@
         &:hover,
         &:focus {
             z-index: 3;
-            color: $black;
-            background-color: $wineRed;
-            border-color: $wineRed;
+            color: $cfont;
+            background-color: $cfont-focus;
+            border-color: $cfont-focus;
         }
     }
-
 }

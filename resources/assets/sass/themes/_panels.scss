@@ -1,14 +1,17 @@
 .panel {
-    border-radius: 0;
     box-shadow: none;
 }
 .panel-default {
-    border: 0;
+    border-color: $cbackgroud;
 
     .panel-heading {
-        color: $wineRed;
-        background-color: $black;
-        border-top-right-radius: 0;
-        border-top-left-radius: 0;
+        color: $cfont;
+        background-color: $cbackgroud;
+    }
+
+    .panel-body {
+        > .list-group > .list-group-item {
+            border: none;
+        }
     }
 }

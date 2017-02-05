@@ -1,45 +1,41 @@
 .tar-index-slider {
-    overflow: hidden;
-    margin-bottom: 2em;
+    background-color: $white;
+    height: 540px;
 
     ul {
+        height: 100%;
         margin: 0;
         padding: 0;
 
         li {
+            height: 100%;
             list-style: none;
             position: relative;
 
-            img {
-                width: 100%;
-            }
+            .t-index-sldtxtbx {
+                height: 100%;
+                display: flex;
+                align-items: center;
 
-            .tar-slider-cover {
-                position: absolute;
-                bottom: 2em;
-                right: 15em;
-                z-index: 2;
-                width: 30em;
-                height: 15em;
-                padding: 1em;
-                background-color: rgba(100%, 100%, 100%, 0.7);
+                /* 轮播图标题 */
+                .t-index-sldtxt {
+                    width: 100%;
+                    padding-left: 30px;
 
-                a {
-                    font-size: 2rem;
-                    overflow: hidden;
-                    text-overflow:ellipsis;
-                    white-space: nowrap;
-                }
+                    a {
+                      font-weight: 700;
+                    }
 
-                .tar-slider-desc {
-                    line-height: 2.2rem;
-                    margin-top: 1em;
-                    overflow: hidden;
-                    word-break: break-all;
-                    display: -webkit-box;
-                    -webkit-box-orient: vertical;
-                    //noinspection CssUnknownProperty
-                    -webkit-line-clamp: 5;
+                    hr {
+                        margin: 10px auto;
+                    }
+
+                    .t-index-slddesc {
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 3;
+                        overflow: hidden;
+                    }
                 }
             }
         }
