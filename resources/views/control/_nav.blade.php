@@ -1,7 +1,7 @@
 <ul class="list-group">
     <li class="list-group-item tar-avatar">
         <a href="{{url('/control')}}">
-            <img class="img-circle" src="{{asset('dist/img/brand80.png')}}" alt="">
+            <img class="img-circle" src="{{asset('dist/img/logo.png')}}" alt="">
         </a>
     </li>
     <li class="list-group-item">
