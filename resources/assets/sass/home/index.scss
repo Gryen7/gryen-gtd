@@ -12,6 +12,7 @@
     background-color: $cbackgroud;
     padding-top: 30px;
     padding-bottom: 10px;
+    border-radius: 4px;
 
     .t-index-pht {
         overflow: hidden;
@@ -28,5 +29,7 @@
         height: 500px;
         padding: 30px;
         margin: 10px 30px 30px;
+        box-shadow: 0 0 10px #ccc;
+        border-radius: 2px;
     }
 }

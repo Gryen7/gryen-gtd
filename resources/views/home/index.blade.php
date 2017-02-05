@@ -28,7 +28,7 @@
                 @for($i=0; $i < 12; $i++)
                     <div class="col-xs-3 t-index-pht">
                         <a href="" class="thumbnail">
-                            <img src="http://7xnswo.com1.z0.glb.clouddn.com/uploads/2016-03-30/fb94f5795c3600cba007ddf1651bdbb8.jpg?imageView2/1/w/360/h/360"
+                            <img src="http://7xnswo.com1.z0.glb.clouddn.com/wallhaven-85912.jpg?imageView2/1/w/360/h/360"
                                  alt="">
                         </a>
                     </div>
@@ -66,7 +66,7 @@
                 @for($i = 0; $i < 6; $i++)
                     <div class="col-xs-4">
                         <a href="" class="thumbnail">
-                            <img src="http://7xnswo.com1.z0.glb.clouddn.com/uploads/2016-03-30/fb94f5795c3600cba007ddf1651bdbb8.jpg?imageView2/1/w/360/h/360"
+                            <img src="http://7xnswo.com1.z0.glb.clouddn.com/wallhaven-118609.jpg?imageView2/1/w/360/h/360"
                                  alt="...">
                             <div class="caption">
                                 <p><b>这里是文章的标题</b></p>
