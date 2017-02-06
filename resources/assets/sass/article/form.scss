@@ -8,17 +8,20 @@
         border: none;
 
         .simditor-wrapper {
-            background-color: #fbf7ed;
-            box-shadow: 0 0 5px #ccc;
+            background-color: $cbackgroud;
+            box-shadow: 0 0 5px $gray-base;
         }
 
         .simditor-body {
             min-height: 450px;
+            font-size: 14px;
+            font-family: "Times","Times New Roman","SimSun",serif;
         }
 
         .markdown-editor {
             textarea {
-                background-color: #fbf7ed;
+                background-color: $cbackgroud;
+                font-size: 14px;
             }
         }
 
@@ -30,7 +33,8 @@
     border-radius: 0;
     box-shadow: none;
     line-height: 2.5rem;
-    font-size: 2rem;
+    font-size: 16px;
+    font-weight: 700;
     border-bottom: 1px solid #c9d8db;
     text-align: center;
     margin-top: 1em;
@@ -53,4 +57,21 @@
     position: fixed;
     bottom: 0;
     right: 1em;
+}
+
+.t-edit-cover {
+    position: relative;
+    width: 358px;
+    height: 268.5px;
+
+    input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 0;
+        cursor: pointer;
+    }
 }

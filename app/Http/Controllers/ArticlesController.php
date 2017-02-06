@@ -89,7 +89,7 @@ class ArticlesController extends Controller
             $article->restore();
         }
         $article->update($request->all());
-        return redirect('articles');
+        return redirect('articles/show/' . $id);
     }
 
     /**

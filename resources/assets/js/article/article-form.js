@@ -6,6 +6,8 @@ let textarea = $('#content-textarea');
 let trArtclFrm = $('.tar-article-form');
 let trArtTtlBox = $('.tar-artl-ttlbox');
 let trArtTtl = trArtTtlBox.html();
+let coverInput = $('#tCover');
+let tEditCover = $('.t-edit-cover');
 
 trArtTtlBox.html(null);
 
@@ -27,7 +29,7 @@ if (textarea.length > 0) {
     new Simditor({
         textarea: textarea,
         markdown: false,
-        toolbar: ['title', 'bold', 'italic', 'underline', 'strikethrough', 'ol', 'ul', 'blockquote', 'code', 'link', 'image', 'hr', 'indent', 'outdent', 'alignment', 'markdown'],
+        toolbar: ['bold', 'italic', 'underline', 'strikethrough', 'ol', 'ul', 'blockquote', 'code', 'link', 'image', 'hr', 'indent', 'outdent', 'alignment', 'markdown'],
         upload: {
             url: '/files/upload',
             params: null,
@@ -58,3 +60,36 @@ if (trArtclFrm.length > 0) {
         articleForm.val(0).end().submit();
     });
 }
+
+const uploadCover = (cover) => {
+    let formData = new FormData();
+
+    formData.append('upload_file', cover);
+    $.ajax({
+        url: '/files/upload',
+        method: 'POST',
+        data: formData,
+        cache: false,
+        processData: false,
+        contentType: false,
+        dataType: 'json',
+        success: function (resData) {
+            console.log(resData.file_path);
+        },
+        error: function (err) {
+            console.error(err);
+        }
+    });
+}
+
+coverInput.on('change', function () {
+    let cover = coverInput.prop('files')[0];
+
+    let fr = new FileReader();
+
+    fr.readAsDataURL(cover);
+    fr.onload = function (e) {
+        tEditCover.attr({'style': 'background: url(' + e.target.result + ') no-repeat;background-size: cover;'});
+    };
+    uploadCover(cover);
+});

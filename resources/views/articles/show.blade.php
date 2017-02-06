@@ -23,4 +23,11 @@
         {{--@include('comments.create',['articleId' => $article->id])--}}
     </div>
     <div class="col-xs-1"></div>
+    @if (Auth::check())
+    <div class="form-group tar-artl-ssbtn">
+        <div class="btn-group-vertical">
+            <a href="{{ action('ArticlesController@edit', ['id' => $article->id]) }}" class="btn btn-default">编辑这篇文章</a>
+        </div>
+    </div>
+    @endif
 @stop
