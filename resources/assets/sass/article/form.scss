@@ -5,17 +5,23 @@
     }
 
     .simditor {
-        border: none;
+        border: 1px solid $cfont-focus;
+        border-radius: 4px;
 
         .simditor-wrapper {
             background-color: $cbackgroud;
-            box-shadow: 0 0 5px $gray-base;
+            border-radius: 4px;
         }
 
         .simditor-body {
             min-height: 450px;
             font-size: 14px;
             font-family: "Times","Times New Roman","SimSun",serif;
+        }
+
+        .simditor-toolbar {
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
         }
 
         .markdown-editor {

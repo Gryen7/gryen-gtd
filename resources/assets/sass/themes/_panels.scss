@@ -2,12 +2,13 @@
     box-shadow: none;
 }
 .panel-default {
-    border-color: $cbackgroud;
+    border-color: $cfont-focus;
 
     .panel-heading {
         color: $cfont;
         font-weight: 700;
         background-color: $cbackgroud;
+        border-bottom: 1px solid $cfont-focus;
     }
 
     .panel-body {

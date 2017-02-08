@@ -3,17 +3,18 @@
         > a,
         > span {
             color: $cfont;
+            border-color: $cfont-focus;
         }
         &:first-child {
             > a,
             > span {
-
+                border-color: $cfont-focus;
             }
         }
         &:last-child {
             > a,
             > span {
-
+                border-color: $cfont-focus;
             }
         }
     }
@@ -26,6 +27,17 @@
             z-index: 3;
             color: $cfont;
             background-color: $cfont-focus;
+            border-color: $cfont-focus;
+        }
+    }
+
+    > .disabled {
+        > span,
+        > span:hover,
+        > span:focus,
+        > a,
+        > a:hover,
+        > a:focus {
             border-color: $cfont-focus;
         }
     }
