@@ -1,6 +1,35 @@
 @import "../../../../node_modules/swiper/dist/css/swiper.min";
 @import "slider";
 
-.indxNavMrgnBtm {
-  margin-bottom: 0;
+.t-index-plttl {
+    color: $cfont-focus;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.t-index-pltbox {
+    background-color: $cbackgroud;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    border-radius: 4px;
+
+    .t-index-pht {
+        overflow: hidden;
+
+        a > img {
+            width: 100%;
+        }
+    }
+
+    .t-index-desc {
+        writing-mode: vertical-rl;
+        background-color: $white;
+        width: 560px;
+        height: 500px;
+        padding: 30px;
+        margin: 10px 30px 30px;
+        box-shadow: 0 0 10px #ccc;
+        border-radius: 2px;
+    }
 }

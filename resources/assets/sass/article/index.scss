@@ -1,5 +1,12 @@
 .tar-article-box {
     background-color: $white;
+    padding: 30px;
+    border-radius: 4px;
+
+    .t-rtcl-ttl {
+        font-weight: 700;
+        font-size: $sfont-title;
+    }
 
     hr {
         margin: 0.5rem auto;
@@ -14,11 +21,9 @@
         overflow: hidden;
         word-wrap: break-word;
         word-break: normal;
-        padding: 1rem;
 
         img {
-            width: 100%;
-            height: 100%;
+            max-width: 100%;
             margin: 1rem auto;
         }
     }

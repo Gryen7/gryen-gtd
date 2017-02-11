@@ -1,21 +1,20 @@
 .pagination {
-    border-radius: 0;
-
     > li {
         > a,
         > span {
-            color: $black;
+            color: $cfont;
+            border-color: $cfont-focus;
         }
         &:first-child {
             > a,
             > span {
-                border-radius: 0;
+                border-color: $cfont-focus;
             }
         }
         &:last-child {
             > a,
             > span {
-                border-radius: 0;
+                border-color: $cfont-focus;
             }
         }
     }
@@ -26,10 +25,20 @@
         &:hover,
         &:focus {
             z-index: 3;
-            color: $black;
-            background-color: $wineRed;
-            border-color: $wineRed;
+            color: $cfont;
+            background-color: $cfont-focus;
+            border-color: $cfont-focus;
         }
     }
 
+    > .disabled {
+        > span,
+        > span:hover,
+        > span:focus,
+        > a,
+        > a:hover,
+        > a:focus {
+            border-color: $cfont-focus;
+        }
+    }
 }

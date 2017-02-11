@@ -2,9 +2,11 @@
     @foreach($articles as $article)
         <li class="list-group-item tar-article-list">
             <div class="tar-article-info clearfix">
-                <h4 class="pull-left">
-                    <a href="{{ action('ArticlesController@show',[$article->id]) }}">{{ $article->title }}</a>
-                </h4>
+                <div class="pull-left">
+                    <a href="{{ action('ArticlesController@show',[$article->id]) }}">
+                        <b>{{ $article->title }}</b>
+                    </a>
+                </div>
                 <span class="tar-article-extra pull-right">
                     {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}
                 </span>

@@ -1,26 +1,16 @@
 .navbar-default {
-    background-color: $black;
-    border: 0;
-    border-top: 2px solid $wineRed;
-
-    .navbar-brand {
-        color: $wineRed;
-
-        &:hover,
-        &:focus {
-            color: $white;
-            background-color: $black;
-        }
-    }
+    background-color: $cbackgroud;
+    border-bottom: solid 1px $cfont-focus;
 
     .navbar-nav {
         > li > a{
-            color: $wineRed;
+            color: $cfont;
+            font-weight: 700;
+            font-size: $sfont-title;;
 
             &:hover,
             &:focus {
-                color: $white;
-                background-color: $black;
+                color: $cfont-focus;
             }
         }
 
@@ -28,9 +18,14 @@
             &,
             &:hover,
             &:focus {
-                color: $black;
-                background-color: $wineRed;
+                color: $cfont-focus;
+                background-color: transparent;
             }
+        }
+
+        > li > .dropdown-menu {
+            border-color: $cfont-focus;
+            background-color: $cbackgroud;
         }
     }
 }

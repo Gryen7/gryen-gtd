@@ -3,7 +3,7 @@
     <div class="col-xs-6">
         <div class="panel panel-success">
             <div class="panel-heading">
-                <h3 class="panel-title">Banners</h3>
+                <h3 class="panel-title">首页推荐</h3>
             </div>
             <div class="panel-body">
                 <ul class="list-group row tar-cps-banner">
@@ -15,9 +15,9 @@
                         <div class="col-xs-6">
                             <h5>{{ $banner->article_title }}</h5>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default">Top</button>
-                                <button type="button" class="btn btn-default">Weight</button>
-                                <button type="button" class="btn btn-danger">Remove</button>
+                                <button type="button" class="btn btn-default">置顶</button>
+                                <button type="button" class="btn btn-default">权重</button>
+                                <button type="button" class="btn btn-danger">移除</button>
                             </div>
                         </div>
                     </li>
@@ -29,12 +29,12 @@
     <div class="col-xs-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Articles</h3>
+                <h3 class="panel-title">文章列表</h3>
             </div>
             <div class="panel-body tar-cps-artl">
                 <div class="input-group">
-                    <span class="input-group-addon">Filter：</span>
-                    <input type="text" class="form-control" placeholder="Keywords">
+                    <span class="input-group-addon">筛选：</span>
+                    <input type="text" class="form-control" placeholder="关键词">
                 </div>
                 <ul class="list-group">
                     @foreach($articles as $article)
@@ -42,10 +42,11 @@
                             <a href="{{ action('ArticlesController@show',[$article->id]) }}" target="_blank">{{
                         $article->title
                          }}</a>
-                            <button type="button" class="btn btn-success pull-right tar-btn-stbnr" data-id="{{ $article->id }}" data-title="{{ $article->title }}">Set Banner</button>
+                            <button type="button" class="btn btn-success pull-right tar-btn-stbnr" data-id="{{ $article->id }}" data-title="{{ $article->title }}">设置</button>
                         </li>
                     @endforeach
                 </ul>
+                {{ $articles->links() }}
             </div>
         </div>
     </div>
