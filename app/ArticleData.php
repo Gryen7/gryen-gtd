@@ -11,4 +11,6 @@ class ArticleData extends Model
         'content',
     ];
 
+    public $timestamps = false;
+
 }

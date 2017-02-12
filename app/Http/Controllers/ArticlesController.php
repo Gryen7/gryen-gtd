@@ -41,12 +41,19 @@ class ArticlesController extends Controller
     public function store(CreateArticleRequest $request)
     {
         $resParams = $request->all();
-        $textCentent = strip_tags($request->get('content'));
-        $resParams['description'] = mb_substr($textCentent, 0, 200);
-        $result = Article::create($resParams);
+
+        /* 文章描述处理 */
+        $textContent = strip_tags($request->get('content'));
+        $resParams['description'] = mb_substr($textContent, 0, 200);
+
+        $article = Article::create($resParams);
+
+        $article->withContent()->create([
+            'content' => $request->get('content')
+        ]);
 
         /** @noinspection PhpUndefinedFieldInspection */
-        return redirect('articles/show/' . $result->id);
+        return redirect('articles/show/' . $article->id);
     }
 
     /**
@@ -58,6 +65,7 @@ class ArticlesController extends Controller
     public function show($id)
     {
         $article = Article::find($id);
+        $article->content = $article->withContent()->get()[0]->content;
         $comments = Comment::where('article_id', $id)->get();
         return view('articles.show', compact('article', 'comments'));
     }
@@ -71,6 +79,7 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $article = Article::withTrashed()->find($id);
+        $article->content = $article->withContent()->get()[0]->content;
         return view('articles.edit', compact('article'));
     }
 
