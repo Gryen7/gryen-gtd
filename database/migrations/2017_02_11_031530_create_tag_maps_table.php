@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArticleDatasTable extends Migration
+class CreateTagMapsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class CreateArticleDatasTable extends Migration
      */
     public function up()
     {
-        Schema::create('article_datas', function (Blueprint $table) {
+        Schema::create('tag_maps', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('tag_id')->unsigned();
             $table->integer('article_id')->unsigned();
-            $table->text('content');
+            $table->timestamps();
+            $table->foreign('tag_id')
+                ->references('id')
+                ->on('tags')
+                ->onDelete('cascade');
             $table->foreign('article_id')
                 ->references('id')
                 ->on('articles')
@@ -31,6 +36,6 @@ class CreateArticleDatasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('article_datas');
+        Schema::drop('tag_maps');
     }
 }

@@ -16,7 +16,8 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('description');
-            $table->text('content');
+            $table->string('tags');
+            $table->string('cover');
             $table->tinyInteger('status');
             $table->timestamps();
             $table->softDeletes();
