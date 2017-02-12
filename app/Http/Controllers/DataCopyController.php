@@ -8,7 +8,7 @@ use Carbon\Carbon;
 class DataCopyController extends Controller
 {
     /**
-     * 数据恢复
+     * 将旧网站的数据导入到新网站
      */
     public function index()
     {

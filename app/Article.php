@@ -11,13 +11,23 @@ class Article extends Eloquent
 
     protected $fillable = [
         'title',
-        'content',
         'description',
+        'tags',
+        'cover',
         'status',
         'created_at',
         'updated_at'
     ];
 
     protected $dates = ['deleted_at'];
+
+    /**
+     * 文章内容
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function withContent()
+    {
+        return $this->hasOne('App\ArticleData');
+    }
 
 }
