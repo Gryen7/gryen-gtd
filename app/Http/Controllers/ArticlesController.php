@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\ArticleData;
 use App\Comment;
 use App\Http\Requests\CreateArticleRequest;
 
@@ -48,6 +49,7 @@ class ArticlesController extends Controller
 
         $article = Article::create($resParams);
 
+        /* 更新文章内容 */
         $article->withContent()->create([
             'content' => $request->get('content')
         ]);
@@ -98,6 +100,11 @@ class ArticlesController extends Controller
             $article->restore();
         }
         $article->update($request->all());
+
+        /* 更新文章内容 */
+        $article->withContent()->update([
+            'content' => $request->get('content')
+        ]);
         return redirect('articles/show/' . $id);
     }
 
