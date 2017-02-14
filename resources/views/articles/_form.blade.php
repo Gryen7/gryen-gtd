@@ -12,7 +12,7 @@
         {!! Form::textarea('content',null,['class' => 'form-control','id'=>'content-textarea']) !!}
     </div>
     <div class="tar-artl-ttlbox">
-        {!! Form::text('title',null,['class' => 'form-control tar-artl-title','placeholder' =>'Please input title ...', 'autocomplete' => 'off']) !!}
+        {!! Form::text('title',null,['class' => 'form-control tar-artl-title','placeholder' =>'文章标题', 'autocomplete' => 'off']) !!}
     </div>
 </div>
 <div class="col-md-4">
