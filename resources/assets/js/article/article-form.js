@@ -61,27 +61,6 @@ if (trArtclFrm.length > 0) {
     });
 }
 
-const uploadCover = (cover) => {
-    let formData = new FormData();
-
-    formData.append('upload_file', cover);
-    $.ajax({
-        url: '/files/upload',
-        method: 'POST',
-        data: formData,
-        cache: false,
-        processData: false,
-        contentType: false,
-        dataType: 'json',
-        success: function (resData) {
-            console.log(resData.file_path);
-        },
-        error: function (err) {
-            console.error(err);
-        }
-    });
-}
-
 coverInput.on('change', function () {
     let cover = coverInput.prop('files')[0];
 
@@ -91,5 +70,5 @@ coverInput.on('change', function () {
     fr.onload = function (e) {
         tEditCover.attr({'style': 'background: url(' + e.target.result + ') no-repeat;background-size: cover;'});
     };
-    uploadCover(cover);
+
 });

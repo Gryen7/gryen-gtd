@@ -6,6 +6,8 @@ use App\Article;
 use App\ArticleData;
 use App\Comment;
 use App\Http\Requests\CreateArticleRequest;
+use App\Upload;
+use Illuminate\Support\Facades\Input;
 
 class ArticlesController extends Controller
 {
@@ -99,7 +101,18 @@ class ArticlesController extends Controller
         if ($article->trashed()) {
             $article->restore();
         }
-        $article->update($request->all());
+        $updateData = $request->all();
+        $File = Input::file('cover');
+
+        if ($File) {
+            $UploadResult = Upload::upload($File);
+
+            if ($UploadResult['success']) {
+                $updateData['cover'] = $UploadResult['file_path'];
+            }
+        }
+
+        $article->update($updateData);
 
         /* 更新文章内容 */
         $article->withContent()->update([

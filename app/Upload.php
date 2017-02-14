@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\File;
 
 class Upload extends Model
 {
@@ -51,7 +52,7 @@ class Upload extends Model
 
     /**
      * 上传图片
-     * @param null $File
+     * @param $File
      * @return array
      * @internal param bool $fromServer
      * @internal param Request $request
