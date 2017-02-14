@@ -49,6 +49,16 @@ class ArticlesController extends Controller
         $textContent = strip_tags($request->get('content'));
         $resParams['description'] = mb_substr($textContent, 0, 200);
 
+        /* 处理文章封面上传 */
+        $File = Input::file('cover');
+        if ($File) {
+            $UploadResult = Upload::upload($File);
+
+            if ($UploadResult['success']) {
+                $resParams['cover'] = $UploadResult['file_path'];
+            }
+        }
+
         $article = Article::create($resParams);
 
         /* 更新文章内容 */
@@ -83,6 +93,7 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $article = Article::withTrashed()->find($id);
+        $article->cover = empty($article->cover) ? 'http://static.targaryen.top/wallhaven-85912.jpg' : $article->cover;
         $article->content = $article->withContent()->get()[0]->content;
         return view('articles.edit', compact('article'));
     }
@@ -102,8 +113,9 @@ class ArticlesController extends Controller
             $article->restore();
         }
         $updateData = $request->all();
-        $File = Input::file('cover');
 
+        /* 处理文章封面上传 */
+        $File = Input::file('cover');
         if ($File) {
             $UploadResult = Upload::upload($File);
 

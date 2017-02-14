@@ -18,7 +18,7 @@
 <div class="col-md-4">
     <div class="panel panel-default">
         <div class="panel-heading">设置封面：</div>
-        <div class="panel-body t-edit-cover" style='background: url("http://7xnswo.com1.z0.glb.clouddn.com/wallhaven-85912.jpg?imageView2/1/w/328/h/246") no-repeat;background-size: cover;'>
+        <div class="panel-body t-edit-cover" style='background: url({{$article->cover . '?imageView2/1/w/328/h/246'}}) no-repeat;background-size: cover;'>
             {!! Form::input('file', 'cover', '', ['multiple' => 'multiple', 'accept' => 'image/*', 'id' => 'tCover']) !!}
         </div>
     </div>
