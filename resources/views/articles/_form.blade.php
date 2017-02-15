@@ -18,7 +18,11 @@
 <div class="col-md-4">
     <div class="panel panel-default">
         <div class="panel-heading">设置封面：</div>
+        @if(isset($article->cover))
         <div class="panel-body t-edit-cover" style='background: url({{$article->cover . '?imageView2/1/w/328/h/246'}}) no-repeat;background-size: cover;'>
+        @else
+        <div class="panel-body t-edit-cover" style='background: url("http://static.targaryen.top/uploads/2017-02-14/cfcc52f95c85a30d445474f21ac8bff5.jpg?imageView2/1/w/328/h/246") no-repeat;background-size: cover;'>
+        @endif
             {!! Form::input('file', 'cover', '', ['multiple' => 'multiple', 'accept' => 'image/*', 'id' => 'tCover']) !!}
         </div>
     </div>
