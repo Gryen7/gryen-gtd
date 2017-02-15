@@ -81,3 +81,19 @@
         cursor: pointer;
     }
 }
+
+.t-lable {
+    input {
+        border: none;
+    }
+}
+
+.t-lbl-box {
+    margin-top: 20px;
+    padding: 15px;
+
+    span {
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+}
