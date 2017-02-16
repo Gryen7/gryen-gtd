@@ -34,19 +34,20 @@
         <div class="panel-heading">设置标签：</div>
         <div class="panel-body">
             <div class="form-control t-lable">
-                <span class="label label-default">旅行</span>
-                <input type="text">
+                <div class="t-tag-box" id="tTagBox">
+                </div>
+                <input id="tTagInput" type="text" value="">
             </div>
             <div class="t-lbl-box">
-                <span class="label label-default">旅行</span>
-                <span class="label label-default">生活</span>
-                <span class="label label-default">旅行</span>
-                <span class="label label-default">生活</span>
-                <span class="label label-default">娱乐</span>
-                <span class="label label-default">旅行</span>
-                <span class="label label-default">生活</span>
-                <span class="label label-default">旅行</span>
-                <span class="label label-default">生活</span>
+                <span data-id="1" class="t-tag label label-default">旅行</span>
+                <span data-id="2" class="t-tag label label-default">生活</span>
+                <span data-id="3" class="t-tag label label-default">旅行</span>
+                <span data-id="4" class="t-tag label label-default">生活</span>
+                <span data-id="5" class="t-tag label label-default">娱乐</span>
+                <span data-id="6" class="t-tag label label-default">旅行</span>
+                <span data-id="7" class="t-tag label label-default">生活</span>
+                <span data-id="8" class="t-tag label label-default">旅行</span>
+                <span data-id="9" class="t-tag label label-default">生活</span>
             </div>
         </div>
     </div>

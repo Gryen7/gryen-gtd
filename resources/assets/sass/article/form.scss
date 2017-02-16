@@ -83,8 +83,21 @@
 }
 
 .t-lable {
+    overflow: hidden;
+
     input {
         border: none;
+        width: 60px;
+    }
+}
+
+.t-tag-box {
+    display: inline-block;
+    max-width: 220px;
+
+    span {
+        display: inline-block;
+        margin-right: 10px;
     }
 }
 

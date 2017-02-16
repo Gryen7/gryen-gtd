@@ -7,6 +7,9 @@ let trArtTtlBox = $('.tar-artl-ttlbox');
 let trArtTtl = trArtTtlBox.html();
 let coverInput = $('#tCover');
 let tEditCover = $('.t-edit-cover');
+let tTagInput = $('#tTagInput');
+let tTagBox = $('#tTagBox');
+let tTag = $('.t-tag');
 
 trArtTtlBox.html(null);
 
@@ -70,4 +73,13 @@ coverInput.on('change', function () {
         tEditCover.attr({'style': 'background: url(' + e.target.result + ') no-repeat;background-size: cover;'});
     };
 
+});
+
+
+tTag.on('click', function (e) {
+    if (tTagBox.children().length >= 4) {
+        alert('超了！'); // TODO 给出提示
+    } else {
+        tTagBox.append($(this));
+    }
 });
