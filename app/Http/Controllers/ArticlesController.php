@@ -32,7 +32,8 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        $tags = Tag::orderBy('num', 'desc')->take(7)->get();
+        return view('articles.create', compact('tags'));
     }
 
     /**

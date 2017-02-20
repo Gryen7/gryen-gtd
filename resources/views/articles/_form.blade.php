@@ -41,15 +41,9 @@
                 {{ Form::input('hidden', 'otags', '', ['id' => 'tOTags']) }}
             </div>
             <div class="t-lbl-box">
-                <span data-id="1" class="t-tag label label-default">旅行</span>
-                <span data-id="2" class="t-tag label label-default">生活</span>
-                <span data-id="3" class="t-tag label label-default">旅行</span>
-                <span data-id="4" class="t-tag label label-default">生活</span>
-                <span data-id="5" class="t-tag label label-default">娱乐</span>
-                <span data-id="6" class="t-tag label label-default">旅行</span>
-                <span data-id="7" class="t-tag label label-default">生活</span>
-                <span data-id="8" class="t-tag label label-default">旅行</span>
-                <span data-id="9" class="t-tag label label-default">生活</span>
+                @foreach($tags as $tag)
+                <span data-id="{{ $tag->id }}" class="t-tag label label-default">{{ $tag->name }}</span>
+                @endforeach
             </div>
         </div>
     </div>
