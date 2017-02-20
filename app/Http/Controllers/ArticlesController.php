@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use App\ArticleData;
 use App\Comment;
 use App\Http\Requests\CreateArticleRequest;
+use App\Tag;
+use App\TagMap;
 use App\Upload;
 use Illuminate\Support\Facades\Input;
 
@@ -45,6 +46,20 @@ class ArticlesController extends Controller
     {
         $resParams = $request->all();
 
+        /* 标签存文章表前置处理 */
+        $resParams['tags'] = '';
+        // 点选的标签，tags 表中的数据
+        $sTags = json_decode($request->get('stags'));
+        if (!empty($sTags)) {
+            foreach ($sTags as $key => $value) {
+                $resParams['tags'] .= $value . ',';
+            }
+        }
+
+        // 输入的标签
+        $oTags = $request->get('otags');
+        $resParams['tags'] .= $oTags;
+
         /* 文章描述处理 */
         $textContent = strip_tags($request->get('content'));
         $resParams['description'] = mb_substr($textContent, 0, 200);
@@ -65,6 +80,55 @@ class ArticlesController extends Controller
         $article->withContent()->create([
             'content' => $request->get('content')
         ]);
+
+        /* 处理标签与文章的关系 */
+        // 输入的标签
+        $oTagsArray = array_filter(explode(',', $oTags));
+        foreach ($oTagsArray as $value) {
+            $oTagInTable = Tag::where('name', $value);
+            if ($oTagInTable->count() < 1) {
+                // TAG 不存在
+                $newTag = Tag::create([
+                    'name' => $value
+                ]);
+
+                TagMap::create([
+                    'tag_id' => $newTag->id,
+                    'article_id' => $article->id
+                ]);
+            } else {
+                // TAG 存在，判断关系是否存在，创建关系，num++
+                $oTagInTable = $oTagInTable->first();
+                $mapNoExisted = TagMap::where('tag_id', $oTagInTable->id)
+                    ->where('article_id', $article->id)
+                    ->count() < 1;
+                if ($mapNoExisted) {
+                    TagMap::create([
+                        'tag_id' => $oTagInTable->id,
+                        'article_id' => $article->id
+                    ]);
+                    $oTagInTable->increment('num');
+                }
+            }
+        }
+
+        // 点选的标签
+        foreach ($sTags as $key => $value) {
+            $tagInTable = Tag::find($key);
+
+            $mapExisted = TagMap::where('tag_id', $tagInTable->id)
+                    ->where('article_id', $article->id)
+                    ->count() > 0;
+
+            if (!$mapExisted) {
+                TagMap::create([
+                    'tag_id' => $tagInTable->id,
+                    'article_id' => $article->id
+                ]);
+                $tagInTable->increment('num');
+            }
+
+        }
 
         /** @noinspection PhpUndefinedFieldInspection */
         return redirect('articles/show/' . $article->id);

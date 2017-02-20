@@ -36,7 +36,9 @@
             <div class="form-control t-lable">
                 <div class="t-tag-box" id="tTagBox">
                 </div>
-                <input id="tTagInput" type="text" value="">
+                {{ Form::input('text', 'tTagInput', '', ['id' => 'tTagInput']) }}
+                {{ Form::input('hidden', 'stags', '', ['id' => 'tTags']) }}
+                {{ Form::input('hidden', 'otags', '', ['id' => 'tOTags']) }}
             </div>
             <div class="t-lbl-box">
                 <span data-id="1" class="t-tag label label-default">旅行</span>

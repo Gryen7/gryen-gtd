@@ -1,15 +1,22 @@
 /**
  * Created by gcy77 on 2016/3/17.
  */
+const $ = require('jquery');
+
 let textarea = $('#content-textarea');
 let trArtclFrm = $('.tar-article-form');
 let trArtTtlBox = $('.tar-artl-ttlbox');
 let trArtTtl = trArtTtlBox.html();
 let coverInput = $('#tCover');
-let tEditCover = $('.t-edit-cover');
-let tTagInput = $('#tTagInput');
-let tTagBox = $('#tTagBox');
-let tTag = $('.t-tag');
+let tEditCover = $('.t-edit-cover'); // 封面图
+let tTagInput = $('#tTagInput'); // 手动输入标签
+let tTagBox = $('#tTagBox'); // 选中的标签
+let tTag = $('.t-tag'); // 标签
+let tTags = $('#tTags'); // 要提交的标签
+let tOTags = $('#tOTags'); // 自己添加的标签
+let tTagsValue = {}; // 点选的标签对象
+let tTagsArray = []; // 点选的标签数组
+let oTagsArray = []; // 输入的标签数组
 
 trArtTtlBox.html(null);
 
@@ -63,6 +70,9 @@ if (trArtclFrm.length > 0) {
     });
 }
 
+/**
+ * 文章封面图处理
+ */
 coverInput.on('change', function () {
     let cover = coverInput.prop('files')[0];
 
@@ -75,11 +85,61 @@ coverInput.on('change', function () {
 
 });
 
-
-tTag.on('click', function (e) {
+/**
+ * 点选添加标签
+ */
+tTag.on('click', function () {
     if (tTagBox.children().length >= 4) {
-        alert('超了！'); // TODO 给出提示
+        alert('最多 4 个标签'); // TODO 给出提示
     } else {
-        tTagBox.append($(this));
+        let thisTagName = $(this).text();
+
+        if ($.inArray(thisTagName, oTagsArray) < 0) {
+            tTagBox.append($(this));
+
+            $.each(tTagBox.children(), function (index, value) {
+                let tagName = $(value).text();
+
+                if ($(value).data('id')) {
+                    tTagsValue[$(value).data('id')] = tagName;
+                    tTagsArray.push(tagName);
+                }
+
+            });
+        } else {
+            alert('tag is existed');
+        }
+
+        tTags.val(JSON.stringify(tTagsValue));
+    }
+});
+
+/**
+ * 鼠标点击事件监听
+ * 输入框添加标签处理
+ */
+
+$(document).click(function () {
+    if (tTagInput.is(':focus')) {
+        $(document).keypress(function (e) {
+            if (e.which === 13) {
+                if (tTagBox.children().length >= 4) {
+                    tTagInput.val('');
+                    alert('最多 4 个标签'); // TODO 给出提示
+                } else {
+                    if ($.inArray(tTagInput.val(), oTagsArray) < 0 &&
+                        $.inArray(tTagInput.val(), tTagsArray) < 0) {
+                        tOTags.val(tOTags.val() + tTagInput.val() + ',');
+                        tTagBox.append('<span class="t-tag label label-default">' + tTagInput.val() + '</span>');
+                        tTagInput.val('');
+                    } else {
+                        alert('tag is existed');
+                        tTagInput.val('');
+                    }
+
+                    oTagsArray = tOTags.val().split(",");
+                }
+            }
+        });
     }
 });
