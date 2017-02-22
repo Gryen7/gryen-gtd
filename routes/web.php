@@ -72,5 +72,3 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
 });
 
 Route::resource('comments','CommentsController');
-
-Route::get('/datacopy', 'DataCopyController@index');
