@@ -2,7 +2,7 @@
 @section('base_content')
     @parent
     @include('common._nav', ['extraClass' => ''])
-    @if(!empty($banners))
+    @if(count($banners) > 0)
         @include('home._banner')
     @endif
     <div class="container">
