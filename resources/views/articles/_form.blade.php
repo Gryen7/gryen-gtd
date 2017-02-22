@@ -30,6 +30,7 @@
             </div>
         @endif
     </div>
+    @if(!isset($articleShow))
     <div class="panel panel-default">
         <div class="panel-heading">设置标签：</div>
         <div class="panel-body">
@@ -47,4 +48,5 @@
             </div>
         </div>
     </div>
+    @endif
 </div>
