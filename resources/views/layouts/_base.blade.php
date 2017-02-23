@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@section('title')Tar-Blog
+    <title>@section('title')格安 -- 生存、生活、生长
         @show</title>
     <link rel="stylesheet" media="screen" charset="utf-8" href={{asset('dist/css/lib.css')}}>
     <link rel="stylesheet" media="screen" charset="utf-8" href={{asset('dist/css/app.css')}}>

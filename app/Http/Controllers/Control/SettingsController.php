@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Control;
 
 use App\Article;
 use App\Banner;
+use App\Config;
 use App\Http\Controllers\Controller;
 
 class SettingsController extends Controller
@@ -22,6 +23,7 @@ class SettingsController extends Controller
 
     public function site()
     {
-        return view('control.settings.site');
+        $config = Config::getAllConfig();
+        return view('control.settings.site', compact('config'));
     }
 }

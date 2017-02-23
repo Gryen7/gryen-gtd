@@ -68,6 +68,9 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
     Route::post('/setting/banners/set', 'Control\BannersController@set');
     Route::get('/setting/site', 'Control\SettingsController@site');
 
+    Route::post('/setting/site/title', 'Control\SiteController@title');
+    Route::post('/setting/site/subtitle', 'Control\SiteController@subTitle');
+
     Route::get('/ashcan', 'ControlPanelController@ashcan');
 });
 
