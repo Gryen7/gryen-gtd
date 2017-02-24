@@ -16,7 +16,8 @@
         "symfony/psr-http-message-bridge": "^0.2.0",
         "league/flysystem-rackspace": "^1.0",
 	    "zgldh/qiniu-laravel-storage": "^0.3.0",
-        "vinkla/pusher": "^2.4"
+        "vinkla/pusher": "^2.4",
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

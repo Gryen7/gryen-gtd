@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Redis;
 use Illuminate\Database\Eloquent\Model;
 
 class Config extends Model
@@ -21,12 +22,22 @@ class Config extends Model
      */
     public static function getAllConfig()
     {
-        $config = [];
-        foreach (self::all() as $value) {
-            $config[$value->name] = $value->value;
+        $returnConfig = [];
+        /** @noinspection PhpDynamicAsStaticMethodCallInspection */
+        $redisConfig = Redis::get('CONFIG');
+
+        if (empty($redisConfig)) {
+            $config = self::all();
+            foreach ($config as $value) {
+                $returnConfig[$value->name] = $value->value;
+            }
+            /** @noinspection PhpDynamicAsStaticMethodCallInspection */
+            Redis::set('CONFIG', json_encode($returnConfig));
+        } else {
+            $returnConfig = json_decode($redisConfig, true);
         }
 
-        return (object)$config;
+        return (object)$returnConfig;
     }
 
     /**
