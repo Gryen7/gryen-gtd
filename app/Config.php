@@ -55,6 +55,9 @@ class Config extends Model
     {
         $redis = Redis::connection();
         $config = json_decode($redis->get('CONFIG'));
+        if(empty($config)) {
+            $config = (object)[];
+        }
         $config->SITE_TITLE = $siteTitle;
         $redis->set('CONFIG', json_encode($config));
         return self::updateOrCreate([
@@ -70,6 +73,13 @@ class Config extends Model
      */
     public static function setSiteSubTitle($siteSubTitle)
     {
+        $redis = Redis::connection();
+        $config = json_decode($redis->get('CONFIG'));
+        if(empty($config)) {
+            $config = (object)[];
+        }
+        $config->SITE_SUB_TITLE = $siteSubTitle;
+        $redis->set('CONFIG', json_encode($config));
         return self::updateOrCreate([
             'name' => 'SITE_SUB_TITLE',
             'value' => $siteSubTitle
