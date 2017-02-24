@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@section('title')Tar-Blog
-        @show</title>
+    <title>
+        @section('title')
+            {{ isset($CONFIG->SITE_TITLE) ? $CONFIG->SITE_TITLE : 'LaravelBlog' }}
+            {{ isset($CONFIG->SITE_SUB_TITLE) ? ' -- ' . $CONFIG->SITE_SUB_TITLE : '' }}
+        @show
+    </title>
     <link rel="stylesheet" media="screen" charset="utf-8" href={{asset('dist/css/lib.css')}}>
     <link rel="stylesheet" media="screen" charset="utf-8" href={{asset('dist/css/control.css')}}>
 

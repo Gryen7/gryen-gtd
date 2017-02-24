@@ -13,12 +13,12 @@ let siteSubTitleBtn = $('#siteSubTitleBtn');
  */
 siteTitleBtn.click(function () {
     if (siteTitle.val().length > 0) {
-        $.post('/control/setting/site/title', {SITE_TITLE: siteTitle.val()});
+        $.post('/control/setting/site/title', {title: siteTitle.val()});
     }
 });
 
 siteSubTitleBtn.click(function () {
     if (siteSubTitle.val().length > 0) {
-        $.post('/control/setting/site/subtitle', {SITE_SUB_TITLE: siteSubTitle.val()});
+        $.post('/control/setting/site/subtitle', {sub_title: siteSubTitle.val()});
     }
 });

@@ -10,11 +10,11 @@ class SiteController extends Controller
 {
     public function title(Request $request)
     {
-        return Config::setSiteTitle($request->get('SITE_TITLE'));
+        return Config::setSiteTitle($request->get('title'));
     }
 
     public function subTitle(Request $request)
     {
-        return Config::setSiteSubTitle($request->get('SITE_SUB_TITLE'));
+        return Config::setSiteSubTitle($request->get('sub_title'));
     }
 }

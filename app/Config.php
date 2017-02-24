@@ -23,16 +23,23 @@ class Config extends Model
     public static function getAllConfig()
     {
         $returnConfig = [];
-        /** @noinspection PhpDynamicAsStaticMethodCallInspection */
-        $redisConfig = Redis::get('CONFIG');
+
+        $redis = Redis::connection();
+
+        if ($redis) {
+            $redisConfig = $redis->get('CONFIG');
+        }
 
         if (empty($redisConfig)) {
             $config = self::all();
             foreach ($config as $value) {
                 $returnConfig[$value->name] = $value->value;
             }
-            /** @noinspection PhpDynamicAsStaticMethodCallInspection */
-            Redis::set('CONFIG', json_encode($returnConfig));
+
+            if ($redis) {
+                $redis->set('CONFIG', json_encode($returnConfig));
+            }
+
         } else {
             $returnConfig = json_decode($redisConfig, true);
         }
@@ -46,6 +53,10 @@ class Config extends Model
      */
     public static function setSiteTitle($siteTitle)
     {
+        $redis = Redis::connection();
+        $config = json_decode($redis->get('CONFIG'));
+        $config->SITE_TITLE = $siteTitle;
+        $redis->set('CONFIG', json_encode($config));
         return self::updateOrCreate([
             'name' => 'SITE_TITLE',
             'value' => $siteTitle

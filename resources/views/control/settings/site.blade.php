@@ -16,14 +16,14 @@
                     <div class="panel-body">
                         <div class="input-group">
                             <span class="input-group-addon" id="basic-addon1">站点标题</span>
-                            {{ Form::input('text', 'siteTitle', '', ['class' => 'form-control', 'id' => 'siteTitle', 'placeholder' => isset($config->SITE_TITLE) ? $config->SITE_TITLE : '站点标题']) }}
+                            {{ Form::input('text', 'siteTitle', '', ['class' => 'form-control', 'id' => 'siteTitle', 'placeholder' => isset($CONFIG->SITE_TITLE) ? $CONFIG->SITE_TITLE : '站点标题']) }}
                             <span class="input-group-btn">
                                 <button class="btn btn-danger" type="button" id="siteTitleBtn">确定</button>
                             </span>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="basic-addon1">站点副标题</span>
-                            {{ Form::input('text', 'siteSubTitle', '', ['class' => 'form-control', 'id' => 'siteSubTitle', 'placeholder' => isset($config->SITE_SUB_TITLE) ? $config->SITE_SUB_TITLE : '站点副标题']) }}
+                            {{ Form::input('text', 'siteSubTitle', '', ['class' => 'form-control', 'id' => 'siteSubTitle', 'placeholder' => isset($CONFIG->SITE_SUB_TITLE) ? $CONFIG->SITE_SUB_TITLE : '站点副标题']) }}
                             <span class="input-group-btn">
                                 <button class="btn btn-danger" type="button" id="siteSubTitleBtn">确定</button>
                             </span>

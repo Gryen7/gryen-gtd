@@ -22,7 +22,7 @@ Route::group(['prefix' => 'articles'], function () {
     Route::get('/', 'ArticlesController@index');
     Route::get('/index', 'ArticlesController@index');
     Route::get('/list', 'ArticlesController@index');
-    Route::get('/show/{id}', 'ArticlesController@show');
+    Route::get('/show/{id}.html', 'ArticlesController@show');
 });
 
 /**

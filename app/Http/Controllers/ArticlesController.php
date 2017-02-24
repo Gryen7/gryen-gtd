@@ -22,7 +22,8 @@ class ArticlesController extends Controller
         $articles = Article::where('status', '>', 0)
             ->orderBy('created_at', 'desc')
             ->paginate(7);
-        return view('articles.index', compact('articles'));
+        $siteTitle = '记录';
+        return view('articles.index', compact('siteTitle', 'articles'));
     }
 
     /**
@@ -146,7 +147,9 @@ class ArticlesController extends Controller
         $article = Article::find($id);
         $article->content = $article->withContent()->get()[0]->content;
         $comments = Comment::where('article_id', $id)->get();
-        return view('articles.show', compact('article', 'comments'));
+
+        $siteTitle = $article->title;
+        return view('articles.show', compact('siteTitle', 'article', 'comments'));
     }
 
     /**
