@@ -149,7 +149,9 @@ class ArticlesController extends Controller
         $comments = Comment::where('article_id', $id)->get();
 
         $siteTitle = $article->title;
-        return view('articles.show', compact('siteTitle', 'article', 'comments'));
+        $siteKeywords = $article->tags;
+        $siteDescription = $article->description;
+        return view('articles.show', compact('siteTitle', 'siteKeywords', 'siteDescription', 'article', 'comments'));
     }
 
     /**

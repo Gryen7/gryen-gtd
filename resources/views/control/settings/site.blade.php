@@ -15,17 +15,34 @@
                      aria-labelledby="headingSiteInfo">
                     <div class="panel-body">
                         <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon1">站点标题</span>
-                            {{ Form::input('text', 'siteTitle', '', ['class' => 'form-control', 'id' => 'siteTitle', 'placeholder' => isset($CONFIG->SITE_TITLE) ? $CONFIG->SITE_TITLE : '站点标题']) }}
+                            <span class="input-group-addon" id="basic-addon1">主标题</span>
+                            {{ Form::input('text', 'siteTitle', '', ['class' => 'form-control', 'id' => 'siteTitle', 'placeholder' => isset($CONFIG->SITE_TITLE) ? $CONFIG->SITE_TITLE : '默认标题']) }}
                             <span class="input-group-btn">
-                                <button class="btn btn-danger" type="button" id="siteTitleBtn">确定</button>
+                                <button class="btn btn-danger" type="button" id="siteTitleBtn">设置</button>
                             </span>
                         </div>
+                        <br/>
                         <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon1">站点副标题</span>
-                            {{ Form::input('text', 'siteSubTitle', '', ['class' => 'form-control', 'id' => 'siteSubTitle', 'placeholder' => isset($CONFIG->SITE_SUB_TITLE) ? $CONFIG->SITE_SUB_TITLE : '站点副标题']) }}
+                            <span class="input-group-addon" id="basic-addon1">副标题</span>
+                            {{ Form::input('text', 'siteSubTitle', '', ['class' => 'form-control', 'id' => 'siteSubTitle', 'placeholder' => isset($CONFIG->SITE_SUB_TITLE) ? $CONFIG->SITE_SUB_TITLE : '默认副标题']) }}
                             <span class="input-group-btn">
-                                <button class="btn btn-danger" type="button" id="siteSubTitleBtn">确定</button>
+                                <button class="btn btn-danger" type="button" id="siteSubTitleBtn">设置</button>
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">关键字</span>
+                            {{ Form::input('text', 'siteKeywords', '', ['class' => 'form-control', 'id' => 'siteKeywords', 'placeholder' => isset($CONFIG->SITE_KEYWORDS) ? $CONFIG->SITE_KEYWORDS : '默认关键字']) }}
+                            <span class="input-group-btn">
+                                <button class="btn btn-danger" type="button" id="siteKeywordsBtn">设置</button>
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">描&nbsp;&nbsp;&nbsp;述</span>
+                            {{ Form::input('text', 'siteDescription', '', ['class' => 'form-control', 'id' => 'siteDescription', 'placeholder' => isset($CONFIG->SITE_DESCRIPTION) ? $CONFIG->SITE_DESCRIPTION : '默认描述']) }}
+                            <span class="input-group-btn">
+                                <button class="btn btn-danger" type="button" id="siteDescriptionBtn">设置</button>
                             </span>
                         </div>
                     </div>

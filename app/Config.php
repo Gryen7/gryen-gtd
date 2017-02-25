@@ -85,4 +85,44 @@ class Config extends Model
             'value' => $siteSubTitle
         ]);
     }
+
+    /**
+     * 设置站点关键字
+     * @param $siteKeywords
+     * @return mixed
+     */
+    public static function setSiteKeywords($siteKeywords)
+    {
+        $redis = Redis::connection();
+        $config = json_decode($redis->get('CONFIG'));
+        if(empty($config)) {
+            $config = (object)[];
+        }
+        $config->SITE_KEYWORDS = $siteKeywords;
+        $redis->set('CONFIG', json_encode($config));
+        return self::updateOrCreate([
+            'name' => 'SITE_KEYWORDS',
+            'value' => $siteKeywords
+        ]);
+    }
+
+    /**
+     * 设置站点描述
+     * @param $siteDescription
+     * @return mixed
+     */
+    public static function setSiteDescription($siteDescription)
+    {
+        $redis = Redis::connection();
+        $config = json_decode($redis->get('CONFIG'));
+        if(empty($config)) {
+            $config = (object)[];
+        }
+        $config->SITE_DESCRIPTION = $siteDescription;
+        $redis->set('CONFIG', json_encode($config));
+        return self::updateOrCreate([
+            'name' => 'SITE_DESCRIPTION',
+            'value' => $siteDescription
+        ]);
+    }
 }
