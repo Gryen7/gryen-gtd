@@ -9,7 +9,20 @@ use App\Http\Controllers\Controller;
 
 class SettingsController extends Controller
 {
+    /**
+     * 站点信息
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function site()
+    {
+        $config = Config::getAllConfig();
+        return view('control.settings.site', compact('config'));
+    }
 
+    /**
+     * 轮播图设置
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function banners()
     {
         $articles = Article::orderBy('created_at', 'desc')
@@ -21,9 +34,4 @@ class SettingsController extends Controller
         return view('control.settings.banners', compact('articles', 'banners'));
     }
 
-    public function site()
-    {
-        $config = Config::getAllConfig();
-        return view('control.settings.site', compact('config'));
-    }
 }
