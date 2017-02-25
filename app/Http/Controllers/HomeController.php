@@ -26,10 +26,6 @@ class HomeController extends Controller
     {
         $module = 'home';
 
-        $articles = Article::where('status', '>', 0)
-            ->orderBy('created_at', 'desc')
-            ->paginate(7);
-
         $banners = Banner::where('cover', '<>', '')->get();
         foreach ($banners as &$banner) {
             $banner['article_id'] = $banner->article->id;
@@ -37,7 +33,26 @@ class HomeController extends Controller
             $banner['article_description'] = $banner->article->description;
         }
 
-        return view('home.index', compact('banners', 'articles', 'module'));
+        /* 摄影 */
+        $photos = Article::where('status', '>', 0)
+            ->where('tags', 'like', '%摄影%')
+            ->where('cover', '<>', '')
+            ->skip(0)
+            ->take(12)
+            ->get();
+
+        /* 随笔 */
+        $storys = Article::where('status', '>', 0)
+            ->where('tags', 'like', '%随笔%')
+            ->where('cover', '<>', '')
+            ->skip(0)
+            ->take(8)
+            ->get();
+
+        $arts = [];
+        $words = [];
+
+        return view('home.index', compact('banners', 'photos', 'storys', 'arts', 'words', 'module'));
     }
 
     /**
