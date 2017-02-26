@@ -8,7 +8,7 @@
             text-align: center;
             overflow: hidden;
             font-size: 7rem;
-            background: url("http://7xnswo.com1.z0.glb.clouddn.com/uploads/2016-11-12/0ed742a6f8a3d58f87cfa5ca74a56afc.jpg?imageView2/1/w/960/h/400") no-repeat;
+            background: url("http://static.targaryen.top/default-image.png?imageView2/1/w/504/h/210") no-repeat;
             background-size: 100%!important;
 
             span {
@@ -24,10 +24,6 @@
                 opacity: 1;
                 filter: Alpha(opacity=100);
             }
-        }
-
-        .tar-cps-binfo {
-
         }
     }
 }
@@ -49,7 +45,7 @@
     overflow: hidden;
     cursor: default;
     text-align: center;
-    background: url("http://7xnswo.com1.z0.glb.clouddn.com/uploads/2016-11-12/0ed742a6f8a3d58f87cfa5ca74a56afc.jpg?imageView2/1/w/960/h/400") no-repeat;
+    background: url("http://static.targaryen.top/default-image.png?imageView2/1/w/504/h/210") no-repeat;
     background-size: 100%!important;
     width: 36em;
     height: 15em;
@@ -59,16 +55,8 @@
     span {
         font-size: 12rem;
         line-height: 16rem;
-        color: #fff;
-        opacity: 0.5;
-        filter: Alpha(opacity=50);
-        cursor: pointer;
-    }
-
-    span:hover {
         color: #337ab7;
-        opacity: 1;
-        filter: Alpha(opacity=100);
+        cursor: pointer;
     }
 
     input[type=file] {

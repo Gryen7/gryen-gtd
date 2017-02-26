@@ -13,13 +13,17 @@
 
 /**
  * 对应七牛 imageView2 图片处理接口
- * @param string $image
- * @param array $params
- * @param int $mode
+ * @param string $image 图片原始路径
+ * @param array $params 参数
+ * @param int $mode 图片处理模式
+ * @param int $q 图片质量
  * @return string
  */
-function imageView2(string $image, array $params, $mode = 1) {
+function imageView2(string $image, array $params, $mode = 1, $q = 80) {
     $queryString = '?imageView2/' . $mode;
+
+    // 允许的参数
+    $allowParams = ['w', 'h', 'format', 'interlace'];
 
     if (empty($image)) {
         return '';
@@ -30,8 +34,10 @@ function imageView2(string $image, array $params, $mode = 1) {
     }
 
     foreach ($params as $key => $value) {
-        $queryString .= '/' . $key . '/' . $value;
+        if (in_array($key, $allowParams)) {
+            $queryString .= '/' . $key . '/' . $value;
+        }
     }
 
-    return $image . $queryString;
+    return $image . $queryString . '/q/' . $q;
 }
