@@ -90,7 +90,7 @@ coverInput.on('change', function () {
  */
 tTag.on('click', function () {
     if (tTagBox.children().length >= 4) {
-        alert('最多 4 个标签'); // TODO 给出提示
+        console.log('最多 4 个标签'); // TODO 给出提示
     } else {
         let thisTagName = $(this).text();
 
@@ -107,7 +107,7 @@ tTag.on('click', function () {
 
             });
         } else {
-            alert('tag is existed');
+            console.log('tag is existed');
         }
 
         tTags.val(JSON.stringify(tTagsValue));
@@ -122,10 +122,11 @@ tTag.on('click', function () {
 $(document).click(function () {
     if (tTagInput.is(':focus')) {
         $(document).keypress(function (e) {
+            console.log(e.which);
             if (e.which === 13) {
                 if (tTagBox.children().length >= 4) {
                     tTagInput.val('');
-                    alert('最多 4 个标签'); // TODO 给出提示
+                    console.log('最多 4 个标签'); // TODO 给出提示
                 } else {
                     if ($.inArray(tTagInput.val(), oTagsArray) < 0 &&
                         $.inArray(tTagInput.val(), tTagsArray) < 0) {
@@ -133,7 +134,7 @@ $(document).click(function () {
                         tTagBox.append('<span class="t-tag label label-default">' + tTagInput.val() + '</span>');
                         tTagInput.val('');
                     } else {
-                        alert('tag is existed');
+                        console.log('tag is existed');
                         tTagInput.val('');
                     }
 
@@ -142,4 +143,5 @@ $(document).click(function () {
             }
         });
     }
+    tTagInput.removeAttr("onfocus");
 });
