@@ -137,7 +137,7 @@ class ArticlesController extends Controller
         }
 
         /** @noinspection PhpUndefinedFieldInspection */
-        return redirect('articles/show/' . $article->id);
+        return redirect(action('ArticlesController@show', ['id' => $article->id]));
     }
 
     /**
@@ -204,7 +204,7 @@ class ArticlesController extends Controller
         $article->withContent()->update([
             'content' => $request->get('content')
         ]);
-        return redirect('articles/show/' . $id);
+        return redirect(action('ArticlesController@show', ['id' => $id]));
     }
 
     /**
