@@ -20,12 +20,18 @@
         <div class="panel-heading">设置封面：</div>
         @if(isset($article->cover))
             <div class="panel-body t-edit-cover"
-                 style='background: url({{$article->cover . '?imageView2/1/w/328/h/246'}}) no-repeat;background-size: cover;'>
+                 style='background: url({{ imageView2($article->cover, [
+                    'w' => 328,
+                    'h' => 246
+                 ]) }}) no-repeat;background-size: cover;'>
                 {!! Form::input('file', 'cover', '', ['multiple' => 'multiple', 'accept' => 'image/*', 'id' => 'tCover']) !!}
             </div>
         @else
             <div class="panel-body t-edit-cover"
-                 style='background: url("http://static.targaryen.top/uploads/2017-02-14/cfcc52f95c85a30d445474f21ac8bff5.jpg?imageView2/1/w/328/h/246") no-repeat;background-size: cover;'>
+                 style='background: url({{ imageView2('http://static.targaryen.top/default-image.png', [
+                    'w' => 328,
+                    'h' => 246
+                 ]) }}) no-repeat;background-size: cover;'>
                 {!! Form::input('file', 'cover', '', ['multiple' => 'multiple', 'accept' => 'image/*', 'id' => 'tCover']) !!}
             </div>
         @endif

@@ -163,7 +163,7 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $article = Article::withTrashed()->find($id);
-        $article->cover = empty($article->cover) ? 'http://static.targaryen.top/wallhaven-85912.jpg' : $article->cover;
+        $article->cover = empty($article->cover) ? 'http://static.targaryen.top/default-image.png' : $article->cover;
         $article->content = $article->withContent()->get()[0]->content;
         return view('articles.edit', compact('article'));
     }
