@@ -188,6 +188,10 @@ class ArticlesController extends Controller
         }
         $updateData = $request->all();
 
+        /* 文章描述处理 */
+        $textContent = strip_tags($request->get('content'));
+        $updateData['description'] = mb_substr($textContent, 0, 200);
+
         /* 处理文章封面上传 */
         $File = Input::file('cover');
         if ($File) {
