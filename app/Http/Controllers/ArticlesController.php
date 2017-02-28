@@ -64,7 +64,7 @@ class ArticlesController extends Controller
 
         /* 文章描述处理 */
         $textContent = strip_tags($request->get('content'));
-        $resParams['description'] = mb_substr($textContent, 0, 200);
+        $resParams['description'] = mb_substr($textContent, 0, 200) . '...';
 
         /* 处理文章封面上传 */
         $File = Input::file('cover');
@@ -190,7 +190,7 @@ class ArticlesController extends Controller
 
         /* 文章描述处理 */
         $textContent = strip_tags($request->get('content'));
-        $updateData['description'] = mb_substr($textContent, 0, 200);
+        $updateData['description'] = mb_substr($textContent, 0, 200) . '...';
 
         /* 处理文章封面上传 */
         $File = Input::file('cover');
