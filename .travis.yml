@@ -6,4 +6,4 @@ php:
 before_script:
   - composer install --no-dev --no-scripts
   - cd tests
-script: phpunit -v
+script: phpunit
