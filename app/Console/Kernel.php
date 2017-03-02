@@ -26,5 +26,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+
+        /* 自动更新 */
+        $schedule->exec('cd /web/laravelblog && git pull && gulp --production')->everyFiveMinutes();
     }
 }
