@@ -25,9 +25,6 @@ class Tag extends Model
             if (empty($tagInDatabase)) {
                 // 标签不存在，创建标签
                 $tagInDatabase = Tag::create(['name' => $tag]);
-            } else {
-                // 标签已经存在，更新引用标签次数
-                $tagInDatabase->increment('num');
             }
 
             $tagMapInDatabase = TagMap::where('article_id', $articleId)
@@ -36,6 +33,9 @@ class Tag extends Model
             if (empty($tagMapInDatabase)) {
                 // 关系不存在，创建关系
                 TagMap::create(['article_id' => $articleId, 'tag_id' => $tagInDatabase->id]);
+
+                // 标签已经存在，更新引用标签次数
+                $tagInDatabase->increment('num');
             }
         }
 
