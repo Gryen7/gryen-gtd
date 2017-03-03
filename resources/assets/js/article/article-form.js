@@ -9,14 +9,11 @@ let trArtTtlBox = $('.tar-artl-ttlbox');
 let trArtTtl = trArtTtlBox.html();
 let coverInput = $('#tCover');
 let tEditCover = $('.t-edit-cover'); // 封面图
-let tTagInput = $('#tTagInput'); // 手动输入标签
-let tTagBox = $('#tTagBox'); // 选中的标签
+let tTagInput = $('#tTagInput'); // 手动输入标签的 INPUT 组件
+let tTagBox = $('#tTagBox'); // 选中的标签存放容器
 let tTag = $('.t-tag'); // 标签
 let tTags = $('#tTags'); // 要提交的标签
-let tOTags = $('#tOTags'); // 自己添加的标签
-let tTagsValue = {}; // 点选的标签对象
-let tTagsArray = []; // 点选的标签数组
-let oTagsArray = []; // 输入的标签数组
+let tTagsArray = []; // 标签数组
 
 trArtTtlBox.html(null);
 
@@ -89,28 +86,14 @@ coverInput.on('change', function () {
  * 点选添加标签
  */
 tTag.on('click', function () {
-    if (tTagBox.children().length >= 4) {
-        console.log('最多 4 个标签'); // TODO 给出提示
+    let tag = $.trim($(this).text());
+
+    if (tTagBox.children().length < 4 && $.inArray(tag, tTagsArray) < 0) {
+        tTagsArray.push(tag);
+        tTagBox.append($(this));
+        tTags.val(tTagsArray.join(','));
     } else {
-        let thisTagName = $(this).text();
-
-        if ($.inArray(thisTagName, oTagsArray) < 0) {
-            tTagBox.append($(this));
-
-            $.each(tTagBox.children(), function (index, value) {
-                let tagName = $(value).text();
-
-                if ($(value).data('id')) {
-                    tTagsValue[$(value).data('id')] = tagName;
-                    tTagsArray.push(tagName);
-                }
-
-            });
-        } else {
-            console.log('tag is existed');
-        }
-
-        tTags.val(JSON.stringify(tTagsValue));
+        console.log('标签最多 4 个！');
     }
 });
 
@@ -119,29 +102,37 @@ tTag.on('click', function () {
  * 输入框添加标签处理
  */
 
-$(document).click(function () {
-    if (tTagInput.is(':focus')) {
-        $(document).keypress(function (e) {
-            console.log(e.which);
-            if (e.which === 13) {
-                if (tTagBox.children().length >= 4) {
-                    tTagInput.val('');
-                    console.log('最多 4 个标签'); // TODO 给出提示
-                } else {
-                    if ($.inArray(tTagInput.val(), oTagsArray) < 0 &&
-                        $.inArray(tTagInput.val(), tTagsArray) < 0) {
-                        tOTags.val(tOTags.val() + tTagInput.val() + ',');
-                        tTagBox.append('<span class="t-tag label label-default">' + tTagInput.val() + '</span>');
-                        tTagInput.val('');
-                    } else {
-                        console.log('tag is existed');
-                        tTagInput.val('');
-                    }
+tTagInput.keydown(function (e) {
+    // 添加标签
+    if (e.which === 9) {
+        if (tTagInput.is(":focus") && tTagInput.val().length > 0 && tTagBox.children().length < 4) {
+            let tag = $.trim(tTagInput.val());
 
-                    oTagsArray = tOTags.val().split(",");
-                }
+            if ($.inArray(tTagInput.val(), tTagsArray) < 0) {
+                tTagBox.append(`<span class="t-tag label label-default">${tag}</span>`);
+                tTagsArray.push(tag);
+                tTags.val(tTagsArray.join(','));
+            } else {
+                console.log('已经添加过了！');
             }
-        });
+        } else {
+            console.log('输入不合法！');
+        }
+        tTagInput.val(null);
+        return false;
     }
-    tTagInput.removeAttr("onfocus");
+
+    // 删除标签
+    if (e.which === 8) {
+        let tags = tTagBox.children();
+
+        if (tags.length > 0) {
+            tags.eq(tags.length - 1).remove();
+            tTagsArray.pop();
+            tTags.val(tTagsArray.join(','));
+        } else {
+            console.log('没有标签！');
+        }
+        return false;
+    }
 });
