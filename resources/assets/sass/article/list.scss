@@ -1,12 +1,19 @@
 .tar-article-list {
-    height: 10em;
+    min-height: 100px;
     margin-bottom: 20px;
 
     .tar-article-info {
+        margin-bottom: 10px;
+
         .tar-article-extra {
-            padding-top: 1rem;
-            color: $gray-base;
+            color: $cgray-base;
         }
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid $cgray-base;
+        margin: 5px 0;
     }
 
     .tar-article-list-decs {
@@ -16,5 +23,9 @@
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 3;
+    }
+
+    .t-rtcl-tag {
+        margin-top: 10px;
     }
 }

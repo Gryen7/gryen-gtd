@@ -11,7 +11,13 @@
                     {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}
                 </span>
             </div>
+            <hr>
             <div class="tar-article-list-decs">{{ $article->description }}</div>
+            <div class="t-rtcl-tag">
+                @foreach($article->tags as $tag)
+                <span class="label label-tag">{{ $tag }}</span>
+                @endforeach
+            </div>
         </li>
     @endforeach
 </ul>

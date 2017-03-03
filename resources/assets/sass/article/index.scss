@@ -1,5 +1,5 @@
 .tar-article-box {
-    background-color: $white;
+    background-color: $cwhite;
     padding: 30px;
     border-radius: 4px;
 
@@ -13,7 +13,8 @@
     }
 
     .tar-article-time {
-        color: $gray-base;
+        color: $cgray-base;
+        margin-bottom: 5px;
     }
 
     .article-content {

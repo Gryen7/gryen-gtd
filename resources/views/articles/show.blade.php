@@ -2,13 +2,18 @@
 @section('content')
     <div class="col-xs-1"></div>
     <div class="col-xs-10 tar-article-box">
-        <div class="t-rtcl-ttl">{{ $article->title }}</div>
+        <div class="text-center t-rtcl-ttl">{{ $article->title }}</div>
         <hr>
         <span class="pull-right tar-article-time">
                 {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}
         </span>
         <div class="article-content">
             {!! $article->content !!}
+        </div>
+        <div class="t-rtcl-tag">
+            @foreach($article->tagArray as $tag)
+                <span class="label label-default">{{ $tag }}</span>
+            @endforeach
         </div>
         {{--Comments(10)--}}
         {{--<hr>--}}

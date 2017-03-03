@@ -6,7 +6,6 @@ use App\Article;
 use App\Comment;
 use App\Http\Requests\CreateArticleRequest;
 use App\Tag;
-use App\TagMap;
 use App\Upload;
 use Illuminate\Support\Facades\Input;
 
@@ -22,6 +21,8 @@ class ArticlesController extends Controller
         $articles = Article::where('status', '>', 0)
             ->orderBy('created_at', 'desc')
             ->paginate(7);
+
+        $articles = Article::getTagArray($articles);
         $siteTitle = '记录';
         return view('articles.index', compact('siteTitle', 'articles'));
     }
@@ -85,6 +86,8 @@ class ArticlesController extends Controller
     public function show($id)
     {
         $article = Article::find($id);
+        $article = Article::getTagArray($article);
+
         $article->content = $article->withContent()->get()[0]->content;
         $comments = Comment::where('article_id', $id)->get();
 

@@ -40,4 +40,26 @@ class Article extends Eloquent
         return mb_substr(strip_tags($articleContent), 0, 200) . '...';
     }
 
+    /**
+     * 从数据库获取文章，标签处理
+     * @param $article
+     * @return bool
+     */
+    public static function getTagArray(&$article)
+    {
+        if (empty($article)) {
+            return false;
+        }
+
+        if (count($article) === 1) {
+            $article->tagArray = explode(',', $article->tags);
+        } else {
+            foreach ($article as &$value) {
+                $value->tags = explode(',', $value->tags);
+            }
+        }
+
+        return $article;
+    }
+
 }
