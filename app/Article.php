@@ -30,4 +30,14 @@ class Article extends Eloquent
         return $this->hasOne('App\ArticleData');
     }
 
+    /**
+     * 文章描述处理
+     * @param $articleContent
+     * @return string
+     */
+    public static function descriptionProcess($articleContent)
+    {
+        return mb_substr(strip_tags($articleContent), 0, 200) . '...';
+    }
+
 }

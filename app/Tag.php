@@ -9,4 +9,35 @@ class Tag extends Model
     protected $fillable = [
         'name'
     ];
+
+    /**
+     * 新建文章标签处理
+     * @param $tagString
+     * @param $articleId
+     */
+    public static function createArticleTagProcess($tagString, $articleId)
+    {
+        $tagArray = array_filter(explode(',', $tagString));
+
+        foreach ($tagArray as $key => $tag) {
+            $tagInDatabase = Tag::where('name', $tag)->first();
+
+            if (empty($tagInDatabase)) {
+                // 标签不存在，创建标签
+                $tagInDatabase = Tag::create(['name' => $tag]);
+            } else {
+                // 标签已经存在，更新引用标签次数
+                $tagInDatabase->increment('num');
+            }
+
+            $tagMapInDatabase = TagMap::where('article_id', $articleId)
+                ->where('tag_id', $tagInDatabase->id)->first();
+
+            if (empty($tagMapInDatabase)) {
+                // 关系不存在，创建关系
+                TagMap::create(['article_id' => $articleId, 'tag_id' => $tagInDatabase->id]);
+            }
+        }
+
+    }
 }

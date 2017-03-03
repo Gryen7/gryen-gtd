@@ -44,9 +44,9 @@
                 <div class="t-tag-box" id="tTagBox">
                 </div>
                 {{ Form::input('text', 'tTagInput', '', ['id' => 'tTagInput']) }}
-                {{ Form::input('hidden', 'stags', '', ['id' => 'tTags']) }}
+                {{ Form::input('hidden', 'tags', '', ['id' => 'tTags']) }}
             </div>
-            <div class="t-lbl-box">
+            <div class="t-lbl-box" id="tLblBox">
                 @foreach($tags as $tag)
                     <span class="t-tag label label-default">{{ $tag->name }}</span>
                 @endforeach

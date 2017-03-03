@@ -14,6 +14,7 @@ let tTagBox = $('#tTagBox'); // 选中的标签存放容器
 let tTag = $('.t-tag'); // 标签
 let tTags = $('#tTags'); // 要提交的标签
 let tTagsArray = []; // 标签数组
+let tLblBox = $('#tLblBox'); // 系统中的标签
 
 trArtTtlBox.html(null);
 
@@ -109,7 +110,7 @@ tTagInput.keydown(function (e) {
             let tag = $.trim(tTagInput.val());
 
             if ($.inArray(tTagInput.val(), tTagsArray) < 0) {
-                tTagBox.append(`<span class="t-tag label label-default">${tag}</span>`);
+                tTagBox.append(`<span class="t-input-tag label label-default">${tag}</span>`);
                 tTagsArray.push(tag);
                 tTags.val(tTagsArray.join(','));
             } else {
@@ -123,11 +124,17 @@ tTagInput.keydown(function (e) {
     }
 
     // 删除标签
-    if (e.which === 8) {
+    if (tTagInput.val().length < 1 && e.which === 8) {
         let tags = tTagBox.children();
 
         if (tags.length > 0) {
-            tags.eq(tags.length - 1).remove();
+            let lastChild = tags.eq(tags.length - 1);
+
+            if (lastChild.hasClass('t-tag')) {
+                tLblBox.append(lastChild);
+            } else {
+                tags.eq(tags.length - 1).remove();
+            }
             tTagsArray.pop();
             tTags.val(tTagsArray.join(','));
         } else {

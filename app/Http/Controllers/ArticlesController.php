@@ -27,7 +27,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * 新建文章页面
      *
      * @return \Illuminate\Http\Response
      */
@@ -38,7 +38,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * 保存新的文章
      *
      * @param CreateArticleRequest|\Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -48,23 +48,8 @@ class ArticlesController extends Controller
     {
         $resParams = $request->all();
 
-        /* 标签存文章表前置处理 */
-        $resParams['tags'] = '';
-        // 点选的标签，tags 表中的数据
-        $sTags = json_decode($request->get('stags'));
-        if (!empty($sTags)) {
-            foreach ($sTags as $key => $value) {
-                $resParams['tags'] .= $value . ',';
-            }
-        }
-
-        // 输入的标签
-        $oTags = $request->get('otags');
-        $resParams['tags'] .= $oTags;
-
         /* 文章描述处理 */
-        $textContent = strip_tags($request->get('content'));
-        $resParams['description'] = mb_substr($textContent, 0, 200) . '...';
+        $resParams['description'] = Article::descriptionProcess($request->get('content'));
 
         /* 处理文章封面上传 */
         $File = Input::file('cover');
@@ -76,65 +61,16 @@ class ArticlesController extends Controller
             }
         }
 
+        /* 创建文章 */
         $article = Article::create($resParams);
+
+        /* 标签处理 */
+        Tag::createArticleTagProcess($request->get('tags'), $article->id);
 
         /* 更新文章内容 */
         $article->withContent()->create([
             'content' => $request->get('content')
         ]);
-
-        /* 处理标签与文章的关系 */
-        // 输入的标签
-        if(isset($oTagsArray) && !empty($oTagsArray) && count($oTagsArray) > 0) {
-            $oTagsArray = array_filter(explode(',', $oTags));
-            foreach ($oTagsArray as $value) {
-                $oTagInTable = Tag::where('name', $value);
-                if ($oTagInTable->count() < 1) {
-                    // TAG 不存在
-                    $newTag = Tag::create([
-                        'name' => $value
-                    ]);
-
-                    TagMap::create([
-                        'tag_id' => $newTag->id,
-                        'article_id' => $article->id
-                    ]);
-                } else {
-                    // TAG 存在，判断关系是否存在，创建关系，num++
-                    $oTagInTable = $oTagInTable->first();
-                    $mapNoExisted = TagMap::where('tag_id', $oTagInTable->id)
-                        ->where('article_id', $article->id)
-                        ->count() < 1;
-                    if ($mapNoExisted) {
-                        TagMap::create([
-                            'tag_id' => $oTagInTable->id,
-                            'article_id' => $article->id
-                        ]);
-                        $oTagInTable->increment('num');
-                    }
-                }
-            }
-        }
-
-        // 点选的标签
-        if (isset($sTags) && !empty($sTags)){
-            foreach ($sTags as $key => $value) {
-                $tagInTable = Tag::find($key);
-
-                $mapExisted = TagMap::where('tag_id', $tagInTable->id)
-                        ->where('article_id', $article->id)
-                        ->count() > 0;
-
-                if (!$mapExisted) {
-                    TagMap::create([
-                        'tag_id' => $tagInTable->id,
-                        'article_id' => $article->id
-                    ]);
-                    $tagInTable->increment('num');
-                }
-
-            }
-        }
 
         /** @noinspection PhpUndefinedFieldInspection */
         return redirect(action('ArticlesController@show', ['id' => $article->id]));
