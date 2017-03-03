@@ -1,4 +1,4 @@
-<ul class="list-group">
+<ul class="list-group t-rtcl-lstbx">
     @foreach($articles as $article)
         <li class="list-group-item tar-article-list">
             <div class="tar-article-info clearfix">
