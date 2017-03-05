@@ -1,5 +1,5 @@
 <div class="container">
-    <h4 class="text-center t-index-plttl">摄影 · 旅行</h4>
+    <div class="text-center t-index-plttl">摄影 · 旅行</div>
     <div class="row">
         <div class="col-xs-1"></div>
         <div class="col-xs-10 row t-index-pltbox">

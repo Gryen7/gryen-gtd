@@ -3,9 +3,14 @@
 
 .t-index-plttl {
     color: $cfont-focus;
+    background-color: $cbackgroud;
+    border: 20px solid transparent;
+    -webkit-border-image:url("/dist/img/flower-border.png") 60 60 round; /* Safari 5 */
+    -o-border-image:url("/dist/img/flower-border.png") 60 60 round; /* Opera */
+    border-image:url("/dist/img/flower-border.png") 60 60 round;
     font-weight: 700;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    width: 300px;
+    margin: 30px auto;
 }
 
 .t-index-pltbox {
@@ -26,34 +31,64 @@
         background-color: $cwhite;
         height: 500px;
         padding: 30px;
-        box-shadow: 0 0 10px #ccc;
         border-radius: 2px;
+        border: 25px solid transparent;
+        -webkit-border-image:url("/dist/img/flower-border.png") 66 66 round; /* Safari 5 */
+        -o-border-image:url("/dist/img/flower-border.png") 66 66 round; /* Opera */
+        border-image:url("/dist/img/flower-border.png") 66 66 round;
     }
 }
+
 .t-index-cdcontent {
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     height: 500px;
-}
-.t-index-cdbox{
-    animation:cdturnround 4s linear infinite;
-    width: 300px;
-    height: 300px;
-    overflow: hidden;
+    flex-direction:column;
 
-    img {
-        width: 300px;
-        height: 300px;
+    .t-index-cdbox {
+        animation: cdturnround 4s linear infinite;
+        width: 400px;
+        height: 400px;
+        overflow: hidden;
+
+        img {
+            width: 400px;
+            height: 400px;
+        }
+    }
+
+    .t-index-cdpaused {
+        -webkit-animation-play-state: paused;
+    }
+
+    audio {
+        margin-top: 20px;
     }
 }
-@-webkit-keyframes cdturnround{
-    0%{-webkit-transform:rotate(0)}
-    50%{-webkit-transform:rotate(180deg)}
-    100%{-webkit-transform:rotate(360deg)}
+
+
+
+@-webkit-keyframes cdturnround {
+    0% {
+        -webkit-transform: rotate(0)
+    }
+    50% {
+        -webkit-transform: rotate(180deg)
+    }
+    100% {
+        -webkit-transform: rotate(360deg)
+    }
 }
-@keyframes cdturnround{
-    0%{transform:rotate(0)}
-    50%{transform:rotate(180deg)}
-    100%{transform:rotate(360deg)}
+
+@keyframes cdturnround {
+    0% {
+        transform: rotate(0)
+    }
+    50% {
+        transform: rotate(180deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
 }

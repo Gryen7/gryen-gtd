@@ -18,7 +18,7 @@ $(function () {
     let windowHeight = $(window).height();
     let bodyHeight = $('body').height();
 
-    if (windowHeight > bodyHeight) {
+    if (windowHeight > bodyHeight + 30) {
         tIndexFtr.addClass('navbar-fixed-bottom').fadeIn();
     } else {
         tIndexFtr.fadeIn();

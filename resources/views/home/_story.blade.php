@@ -1,5 +1,5 @@
 <div class="container">
-    <h4 class="text-center t-index-plttl">随笔 · 感悟</h4>
+    <div class="text-center t-index-plttl">随笔 · 感悟</div>
     <div class="row t-index-pltbox">
         @foreach($storys as $story)
             <div class="col-xs-3">
