@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-xs-1"></div>
         <div class="col-xs-10 row t-index-pltbox">
-            <p>这里可以放一些话。。。</p>
+            <p>{{ $words->content }}</p>
         </div>
         <div class="col-xs-1"></div>
     </div>

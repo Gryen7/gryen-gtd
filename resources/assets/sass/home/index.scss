@@ -10,7 +10,6 @@
 
 .t-index-pltbox {
     background-color: $cbackgroud;
-    padding-top: 30px;
     padding-bottom: 10px;
     border-radius: 4px;
 
@@ -25,11 +24,36 @@
     .t-index-desc {
         writing-mode: vertical-rl;
         background-color: $cwhite;
-        width: 560px;
         height: 500px;
         padding: 30px;
-        margin: 10px 30px 30px;
         box-shadow: 0 0 10px #ccc;
         border-radius: 2px;
     }
+}
+.t-index-cdcontent {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 500px;
+}
+.t-index-cdbox{
+    animation:cdturnround 4s linear infinite;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+
+    img {
+        width: 300px;
+        height: 300px;
+    }
+}
+@-webkit-keyframes cdturnround{
+    0%{-webkit-transform:rotate(0)}
+    50%{-webkit-transform:rotate(180deg)}
+    100%{-webkit-transform:rotate(360deg)}
+}
+@keyframes cdturnround{
+    0%{transform:rotate(0)}
+    50%{transform:rotate(180deg)}
+    100%{transform:rotate(360deg)}
 }

@@ -49,8 +49,10 @@ class HomeController extends Controller
             ->take(8)
             ->get();
 
-        $arts = [];
-        $words = [];
+        $arts = (object)[];
+        $arts->content = '故事不要多，只要精彩就足够。。。';
+        $words = (object)[];
+        $words->content = '故事不要多，只要精彩就足够。。。';
 
         return view('home.index', compact('banners', 'photos', 'storys', 'arts', 'words', 'module'));
     }

@@ -2,21 +2,20 @@
     margin-right: 30px;
     margin-top: -2px;
     z-index: 2;
-    border-top: 1px solid #F3F2EB;
+    border-top: 1px solid $carticle-btn;
 
     .btn {
-        background: -webkit-gradient(linear, 0% 50%, 0% 50%, from(#F3F2EB), to($cbackgroud), color-stop(.1,$cbackgroud));
+        background: linear-gradient($carticle-btn, $cbackgroud);
         border-radius: 0;
-        border-top: 1px solid #F3F2EB;
+        border-top: 1px solid $carticle-btn;
     }
 }
 
 .tar-article-box {
-    margin-top: 20px;
     padding: 15px;
     position:relative;
     display: inline-block;
-    background: -webkit-gradient(linear, 0% 20%, 0% 1000%, from($cwhite), to($cwhite), color-stop(.1,$carticle-backgroud));
+    background: -webkit-gradient(linear, 0% 20%, 0% 1000%, from($cwhite), to($cwhite), color-stop(.1,$cbackgroud));
     border: 1px solid $cgray-base;
     -webkit-box-shadow: 0 3px 30px rgba(0, 0, 0, 0.1) inset;
     -webkit-border-bottom-right-radius: 6px 50px;

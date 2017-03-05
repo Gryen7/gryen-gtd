@@ -1,8 +1,7 @@
 .t-rtcl-lstbx {
-    margin-top: 20px;
     position:relative;
     display: inline-block;
-    background: -webkit-gradient(linear, 0% 20%, 0% 1000%, from($cwhite), to($cwhite), color-stop(.1,$carticle-backgroud));
+    background: -webkit-gradient(linear, 0% 20%, 0% 1000%, from($cwhite), to($cwhite), color-stop(.1,$cbackgroud));
     border: 1px solid $cgray-base;
     -webkit-box-shadow: 0 3px 30px rgba(0, 0, 0, 0.1) inset;
     -webkit-border-bottom-right-radius: 6px 50px;
@@ -38,8 +37,8 @@
     min-height: 100px;
     border-radius: 0;
     background-color: transparent;
-    border: none;
-    margin-bottom: 30px;
+    border-left: none;
+    border-right: none;
 
     .tar-article-info {
         margin-bottom: 10px;
@@ -47,12 +46,6 @@
         .tar-article-extra {
             color: $cgray-base;
         }
-    }
-
-    hr {
-        border: none;
-        border-top: 1px solid $cgray-base;
-        margin: 5px 0;
     }
 
     .tar-article-list-decs {
@@ -67,4 +60,14 @@
     .t-rtcl-tag {
         margin-top: 10px;
     }
+}
+
+.tar-article-list:first-child {
+    border-radius: 0;
+    border-top: none;
+}
+
+.tar-article-list:last-child {
+    border-radius: 0;
+    border-bottom: none;
 }
