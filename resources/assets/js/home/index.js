@@ -23,8 +23,10 @@ tIndexAudio.on('play', function () {
 $win.scroll(function () {
     let winScrollTop = $win.scrollTop();
 
-    if(!(winScrollTop > itemOffsetTop+itemOuterHeight) && !(winScrollTop < itemOffsetTop-winHeight)) {
-        tIndexAudio.get(0).play();
+    if(!(winScrollTop > itemOffsetTop + itemOuterHeight) && !(winScrollTop < itemOffsetTop - winHeight)) {
+        if (tIndexAudio.get(0).readyState === 4) {
+            tIndexAudio.get(0).play();
+        }
     } else {
         tIndexAudio.get(0).pause();
     }
