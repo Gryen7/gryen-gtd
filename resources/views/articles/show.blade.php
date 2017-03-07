@@ -14,7 +14,7 @@
                 </div>
                 <div class="t-rtcl-tag">
                     @foreach($article->tagArray as $tag)
-                        <span class="label label-default">{{ $tag }}</span>
+                        <span class="label label-tag">{{ $tag }}</span>
                     @endforeach
                 </div>
             </div>
