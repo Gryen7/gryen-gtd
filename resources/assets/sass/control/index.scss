@@ -74,6 +74,10 @@ body {
     }
 }
 
+.no-resize {
+    resize: none;
+}
+
 @import "todo";
 @import "setting";
 @import "article";

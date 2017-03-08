@@ -68,7 +68,10 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
     Route::post('/setting/banners/set', 'Control\BannersController@set');
     Route::get('/setting/site', 'Control\SettingsController@site');
 
-    Route::get('/setting/word', 'Control\SettingsController@word');
+    /* 首页相关内容更新 */
+    Route::get('/setting/home', 'Control\SettingsController@home');
+    Route::post('/setting/home/word', 'Control\HomeController@word');
+    Route::post('/setting/home/story', 'Control\HomeController@story');
 
     Route::post('/setting/site/title', 'Control\SiteController@title');
     Route::post('/setting/site/subtitle', 'Control\SiteController@subTitle');

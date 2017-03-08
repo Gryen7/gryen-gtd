@@ -35,10 +35,10 @@ class SettingsController extends Controller
     }
 
     /**
-     * 首页致知设置
+     * 首页板块设置
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function word()
+    public function home()
     {
         $config = Config::getAllConfig();
         return view('control.settings.word', compact('config'));

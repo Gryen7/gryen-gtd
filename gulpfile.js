@@ -43,5 +43,5 @@ elixir(function (mix) {
             'node_modules/bootstrap-sass/assets/fonts/bootstrap'
         ], 'public/dist/fonts/bootstrap');
 
-    mix.task('phplint', 'app/**/*.php');
+    // mix.task('phplint', 'app/**/*.php');
 });
