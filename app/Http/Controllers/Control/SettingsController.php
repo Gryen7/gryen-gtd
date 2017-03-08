@@ -34,4 +34,14 @@ class SettingsController extends Controller
         return view('control.settings.banners', compact('articles', 'banners'));
     }
 
+    /**
+     * 首页致知设置
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function word()
+    {
+        $config = Config::getAllConfig();
+        return view('control.settings.word', compact('config'));
+    }
+
 }
