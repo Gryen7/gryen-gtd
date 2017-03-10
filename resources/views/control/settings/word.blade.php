@@ -10,8 +10,12 @@
                     {{ Form::input('text', 'title', '', ['class' => 'form-control']) }}
                 </div>
                 <div class="form-group">
+                    <label for="title">图片：</label>
+                    {{ Form::input('text', 'images', '', ['class' => 'form-control']) }}
+                </div>
+                <div class="form-group">
                     <label for="title">资源：</label>
-                    {{ Form::input('text', 'source', '', ['class' => 'form-control']) }}
+                    {{ Form::input('text', 'resource', '', ['class' => 'form-control']) }}
                 </div>
                 <div class="form-group">
                     <label for="title">描述：</label>

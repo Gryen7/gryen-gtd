@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Banner;
+use App\Story;
+use App\Word;
+use Aws\Waiter;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -42,19 +45,20 @@ class HomeController extends Controller
             ->get();
 
         /* 随笔 */
-        $storys = Article::where('status', '>', 0)
+        $notes = Article::where('status', '>', 0)
             ->where('tags', 'like', '%随笔%')
             ->where('cover', '<>', '')
             ->skip(0)
             ->take(8)
             ->get();
 
-        $arts = (object)[];
-        $arts->content = '故事不要多，只要精彩就足够。。。';
-        $words = (object)[];
-        $words->content = '故事不要多，只要精彩就足够。。。';
+        /* 聆听故事 */
+        $storys = Story::first();
 
-        return view('home.index', compact('banners', 'photos', 'storys', 'arts', 'words', 'module'));
+        /* 致知 */
+        $words = Word::first();
+
+        return view('home.index', compact('banners', 'photos', 'notes', 'storys', 'words', 'module'));
     }
 
     /**

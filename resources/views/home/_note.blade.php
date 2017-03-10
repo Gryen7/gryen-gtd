@@ -1,14 +1,14 @@
 <div class="container">
     <div class="text-center t-index-plttl">随笔 · 感悟</div>
     <div class="row t-index-pltbox">
-        @foreach($storys as $story)
+        @foreach($notes as $note)
             <div class="col-xs-3">
                 <a href="" class="thumbnail">
-                    <img src="{{ $story->cover }}"
-                         alt="{{ $story->title }}">
+                    <img src="{{ $note->cover }}"
+                         alt="{{ $note->title }}">
                     <div class="caption">
-                        <p><b>{{ $story->title }}</b></p>
-                        <p>{{ $story->description }}</p>
+                        <p><b>{{ $note->title }}</b></p>
+                        <p>{{ $note->description }}</p>
                     </div>
                 </a>
             </div>

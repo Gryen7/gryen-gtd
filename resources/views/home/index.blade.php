@@ -16,7 +16,7 @@
     @endif
 
     @if(count($storys) > 0)
-        @include('home._story')
+        @include('home._note')
     @endif
 
     @if(!empty($words))
