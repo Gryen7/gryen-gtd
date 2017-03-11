@@ -27,6 +27,16 @@ input, textarea:focus {
     resize: none;
 }
 
+.t-index-ftr {
+    background-color: $cwhite;
+    border: 0;
+    border-radius: 0;
+    border-top: solid 1px $cfont-focus;
+    margin-bottom: 0;
+    display: none;
+    margin-top: 20px;
+}
+
 @import "dialog";
 @import "simditor";
 @import "nav";
