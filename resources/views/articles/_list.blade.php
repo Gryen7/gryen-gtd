@@ -1,4 +1,4 @@
-<ul class="list-group tar-article-box">
+<ul class="list-group tar-article-box t-border-image">
     @foreach($articles as $article)
         <li class="list-group-item tar-article-list">
             <div class="tar-article-info clearfix">

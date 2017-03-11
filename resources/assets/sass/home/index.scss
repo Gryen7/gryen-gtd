@@ -4,8 +4,6 @@
 .t-index-plttl {
     color: $cfont-focus;
     background-color: $cbackgroud;
-    border: 20px solid transparent;
-    border-image:url("/dist/img/flower-border.png") 60 60 round;
     font-weight: 700;
     width: 300px;
     margin: 30px auto;
@@ -30,8 +28,6 @@
         height: 500px;
         padding: 30px;
         border-radius: 2px;
-        border: 25px solid transparent;
-        border-image:url("/dist/img/flower-border.png") 66 66 round;
     }
 }
 

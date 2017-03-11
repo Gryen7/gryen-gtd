@@ -36,7 +36,10 @@ input, textarea:focus {
     display: none;
     margin-top: 20px;
 }
-
+.t-border-image {
+    border: 30px solid transparent;
+    border-image:url("/dist/img/flower-border.png") 67 67 round;
+}
 @import "dialog";
 @import "simditor";
 @import "nav";

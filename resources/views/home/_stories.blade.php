@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="text-center t-index-plttl">聆听 · 岁月</div>
+    <div class="text-center t-index-plttl t-border-image">聆听 · 岁月</div>
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10 row t-index-pltbox">
@@ -11,7 +11,7 @@
                     浏览器不支持！
                 </audio>
             </div>
-            <div class="col-md-4 t-index-desc">
+            <div class="col-md-4 t-index-desc t-border-image">
                 {{ $stories->title }}
                 {{ $stories->content }}
             </div>

@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
-            <div class="tar-article-box">
+            <div class="tar-article-box t-border-image">
                 <div class="text-center t-rtcl-ttl">{{ $article->title }}</div>
                 <hr>
                 <span class="pull-right tar-article-time">
