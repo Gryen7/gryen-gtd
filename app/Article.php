@@ -51,7 +51,7 @@ class Article extends Eloquent
             return false;
         }
 
-        if (count($article) === 1) {
+        if (isset($article->id)) {
             $article->tagArray = explode(',', $article->tags);
         } else {
             foreach ($article as &$value) {
