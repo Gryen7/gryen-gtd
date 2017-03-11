@@ -7,13 +7,13 @@
                 <div class="t-index-cdbox t-index-cdpaused" id="tIndexCdbox">
                     <img src="http://7xnswo.com1.z0.glb.clouddn.com/cd.png" />
                 </div>
-                <audio id="tIndexAudio" src="{{ $arts->resource }}">
+                <audio id="tIndexAudio" src="{{ $stories->resource }}">
                     浏览器不支持！
                 </audio>
             </div>
             <div class="col-md-4 t-index-desc">
-                {{ $arts->title }}
-                {{ $arts->content }}
+                {{ $stories->title }}
+                {{ $stories->content }}
             </div>
         </div>
         <div class="col-md-1"></div>

@@ -14,4 +14,21 @@ class Word extends Model
         'content',
         'status'
     ];
+
+    /**
+     * 获取致知
+     * @return object
+     */
+    public static function getWord()
+    {
+        $words = Word::orderBy('created_at', 'desc')->first();
+
+        if (empty($words)) {
+            $words = (object)[
+                'content' => ''
+            ];
+        }
+
+        return $words;
+    }
 }

@@ -6,6 +6,8 @@ use App\Article;
 use App\Banner;
 use App\Config;
 use App\Http\Controllers\Controller;
+use App\Story;
+use App\Word;
 
 class SettingsController extends Controller
 {
@@ -40,8 +42,10 @@ class SettingsController extends Controller
      */
     public function home()
     {
-        $config = Config::getAllConfig();
-        return view('control.settings.word', compact('config'));
+
+        $stories = Story::getStory();
+        $words = Word::getWord();
+        return view('control.settings.home', compact('stories', 'words'));
     }
 
 }

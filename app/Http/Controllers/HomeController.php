@@ -53,12 +53,12 @@ class HomeController extends Controller
             ->get();
 
         /* 聆听故事 */
-        $storys = Story::first();
+        $stories = Story::orderBy('created_at', 'desc')->first();
 
         /* 致知 */
-        $words = Word::first();
+        $words = Word::orderBy('created_at', 'desc')->first();
 
-        return view('home.index', compact('banners', 'photos', 'notes', 'storys', 'words', 'module'));
+        return view('home.index', compact('banners', 'photos', 'notes', 'stories', 'words', 'module'));
     }
 
     /**

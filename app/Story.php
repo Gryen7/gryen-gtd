@@ -18,4 +18,24 @@ class Story extends Model
         'content',
         'status'
     ];
+
+    /**
+     * 获取故事
+     * @return object
+     */
+    public static function getStory()
+    {
+        $stories = Story::orderBy('created_at', 'desc')->first();
+
+        if (empty($stories)) {
+            $stories = (object)[
+                'title' => '',
+                'content' => '',
+                'images' => '',
+                'resource' => ''
+            ];
+        }
+
+        return $stories;
+    }
 }
