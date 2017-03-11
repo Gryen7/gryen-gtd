@@ -1,9 +1,9 @@
 .t-rtcl-lstbx {
     background-color: $cbackgroud;
     border: 30px solid transparent;
-    -webkit-border-image:url("/dist/img/flower-border.png") 66 66 round; /* Safari 5 */
-    -o-border-image:url("/dist/img/flower-border.png") 66 66 round; /* Opera */
-    border-image:url("/dist/img/flower-border.png") 66 66 round;
+    //-webkit-border-image: url("/dist/img/flower-border.png") 66 66 round; /* Safari 5 */
+    //-o-border-image: url("/dist/img/flower-border.png") 66 66 round; /* Opera */
+    border-image: url("/dist/img/flower-border.png") 66 66 round;
 }
 
 .tar-article-list {
