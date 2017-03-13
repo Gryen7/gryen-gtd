@@ -35,6 +35,7 @@ input, textarea:focus {
     margin-bottom: 0;
     display: none;
     margin-top: 20px;
+    z-index: 1;
 }
 .t-border-image {
     border: 30px solid transparent;
