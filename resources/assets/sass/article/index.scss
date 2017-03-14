@@ -30,15 +30,19 @@
 
     hr {
         margin: 0.5rem auto;
+        max-width: 750px;
     }
 
     .tar-article-time {
         color: $cgray-base;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
     }
 
     .article-content {
         width: 100%;
+        max-width: 750px;
+        margin-left: auto;
+        margin-right: auto;
         overflow: hidden;
         word-wrap: break-word;
         word-break: normal;
