@@ -22,6 +22,9 @@
 
 .tar-article-box {
     background-color: $cbackgroud;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 960px;
 
     .t-rtcl-ttl {
         font-weight: 700;
