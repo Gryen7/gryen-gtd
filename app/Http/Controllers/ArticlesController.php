@@ -7,6 +7,7 @@ use App\Comment;
 use App\Http\Requests\CreateArticleRequest;
 use App\Tag;
 use App\Upload;
+use App\Config;
 use Illuminate\Support\Facades\Input;
 
 class ArticlesController extends Controller
@@ -21,6 +22,12 @@ class ArticlesController extends Controller
         $articles = Article::where('status', '>', 0)
             ->orderBy('created_at', 'desc')
             ->paginate(7);
+
+        foreach ($articles as &$article) {
+            if(empty($article->cover)) {
+                $article->cover = Config::getAllConfig('SITE_DEFAULT_IMAGE');
+            }
+        }
 
         $articles = Article::getTagArray($articles);
         $siteTitle = '记录';

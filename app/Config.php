@@ -17,10 +17,11 @@ class Config extends Model
     public $timestamps = false;
 
     /**
-     * 获取全部配置
+     * 获取全部配置或者某个配置
+     * @param null $key 空获取全部配置，有值获取值
      * @return object
      */
-    public static function getAllConfig()
+    public static function getAllConfig($key = null)
     {
         $returnConfig = [];
 
@@ -44,7 +45,11 @@ class Config extends Model
             $returnConfig = json_decode($redisConfig, true);
         }
 
-        return (object)$returnConfig;
+        if (empty($key)) {
+            return (object)$returnConfig;
+        } else {
+            return $returnConfig[$key];
+        }
     }
 
     /**

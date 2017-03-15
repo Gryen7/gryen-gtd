@@ -21,9 +21,7 @@
             <div class="col-md-6">
                 <div class="tar-article-info clearfix">
                     <a href="{{ action('ArticlesController@show',[$article->id]) }}">
-                        <img src="{{ imageView2(empty($article->cover) ? 'http://7xnswo.com1.z0.glb.clouddn.com/default-image.jpg' : $article->cover, [
-                'w' => 600,
-                'h' => 300]) }}" alt="..." class="img-rounded">
+                        <img src="{{ imageView2($article->cover, ['w' => 600,'h' => 300]) }}" alt="..." class="img-rounded">
                     </a>
                 </div>
             </div>
