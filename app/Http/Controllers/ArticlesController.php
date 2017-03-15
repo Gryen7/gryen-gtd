@@ -93,6 +93,17 @@ class ArticlesController extends Controller
     public function show($id)
     {
         $article = Article::find($id);
+
+        /* 没有数据跳转首页 */
+        if (empty($article)) {
+            return redirect('/');
+        }
+
+        /* 没有权限跳转首页 */
+        if (($article->trashed() || $article->status < 1) && !\Auth::check()) {
+            return redirect('/');
+        }
+
         $article = Article::getTagArray($article);
 
         $article->content = $article->withContent()->get()[0]->content;
