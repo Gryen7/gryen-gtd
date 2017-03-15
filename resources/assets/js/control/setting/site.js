@@ -15,6 +15,9 @@ let siteKeywordsBtn = $('#siteKeywordsBtn');
 let siteDescription = $('#siteDescription');
 let siteDescriptionBtn = $('#siteDescriptionBtn');
 
+let siteDefaultImage = $('#siteDefaultImage');
+let siteDefaultImageBtn = $('#siteDefaultImageBtn');
+
 /**
  * 设置站点标题
  */
@@ -48,5 +51,14 @@ siteKeywordsBtn.click(function () {
 siteDescriptionBtn.click(function () {
     if (siteDescription.val().length > 0) {
         $.post('/control/setting/site/description', {description: siteDescription.val()});
+    }
+});
+
+/**
+ * 设置站点默认图片
+ */
+siteDefaultImageBtn.click(function () {
+    if (siteDefaultImage.val().length > 0) {
+        $.post('/control/setting/site/defaultimage', {default_image: siteDefaultImage.val()});
     }
 });

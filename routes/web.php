@@ -77,6 +77,7 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
     Route::post('/setting/site/subtitle', 'Control\SiteController@subTitle');
     Route::post('/setting/site/keywords', 'Control\SiteController@keywords');
     Route::post('/setting/site/description', 'Control\SiteController@description');
+    Route::post('/setting/site/defaultimage', 'Control\SiteController@defaultImage');
 
     Route::get('/ashcan', 'ControlPanelController@ashcan');
 });

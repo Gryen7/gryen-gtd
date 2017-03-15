@@ -47,4 +47,13 @@ class SiteController extends Controller
     {
         return Config::setSiteDescription($request->get('description'));
     }
+
+    /**
+     * @param Request $request
+     * @return mixed
+     */
+    public function defaultImage(Request $request)
+    {
+        return Config::setSiteDefaultImage($request->get('default_image'));
+    }
 }

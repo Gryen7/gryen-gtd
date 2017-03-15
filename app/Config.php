@@ -125,4 +125,24 @@ class Config extends Model
             'value' => $siteDescription
         ]);
     }
+
+    /**
+     * 设置站点默认图片
+     * @param $siteDefaultImage
+     * @return mixed
+     */
+    public static function setSiteDefaultImage($siteDefaultImage)
+    {
+        $redis = Redis::connection();
+        $config = json_decode($redis->get('CONFIG'));
+        if(empty($config)) {
+            $config = (object)[];
+        }
+        $config->SITE_DEFAULT_IMAGE = $siteDefaultImage;
+        $redis->set('CONFIG', json_encode($config));
+        return self::updateOrCreate([
+            'name' => 'SITE_DEFAULT_IMAGE',
+            'value' => $siteDefaultImage
+        ]);
+    }
 }
