@@ -39,6 +39,5 @@ function imageView2(string $image, array $params, $mode = 1, $q = 80) {
         }
     }
 
-    /* 强制 http */
-    return 'http:' . $image . $queryString . '/q/' . $q;
+    return $image . $queryString . '/q/' . $q;
 }
