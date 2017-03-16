@@ -19,7 +19,8 @@
  * @param int $q 图片质量
  * @return string
  */
-function imageView2(string $image, array $params, $mode = 1, $q = 80) {
+function imageView2(string $image, array $params, $mode = 1, $q = 80)
+{
     $queryString = '?imageView2/' . $mode;
 
     // 允许的参数
@@ -38,6 +39,8 @@ function imageView2(string $image, array $params, $mode = 1, $q = 80) {
             $queryString .= '/' . $key . '/' . $value;
         }
     }
+
+    $image = str_replace('//static.', '//statics.', $image);
 
     return $image . $queryString . '/q/' . $q;
 }
