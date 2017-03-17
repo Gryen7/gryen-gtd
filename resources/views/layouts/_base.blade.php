@@ -12,20 +12,21 @@
     @if (isset($siteDescription))
         <meta name="description" content="{{ $siteDescription }}">
     @else
-        <meta name="description" content="{{ isset($CONFIG->SITE_DESCRIPTION) ? $CONFIG->SITE_DESCRIPTION : 'LaravelBlog' }}">
+        <meta name="description"
+              content="{{ isset($CONFIG->SITE_DESCRIPTION) ? $CONFIG->SITE_DESCRIPTION : 'LaravelBlog' }}">
     @endif
 
-        <title>
+    <title>
         @section('title')
             @if(isset($siteTitle) && !empty($siteTitle))
                 {{ $siteTitle }} --
             @endif
-                {{ isset($CONFIG->SITE_TITLE) ? $CONFIG->SITE_TITLE : 'LaravelBlog' }}
-                {{ isset($CONFIG->SITE_SUB_TITLE) ? ' -- ' . $CONFIG->SITE_SUB_TITLE : '' }}
+            {{ isset($CONFIG->SITE_TITLE) ? $CONFIG->SITE_TITLE : 'LaravelBlog' }}
+            {{ isset($CONFIG->SITE_SUB_TITLE) ? ' -- ' . $CONFIG->SITE_SUB_TITLE : '' }}
         @show
     </title>
-    <link rel="stylesheet" media="screen" charset="utf-8" href={{asset('dist/css/lib.css')}}>
-    <link rel="stylesheet" media="screen" charset="utf-8" href={{asset('dist/css/app.css')}}>
+    <link rel="stylesheet" media="screen" charset="utf-8" href={{env('STATIC_URL') . '/dist/' . env('APP_VERSION') . '/css/lib.css'}}>
+    <link rel="stylesheet" media="screen" charset="utf-8" href={{env('STATIC_URL') . '/dist/' . env('APP_VERSION') . '/css/app.css'}}>
 
     <!-- Scripts -->
     <script>
@@ -38,15 +39,22 @@
 @section('base_content')
 @show
 @include('common._footer')
-<script type="text/javascript" src="{{asset('dist/js/manifest.bundle.js')}}"></script>
-<script type="text/javascript" src="{{asset('dist/js/vendor.bundle.js')}}"></script>
-<script type="text/javascript" src="{{asset('dist/js/' . $module . '.bundle.js')}}"></script>
+<script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. env('APP_VERSION') . '/js/manifest.bundle.js'}}"></script>
+<script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. env('APP_VERSION') . '/js/vendor.bundle.js'}}"></script>
+<script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. env('APP_VERSION') . '/js/' . $module . '.bundle.js'}}"></script>
 @if(env('APP_ENV') === 'production')
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-92619955-1', 'auto');
         ga('send', 'pageview');

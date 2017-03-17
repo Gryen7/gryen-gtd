@@ -28,5 +28,8 @@
     "vue": "^2.1.8",
     "vue-resource": "^1.0.3",
     "webpack": "^2.2.0"
+  },
+  "dependencies": {
+    "laravel-elixir-env": "^1.0.0"
   }
 }

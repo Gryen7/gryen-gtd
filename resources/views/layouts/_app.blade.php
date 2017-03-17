@@ -11,8 +11,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="dist/css/lib.css" rel="stylesheet">
-    <link href="dist/css/app.css" rel="stylesheet">
+    <link href={{asset(env('STATIC_URL'). '/dist/' . env('APP_VERSION') . '/css/lib.css')}} rel="stylesheet">
+    <link href={{asset(env('STATIC_URL'). '/dist/' . env('APP_VERSION') . '/css/app.css')}} rel="stylesheet">
 
     <!-- Scripts -->
     <script>

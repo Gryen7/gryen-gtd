@@ -2,6 +2,7 @@
 const elixir = require('laravel-elixir');
 const gulp = require('gulp');
 const phplint = require('phplint').lint;
+require('laravel-elixir-env');
 
 /**
  * PHP 代码检查
@@ -30,18 +31,18 @@ gulp.task('phplint', function (cb) {
 
 elixir(function (mix) {
     //noinspection JSUnresolvedFunction
-    mix.sass('lib.scss', 'public/dist/css/lib.css')
-        .sass('app.scss', 'public/dist/css/app.css')
-        .sass('control.scss', 'public/dist/css/control.css');
+    mix.sass('lib.scss', `public/dist/${process.env.APP_VERSION}/css/lib.css`)
+        .sass('app.scss', `public/dist/${process.env.APP_VERSION}/css/app.css`)
+        .sass('control.scss', `public/dist/${process.env.APP_VERSION}/css/control.css`);
 
-    mix.webpack(['home.js', 'article.js', 'control.js', 'about.js'],'./public/dist/js');
+    mix.webpack(['home.js', 'article.js', 'control.js', 'about.js'], `./public/dist/${process.env.APP_VERSION}/js`);
 
     mix.copy([// 复制图片
         'resources/assets/img'
-    ], 'public/dist/img')
+    ], `public/dist/img`)
         .copy([// 复制 bootstrap 的字库
             'node_modules/bootstrap-sass/assets/fonts/bootstrap'
-        ], 'public/dist/fonts/bootstrap');
+        ], `public/dist/${process.env.APP_VERSION}/fonts/bootstrap`);
 
     // mix.task('phplint', 'app/**/*.php');
 });
