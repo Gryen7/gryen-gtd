@@ -37,7 +37,7 @@ class Article extends Eloquent
      */
     public static function descriptionProcess($articleContent)
     {
-        return mb_substr(strip_tags($articleContent), 0, 120);
+        return mb_substr(strip_tags($articleContent), 0, 130);
     }
 
     /**
