@@ -24,13 +24,17 @@
 
     .tar-article-list-decs {
         margin-top: 3px;
-        min-height: 98px;
+        height: 98px;
         word-break: break-all;
         word-wrap: break-word;
         overflow: hidden;
         display: -webkit-box;
-        box-orient: vertical;
-        line-clamp: 5;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+    }
+
+    .tar-article-list-decs:after {
+        content: '...';
     }
 
     .t-rtcl-tag {
