@@ -29,8 +29,8 @@
         word-wrap: break-word;
         overflow: hidden;
         display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 5;
+        box-orient: vertical;
+        line-clamp: 5;
     }
 
     .t-rtcl-tag {
