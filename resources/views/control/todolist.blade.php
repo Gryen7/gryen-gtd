@@ -1,19 +1,6 @@
 @extends('layouts._control', ['module' => 'control'])
 @section('subNavigation')
-    <div class="collapse navbar-collapse">
-        <form class="navbar-form navbar-left">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="搜索">
-            </div>
-            <button type="submit" class="btn btn-default">搜索</button>
-        </form>
-        <div class="navbar-right">
-            <button type="button" id="tar-new-todo-btn" class="btn btn-success navbar-btn">新待办</button>
-            <button type="button" class="btn btn-default navbar-btn">
-                <span class="glyphicon glyphicon-object-align-bottom"></span>
-            </button>
-        </div>
-    </div>
+    <button type="button" id="tar-new-todo-btn" class="btn btn-success navbar-btn">新待办</button>
 @endsection
 @section('content')
     @include('control.todos.create')

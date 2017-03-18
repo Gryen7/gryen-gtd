@@ -48,37 +48,51 @@ Route::group(['middleware' => 'auth'], function () {
  * Control Panel
  */
 Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
+
+    /* 控制面板首页 */
     Route::get('/', 'ControlPanelController@index');
 
-    Route::get('/articles', 'ControlPanelController@articles');
-    Route::get('/articles/delete/{ids}', 'ArticlesController@delete');
-    Route::get('/articles/destroy/{id}', 'ArticlesController@destroy');
-
-    Route::get('/comments', 'ControlPanelController@comments');
-
+    /* 任务管理 */
     Route::get('/todos/delete/{ids}', 'Control\ToDosController@delete');
     Route::post('/todos/status', 'Control\ToDosController@changeStatus');
     Route::post('/todos/date', 'Control\ToDosController@changeDate');
     Route::resource('/todos', 'Control\ToDosController');
 
+    /* 文章管理 */
+    Route::get('/articles', 'ControlPanelController@articles');
+    Route::get('/articles/delete/{ids}', 'ArticlesController@delete');
+    Route::get('/articles/destroy/{id}', 'ArticlesController@destroy');
+
+    /* 评论管理 */
+    Route::get('/comments', 'ControlPanelController@comments');
+
+    /* 用户设置页面 */
     Route::get('/user', 'ControlPanelController@user');
 
+    /* 设置首页 */
     Route::get('/settings', 'ControlPanelController@settings');
-    Route::get('/setting/banners', 'Control\SettingsController@banners');
-    Route::post('/setting/banners/set', 'Control\BannersController@set');
-    Route::get('/setting/site', 'Control\SettingsController@site');
 
-    /* 首页相关内容更新 */
+    /* 首页相关内容设置 */
     Route::get('/setting/home', 'Control\SettingsController@home');
     Route::post('/setting/home/word', 'Control\HomeController@word');
     Route::post('/setting/home/story', 'Control\HomeController@story');
 
+    /* 首页焦点图设置 */
+    Route::get('/setting/banners', 'Control\SettingsController@banners');
+    Route::post('/setting/banners/set', 'Control\BannersController@set');
+
+    /* 后台站点相关设置 */
+    Route::get('/setting/site', 'Control\SettingsController@site');
     Route::post('/setting/site/title', 'Control\SiteController@title');
     Route::post('/setting/site/subtitle', 'Control\SiteController@subTitle');
     Route::post('/setting/site/keywords', 'Control\SiteController@keywords');
     Route::post('/setting/site/description', 'Control\SiteController@description');
     Route::post('/setting/site/defaultimage', 'Control\SiteController@defaultImage');
 
+    /* 后台文件管理相关 */
+    Route::get('/setting/files', 'Control\FilesController@index');
+
+    /* 回收站 */
     Route::get('/ashcan', 'ControlPanelController@ashcan');
 });
 

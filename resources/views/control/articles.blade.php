@@ -1,22 +1,8 @@
 @extends('layouts._control', ['module' => 'control'])
 @section('subNavigation')
-    <div class="collapse navbar-collapse">
-        <form class="navbar-form navbar-left">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Search</button>
-        </form>
-        <div class="navbar-right">
-            <a href="{{ action('ArticlesController@create') }}" class="btn btn-success navbar-btn">新文章</a>
-            <button class="btn btn-default navbar-btn">
-                <span class="glyphicon glyphicon-object-align-bottom"></span>
-            </button>
-        </div>
-    </div>
+    <a href="{{ action('ArticlesController@create') }}" class="btn btn-success navbar-btn">新文章</a>
 @stop
 @section('content')
-
     <ul class="list-group tar-cpa-list">
         <li class="list-group-item">
             <span class="col-xs-8">标题</span>

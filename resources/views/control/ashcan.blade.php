@@ -1,13 +1,5 @@
 @extends('layouts._control', ['module' => 'control'])
 @section('subNavigation')
-    <div class="collapse navbar-collapse">
-        <form class="navbar-form navbar-left">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Search</button>
-        </form>
-    </div>
 @stop
 @section('content')
     <div class="table-responsive">
@@ -53,8 +45,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">OK</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary">确定</button>
                 </div>
                 {!! Form::close() !!}
             </div><!-- /.modal-content -->

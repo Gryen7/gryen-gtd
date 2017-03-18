@@ -1,8 +1,8 @@
 <div class="tar-cp-top clearfix">
     <ul class="list-group pull-right clearfix">
-        <li class="list-group-item pull-left"><a href="{{url('/')}}" target="_blank">Go Index</a></li>
-        <li class="list-group-item pull-left"><a href="" target="_blank">Update Logs</a></li>
-        <li class="list-group-item pull-left"><a href="" target="_blank">Disclaimer</a></li>
-        <li class="list-group-item pull-left"><a href="" target="_blank">Version 0.0.1</a></li>
+        <li class="list-group-item pull-left"><a href="{{url('/')}}" target="_blank">站点首页</a></li>
+        <li class="list-group-item pull-left"><a href="" target="_blank">更新日志</a></li>
+        <li class="list-group-item pull-left"><a href="" target="_blank">免责声明</a></li>
+        <li class="list-group-item pull-left"><a href="" target="_blank">版本 {{ env('APP_VERSION') }}</a></li>
     </ul>
 </div>

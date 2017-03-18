@@ -11,12 +11,12 @@
     </li>
     <li class="list-group-item">
         <a href="{{url('/control/todos')}}">
-            <span class="glyphicon glyphicon-list-alt" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="任务"></span>
+            <span class="glyphicon glyphicon-calendar" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="任务"></span>
         </a>
     </li>
     <li class="list-group-item">
         <a href="{{ action('ControlPanelController@articles') }}">
-            <span class="glyphicon glyphicon-pencil" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="文章"></span>
+            <span class="glyphicon glyphicon-list-alt" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="文章"></span>
         </a>
     </li>
     <li class="list-group-item">
