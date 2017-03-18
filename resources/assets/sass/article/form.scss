@@ -30,6 +30,12 @@
             }
         }
 
+        .simditor-image-loading {
+            > .progress {
+                margin-bottom: 0;
+            }
+        }
+
     }
 }
 
