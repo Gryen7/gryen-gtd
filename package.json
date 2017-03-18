@@ -30,6 +30,7 @@
     "webpack": "^2.2.0"
   },
   "dependencies": {
+    "jquery-lazyload": "^1.9.7",
     "laravel-elixir-env": "^1.0.0"
   }
 }

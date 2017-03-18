@@ -1,21 +1,13 @@
 /**
  * Created by targaryen on 16-9-3.
  */
-
+const $ = require('jquery');
 require('./constant');
 require('bootstrap');
 require('./todo');
 require('./setting');
-
-let cpMain = $('.tar-cp-main');
-let cpMainHeight = window.screen.availHeight - 212;
+require('./files');
 
 $.ajaxSetup({ headers: {
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 } });
-
-cpMain.height(cpMainHeight);
-
-$(window).resize(function() {
-    cpMain.height(cpMainHeight);
-});

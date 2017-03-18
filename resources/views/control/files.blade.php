@@ -2,4 +2,6 @@
 @section('subNavigation')
 @stop
 @section('content')
+    <div class="t-ctl-fl" id="tCtlImage">
+    </div>
 @stop

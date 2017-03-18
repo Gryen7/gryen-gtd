@@ -1,0 +1,24 @@
+.t-ctl-fl {
+    display: inline-block;
+
+    .t-ctl-flbx {
+        display: inline-block;
+        overflow: hidden;
+        width: 248px;
+        height: 248px;
+        margin: 10px;
+
+        img {
+            width: 248px;
+            height: 248px;
+        }
+    }
+    .t-ctl-floprtn {
+        margin-top: -41px;
+        padding-right: 13px;
+
+        button {
+            border-radius: 0;
+        }
+    }
+}

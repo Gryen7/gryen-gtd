@@ -1,9 +1,10 @@
-@import "_nav";
-@import "_top";
-@import "_todo";
-@import "_setting";
-@import "_article";
-@import "_trash";
+@import "nav";
+@import "top";
+@import "todo";
+@import "setting";
+@import "article";
+@import "trash";
+@import "file";
 
 body {
     height: 100%;
@@ -15,7 +16,7 @@ body {
 }
 
 .tar-cp-main {
-    overflow-y: auto;
+    min-height: 500px;
     border: 1px solid #e7e7e7;
     border-radius: 0.4em;
     padding-top: 1em;
@@ -28,4 +29,12 @@ body {
 
 .no-resize {
     resize: none;
+}
+
+.popover-content {
+    word-break: break-all;
+}
+
+.tooltip-inner {
+    word-break: keep-all;
 }

@@ -14,22 +14,61 @@ class File extends Model
         'status'
     ];
 
-    protected static $UPLOAD_PATH = '/uploads';
+    private static $UPLOAD_PATH = '/uploads';
 
     /* 允许上传的文件类型 */
-    protected static $ALLOW_FILE_TYPE = [
+    private static $ALLOW_FILE_TYPE = [
         'image/jpeg',
         'image/png',
         'image/gif'
     ];
 
+    /* 图片类型 */
+    private static $IMAGES = [
+        '.jpg',
+        '.jpeg',
+        '.png',
+        '.gif'
+    ];
+
+
     /* 服务器端的文件路径 */
-    protected static $FILE_RETURN_PATH = [
+    private static $FILE_RETURN_PATH = [
         'local' => 'filesystems.disks.local.root',
         'public' => 'filesystems.disks.public.root',
         's3' => 'filesystems.disks.s3.region' . '/' . 'filesystems.disks.s3.bucket',
         'qiniu' => 'filesystems.disks.qiniu.domains.default',
     ];
+
+    /**
+     * 是否是图片
+     * @param $filePath
+     * @return bool
+     * @internal param $file
+     */
+    private static function isImage($filePath)
+    {
+        $fileType = strchr($filePath, '.');
+        if (in_array($fileType, self::$IMAGES)) {
+            return $filePath;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * 是否是 Upload 目录下的文件
+     * @param $filePath
+     * @return bool
+     */
+    private static function isUploadsDirectory($filePath)
+    {
+        if (substr($filePath, 0, 7) === substr(self::$UPLOAD_PATH, 1, 7)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /**
      * 处理返回信息，兼容 simditor
@@ -78,5 +117,32 @@ class File extends Model
         } else {
             return self::returnResults(null, 'error!', false);
         }
+    }
+
+
+    /**
+     * 取得上传目录下所有图片文件
+     * @param string $directory
+     * @param int $page
+     * @return array
+     * @internal param bool $recursive
+     */
+    public static function List($directory = '', $page = 1)
+    {
+        $perPageNum = 12;
+        $from = ($page - 1) * $perPageNum;
+
+        $Disk = \Storage::disk(env('DISK'));
+        $files =  $Disk->files($directory, true);
+
+        foreach ($files as $key => &$file) {
+            if (self::isImage($file) && self::isUploadsDirectory($file)) {
+                $file = '//' . \Config::get(self::$FILE_RETURN_PATH[env('DISK')]) . '/' . $file;
+            } else {
+                unset($files[$key]);
+            }
+        }
+
+        return array_slice($files, $from, $perPageNum);
     }
 }

@@ -89,8 +89,9 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
     Route::post('/setting/site/description', 'Control\SiteController@description');
     Route::post('/setting/site/defaultimage', 'Control\SiteController@defaultImage');
 
-    /* 后台文件管理相关 */
+    /* 后台图片管理相关 */
     Route::get('/setting/files', 'Control\FilesController@index');
+    Route::get('/setting/files/list/{page}', 'Control\FilesController@getImageList');
 
     /* 回收站 */
     Route::get('/ashcan', 'ControlPanelController@ashcan');
