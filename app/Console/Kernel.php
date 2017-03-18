@@ -28,6 +28,6 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
 
         /* 自动更新 */
-        $schedule->exec('cd /web/laravelblog && git pull && gulp --production')->weekly();
+        $schedule->exec('cd /web/laravelblog && git pull')->weekly();
     }
 }
