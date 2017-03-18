@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Upload;
+use App\File;
 use Illuminate\Support\Facades\Input;
 
 class FilesController extends Controller
@@ -17,7 +17,7 @@ class FilesController extends Controller
     public function upload()
     {
         $File = Input::file('upload_file');
-        return Upload::upload($File);
+        return File::upload($File);
     }
 
 }

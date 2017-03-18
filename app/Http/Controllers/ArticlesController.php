@@ -6,7 +6,7 @@ use App\Article;
 use App\Comment;
 use App\Http\Requests\CreateArticleRequest;
 use App\Tag;
-use App\Upload;
+use App\File;
 use App\Config;
 use Illuminate\Support\Facades\Input;
 
@@ -62,7 +62,7 @@ class ArticlesController extends Controller
         /* 处理文章封面上传 */
         $File = Input::file('cover');
         if ($File) {
-            $UploadResult = Upload::upload($File);
+            $UploadResult = File::upload($File);
 
             if ($UploadResult['success']) {
                 $resParams['cover'] = $UploadResult['file_path'];
@@ -151,7 +151,7 @@ class ArticlesController extends Controller
         /* 处理文章封面上传 */
         $File = Input::file('cover');
         if ($File) {
-            $UploadResult = Upload::upload($File);
+            $UploadResult = File::upload($File);
 
             if ($UploadResult['success']) {
                 $updateData['cover'] = $UploadResult['file_path'];

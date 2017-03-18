@@ -5,7 +5,7 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class Upload extends Model
+class File extends Model
 {
     protected $fillable = [
         'table',
