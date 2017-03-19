@@ -24,10 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
-
-        /* 自动更新 */
-        $schedule->exec('cd /web/laravelblog && git pull')->weekly();
+        /* 持续集成 */
+        $schedule->exec('cd /web/laravelblog && /usr/local/php/bin/php artisan down && ./qrsboxcli stop && git pull && npm run prod && ./qrsboxcli sync & && /usr/local/php/bin/php artisan up')->weekly();
     }
 }
