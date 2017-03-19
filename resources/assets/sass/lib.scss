@@ -1,3 +1,8 @@
+$icon-font-path: '/dist/fonts/';
+
+@function font-path($path) {
+    @return $path;
+}
 @import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "../../../node_modules/simditor/styles/simditor.scss";
 @import "../../../node_modules/simditor-markdown/styles/simditor-markdown.scss";

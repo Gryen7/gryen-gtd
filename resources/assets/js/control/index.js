@@ -3,7 +3,7 @@
  */
 const $ = require('jquery');
 require('./constant');
-require('bootstrap');
+require('bootstrap-sass');
 require('./todo');
 require('./setting');
 require('./files');

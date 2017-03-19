@@ -1,23 +1,12 @@
 //noinspection NpmUsedModulesInstalled
 const elixir = require('laravel-elixir');
 const gulp = require('gulp');
-const phplint = require('phplint').lint;
+
 require('laravel-elixir-env');
 
-/**
- * PHP 代码检查
- * TODO 详细学习用法
- */
-gulp.task('phplint', function (cb) {
-    phplint(['app/**/*.php'], {limit: 10}, function (err) {
-        if (err) {
-            cb(err);
-            process.exit(1);
-        }
-        cb();
-    });
-});
-
+const DIST_PATH = 'public/dist';
+const DIST_PATH_WITH_VERSION = `${DIST_PATH}/${process.env.APP_VERSION}`;
+const AWESOME_FONT_PATH = 'node_modules/bootstrap-sass/assets/fonts/bootstrap/**.*';
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -30,19 +19,17 @@ gulp.task('phplint', function (cb) {
  */
 
 elixir(function (mix) {
-    //noinspection JSUnresolvedFunction
-    mix.sass('lib.scss', `public/dist/${process.env.APP_VERSION}/css/lib.css`)
-        .sass('app.scss', `public/dist/${process.env.APP_VERSION}/css/app.css`)
-        .sass('control.scss', `public/dist/${process.env.APP_VERSION}/css/control.css`);
+    /* bootstrap 字库 */
+    mix.copy(AWESOME_FONT_PATH, `${DIST_PATH}/fonts`);
 
-    mix.webpack(['home.js', 'article.js', 'control.js', 'about.js'], `./public/dist/${process.env.APP_VERSION}/js`);
+    /* 复制图片 */
+    mix.copy('resources/assets/img', `${DIST_PATH}/img`);
 
-    mix.copy([// 复制图片
-        'resources/assets/img'
-    ], `public/dist/img`)
-        .copy([// 复制 bootstrap 的字库
-            'node_modules/bootstrap-sass/assets/fonts/bootstrap'
-        ], `public/dist/${process.env.APP_VERSION}/fonts/bootstrap`);
+    /* CSS 处理 */
+    mix.sass('lib.scss', `${DIST_PATH_WITH_VERSION}/css/lib.css`);
+    mix.sass('app.scss', `${DIST_PATH_WITH_VERSION}/css/app.css`);
+    mix.sass('control.scss', `${DIST_PATH_WITH_VERSION}/css/control.css`);
 
-    // mix.task('phplint', 'app/**/*.php');
+    /* JS 处理 */
+    mix.webpack(['home.js', 'article.js', 'control.js', 'about.js'], `${DIST_PATH_WITH_VERSION}/js`);
 });

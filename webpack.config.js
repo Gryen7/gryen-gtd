@@ -4,16 +4,19 @@
 const webpack = require('webpack');
 const path = require('path');
 
+let JS_PATH = './resources/assets/js';
+let JS_DIST_PATH = './public/dist/js';
+
 module.exports = {
     entry: {
-        home: path.resolve(__dirname, './resources/assets/js/home.js'),
-        article: path.resolve(__dirname, './resources/assets/js/article.js'),
-        about: path.resolve(__dirname, './resources/assets/js/about.js'),
-        control: path.resolve(__dirname, './resources/assets/js/control.js'),
+        home: path.resolve(__dirname, `${JS_PATH}/home.js`),
+        article: path.resolve(__dirname, `${JS_PATH}/article.js`),
+        about: path.resolve(__dirname, `${JS_PATH}/about.js`),
+        control: path.resolve(__dirname, `${JS_PATH}/control.js`),
         vendor: ['jquery', 'bootstrap-sass'],
     },
     output: {
-        path: path.resolve(__dirname, './public/dist/js'),
+        path: path.resolve(__dirname, JS_DIST_PATH),
         filename: '[name].bundle.js'
     },
     resolve: {
