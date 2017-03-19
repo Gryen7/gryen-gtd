@@ -1,4 +1,5 @@
 {
+  "version": "0.0.3",
   "private": true,
   "scripts": {
     "prod": "gulp --production",
@@ -12,7 +13,6 @@
     "jquery": "^3.2.0",
     "jquery-lazyload": "^1.9.7",
     "laravel-elixir": "^6.0.0-15",
-    "laravel-elixir-env": "^1.0.0",
     "laravel-elixir-vue-2": "^0.2.0",
     "laravel-elixir-webpack-official": "^1.0.10",
     "lodash": "^4.17.4",

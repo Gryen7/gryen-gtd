@@ -25,8 +25,8 @@
             {{ isset($CONFIG->SITE_SUB_TITLE) ? ' -- ' . $CONFIG->SITE_SUB_TITLE : '' }}
         @show
     </title>
-    <link rel="stylesheet" media="screen" charset="utf-8" href={{env('STATIC_URL') . '/dist/' . env('APP_VERSION') . '/css/lib.css'}}>
-    <link rel="stylesheet" media="screen" charset="utf-8" href={{env('STATIC_URL') . '/dist/' . env('APP_VERSION') . '/css/app.css'}}>
+    <link rel="stylesheet" media="screen" charset="utf-8" href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/lib.css'}}>
+    <link rel="stylesheet" media="screen" charset="utf-8" href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/app.css'}}>
 
     <!-- Scripts -->
     <script>
@@ -39,9 +39,9 @@
 @section('base_content')
 @show
 @include('common._footer')
-<script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. env('APP_VERSION') . '/js/manifest.bundle.js'}}"></script>
-<script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. env('APP_VERSION') . '/js/vendor.bundle.js'}}"></script>
-<script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. env('APP_VERSION') . '/js/' . $module . '.bundle.js'}}"></script>
+<script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/manifest.bundle.js'}}"></script>
+<script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/vendor.bundle.js'}}"></script>
+<script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/' . $module . '.bundle.js'}}"></script>
 @if(env('APP_ENV') === 'production')
     <script>
         (function (i, s, o, g, r, a, m) {

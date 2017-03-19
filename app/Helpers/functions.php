@@ -44,3 +44,20 @@ function imageView2(string $image, array $params, $mode = 1, $q = 80)
 
     return $image . $queryString . '/q/' . $q;
 }
+
+/**
+ * 获取 package.json 对象
+ * @return mixed
+ */
+function package() {
+    $packageFilePath = base_path() . '/package.json';
+    return json_decode(file_get_contents($packageFilePath));
+}
+
+/**
+ * 获取版本
+ * @return string
+ */
+function version() {
+    return isset(package()->version) ? package()->version : '0.0.1';
+}

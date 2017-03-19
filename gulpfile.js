@@ -1,11 +1,10 @@
 //noinspection NpmUsedModulesInstalled
 const elixir = require('laravel-elixir');
 const gulp = require('gulp');
-
-require('laravel-elixir-env');
+const PKG = require('./package.json');
 
 const DIST_PATH = 'public/dist';
-const DIST_PATH_WITH_VERSION = `${DIST_PATH}/${process.env.APP_VERSION}`;
+const DIST_PATH_WITH_VERSION = `${DIST_PATH}/${PKG.version}`;
 const AWESOME_FONT_PATH = 'node_modules/bootstrap-sass/assets/fonts/bootstrap/**.*';
 /*
  |--------------------------------------------------------------------------
