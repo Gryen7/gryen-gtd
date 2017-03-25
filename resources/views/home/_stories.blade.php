@@ -11,7 +11,7 @@
                     浏览器不支持！
                 </audio>
             </div>
-            <div class="col-md-4 t-index-desc t-border-image">
+            <div class="col-md-4 t-index-desc">
                 {{ $stories->title }}
                 {{ $stories->content }}
             </div>
