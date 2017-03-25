@@ -5,19 +5,30 @@
 @section('content')
     <ul class="list-group tar-cpa-list">
         <li class="list-group-item">
-            <span class="col-xs-8">标题</span>
-            <span class="col-xs-4">操作</span>
+            <div class="col-xs-8">标题</div>
+            <div class="col-xs-3 text-center">操作</div>
+            <div class="col-xs-1 text-center">状态</div>
         </li>
         @foreach($articles as $article)
             <li class="list-group-item">
-                <span class="col-xs-8">{{ $article->title }}</span>
-                <ul class="list-inline btn-group col-xs-4 tar-ul-nomargin">
-                    <li class="btn btn-default"><a href="{{ action('ArticlesController@show',[$article->id]) }}"
-                                                   target="_blank">查看</a></li>
-                    <li class="btn btn-default"><a href="{{ action('ArticlesController@edit',[$article->id]) }}"
-                                                   target="_blank">编辑</a></li>
-                    <li class="btn btn-default"><a href="{{ action('ArticlesController@delete',[$article->id]) }}"
-                                                   data-a-type="ajax">删除</a></li>
+                <div class="col-xs-8">{{ $article->title }}</div>
+                <div class="col-xs-3 text-center">
+                    <ul class="btn-group no-padding-left">
+                        <li class="btn btn-success"><a href="{{ action('ArticlesController@show',[$article->id]) }}"
+                                                       target="_blank">查看</a></li>
+                        <li class="btn btn-primary"><a href="{{ action('ArticlesController@edit',[$article->id]) }}"
+                                                       target="_blank">编辑</a></li>
+                        <li class="btn btn-danger"><a href="{{ action('ArticlesController@delete',[$article->id]) }}"
+                                                      data-a-type="ajax">删除</a></li>
+                    </ul>
+                </div>
+
+                <ul class="col-xs-1 text-center">
+                    @if($article->status === 1)
+                        <span class="label label-success">已发布</span>
+                    @elseif($article->status === 0)
+                        <span class="label label-default">待编辑</span>
+                    @endif
                 </ul>
             </li>
         @endforeach
