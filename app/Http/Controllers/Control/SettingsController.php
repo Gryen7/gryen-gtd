@@ -32,6 +32,9 @@ class SettingsController extends Controller
         $banners = Banner::where('cover', '<>', '')->get();
         foreach ($banners as &$banner) {
             $banner['article_title'] = $banner->article->title;
+            if (empty($banner['cover'])) {
+                $banner['cover'] = Config::getAllConfig('SITE_DEFAULT_IMAGE');
+            }
         }
         return view('control.settings.banners', compact('articles', 'banners'));
     }

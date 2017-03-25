@@ -1,6 +1,9 @@
 .tar-index-slider {
     background-color: $cwhite;
+    width: 100%;
     height: 540px;
+    overflow: hidden;
+    margin-top: -20px;
 
     ul {
         height: 100%;
@@ -13,6 +16,7 @@
             position: relative;
 
             .t-index-sldtxtbx {
+                width: 30%;
                 height: 100%;
                 display: flex;
                 align-items: center;
@@ -20,7 +24,7 @@
                 /* 轮播图标题 */
                 .t-index-sldtxt {
                     width: 100%;
-                    padding-left: 30px;
+                    padding: 30px;
 
                     a {
                       font-weight: 700;
@@ -36,6 +40,15 @@
                         -webkit-line-clamp: 3;
                         overflow: hidden;
                     }
+                }
+            }
+
+            .t-index-sldimg {
+                width: 70%;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
                 }
             }
         }

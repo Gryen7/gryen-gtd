@@ -9,7 +9,10 @@
                 <ul class="list-group row tar-cps-banner">
                     @foreach($banners as $banner)
                     <li class="list-group-item">
-                        <div class="col-xs-6 tar-cps-bimg" style='background: url("{{ $banner->cover }}")'>
+                        <div class="col-xs-6 tar-cps-bimg" style='background: url("{{ imageView2($banner->cover, [
+                            'w' => 225,
+                            'h' => 94
+                        ]) }}")'>
                             <span class="glyphicon glyphicon-cloud-upload"></span>
                         </div>
                         <div class="col-xs-6">
