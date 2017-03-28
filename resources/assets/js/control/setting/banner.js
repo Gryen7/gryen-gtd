@@ -1,6 +1,7 @@
 /**
  * Created by targaryen on 2016/12/17.
  */
+const $ = require('jquery');
 
 let Fun = require('../function');
 let Banner = $('.tar-cps-upfile');
@@ -19,7 +20,7 @@ let ArticleTitle = $('input[name="article_title"]');
 SetBannerModal.init = function () {
     Banner.removeAttr('style');
     UpPrcsBr.css('width', '0%');
-    UpPrcsTxt.html('0% Complete');
+    UpPrcsTxt.html('完成 0%');
     UpPrcsBr.addClass('active');
     UpprcsRslt.html('');
 };
@@ -31,7 +32,7 @@ SetBannerBtn.on('click', function () {
     setBannerModal(
         $(this).data('id'),
         $(this).data('title'),
-        'Cover For: ' + $(this).data('title')
+        '为《' + $(this).data('title') + "》设置封面图"
     );
 });
 
@@ -43,7 +44,7 @@ let onprogress = (evt) => {
     let tot = evt.total;                      //附件总大小
     let per = Math.floor(100*loaded/tot);      //已经上传的百分比
     UpPrcsBr.css('width', per + '%');
-    UpPrcsTxt.html(per + '% Complete');
+    UpPrcsTxt.html('完成' + per + '%');
 };
 
 /**
@@ -73,11 +74,11 @@ const uploadBanner = (file) => {
             if (resData.success) {
                 Cover.val(resData.file_path);
                 UpPrcsBr.removeClass('active');
-                UpprcsRslt.html('Upload Success! Please continue...');
+                UpprcsRslt.html('上传成功，点击确定设置或者取消');
             } else {
                 UpPrcsBr.removeClass('active');
                 Banner.removeAttr('style');
-                UpprcsRslt.html('Upload failed! Please try again...');
+                UpprcsRslt.html('上传失败，请重试');
             }
         },
         error: function (err) {
@@ -113,7 +114,7 @@ const choseBanner = () => {
  */
 const setBanner = () => {
     if(!Cover.val()) {
-        UpprcsRslt.html('No uploads, or images are being uploaded. Please wait');
+        UpprcsRslt.html('没有上传图片或者图片正在上传中，请稍等');
         return;
     }
     $.ajax({
@@ -141,7 +142,7 @@ const setBanner = () => {
         error: function (err) {
             if (err.code !== 200) {
                 Banner.removeClass('style');
-                UpprcsRslt.html(err.statusText + ', please try again');
+                UpprcsRslt.html(err.statusText + '，请重试');
             }
         }
     });

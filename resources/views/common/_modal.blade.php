@@ -13,8 +13,8 @@
                 {!! Form::hidden('tar-modal-ensure') !!}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{{ $esc or 'No'}}</button>
-                <button type="button" class="tar-modal-ensurebtn btn btn-primary">{{ $ok or 'Yes'}}</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">{{ $esc or '取消'}}</button>
+                <button type="button" class="tar-modal-ensurebtn btn btn-success">{{ $ok or '确定'}}</button>
             </div>
         </div>
     </div>
