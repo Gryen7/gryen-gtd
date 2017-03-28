@@ -1,6 +1,15 @@
 @import "../../../../node_modules/swiper/dist/css/swiper.min";
 @import "slider";
 
+// 隐藏下载按钮
+audio::-webkit-media-controls {
+    overflow: hidden !important
+}
+audio::-webkit-media-controls-enclosure {
+    width: calc(100% + 32px);
+    margin-left: auto;
+}
+
 .t-index-plttl {
     color: $cfont-focus;
     background-color: $cbackgroud;

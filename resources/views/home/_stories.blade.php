@@ -1,13 +1,13 @@
 <div class="container">
-    <div class="text-center t-index-plttl t-border-image">聆听 · 岁月</div>
+    <div class="text-center t-index-plttl t-border-image">听</div>
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10 row t-index-pltbox">
             <div class="col-md-8 t-index-cdcontent">
                 <div class="t-index-cdbox t-index-cdpaused" id="tIndexCdbox">
-                    <img src="http://7xnswo.com1.z0.glb.clouddn.com/cd.png" />
+                    <img src="//statics.targaryen.top/images/cd.png" />
                 </div>
-                <audio id="tIndexAudio" src="{{ $stories->resource }}">
+                <audio id="tIndexAudio" src="{{ $stories->resource }}" controls>
                     浏览器不支持！
                 </audio>
             </div>
