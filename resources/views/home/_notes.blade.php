@@ -3,8 +3,8 @@
     <div class="row t-index-pltbox">
         @foreach($notes as $note)
             <div class="col-xs-3">
-                <a href="" class="thumbnail">
-                    <img src="{{ $note->cover }}"
+                <a href="{{action('ArticlesController@show', ['id' => $note->id])}}" class="thumbnail">
+                    <img src="{{ imageView2($note->cover, ['w' => 400, 'h' => 300]) }}"
                          alt="{{ $note->title }}">
                     <div class="caption">
                         <p><b>{{ $note->title }}</b></p>
