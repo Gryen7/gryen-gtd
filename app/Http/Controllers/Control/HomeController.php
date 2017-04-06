@@ -28,7 +28,13 @@ class HomeController extends Controller
      */
     public function story(Request $request)
     {
-        Story::create($request->all());
+        $params = array_filter($request->all());
+
+        if (count($params) === 5) {
+            Story::create($request->all());
+        } else {
+            Story::orderBy('id', 'DESC')->first()->update($request->all());
+        }
         return redirect($_SERVER['HTTP_REFERER']);
     }
 }

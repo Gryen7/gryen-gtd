@@ -15,7 +15,7 @@
                 </div>
                 <div class="form-group">
                     <label for="title">资源：</label>
-                    {{ Form::input('text', 'resource', '', ['class' => 'form-control', 'placeholder' => $stories->resource]) }}
+                    {{ Form::textarea('resource', '', ['class' => 'form-control no-resize', 'placeholder' => $stories->resource]) }}
                 </div>
                 <div class="form-group">
                     <label for="title">描述：</label>

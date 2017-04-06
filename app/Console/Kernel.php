@@ -25,6 +25,6 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         /* 持续集成 */
-        $schedule->exec('cd /web/laravelblog && /usr/local/php/bin/php artisan down && git pull && npm run prod && qshell qupload qshell.config && /usr/local/php/bin/php artisan up')->weekly();
+//        $schedule->exec('cd /web/laravelblog && /usr/local/php/bin/php artisan down && git pull && npm run prod && qshell qupload qshell.config && /usr/local/php/bin/php artisan up')->weekly();
     }
 }
