@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
         $module = 'home';
 
-        $banners = Banner::where('cover', '<>', '')->get();
+        $banners = Banner::where('cover', '<>', '')->orderBy('id', 'desc')->get();
         foreach ($banners as &$banner) {
             $banner['article_id'] = $banner->article->id;
             $banner['article_title'] = $banner->article->title;
