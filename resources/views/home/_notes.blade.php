@@ -1,6 +1,6 @@
 <div class="container">
     <div class="text-center t-index-plttl t-border-image">随笔</div>
-    <div class="row t-index-pltbox">
+    <div class="row">
         @foreach($notes as $note)
             <div class="col-xs-3">
                 <a href="{{action('ArticlesController@show', ['id' => $note->id])}}" class="thumbnail">
