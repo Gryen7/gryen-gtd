@@ -32,15 +32,17 @@
     overflow: hidden;
 
     a > img {
-        width: 350px;
-        height: 233px;
+        width: 100%;
+        min-height: 233px;
     }
 }
 
 .t-index-nt {
+    overflow: hidden;
+
     a > img {
-        width: 253px;
-        height: 189px;
+        width: 100%;
+        min-height: 189px;
     }
 }
 
