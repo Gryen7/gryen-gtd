@@ -28,7 +28,7 @@
             </div>
         @else
             <div class="panel-body t-edit-cover"
-                 style='background: url({{ imageView2('http://static.targaryen.top/default-image.png', [
+                 style='background: url({{ imageView2('//statics.targaryen.top/default-image.png', [
                     'w' => 328,
                     'h' => 246
                  ]) }}) no-repeat;background-size: cover;'>

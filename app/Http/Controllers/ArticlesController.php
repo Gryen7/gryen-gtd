@@ -106,7 +106,9 @@ class ArticlesController extends Controller
 
         $article = Article::getTagArray($article);
 
-        $article->content = $article->withContent()->get()[0]->content;
+        $content = $article->withContent()->first()->content;
+        $article->content = handleContentImage($content);
+
         $comments = Comment::where('article_id', $id)->get();
 
         $siteTitle = $article->title;
@@ -124,8 +126,8 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $article = Article::withTrashed()->find($id);
-        $article->cover = empty($article->cover) ? 'http://static.targaryen.top/default-image.png' : $article->cover;
-        $article->content = $article->withContent()->get()[0]->content;
+        $article->cover = empty($article->cover) ? '//statics.targaryen.top/default-image.png' : $article->cover;
+        $article->content = $article->withContent()->first()->content;
         return view('articles.edit', compact('article'));
     }
 

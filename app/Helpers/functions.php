@@ -61,3 +61,17 @@ function package() {
 function version() {
     return isset(package()->version) ? package()->version : '0.0.1';
 }
+
+/**
+ * 动态处理文章中的图片
+ * @param $content
+ * @return mixed
+ */
+function handleContentImage($content) {
+    preg_match_all('/<img.*?src="(.*?)".*?>/is', $content, $result);
+    $rightSrcs = [];
+    foreach ($result[1] as $value) {
+        array_push($rightSrcs, imageView2($value, ['w' => 600], 0));
+    }
+    return str_replace($result[1], $rightSrcs, $content);
+}
