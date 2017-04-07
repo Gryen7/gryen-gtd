@@ -2,9 +2,11 @@
     <div class="text-center t-index-plttl t-border-image">志</div>
     <div class="row">
         @foreach($notes as $note)
-            <div class="col-xs-3">
+            <div class="col-xs-3 t-index-nt">
                 <a href="{{action('ArticlesController@show', ['id' => $note->id])}}" class="thumbnail">
-                    <img src="{{ imageView2($note->cover, ['w' => 400, 'h' => 300]) }}"
+                    <img class="lazy"
+                         data-original="{{ imageView2($note->cover, ['w' => 400, 'h' => 300]) }}"
+                         src=""
                          alt="{{ $note->title }}">
                     <div class="caption">
                         <p><b>{{ $note->title }}</b></p>

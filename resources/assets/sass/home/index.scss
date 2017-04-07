@@ -18,14 +18,6 @@
     padding-bottom: 10px;
     border-radius: 4px;
 
-    .t-index-pht {
-        overflow: hidden;
-
-        a > img {
-            width: 100%;
-        }
-    }
-
     .t-index-desc {
         writing-mode: vertical-rl;
         background-color: $cwhite;
@@ -36,36 +28,26 @@
     }
 }
 
+.t-index-pht {
+    overflow: hidden;
+
+    a > img {
+        width: 350px;
+        height: 233px;
+    }
+}
+
+.t-index-nt {
+    a > img {
+        width: 253px;
+        height: 189px;
+    }
+}
+
 .t-index-cdcontent {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 500px;
     flex-direction:column;
-}
-
-
-
-@-webkit-keyframes cdturnround {
-    0% {
-        -webkit-transform: rotate(0)
-    }
-    50% {
-        -webkit-transform: rotate(180deg)
-    }
-    100% {
-        -webkit-transform: rotate(360deg)
-    }
-}
-
-@keyframes cdturnround {
-    0% {
-        transform: rotate(0)
-    }
-    50% {
-        transform: rotate(180deg)
-    }
-    100% {
-        transform: rotate(360deg)
-    }
 }

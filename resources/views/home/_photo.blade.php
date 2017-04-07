@@ -3,8 +3,10 @@
     <div class="row">
         @foreach($photos as $photo)
             <div class="col-md-4 t-index-pht">
-                <a href="{{ action('ArticlesController@show', ['id' => $photo->article_id]) }}" class="thumbnail">
-                    <img src="{{ $photo->cover }}"
+                <a href="{{ action('ArticlesController@show', ['id' => $photo->id]) }}" class="thumbnail">
+                    <img class="lazy"
+                         data-original="{{ imageView2($photo->cover, ['w' => 350, 'h' => 233]) }}"
+                         src=""
                          alt="{{ $photo->title }}">
                 </a>
             </div>
