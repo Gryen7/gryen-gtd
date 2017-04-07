@@ -1,0 +1,10 @@
+.thumbnail {
+    border: 1px solid $cgray-base;
+    border-radius: 0;
+}
+
+a.thumbnail:hover,
+a.thumbnail:focus,
+a.thumbnail.active {
+    border-color: $cfont-focus;
+}

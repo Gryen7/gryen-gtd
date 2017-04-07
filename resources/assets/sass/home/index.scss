@@ -42,26 +42,6 @@
     align-items: center;
     height: 500px;
     flex-direction:column;
-
-    .t-index-cdbox {
-        animation: cdturnround 4s linear infinite;
-        width: 400px;
-        height: 400px;
-        overflow: hidden;
-
-        img {
-            width: 400px;
-            height: 400px;
-        }
-    }
-
-    .t-index-cdpaused {
-        -webkit-animation-play-state: paused;
-    }
-
-    audio {
-        margin-top: 20px;
-    }
 }
 
 

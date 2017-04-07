@@ -6,7 +6,7 @@
         </div>
         <div class="col-md-6 t-index-desc">
             {{ $stories->title }}
-            {{ $stories->content }}
+            {!! $stories->content !!}
         </div>
     </div>
 </div>
