@@ -19,6 +19,17 @@
         }
     }
 
+    > li > a,
+    > li > span {
+        &:hover,
+        &:focus {
+            z-index: 2;
+            color: $cfont;
+            background-color: $cgray-light;
+            border-color: $cfont-focus;
+        }
+    }
+
     > .active > a,
     > .active > span {
         &,

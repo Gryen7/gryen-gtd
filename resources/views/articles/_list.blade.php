@@ -21,11 +21,15 @@
             <div class="col-md-6">
                 <div class="tar-article-info clearfix">
                     <a href="{{ action('ArticlesController@show',[$article->id]) }}">
-                        <img src="{{ imageView2($article->cover, ['w' => 600,'h' => 300]) }}" alt="..." class="img-rounded">
+                        <img class="img-rounded lazy"
+                             data-original="{{ imageView2($article->cover, ['w' => 600,'h' => 300]) }}"
+                             src="" alt="...">
                     </a>
                 </div>
             </div>
         </li>
     @endforeach
 </ul>
-{{ $articles->links() }}
+<div class="t-rtcl-links">
+    {{ $articles->links() }}
+</div>
