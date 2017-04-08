@@ -37,7 +37,7 @@ class File extends Model
         'local' => 'filesystems.disks.local.root',
         'public' => 'filesystems.disks.public.root',
         's3' => 'filesystems.disks.s3.region' . '/' . 'filesystems.disks.s3.bucket',
-        'qiniu' => 'filesystems.disks.qiniu.domains.default',
+        'qiniu' => 'filesystems.disks.qiniu.domains.https',
     ];
 
     /**
@@ -48,7 +48,7 @@ class File extends Model
      */
     private static function isImage($filePath)
     {
-        $fileType = strchr($filePath, '.');
+        $fileType = strtolower(strchr($filePath, '.'));
         if (in_array($fileType, self::$IMAGES)) {
             return $filePath;
         } else {
