@@ -107,7 +107,7 @@ class File extends Model
             return self::returnResults(null, 'error file type！', false);
         }
 
-        $fileType = $File->getClientOriginalExtension();
+        $fileType = strtolower($File->getClientOriginalExtension());
         $filePath = self::$UPLOAD_PATH . '/' . Carbon::now()->toDateString() . '/' . md5(Carbon::now()->timestamp) . '.' . $fileType;
 
         $results = $Disk->put($filePath, file_get_contents($File));
