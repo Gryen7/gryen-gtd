@@ -44,6 +44,20 @@
         width: 100%;
         min-height: 189px;
     }
+
+    .t-index-ntdesc {
+        height: 120px;
+        overflow: hidden;
+        display: -webkit-box;
+        word-break: break-all;
+        word-wrap: break-word;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 6;
+    }
+
+    .t-index-ntdesc:after {
+        content: '...';
+    }
 }
 
 .t-index-cdcontent {

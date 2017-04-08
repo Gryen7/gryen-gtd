@@ -36,26 +36,16 @@ class HomeController extends Controller
             $banner['article_description'] = $banner->article->description;
         }
 
-        /* 摄影 */
-        $photos = Article::where('status', '>', 0)
-            ->where('tags', 'like', '%摄影%')
-            ->where('cover', '<>', '')
-            ->skip(0)
-            ->take(12)
-            ->get();
+        /* 影 */
+        $photos = Article::getPhotosForHome();
 
-        /* 随笔 */
-        $notes = Article::where('status', '>', 0)
-            ->where('tags', 'like', '%随笔%')
-            ->where('cover', '<>', '')
-            ->skip(0)
-            ->take(8)
-            ->get();
+        /* 志 */
+        $notes = Article::getNotesForHome();
 
-        /* 聆听故事 */
+        /* 听 */
         $stories = Story::orderBy('created_at', 'desc')->first();
 
-        /* 致知 */
+        /* 知 */
         $words = Word::orderBy('created_at', 'desc')->first();
 
         return view('home.index', compact('banners', 'photos', 'notes', 'stories', 'words', 'module'));
