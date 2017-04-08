@@ -14,8 +14,10 @@ const $ = require('jquery');
 let Simditor = require('simditor');
 let textarea = $('#storyDesc');
 
-new Simditor({
-    textarea: textarea,
-    markdown: false,
-    toolbar: ['bold', 'italic', 'strikethrough', 'blockquote', 'alignment']
-});
+if (textarea.length > 0) {
+    new Simditor({
+        textarea: textarea,
+        markdown: false,
+        toolbar: ['bold', 'italic', 'strikethrough', 'blockquote', 'alignment']
+    });
+}
