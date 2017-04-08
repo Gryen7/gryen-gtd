@@ -19,7 +19,7 @@
                 </div>
                 <div class="form-group">
                     <label for="title">描述：</label>
-                    {{ Form::textarea('content', $stories->content, ['class' => 'form-control no-resize']) }}
+                    {{ Form::textarea('content', $stories->content, ['class' => 'form-control no-resize', 'id' => 'storyDesc']) }}
                 </div>
                 <div class="form-group">
                     {{ Form::submit('更新', ['class' => 'form-control btn btn-default']) }}
