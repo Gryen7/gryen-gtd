@@ -127,7 +127,9 @@ class ArticlesController extends Controller
     {
         $article = Article::withTrashed()->find($id);
         $article->cover = empty($article->cover) ? '//statics.targaryen.top/default-image.png' : $article->cover;
-        $article->content = $article->withContent()->first()->content;
+
+        $content = $article->withContent()->first()->content;
+        $article->content = handleContentImage($content);
         return view('articles.edit', compact('article'));
     }
 

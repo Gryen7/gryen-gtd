@@ -21,6 +21,10 @@
  */
 function imageView2(string $image, array $params, $mode = 1, $q = 80)
 {
+    if (strpos($image, '?')) {
+        return $image;
+    }
+
     $queryString = '?imageView2/' . $mode;
 
     // 允许的参数
