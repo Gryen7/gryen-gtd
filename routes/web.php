@@ -80,6 +80,7 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
     /* 首页焦点图设置 */
     Route::get('/setting/banners', 'Control\SettingsController@banners');
     Route::post('/setting/banners/set', 'Control\BannersController@set');
+    Route::post('/setting/banners/delete/{id}', 'Control\BannersController@delete');
 
     /* 后台站点相关设置 */
     Route::get('/setting/site', 'Control\SettingsController@site');

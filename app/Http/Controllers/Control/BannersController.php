@@ -8,6 +8,11 @@ use App\Http\Requests\CreateBannerRequest;
 
 class BannersController extends Controller
 {
+    /**
+     * 设置 Banner
+     * @param CreateBannerRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function set(CreateBannerRequest $request)
     {
         // 是否超出允许的 banner 数量
@@ -30,6 +35,22 @@ class BannersController extends Controller
         }
 
         Banner::create($request->all());
+        return response()->json([
+            'code' => 200,
+            'msg' => 'success'
+        ]);
+    }
+
+    /**
+     * 删除 bannder
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     * @internal param Request $request
+     * @internal param $id
+     */
+    public function delete($id)
+    {
+        Banner::destroy($id);
         return response()->json([
             'code' => 200,
             'msg' => 'success'

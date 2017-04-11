@@ -13,6 +13,7 @@ let UpprcsRslt = $('.tar-upbnnr-result').find('span').eq(0);
 let Cover = $('input[name="cover"]');
 let ArticleId = $('input[name="article_id"]');
 let ArticleTitle = $('input[name="article_title"]');
+let BannerList = $('.t-ctl-bnrlist');
 
 /**
  * 模态框初始化
@@ -170,3 +171,28 @@ SetBannerModal.find('.tar-modal-ensurebtn').on('click', () => {
 });
 
 choseBanner();
+
+/**
+ * 首页推荐列表操作-置顶
+ */
+BannerList.on('click', '.set-top', function (elem) {
+    console.log($(elem.delegateTarget).data('id'));
+});
+
+/**
+ * 首页推荐列表操作-权重
+ */
+BannerList.on('click', '.set-weight', function (elem) {
+    console.log($(elem.delegateTarget).data('id'));
+});
+
+/**
+ * 首页推荐列表操作-删除
+ */
+BannerList.on('click', '.delete', function (elem) {
+    $.post('/control/setting/banners/delete/' +  $(elem.delegateTarget).data('id'), function (result) {
+        if (result.code === 200) {
+            window.location.reload();
+        }
+    });
+});
