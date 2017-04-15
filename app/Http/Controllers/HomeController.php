@@ -6,8 +6,6 @@ use App\Article;
 use App\Banner;
 use App\Story;
 use App\Word;
-use Aws\Waiter;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
