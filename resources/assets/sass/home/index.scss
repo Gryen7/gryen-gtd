@@ -45,6 +45,15 @@
         min-height: 189px;
     }
 
+    .caption {
+        p {
+            height: 32px;
+            word-break: break-all;
+            word-wrap: break-word;
+            -webkit-line-clamp: 2;
+        }
+    }
+
     .t-index-ntdesc {
         height: 120px;
         overflow: hidden;
