@@ -71,7 +71,7 @@ function handleContentImage($content) {
     preg_match_all('/<img.*?src="(.*?)".*?>/is', $content, $result);
     $rightSrcs = [];
     foreach ($result[1] as $value) {
-        array_push($rightSrcs, imageView2($value, ['w' => 600], 0));
+        array_push($rightSrcs, imageView2($value, ['w' => 600], 0, '100'));
     }
     return str_replace($result[1], $rightSrcs, $content);
 }

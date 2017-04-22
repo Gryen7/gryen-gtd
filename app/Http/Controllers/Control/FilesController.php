@@ -23,7 +23,8 @@ class FilesController extends Controller
      */
     public function getImageList($page = 1)
     {
-        $files = File::List('', $page);
+        $File = new File();
+        $files = $File->listImages('', $page);
         return view('control.files.list', compact('files'));
     }
 }
