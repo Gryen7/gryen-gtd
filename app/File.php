@@ -63,11 +63,7 @@ class File extends Model
      */
     private static function isUploadsDirectory($filePath)
     {
-        if (substr($filePath, 0, 7) === substr(self::$UPLOAD_PATH, 1, 7)) {
-            return true;
-        } else {
-            return false;
-        }
+        return substr($filePath, 0, 7) === substr(self::$UPLOAD_PATH, 1, 7);
     }
 
     /**
@@ -99,12 +95,8 @@ class File extends Model
     {
         $Disk = \Storage::disk(env('DISK'));
 
-        if (!$File) {
-            return self::returnResults(null, 'error!', false);
-        }
-
-        if (!$File->getMimeType() || !in_array($File->getMimeType(), self::$ALLOW_FILE_TYPE)) {
-            return self::returnResults(null, 'error file type！', false);
+        if (!$File || !$File->getMimeType() || !in_array($File->getMimeType(), self::$ALLOW_FILE_TYPE)) {
+            return self::returnResults(null, 'error! no file or file type error', false);
         }
 
         $fileType = strtolower($File->getClientOriginalExtension());
@@ -127,7 +119,7 @@ class File extends Model
      * @return array
      * @internal param bool $recursive
      */
-    public static function List($directory = '', $page = 1)
+    public function listImages($directory = '', $page = 1)
     {
         $perPageNum = 12;
         $from = ($page - 1) * $perPageNum;
@@ -136,7 +128,7 @@ class File extends Model
         $files =  $Disk->files($directory, true);
 
         foreach ($files as $key => &$file) {
-            if (self::isImage($file) && self::isUploadsDirectory($file)) {
+            if (static::isImage($file) && static::isUploadsDirectory($file)) {
                 $file = '//' . \Config::get(self::$FILE_RETURN_PATH[env('DISK')]) . '/' . $file;
             } else {
                 unset($files[$key]);

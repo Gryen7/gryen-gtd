@@ -19,24 +19,20 @@
  * @param int $q 图片质量
  * @return string
  */
-function imageView2(string $image, array $params, $mode = 1, $q = 80)
+function imageView2($image, array $params, $mode = 1, $q = 95)
 {
-    if (strpos($image, '?')) {
-        return $image;
-    }
-
-    $queryString = '?imageView2/' . $mode;
-
-    // 允许的参数
-    $allowParams = ['w', 'h', 'format', 'interlace'];
-
-    if (empty($image)) {
+    if (!is_string($image)) {
         return '';
     }
 
-    if (empty($params) || count($params) <= 0) {
+    if (empty($image) || strpos($image, '?') || empty($params) || count($params) <= 0) {
         return $image;
     }
+
+    $queryString = '?imageView2/' . $mode . '/format/webp/interlace/1';
+
+    // 允许的参数
+    $allowParams = ['w', 'h'];
 
     foreach ($params as $key => $value) {
         if (in_array($key, $allowParams)) {
@@ -75,7 +71,7 @@ function handleContentImage($content) {
     preg_match_all('/<img.*?src="(.*?)".*?>/is', $content, $result);
     $rightSrcs = [];
     foreach ($result[1] as $value) {
-        array_push($rightSrcs, imageView2($value, ['w' => 600], 0));
+        array_push($rightSrcs, imageView2($value, ['w' => 600], 0, '100'));
     }
     return str_replace($result[1], $rightSrcs, $content);
 }

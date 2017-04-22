@@ -11,10 +11,6 @@
         @include('home._photo')
     @endif
 
-    @if(!empty($stories))
-        @include('home._stories')
-    @endif
-
     @if(count($notes) > 0)
         @include('home._notes')
     @endif

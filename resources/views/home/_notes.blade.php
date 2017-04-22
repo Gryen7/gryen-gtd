@@ -9,7 +9,7 @@
                          src=""
                          alt="{{ $note->title }}">
                     <div class="caption">
-                        <p><b>{{ $note->title }}</b></p>
+                        <p class="t-index-ntttl"><b>{{ $note->title }}</b></p>
                         <p class="t-index-ntdesc">{{ $note->description }}</p>
                     </div>
                 </a>
