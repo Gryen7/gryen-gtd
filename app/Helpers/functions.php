@@ -19,9 +19,9 @@
  * @param int $q 图片质量
  * @return string
  */
-function imageView2(string $image, array $params, $mode = 1, $q = 80)
+function imageView2(string $image, array $params, $mode = 1, $q = 95)
 {
-    if (strpos($image, '?')) {
+    if (empty($image) || strpos($image, '?') || empty($params) || count($params) <= 0) {
         return $image;
     }
 
@@ -29,14 +29,6 @@ function imageView2(string $image, array $params, $mode = 1, $q = 80)
 
     // 允许的参数
     $allowParams = ['w', 'h'];
-
-    if (empty($image)) {
-        return '';
-    }
-
-    if (empty($params) || count($params) <= 0) {
-        return $image;
-    }
 
     foreach ($params as $key => $value) {
         if (in_array($key, $allowParams)) {
