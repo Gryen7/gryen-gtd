@@ -4,20 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Banner;
-use App\Story;
 use App\Word;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     */
-    public function __construct()
-    {
-//        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -27,7 +17,10 @@ class HomeController extends Controller
     {
         $module = 'home';
 
-        $banners = Banner::where('cover', '<>', '')->orderBy('id', 'desc')->get();
+        $banners = Banner::where('cover', '<>', '')
+            ->orderBy('weight', 'desc')
+            ->orderBy('id', 'desc')
+            ->get();
         foreach ($banners as &$banner) {
             $banner['article_id'] = $banner->article->id;
             $banner['article_title'] = $banner->article->title;
@@ -40,13 +33,10 @@ class HomeController extends Controller
         /* 志 */
         $notes = Article::getNotesForHome();
 
-        /* 听 */
-        $stories = Story::orderBy('created_at', 'desc')->first();
-
         /* 知 */
         $words = Word::orderBy('created_at', 'desc')->first();
 
-        return view('home.index', compact('banners', 'photos', 'notes', 'stories', 'words', 'module'));
+        return view('home.index', compact('banners', 'photos', 'notes', 'words', 'module'));
     }
 
     /**

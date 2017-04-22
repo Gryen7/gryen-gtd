@@ -20,7 +20,7 @@ class BannersController extends Controller
         if ($count >= 5) {
             return response()->json([
                 'code' => 403,
-                'msg' => 'The maximum number of settings has been exceeded'
+                'msg' => '超出了首页推荐的可设置数量'
             ]);
         }
 
@@ -30,7 +30,7 @@ class BannersController extends Controller
         if ($isSet) {
             return response()->json([
                 'code' => 403,
-                'msg' => 'This article has been set up for banner'
+                'msg' => '已经是首页推荐文章了'
             ]);
         }
 
@@ -54,6 +54,16 @@ class BannersController extends Controller
         return response()->json([
             'code' => 200,
             'msg' => 'success'
+        ]);
+    }
+
+    public function top($id)
+    {
+        $banner = Banner::find($id);
+        $msg = $banner->update(['weight' => Banner::max('weight') + 1]);
+        return response()->json([
+            'code' => 200,
+            'msg' => $msg
         ]);
     }
 }

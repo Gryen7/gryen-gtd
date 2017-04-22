@@ -176,14 +176,11 @@ choseBanner();
  * 首页推荐列表操作-置顶
  */
 BannerList.on('click', '.set-top', function (elem) {
-    console.log($(elem.delegateTarget).data('id'));
-});
-
-/**
- * 首页推荐列表操作-权重
- */
-BannerList.on('click', '.set-weight', function (elem) {
-    console.log($(elem.delegateTarget).data('id'));
+    $.post('/control/setting/banners/top/' +  $(elem.delegateTarget).data('id'), function (result) {
+        if (result.code === 200) {
+            window.location.reload();
+        }
+    });
 });
 
 /**

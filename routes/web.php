@@ -81,6 +81,7 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
     Route::get('/setting/banners', 'Control\SettingsController@banners');
     Route::post('/setting/banners/set', 'Control\BannersController@set');
     Route::post('/setting/banners/delete/{id}', 'Control\BannersController@delete');
+    Route::post('/setting/banners/top/{id}', 'Control\BannersController@top');
 
     /* 后台站点相关设置 */
     Route::get('/setting/site', 'Control\SettingsController@site');

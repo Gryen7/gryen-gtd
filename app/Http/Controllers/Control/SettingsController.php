@@ -28,8 +28,11 @@ class SettingsController extends Controller
     public function banners()
     {
         $articles = Article::orderBy('created_at', 'desc')
-            -> paginate(15);
-        $banners = Banner::where('cover', '<>', '')->get();
+            -> paginate(10);
+        $banners = Banner::where('cover', '<>', '')
+            ->orderBy('weight', 'desc')
+            ->orderBy('id', 'desc')
+            ->get();
         foreach ($banners as &$banner) {
             $banner['article_title'] = $banner->article->title;
             if (empty($banner['cover'])) {

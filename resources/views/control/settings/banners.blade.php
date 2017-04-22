@@ -8,7 +8,7 @@
             <div class="panel-body">
                 <ul class="list-group row tar-cps-banner">
                     @foreach($banners as $banner)
-                    <li class="list-group-item t-ctl-bnrlist" data-id="{{$banner->id}}">
+                    <li class="list-group-item" data-id="{{$banner->id}}">
                         <div class="col-xs-6 tar-cps-bimg" style='background: url("{{ imageView2($banner->cover, [
                             'w' => 225,
                             'h' => 94
@@ -16,10 +16,9 @@
                             <span class="glyphicon glyphicon-cloud-upload"></span>
                         </div>
                         <div class="col-xs-6">
-                            <h5>{{ $banner->article_title }}</h5>
+                            <h5>{{ $banner->article_title }}<span class="t-ctl-btg pull-right">{{ $banner->weight }}</span></h5>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default set-top">置顶</button>
-                                <button type="button" class="btn btn-default set-weight">权重</button>
+                                <button type="button" class="btn btn-info set-top">置顶</button>
                                 <button type="button" class="btn btn-danger delete">移除</button>
                             </div>
                         </div>
