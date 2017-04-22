@@ -19,8 +19,12 @@
  * @param int $q 图片质量
  * @return string
  */
-function imageView2(string $image, array $params, $mode = 1, $q = 95)
+function imageView2($image, array $params, $mode = 1, $q = 95)
 {
+    if (!is_string($image)) {
+        return '';
+    }
+
     if (empty($image) || strpos($image, '?') || empty($params) || count($params) <= 0) {
         return $image;
     }
