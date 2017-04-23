@@ -72,11 +72,6 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
     /* 设置首页 */
     Route::get('/settings', 'ControlPanelController@settings');
 
-    /* 首页相关内容设置 */
-    Route::get('/setting/home', 'Control\SettingsController@home');
-    Route::post('/setting/home/word', 'Control\HomeController@word');
-    Route::post('/setting/home/story', 'Control\HomeController@story');
-
     /* 首页焦点图设置 */
     Route::get('/setting/banners', 'Control\SettingsController@banners');
     Route::post('/setting/banners/set', 'Control\BannersController@set');

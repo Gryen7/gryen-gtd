@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Banner;
-use App\Word;
 
 class HomeController extends Controller
 {
@@ -33,10 +32,7 @@ class HomeController extends Controller
         /* 志 */
         $notes = Article::getNotesForHome();
 
-        /* 知 */
-        $words = Word::orderBy('created_at', 'desc')->first();
-
-        return view('home.index', compact('banners', 'photos', 'notes', 'words', 'module'));
+        return view('home.index', compact('banners', 'photos', 'notes', 'module'));
     }
 
     /**

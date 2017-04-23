@@ -14,8 +14,4 @@
     @if(count($notes) > 0)
         @include('home._notes')
     @endif
-
-    @if(!empty($words))
-        @include('home._words')
-    @endif
 @endsection

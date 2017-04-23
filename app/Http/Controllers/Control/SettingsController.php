@@ -6,8 +6,6 @@ use App\Article;
 use App\Banner;
 use App\Config;
 use App\Http\Controllers\Controller;
-use App\Story;
-use App\Word;
 
 class SettingsController extends Controller
 {
@@ -41,17 +39,4 @@ class SettingsController extends Controller
         }
         return view('control.settings.banners', compact('articles', 'banners'));
     }
-
-    /**
-     * 首页板块设置
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function home()
-    {
-
-        $stories = Story::getStory();
-        $words = Word::getWord();
-        return view('control.settings.home', compact('stories', 'words'));
-    }
-
 }

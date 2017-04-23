@@ -19,10 +19,10 @@
     <title>
         @section('title')
             @if(isset($siteTitle) && !empty($siteTitle))
-                {{ $siteTitle }} --
+                {{ $siteTitle }} -
             @endif
             {{ isset($CONFIG->SITE_TITLE) ? $CONFIG->SITE_TITLE : 'LaravelBlog' }}
-            {{ isset($CONFIG->SITE_SUB_TITLE) ? ' -- ' . $CONFIG->SITE_SUB_TITLE : '' }}
+            {{ isset($CONFIG->SITE_SUB_TITLE) ? ' - ' . $CONFIG->SITE_SUB_TITLE : '' }}
         @show
     </title>
     <link rel="stylesheet" media="screen" charset="utf-8" href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/lib.css'}}>
