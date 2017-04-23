@@ -4,4 +4,3 @@
  */
 require('./banner');
 require('./site');
-require('./home');

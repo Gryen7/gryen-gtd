@@ -24,20 +24,26 @@ class BannersController extends Controller
             ]);
         }
 
-        // 是否已经设置过了
-        $isSet = Banner::where('article_id', $request->get('article_id'))->get()->count();
-
-        if ($isSet) {
+        //  是否有封面图
+        if (!$request->get('cover')) {
             return response()->json([
                 'code' => 403,
-                'msg' => '已经是首页推荐文章了'
+                'msg' => '没有设置封面图'
             ]);
         }
 
-        Banner::create($request->all());
+        // 是否已经设置过了
+        $oldBanner = Banner::where('article_id', $request->get('article_id'))->first();
+
+        if ($oldBanner) {
+            $msg = $oldBanner->update($request->all());
+        } else {
+            $msg = Banner::create($request->all());
+        }
+
         return response()->json([
             'code' => 200,
-            'msg' => 'success'
+            'msg' => $msg
         ]);
     }
 
@@ -57,13 +63,26 @@ class BannersController extends Controller
         ]);
     }
 
+    /**
+     * 推荐图置顶
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function top($id)
     {
-        $banner = Banner::find($id);
-        $msg = $banner->update(['weight' => Banner::max('weight') + 1]);
-        return response()->json([
+        $returnMsg = [
             'code' => 200,
-            'msg' => $msg
-        ]);
+            'msg' => '设置成功'
+        ];
+
+        $banner = Banner::find($id);
+        $max = Banner::max('weight');
+        if ($max === $banner->weight) {
+            $returnMsg['msg'] = '已经置顶了';
+        } else {
+            $returnMsg['msg'] = $banner->update(['weight' => Banner::max('weight') + 1]);
+        }
+
+        return response()->json($returnMsg);
     }
 }

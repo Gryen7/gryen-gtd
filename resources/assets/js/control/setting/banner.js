@@ -193,3 +193,14 @@ BannerList.on('click', '.delete', function (elem) {
         }
     });
 });
+
+BannerList.on('click', '.chng-img', function (elem) {
+    let $elemTarget = $(elem.delegateTarget);
+
+    SetBannerModal.init();
+    setBannerModal(
+        $elemTarget.data('rtclid'),
+        $elemTarget.data('title'),
+        '为《' + $elemTarget.data('title') + "》重新设置封面图"
+    );
+});
