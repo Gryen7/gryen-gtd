@@ -77,7 +77,7 @@ class BannersController extends Controller
 
         $banner = Banner::find($id);
         $max = Banner::max('weight');
-        if ($max === $banner->weight) {
+        if ($max === $banner->weight && $max !== 0) {
             $returnMsg['msg'] = '已经置顶了';
         } else {
             $returnMsg['msg'] = $banner->update(['weight' => Banner::max('weight') + 1]);
