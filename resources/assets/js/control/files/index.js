@@ -57,7 +57,6 @@ function fetchImageList() {
             } else {
                 isEnd = true;
             }
-
             tCpMainScroll();
         });
     }
@@ -67,3 +66,19 @@ if (tCtlImage.length > 0) {
     fetchImageList();
 }
 
+/**
+ * popover 展示
+ */
+tCtlImage.on('click', '.t-ctl-flbx', function (elem) {
+    tCtlImage.find('.t-ctl-flbx').not(elem.currentTarget).popover('destroy');
+    $(elem.currentTarget).popover('toggle');
+});
+
+/**
+ * popover 消失
+ */
+tCtlImage.on('click', function (elem) {
+    if ($(elem.target).hasClass('t-ctl-fl')) {
+        tCtlImage.find('.t-ctl-flbx').popover('destroy');
+    }
+});
