@@ -2,19 +2,20 @@
     > li {
         > a,
         > span {
+            font-weight: 400;
             color: $cfont;
-            border-color: $cfont-focus;
+            border: none;
         }
         &:first-child {
             > a,
             > span {
-                border-color: $cfont-focus;
+                border: none;
             }
         }
         &:last-child {
             > a,
             > span {
-                border-color: $cfont-focus;
+                border: none;
             }
         }
     }
@@ -24,9 +25,9 @@
         &:hover,
         &:focus {
             z-index: 2;
-            color: $cfont;
-            background-color: $cgray-light;
-            border-color: $cfont-focus;
+            color: $cfont-focus;
+            background-color: transparent;
+            border: none;
         }
     }
 
@@ -36,9 +37,9 @@
         &:hover,
         &:focus {
             z-index: 3;
-            color: $cfont;
-            background-color: $cfont-focus;
-            border-color: $cfont-focus;
+            color: $cfont-focus;
+            background-color: transparent;
+            border: none;
         }
     }
 
@@ -49,7 +50,7 @@
         > a,
         > a:hover,
         > a:focus {
-            border-color: $cfont-focus;
+            border: none;
         }
     }
 }

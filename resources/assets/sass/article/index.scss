@@ -20,49 +20,5 @@
     }
 }
 
-.tar-article-box {
-    background-color: $cbackgroud;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 960px;
-
-    .t-rtcl-ttl {
-        font-weight: 400;
-        font-size: $sfont-title;
-    }
-
-    hr {
-        margin: 0.5rem auto;
-        max-width: 750px;
-    }
-
-    .tar-article-time {
-        color: $cgray-base;
-        margin-bottom: 8px;
-    }
-
-    .article-content {
-        width: 100%;
-        max-width: 750px;
-        margin-left: auto;
-        margin-right: auto;
-        overflow: hidden;
-        word-wrap: break-word;
-        word-break: normal;
-
-        img {
-            max-width: 100%;
-            margin: 1rem auto;
-        }
-    }
-
-    .t-rtcl-tag {
-        margin-top: 10px;
-        max-width: 750px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
 @import "list";
 @import "form";
