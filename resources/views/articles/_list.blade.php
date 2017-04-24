@@ -4,7 +4,7 @@
             <div class="col-md-6 t-rtcl-lf">
                 <h4>
                     <a href="{{ action('ArticlesController@show',[$article->id]) }}">
-                        <b>{{ $article->title }}</b>
+                        {{ $article->title }}
                     </a>
                 </h4>
                 <hr>
