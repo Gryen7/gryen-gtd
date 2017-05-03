@@ -21,7 +21,7 @@
             <div class="col-md-6">
                 <div class="tar-article-info clearfix">
                     <a href="{{ action('ArticlesController@show',[$article->id]) }}">
-                        <img class="img-rounded lazy"
+                        <img class="lazy"
                              data-original="{{ imageView2($article->cover, ['w' => 600,'h' => 300]) }}"
                              src="" alt="...">
                     </a>

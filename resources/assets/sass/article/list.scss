@@ -6,8 +6,9 @@
     .tar-article-list {
         min-height: 100px;
         border-radius: 0;
-        background-color: transparent;
+        background-color: $cwhite;
         border: none;
+        margin-bottom: 20px;
 
         hr {
             margin: 10px auto;
@@ -50,10 +51,14 @@
         border-radius: 0;
         border-bottom: none;
     }
+
+    .tar-article-list:hover {
+        box-shadow: 0 0 1px 0 $cgray-base;
+    }
 }
 
 .t-rtcl-links {
-    max-width: 960px;
     margin: auto;
     padding: 0 5px;
+    text-align: center;
 }

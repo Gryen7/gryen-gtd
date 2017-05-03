@@ -5,6 +5,7 @@
             font-weight: 400;
             color: $cfont;
             border: none;
+            background-color: transparent;
         }
         &:first-child {
             > a,
@@ -51,6 +52,7 @@
         > a:hover,
         > a:focus {
             border: none;
+            background-color: transparent;
         }
     }
 }
