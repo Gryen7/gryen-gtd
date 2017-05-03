@@ -1,84 +1,59 @@
-.tar-article-box {
+.tar-article-list-box {
     margin-left: auto;
     margin-right: auto;
     max-width: 960px;
 
-    .t-rtcl-ttl {
-        font-weight: 400;
-        font-size: $sfont-title;
-    }
+    .tar-article-list {
+        min-height: 100px;
+        border-radius: 0;
+        background-color: transparent;
+        border: none;
 
-    hr {
-        margin: 10px auto;
-        float: none;
-        max-width: 900px;
-    }
-
-    .tar-article-time {
-        color: $cgray-base;
-        margin-bottom: 8px;
-    }
-
-    .article-content {
-        width: 100%;
-        max-width: 750px;
-        margin-left: auto;
-        margin-right: auto;
-        overflow: hidden;
-        word-wrap: break-word;
-        word-break: normal;
-
-        img {
-            max-width: 100%;
-            margin: 1rem auto;
+        hr {
+            margin: 10px auto;
+            float: none;
+            max-width: 900px;
         }
-    }
-}
 
-.tar-article-list {
-    min-height: 100px;
-    border-radius: 0;
-    background-color: transparent;
-    border: none;
+        .tar-article-extra {
+            color: $cgray-base;
+        }
 
-    .tar-article-extra {
-        color: $cgray-base;
-    }
+        .tar-article-info {
+            img {
+                width: 100%;
+            }
+        }
 
-    .tar-article-info {
-        img {
-            width: 100%;
+        .tar-article-list-decs {
+            margin-top: 10px;
+            height: 190px;
+            word-break: break-all;
+            word-wrap: break-word;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 8;
+        }
+
+        .tar-article-list-decs:after {
+            content: '...';
         }
     }
 
-    .tar-article-list-decs {
-        margin-top: 10px;
-        height: 190px;
-        word-break: break-all;
-        word-wrap: break-word;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 8;
+    .tar-article-list:first-child {
+        border-radius: 0;
+        border-top: none;
     }
 
-    .tar-article-list-decs:after {
-        content: '...';
+    .tar-article-list:last-child {
+        border-radius: 0;
+        border-bottom: none;
     }
-}
 
-.tar-article-list:first-child {
-    border-radius: 0;
-    border-top: none;
-}
-
-.tar-article-list:last-child {
-    border-radius: 0;
-    border-bottom: none;
-}
-
-.t-rtcl-links {
-    max-width: 960px;
-    margin: auto;
-    padding: 0 5px;
+    .t-rtcl-links {
+        max-width: 960px;
+        margin: auto;
+        padding: 0 5px;
+    }
 }

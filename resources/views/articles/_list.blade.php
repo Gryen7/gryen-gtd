@@ -1,4 +1,4 @@
-<ul class="list-group tar-article-box">
+<ul class="list-group tar-article-list-box">
     @foreach($articles as $article)
         <li class="list-group-item row tar-article-list">
             <h4 class="col-md-12">
