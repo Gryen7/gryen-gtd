@@ -29,7 +29,7 @@ function imageView2($image, array $params, $mode = 1, $q = 95)
         return $image;
     }
 
-    $queryString = '?imageView2/' . $mode . '/format/webp/interlace/1';
+    $queryString = '?imageView2/' . $mode . '/interlace/1';
 
     // 允许的参数
     $allowParams = ['w', 'h'];
