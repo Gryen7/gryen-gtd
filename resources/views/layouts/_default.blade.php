@@ -2,8 +2,8 @@
 @section('base_content')
     @parent
 @include('common._nav', ['extraClass' => ''])
-<div class="container-fluid t-page-minheight">
-    <div class="row">
+<div class="container-fluid t-wrap">
+    <div class="row t-main">
         @yield('content')
     </div>
 </div>

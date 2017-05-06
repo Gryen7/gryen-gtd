@@ -6,10 +6,6 @@ input, textarea:focus {
     background: #fff;
 }
 
-.t-page-minheight {
-    min-height: 600px;
-}
-
 .tar-error {
     position: fixed;
     right: 0;
@@ -31,12 +27,21 @@ input, textarea:focus {
     resize: none;
 }
 
+.t-wrap {
+    min-height: 100%;
+}
+
+.t-main {
+    padding-bottom: 55px;
+}
+
 .t-index-ftr {
     background-color: $cwhite;
     border: 0;
     border-radius: 0;
     border-top: solid 1px $cfont-focus;
-    margin-bottom: 0;
+    margin: -55px 0 0;
+    height: 55px;
     z-index: 1;
 }
 
