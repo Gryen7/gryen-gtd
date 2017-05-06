@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
     <div class="text-center t-index-plttl">
         <span>图片、摄影</span>
     </div>
