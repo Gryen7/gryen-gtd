@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="text-center t-index-plttl">
         <span>笔记</span>
     </div>

@@ -1,12 +1,12 @@
-<nav class="navbar navbar-default navbar-static-top {!! $extraClass !!}">
+<nav class="navbar navbar-default navbar-fixed-top{!! isset($extraClass) ? ' ' . $extraClass : '' !!}">
     <div class="container">
-        <div class="navbar-header t-nav-brand">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tNavbarCollapse" aria-expanded="false">
-                <span class="sr-only">分类</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header t-nav-brand visible-xs">
+            <a href="{{ action('HomeController@index') }}" class="t-nav-btn pull-left">
+                <span class="glyphicon glyphicon-home"></span>
+            </a>
+            <a href="{{ action('ArticlesController@index') }}" class="t-nav-btn pull-right">
+                <span class="glyphicon glyphicon-list-alt"></span>
+            </a>
         </div>
         <div class="collapse navbar-collapse t-nav-brand" id="tNavbarCollapse">
             <ul class="nav navbar-nav navbar-right">

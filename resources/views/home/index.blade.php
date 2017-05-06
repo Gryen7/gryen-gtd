@@ -1,7 +1,7 @@
 @extends('layouts._base', ['module' => 'home'])
 @section('base_content')
     @parent
-    @include('common._nav', ['extraClass' => ''])
+    @include('common._nav')
 
     @if(count($banners) > 0)
         @include('home._banner')
@@ -14,4 +14,6 @@
     @if(count($notes) > 0)
         @include('home._notes')
     @endif
+
+    @include('home._more')
 @endsection
