@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @if (isset($siteKeywords))
         <meta name="keywords" content="{{ $siteKeywords }}">
@@ -41,7 +42,9 @@
 @include('common._footer')
 <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/manifest.bundle.js'}}"></script>
 <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/vendor.bundle.js'}}"></script>
+@if (isset($module))
 <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/' . $module . '.bundle.js'}}"></script>
+@endif
 @if(env('APP_ENV') === 'production')
     <script>
         (function (i, s, o, g, r, a, m) {

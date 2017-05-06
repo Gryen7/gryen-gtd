@@ -1,4 +1,4 @@
-<div class="tar-index-slider">
+<div class="tar-index-slider hidden-xs">
     <ul class="swiper-wrapper">
         @foreach($banners as $banner)
             <li class="swiper-slide clearfix">

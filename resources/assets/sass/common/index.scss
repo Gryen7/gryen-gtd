@@ -37,10 +37,7 @@ input, textarea:focus {
     margin-top: 20px;
     z-index: 1;
 }
-.t-border-image {
-    border: 30px solid transparent;
-    border-image:url("/dist/img/flower-border.png") 80 80 round;
-}
+
 @import "dialog";
 @import "simditor";
 @import "nav";

@@ -1,5 +1,7 @@
 <div class="container">
-    <div class="text-center t-index-plttl t-border-image">志</div>
+    <div class="text-center t-index-plttl">
+        <span>笔记</span>
+    </div>
     <div class="row">
         @foreach($notes as $note)
             <div class="col-md-3 t-index-nt">

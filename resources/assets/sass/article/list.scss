@@ -1,64 +1,63 @@
-.tar-article-list-box {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 960px;
 
-    .tar-article-list {
-        min-height: 100px;
-        border-radius: 0;
-        background-color: $cwhite;
-        border: none;
-        margin-bottom: 20px;
+.tar-article-list {
+    min-height: 100px;
+    border-radius: 0;
+    background-color: $cwhite;
+    border: none;
+    margin-bottom: 20px;
 
-        hr {
-            margin: 10px auto;
-            float: none;
-            max-width: 900px;
-        }
+    .t-artl-title {
+        border-bottom: 1px solid $cgray-light;
+        line-height: 32px;
+        margin-bottom: 16px;
 
-        .tar-article-extra {
-            color: $cgray-base;
-        }
-
-        .tar-article-info {
-            img {
-                width: 100%;
-            }
-        }
-
-        .tar-article-list-decs {
-            margin-top: 10px;
-            height: 190px;
-            word-break: break-all;
-            word-wrap: break-word;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 8;
-        }
-
-        .tar-article-list-decs:after {
-            content: '...';
+        > a {
+            font-size: 16px;
+            font-weight: 400;
         }
     }
 
-    .tar-article-list:first-child {
-        border-radius: 0;
-        border-top: none;
+    .tar-article-extra {
+        color: $cgray-base;
     }
 
-    .tar-article-list:last-child {
-        border-radius: 0;
-        border-bottom: none;
+    .tar-article-info {
+        img {
+            width: 100%;
+        }
     }
 
-    .tar-article-list:hover {
-        box-shadow: 0 0 1px 0 $cgray-base;
+    .tar-article-list-decs {
+        margin-top: 10px;
+        height: 190px;
+        word-break: break-all;
+        word-wrap: break-word;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 8;
+    }
+
+    .tar-article-list-decs:after {
+        content: '...';
     }
 }
 
+.tar-article-list:first-child {
+    border-radius: 0;
+    border-top: none;
+}
+
+.tar-article-list:last-child {
+    border-radius: 0;
+    border-bottom: none;
+}
+
+.tar-article-list:hover {
+    box-shadow: 0 0 1px 0 $cgray-base;
+}
+
 .t-rtcl-links {
-    margin: auto;
     padding: 0 5px;
     text-align: center;
 }

@@ -1,9 +1,17 @@
-<nav class="navbar navbar-default navbar-static-top t-nav-brand {!! $extraClass !!}">
+<nav class="navbar navbar-default navbar-static-top {!! $extraClass !!}">
     <div class="container">
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="navbar-header t-nav-brand">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tNavbarCollapse" aria-expanded="false">
+                <span class="sr-only">分类</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse t-nav-brand" id="tNavbarCollapse">
             <ul class="nav navbar-nav navbar-right">
-                <li @if ($module === 'home')class="active"@endif><a href="/">首页</a></li>
-                <li @if ($module === 'article')class="active" @endif><a href="{{url('/articles')}}">笔记</a></li>
+                <li @if (isset($module) && $module === 'home')class="active"@endif><a href="/">首页</a></li>
+                <li @if (isset($module) && $module === 'article')class="active" @endif><a href="{{url('/articles')}}">笔记</a></li>
                 <li class="dropdown">
                     @if (Auth::check())
                         <a href="#" class="dropdown-toggle tar-go" data-toggle="dropdown" role="button"
