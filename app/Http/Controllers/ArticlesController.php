@@ -42,7 +42,9 @@ class ArticlesController extends Controller
     public function create()
     {
         $tags = Tag::orderBy('num', 'desc')->take(7)->get();
-        return view('articles.create', compact('tags'));
+        $article['cover'] = '//statics.targaryen.top/default-image.png';
+        $article = (object)$article;
+        return view('articles.create', compact('tags', 'article'));
     }
 
     /**

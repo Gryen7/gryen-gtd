@@ -6,21 +6,14 @@
 
     .simditor {
         border: 1px solid $cfont-focus;
-        border-radius: 4px;
 
         .simditor-wrapper {
             background-color: $cbackgroud;
-            border-radius: 4px;
         }
 
         .simditor-body {
             min-height: 450px;
             font-size: 14px;
-        }
-
-        .simditor-toolbar {
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
         }
 
         .markdown-editor {
@@ -72,8 +65,11 @@
 
 .t-edit-cover {
     position: relative;
-    width: 358px;
-    height: 268.5px;
+    margin-bottom: 20px;
+
+    img {
+        width: 100%;
+    }
 
     input[type=file] {
         position: absolute;
@@ -89,6 +85,7 @@
 
 .t-lable {
     overflow: hidden;
+    min-height: 200px;
 
     input {
         border: none;
@@ -98,7 +95,6 @@
 
 .t-tag-box {
     display: inline-block;
-    max-width: 220px;
 
     span {
         display: inline-block;

@@ -8,13 +8,14 @@ let trArtclFrm = $('.tar-article-form');
 let trArtTtlBox = $('.tar-artl-ttlbox');
 let trArtTtl = trArtTtlBox.html();
 let coverInput = $('#tCover');
-let tEditCover = $('.t-edit-cover'); // 封面图
+let tEditCover = $('#tEditCover'); // 封面图
 let tTagInput = $('#tTagInput'); // 手动输入标签的 INPUT 组件
 let tTagBox = $('#tTagBox'); // 选中的标签存放容器
 let tTag = $('.t-tag'); // 标签
 let tTags = $('#tTags'); // 要提交的标签
 let tTagsArray = []; // 标签数组
 let tLblBox = $('#tLblBox'); // 系统中的标签
+let tNavBrand = $('.navbar-fixed-top');
 
 trArtTtlBox.html(null);
 
@@ -78,9 +79,8 @@ coverInput.on('change', function () {
 
     fr.readAsDataURL(cover);
     fr.onload = function (e) {
-        tEditCover.attr({'style': 'background: url(' + e.target.result + ') no-repeat;background-size: cover;'});
+        tEditCover.attr('src', e.target.result);
     };
-
 });
 
 /**
@@ -89,12 +89,12 @@ coverInput.on('change', function () {
 tTag.on('click', function () {
     let tag = $.trim($(this).text());
 
-    if (tTagBox.children().length < 4 && $.inArray(tag, tTagsArray) < 0) {
+    if (tTagBox.children().length < 7 && $.inArray(tag, tTagsArray) < 0) {
         tTagsArray.push(tag);
         tTagBox.append($(this));
         tTags.val(tTagsArray.join(','));
     } else {
-        console.log('标签最多 4 个！');
+        console.log('标签最多 7 个！');
     }
 });
 
@@ -106,7 +106,7 @@ tTag.on('click', function () {
 tTagInput.keydown(function (e) {
     // 添加标签
     if (e.which === 9) {
-        if (tTagInput.is(":focus") && tTagInput.val().length > 0 && tTagBox.children().length < 4) {
+        if (tTagInput.is(":focus") && tTagInput.val().length > 0 && tTagBox.children().length < 7) {
             let tag = $.trim(tTagInput.val());
 
             if ($.inArray(tTagInput.val(), tTagsArray) < 0) {
@@ -141,5 +141,13 @@ tTagInput.keydown(function (e) {
             console.log('没有标签！');
         }
         return false;
+    }
+});
+
+$(window).scroll(function() {
+    if ($('.simditor-wrapper').hasClass('toolbar-floating')) {
+        tNavBrand.css('display', 'none');
+    } else {
+        tNavBrand.css('display', 'block');
     }
 });
