@@ -15,7 +15,6 @@ let tTag = $('.t-tag'); // 标签
 let tTags = $('#tTags'); // 要提交的标签
 let tTagsArray = []; // 标签数组
 let tLblBox = $('#tLblBox'); // 系统中的标签
-let tNavBrand = $('.navbar-fixed-top');
 
 trArtTtlBox.html(null);
 
@@ -141,13 +140,5 @@ tTagInput.keydown(function (e) {
             console.log('没有标签！');
         }
         return false;
-    }
-});
-
-$(window).scroll(function() {
-    if ($('.simditor-wrapper').hasClass('toolbar-floating')) {
-        tNavBrand.css('display', 'none');
-    } else {
-        tNavBrand.css('display', 'block');
     }
 });

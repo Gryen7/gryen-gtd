@@ -9,6 +9,10 @@
 
         .simditor-wrapper {
             background-color: $cbackgroud;
+
+            .simditor-toolbar {
+                top: 51px!important;
+            }
         }
 
         .simditor-body {
