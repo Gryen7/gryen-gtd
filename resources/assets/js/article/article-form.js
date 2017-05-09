@@ -31,7 +31,7 @@ if (textarea.length > 0) {
     require('marked');
     require('simditor-markdown');
 
-    let Simditor = require('tar-simditor');
+    let Simditor = require('simditor');
 
     new Simditor({
         textarea: textarea,
