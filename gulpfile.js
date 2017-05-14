@@ -30,5 +30,5 @@ elixir(function (mix) {
     mix.sass('control.scss', `${DIST_PATH_WITH_VERSION}/css/control.css`);
 
     /* JS 处理 */
-    mix.webpack(['home.js', 'article.js', 'control.js', 'about.js'], `${DIST_PATH_WITH_VERSION}/js`);
+    mix.webpack('', `${DIST_PATH_WITH_VERSION}/js`);
 });

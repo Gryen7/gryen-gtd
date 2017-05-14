@@ -1,4 +1,4 @@
-@extends('layouts._default', ['module' => 'article'])
+@extends('layouts._default')
 @section('content')
    @include('articles._list')
 @stop
