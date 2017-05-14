@@ -1,4 +1,4 @@
-@extends('layouts._default', ['module' => 'article'])
+@extends('layouts._default', ['module' => 'article-edit'])
 @section('content')
     <div class="tar-article-form">
         {!! Form::open(['action' => 'ArticlesController@store', 'enctype' => 'multipart/form-data']) !!}

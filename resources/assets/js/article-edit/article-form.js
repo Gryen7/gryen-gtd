@@ -8,7 +8,6 @@ const Simditor = require('tar-simditor');
 let textarea = $('#content-textarea');
 let trArtclFrm = $('.tar-article-form');
 let trArtTtlBox = $('.tar-artl-ttlbox');
-let trArtTtl = trArtTtlBox.html();
 let coverInput = $('#tCover');
 let tEditCover = $('#tEditCover'); // 封面图
 let tTagInput = $('#tTagInput'); // 手动输入标签的 INPUT 组件
@@ -33,13 +32,9 @@ if (textarea.length > 0) {
             params: null,
             fileKey: 'upload_file',
             connectionCount: 3,
-            leaveConfirm: 'Uploading is in progress, are you sure to leave this page?'
+            leaveConfirm: '文件正在上传中，确定离开？'
         }
     });
-
-    let simditorBody = trArtclFrm.find('.simditor-placeholder');
-
-    simditorBody.before(trArtTtl);
 }
 
 /**

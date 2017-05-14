@@ -1,5 +1,6 @@
 {
-  "version": "0.3",
+  "name": "laravelblog",
+  "version": "v0.3.0",
   "private": true,
   "description": "laravelblog frontend",
   "license": "MIT",
@@ -25,7 +26,7 @@
     "simple-module": "^3.0.3",
     "simple-uploader": "^3.0.0",
     "swiper": "^3.4.2",
-    "tar-simditor": "^2.3.6",
+    "tar-simditor": "^2.3.11",
     "tar-simditor-markdown": "^1.1.2",
     "to-markdown": "^3.0.4",
     "vue": "^2.2.4",

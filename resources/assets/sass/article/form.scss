@@ -8,7 +8,7 @@
         border: 1px solid $cfont-focus;
 
         .simditor-wrapper {
-            background-color: $cbackgroud;
+            background-color: $cwhite;
 
             .simditor-toolbar {
                 top: 51px!important;
@@ -16,13 +16,21 @@
         }
 
         .simditor-body {
+            max-width: 750px;
             min-height: 450px;
             font-size: 14px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: $cwhite;
         }
 
         .markdown-editor {
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+
             textarea {
-                background-color: $cbackgroud;
+                background-color: $cwhite;
                 font-size: 14px;
             }
         }
@@ -42,13 +50,11 @@
     box-shadow: none;
     line-height: 2.5rem;
     font-size: 16px;
-    font-weight: 700;
-    border-bottom: 1px solid #c9d8db;
+    font-weight: 400;
     text-align: center;
-    margin-top: 1em;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
     background-color: $cbackgroud;
 }
 

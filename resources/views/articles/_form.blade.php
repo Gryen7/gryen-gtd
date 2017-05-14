@@ -9,10 +9,10 @@
         </div>
     </div>
     <div class="form-group">
-        {!! Form::textarea('content',null,['class' => 'form-control','id'=>'content-textarea']) !!}
-    </div>
-    <div class="tar-artl-ttlbox">
         {!! Form::text('title',null,['class' => 'form-control tar-artl-title','placeholder' =>'文章标题', 'autocomplete' => 'off']) !!}
+    </div>
+    <div class="form-group">
+        {!! Form::textarea('content',null,['class' => 'form-control','id'=>'content-textarea']) !!}
     </div>
 </div>
 <div class="col-md-10 col-md-offset-1">
