@@ -2,6 +2,8 @@
  * Created by gcy77 on 2016/3/17.
  */
 const $ = require('jquery');
+require('tar-simditor-markdown');
+const Simditor = require('tar-simditor');
 
 let textarea = $('#content-textarea');
 let trArtclFrm = $('.tar-article-form');
@@ -22,17 +24,6 @@ trArtTtlBox.html(null);
  * 加载编辑器
  */
 if (textarea.length > 0) {
-    //noinspection NpmUsedModulesInstalled
-    require('simple-module');
-    require('simple-hotkeys');
-    //noinspection NpmUsedModulesInstalled
-    require('simple-uploader');
-    require('to-markdown');
-    require('marked');
-    require('simditor-markdown');
-
-    let Simditor = require('simditor');
-
     new Simditor({
         textarea: textarea,
         markdown: false,

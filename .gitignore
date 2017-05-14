@@ -31,9 +31,6 @@ Temporary Items
 *.tmPreferences.cache
 *.stTheme.cache
 
-# workspace files are user-specific
-*.sublime-workspace
-
 # project files should be checked into the repository, unless a significant
 # proportion of contributors will probably not be using SublimeText
 # *.sublime-project
@@ -83,8 +80,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-### Linux template
-*~
 
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
@@ -96,7 +91,6 @@ $RECYCLE.BIN/
 .Trash-*
 ### Composer template
 composer.phar
-/vendor/
 
 # Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
 # You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
@@ -123,7 +117,7 @@ bootstrap/cache/
 .svn/
 ### Emacs template
 # -*- mode: gitignore; -*-
-*~
+
 \#*\#
 /.emacs.desktop
 /.emacs.desktop.lock
@@ -154,7 +148,6 @@ tramp
 
 # cask packages
 .cask/
-dist/
 
 # Flycheck
 flycheck_*.el
@@ -171,7 +164,7 @@ flycheck_*.el
 Session.vim
 # temporary
 .netrwhist
-*~
+
 # auto-generated tag files
 tags
 ### JetBrains template
@@ -179,16 +172,11 @@ tags
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff:
-.idea/workspace.xml
 .idea/tasks.xml
 .idea/dictionaries
-.idea/vcs.xml
-.idea/jsLibraryMappings.xml
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids
-.idea/dataSources.xml
-.idea/dataSources.local.xml
 .idea/sqlDataSources.xml
 .idea/dynamic.xml
 .idea/uiDesigner.xml
@@ -224,8 +212,6 @@ fabric.properties
 .metadata
 bin/
 tmp/
-*.tmp
-*.bak
 *.swp
 *~.nib
 local.properties
@@ -261,7 +247,6 @@ local.properties
 .target
 
 # Tern plugin
-.tern-project
 
 # TeXlipse plugin
 .texlipse
@@ -279,14 +264,12 @@ local.properties
 
 # IntelliJ project files
 .idea
-*.iml
 out
 gen
 *.log
-composer.phar
 /composer.lock
 .vscode/
 /_ide_helper.php
-_ide_helper.php
 resources/lang/zh-cn/
 qshell.config
+/js/

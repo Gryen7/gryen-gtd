@@ -1,10 +1,10 @@
 //noinspection NpmUsedModulesInstalled
 const elixir = require('laravel-elixir');
-const gulp = require('gulp');
 const PKG = require('./package.json');
 
-const DIST_PATH = 'public/dist';
+const DIST_PATH = __dirname + '/public/dist';
 const DIST_PATH_WITH_VERSION = `${DIST_PATH}/${PKG.version}`;
+const DIST_PATH_WITH_VERSION_JS = DIST_PATH_WITH_VERSION + '/js';
 const AWESOME_FONT_PATH = 'node_modules/bootstrap-sass/assets/fonts/bootstrap/**.*';
 /*
  |--------------------------------------------------------------------------
@@ -30,5 +30,5 @@ elixir(function (mix) {
     mix.sass('control.scss', `${DIST_PATH_WITH_VERSION}/css/control.css`);
 
     /* JS 处理 */
-    mix.webpack('', `${DIST_PATH_WITH_VERSION}/js`);
+    mix.webpack('', DIST_PATH_WITH_VERSION_JS, '');
 });

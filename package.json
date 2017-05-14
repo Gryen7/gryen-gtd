@@ -1,6 +1,9 @@
 {
   "version": "0.3",
   "private": true,
+  "description": "laravelblog frontend",
+  "license": "MIT",
+  "repository": "https://github.com/itargaryen/laravelblog",
   "scripts": {
     "prod": "gulp --production",
     "dev": "gulp watch"
@@ -18,13 +21,12 @@
     "laravel-elixir-webpack-official": "^1.0.10",
     "lodash": "^4.17.4",
     "marked": "^0.3.5",
-    "path": "^0.12.7",
-    "simditor": "^2.3.6",
-    "simditor-markdown": "^1.1.2",
     "simple-hotkeys": "^1.0.3",
     "simple-module": "^3.0.3",
     "simple-uploader": "^3.0.0",
     "swiper": "^3.4.2",
+    "tar-simditor": "^2.3.6",
+    "tar-simditor-markdown": "^1.1.2",
     "to-markdown": "^3.0.4",
     "vue": "^2.2.4",
     "vue-resource": "^1.2.1",
