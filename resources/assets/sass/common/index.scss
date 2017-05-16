@@ -8,8 +8,8 @@ input, textarea:focus {
 
 .tar-error {
     position: fixed;
-    right: 0;
-    bottom: 0;
+    top: 70px;
+    right: 30px;
     z-index: 10;
 
     ul {
