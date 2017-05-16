@@ -177,7 +177,3 @@ tTagInput.keydown(function (e) {
         return false;
     }
 });
-
-document.body.onbeforeunload = function() {
-    window.event.returnValue = '您即将离开本页面,确定继续吗?';
-};
