@@ -20,14 +20,15 @@
                     @endif
                     <ul class="dropdown-menu">
                         @if (Auth::check())
-                            <li><a href="{{url('/articles/create')}}">新文章</a></li>
-                            <li role="separator" class="divider"></li>
                             <li><a href="{{url('/control')}}">控制面板</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="{{url('/logout')}}">登出</a></li>
                         @endif
                     </ul>
                 </li>
+                @if (Auth::check())
+                    <li><a href="{{url('/articles/create')}}">新文章</a></li>
+                @endif
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
