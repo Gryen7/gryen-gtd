@@ -86,7 +86,7 @@ class ArticlesController extends Controller
             'code' => 200,
             'message' => '文章提交成功',
             'type' => 'success',
-            'href' => $resParams['status'] === 1 ? action('ArticlesController@show', ['id' => $article->id]) : ''
+            'href' => (int)$resParams['status'] === 1 ? action('ArticlesController@show', ['id' => $article->id]) : ''
         ]);
     }
 
