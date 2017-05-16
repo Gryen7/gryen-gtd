@@ -58,7 +58,6 @@ const _postArticle = (status) => {
         status: status
     });
 
-    articleForm.find('[name = "status"]').val(1);
     $.ajax({
         type: 'post',
         url: articleForm.attr('action'),

@@ -273,3 +273,4 @@ gen
 resources/lang/zh-cn/
 qshell.config
 /js/
+/.phpstorm.meta.php

@@ -11,6 +11,33 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * App\Todo
+ *
+ * @mixin \Eloquent
+ * @property int $id
+ * @property int $parents_id
+ * @property int $grandparents_id
+ * @property string $content
+ * @property bool $status
+ * @property bool $importance
+ * @property string $begin_at
+ * @property string $end_at
+ * @property \Carbon\Carbon $deleted_at
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo whereBeginAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo whereContent($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo whereEndAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo whereGrandparentsId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo whereImportance($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo whereParentsId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo whereStatus($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo whereUpdatedAt($value)
+ */
 class Todo extends Eloquent
 {
     use SoftDeletes;

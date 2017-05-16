@@ -5,6 +5,11 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\File
+ *
+ * @mixin \Eloquent
+ */
 class File extends Model
 {
     protected $fillable = [

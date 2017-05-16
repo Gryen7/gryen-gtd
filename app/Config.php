@@ -5,6 +5,19 @@ namespace App;
 use Redis;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Config
+ *
+ * @mixin \Eloquent
+ * @property string $name
+ * @property string $value
+ * @property bool $status
+ * @property string $description
+ * @method static \Illuminate\Database\Query\Builder|\App\Config whereDescription($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Config whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Config whereStatus($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Config whereValue($value)
+ */
 class Config extends Model
 {
     protected $fillable = [
