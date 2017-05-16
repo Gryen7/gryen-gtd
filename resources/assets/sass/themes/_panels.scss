@@ -1,15 +1,14 @@
 .panel {
-    box-shadow: none;
+    box-shadow: $box-shadow;
     border-radius: 0;
 }
 .panel-default {
-    border-color: $cfont-focus;
+    border: none;
 
     .panel-heading {
         color: $cfont;
         font-weight: 700;
         background-color: $cbackgroud;
-        border-bottom: 1px solid $cfont-focus;
     }
 
     .panel-body {

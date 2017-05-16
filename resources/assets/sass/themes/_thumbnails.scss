@@ -22,7 +22,7 @@ a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
     border-color: $cwhite;
-    box-shadow: 0 0 1px 0 $cgray-base;
+    box-shadow: $box-shadow;
 }
 
 .thumbnail-noactive {

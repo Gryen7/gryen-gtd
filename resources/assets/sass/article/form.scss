@@ -1,11 +1,7 @@
 .tar-article-form {
-    #content-textarea {
-        border: none;
-        box-shadow: none;
-    }
-
     .simditor {
-        border: 1px solid $cfont-focus;
+        border: none;
+        box-shadow: $box-shadow;
 
         .simditor-wrapper {
             background-color: $cwhite;
@@ -96,6 +92,8 @@
 .t-lable {
     overflow: hidden;
     min-height: 200px;
+    box-shadow: none;
+    border-radius: 0;
 
     input {
         border: none;
