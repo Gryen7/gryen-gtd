@@ -82,8 +82,12 @@ class ArticlesController extends Controller
             'content' => $request->get('content')
         ]);
 
-        /** @noinspection PhpUndefinedFieldInspection */
-        return redirect(action('ArticlesController@show', ['id' => $article->id]));
+        return response()->json([
+            'code' => 200,
+            'message' => '文章提交成功',
+            'type' => 'success',
+            'href' => $resParams['status'] === 1 ? action('ArticlesController@show', ['id' => $article->id]) : ''
+        ]);
     }
 
     /**

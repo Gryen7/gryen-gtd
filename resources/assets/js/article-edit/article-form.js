@@ -2,11 +2,13 @@
  * Created by gcy77 on 2016/3/17.
  */
 const $ = require('jquery');
+require('jquery-serializejson');
 require('tar-simditor-markdown');
 const Simditor = require('tar-simditor');
 
 let textarea = $('#content-textarea');
 let trArtclFrm = $('.tar-article-form');
+let articleForm = trArtclFrm.find('form');
 let trArtTtlBox = $('.tar-artl-ttlbox');
 let coverInput = $('#tCover');
 let tEditCover = $('#tEditCover'); // 封面图
@@ -16,44 +18,92 @@ let tTag = $('.t-tag'); // 标签
 let tTags = $('#tTags'); // 要提交的标签
 let tTagsArray = []; // 标签数组
 let tLblBox = $('#tLblBox'); // 系统中的标签
+let alertContainer = $('#alertContainer');
+let submitArticle = $('#submit-article');
+let saveArticle = $('#save-article');
 
 trArtTtlBox.html(null);
 
 /**
  * 加载编辑器
  */
-if (textarea.length > 0) {
-    new Simditor({
-        textarea: textarea,
-        markdown: false,
-        toolbar: ['bold', 'italic', 'underline', 'strikethrough', 'ol', 'ul', 'blockquote', 'code', 'link', 'image', 'hr', 'indent', 'outdent', 'alignment', 'markdown'],
-        upload: {
-            url: '/files/upload',
-            params: null,
-            fileKey: 'upload_file',
-            connectionCount: 3,
-            leaveConfirm: '文件正在上传中，确定离开？'
-        }
-    });
-}
+new Simditor({
+    textarea: textarea,
+    markdown: false,
+    toolbar: ['bold', 'italic', 'underline', 'strikethrough', 'ol', 'ul', 'blockquote', 'code', 'link', 'image', 'hr', 'alignment', 'markdown'],
+    upload: {
+        url: '/files/upload',
+        params: null,
+        fileKey: 'upload_file',
+        connectionCount: 3,
+        leaveConfirm: '文件正在上传中，确定离开？'
+    }
+});
 
 /**
- * 提交或者保存文章
+ * 发送请求
+ * @param status
+ * @private
  */
-if (trArtclFrm.length > 0) {
-    let articleForm = trArtclFrm.find('form').find('[name = "status"]');
-    let submitArticle = $('#submit-article');
-    let saveArticle = $('#save-article');
+const _postArticle = (status) => {
+    if (typeof status === 'undefined') {
+        alertContainer.laravelError({
+            type: 'danger',
+            message: '不知道是提交还是仅保存'
+        });
+        return;
+    }
 
-    submitArticle.click(() => {
-        articleForm.val(1).end().submit();
+    let postData = Object.assign(articleForm.serializeJSON(), {
+        status: status
     });
 
-    saveArticle.click(() => {
-        articleForm.val(0).end().submit();
-    });
-}
+    articleForm.find('[name = "status"]').val(1);
+    $.ajax({
+        type: 'post',
+        url: articleForm.attr('action'),
+        data: postData,
+        success: function (result) {
+            if (result && result.code === 200) {
+                alertContainer.laravelError({
+                    type: result.type,
+                    message: result.message
+                });
 
+                if (result.href) {
+                    setTimeout(function () {
+                        location.href = result.href;
+                    }, 500);
+                }
+            } else {
+                alertContainer.laravelError({
+                    type: 'danger',
+                    message: '没有返回或者状态码不对'
+                });
+            }
+        },
+        error: function (xhr) {
+            alertContainer.laravelError({
+                type: 'danger',
+                message: xhr.responseText
+            });
+        }
+    });
+};
+
+/**
+ * 发表文章
+ */
+submitArticle.click(() => {
+    _postArticle(1);
+});
+
+/**
+ * 保存文章
+ */
+saveArticle.click(() => {
+    _postArticle(0);
+});
 /**
  * 文章封面图处理
  */
@@ -128,3 +178,7 @@ tTagInput.keydown(function (e) {
         return false;
     }
 });
+
+document.body.onbeforeunload = function() {
+    window.event.returnValue = '您即将离开本页面,确定继续吗?';
+};
