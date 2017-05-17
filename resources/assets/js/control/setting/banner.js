@@ -40,7 +40,7 @@ SetBannerBtn.on('click', function () {
 /**
  * 侦查图片上传情况    ,这个方法大概0.05-0.1秒执行一次
  */
-let onprogress = (evt) => {
+const onprogress = (evt) => {
     let loaded = evt.loaded;                  //已经上传大小情况
     let tot = evt.total;                      //附件总大小
     let per = Math.floor(100*loaded/tot);      //已经上传的百分比
