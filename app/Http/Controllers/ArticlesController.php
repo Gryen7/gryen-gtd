@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Input;
 class ArticlesController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * 文章列表页
      * @return \Illuminate\Http\Response
      * @internal param Article $article
      */
@@ -61,16 +61,6 @@ class ArticlesController extends Controller
         /* 文章描述处理 */
         $resParams['description'] = Article::descriptionProcess($request->get('content'));
 
-        /* 处理文章封面上传 */
-        $File = Input::file('cover');
-        if ($File) {
-            $UploadResult = File::upload($File);
-
-            if ($UploadResult['success']) {
-                $resParams['cover'] = $UploadResult['file_path'];
-            }
-        }
-
         /* 创建文章 */
         $article = Article::create($resParams);
 
@@ -90,8 +80,19 @@ class ArticlesController extends Controller
         ]);
     }
 
+
     /**
-     * Display the specified resource.
+     * 上传文章封面图
+     * @return array
+     */
+    public function cover()
+    {
+        $File = Input::file('cover');
+        return File::upload($File);
+    }
+
+    /**
+     * 文章详情页
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -124,7 +125,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * 文章编辑页
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -140,7 +141,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * 更新文章
      *
      * @param  int $id
      * @param CreateArticleRequest|\Illuminate\Http\Request $request

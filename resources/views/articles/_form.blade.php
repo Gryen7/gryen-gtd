@@ -25,7 +25,13 @@
                 'w' => 328,
                 'h' => 246
              ]) }}" alt="">
-                    {!! Form::input('file', 'cover', '', ['multiple' => 'multiple', 'accept' => 'image/*', 'id' => 'tCover']) !!}
+                    {!! Form::input('file', '', '', ['multiple' => 'multiple', 'accept' => 'image/*', 'id' => 'tCoverFile']) !!}
+                    {!! Form::input('hidden', 'cover', null, ['name' => 'cover', 'id' => 'tCover']) !!}
+                    <div class="progress">
+                        <div id="tCovrProgrs" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0">
+                            <span class="sr-only">完成0%</span>
+                        </div>
+                    </div>
                 </div>
                 @if(!isset($articleShow))
                     <div class="col-md-6">
