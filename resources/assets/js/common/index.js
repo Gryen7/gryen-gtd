@@ -4,7 +4,6 @@
 const $ = window.$ = window.jQuery = require('jquery');
 require('bootstrap-sass');
 require('jquery-lazyload');
-require('./alert');
 
 $.ajaxSetup({ headers: {
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

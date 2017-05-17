@@ -18,7 +18,9 @@ let entry = {
  * 生成文件入口
  */
 _.forEach(jsModules, module => {
-    entry[module] = `${JS_PATH}/${module}/index.js`;
+    if (module !== 'helpers') {
+        entry[module] = `${JS_PATH}/${module}/index.js`;
+    }
 });
 
 //noinspection JSUnresolvedVariable
