@@ -34,36 +34,42 @@ const _createDom = (message, settings, parent) => {
     $(div).appendTo(parent);
 };
 
-(function ($) {
-    'use strict';
+const show = function (options) {
+    let settings = $.extend({
+        type: 'info',
+        dismissible: true
+    }, options);
+    let message = '';
 
-    $.fn.laravelError = function (options) {
-        let self = this;
-        let settings = $.extend({
-            type: 'info',
-            dismissible: true
-        }, options);
-        let message = '';
+    try {
+        message = JSON.parse(options.message);
+    } catch (error) {
+        message = options.message;
+    }
 
-        try {
-            message = JSON.parse(options.message);
-        } catch (error) {
-            message = options.message;
-        }
+    if (message.length === 0) {
+        console.log('bootstrapAlert: message is empty');
+        return false;
+    }
 
-        if (message.length === 0) {
-            console.log('bootstrapAlert: message is empty');
-            return false;
-        }
+    //noinspection JSJQueryEfficiency
+    if ($('#laravelAlertContainer').length < 1) {
+        $('body').append('<div class="tar-error" id="laravelAlertContainer"></div>');
+    }
+    //noinspection JSJQueryEfficiency
+    let self = $('#laravelAlertContainer');
 
-        if ($.isArray(message) || $.isPlainObject(message)) {
-            $.each(message, (key, value) => {
-                _createDom(value, settings, self);
-            });
-        } else {
-            _createDom(message, settings, self);
-        }
+    if ($.isArray(message) || $.isPlainObject(message)) {
+        $.each(message, (key, value) => {
+            _createDom(value, settings, self);
+        });
+    } else {
+        _createDom(message, settings, self);
+    }
 
-        return this;
-    };
-})(jQuery);
+    return this;
+};
+
+module.exports = {
+    show
+};
