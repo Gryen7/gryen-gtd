@@ -27,7 +27,7 @@ Images.click((elem) => {
  * 关闭原图查看
  */
 TFullScreen.click(() => {
-    TFullScreenImg.data('status', 'close');
+    TFullScreenImg.attr('src', '').data('status', 'close');
     TFullScreenImg.fadeOut(300);
     TFullScreen.fadeOut(300);
 });
