@@ -5,5 +5,4 @@
     @include('articles._form', ['articleShow' => action('ArticlesController@show', ['id' => $article->id])])
     {!! Form::close() !!}
     </div>
-    @include('common._modal');
 @stop

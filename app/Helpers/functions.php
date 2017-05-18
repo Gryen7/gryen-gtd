@@ -64,14 +64,30 @@ function version() {
 
 /**
  * 动态处理文章中的图片
+ * 添加或者删除七牛图片处理参数
  * @param $content
+ * @param int $mode 1：添加参数 2：去除参数
  * @return mixed
  */
-function handleContentImage($content) {
+function handleContentImage($content, $mode = 1) {
     preg_match_all('/<img.*?src="(.*?)".*?>/is', $content, $result);
     $rightSrcs = [];
-    foreach ($result[1] as $value) {
-        array_push($rightSrcs, imageView2($value, ['w' => 600], 0, '100'));
+
+    switch ($mode) {
+        case 1: // 添加参数
+            foreach ($result[1] as $value) {
+                array_push($rightSrcs, imageView2($value, ['w' => 600], 0, '100'));
+            }
+            break;
+        case 2: // 去除参数
+            foreach ($result[1] as $value) {
+                $imageCut = explode('?', $value);
+                array_push($rightSrcs, $imageCut[0]);
+            }
+            break;
+        default:
+            break;
     }
+
     return str_replace($result[1], $rightSrcs, $content);
 }

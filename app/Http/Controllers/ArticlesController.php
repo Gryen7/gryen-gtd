@@ -158,24 +158,20 @@ class ArticlesController extends Controller
 
         /* 文章描述处理 */
         $updateData['description'] = Article::descriptionProcess($request->get('content'));
-
-        /* 处理文章封面上传 */
-        $File = Input::file('cover');
-        if ($File) {
-            $UploadResult = File::upload($File);
-
-            if ($UploadResult['success']) {
-                $updateData['cover'] = $UploadResult['file_path'];
-            }
-        }
+        $content = handleContentImage($request->get('content'), 2);
 
         $article->update($updateData);
 
         /* 更新文章内容 */
         $article->withContent()->update([
-            'content' => $request->get('content')
+            'content' => $content
         ]);
-        return redirect(action('ArticlesController@show', ['id' => $id]));
+        return response()->json([
+            'code' => 200,
+            'message' => '文章更新成功',
+            'type' => 'success',
+            'href' => (int)$updateData['status'] === 1 ? action('ArticlesController@show', ['id' => $article->id]) : ''
+        ]);
     }
 
     /**
