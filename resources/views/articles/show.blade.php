@@ -1,4 +1,4 @@
-@extends('layouts._default')
+@extends('layouts._default', ['module' => 'article-show'])
 @section('content')
     <div class="col-md-10 col-md-offset-1 tar-article-box">
         <div class="text-center t-rtcl-ttl">{{ $article->title }}</div>
@@ -13,4 +13,5 @@
         </div>
     </div>
     @endif
+    @include('articles._full-screen-img')
 @stop

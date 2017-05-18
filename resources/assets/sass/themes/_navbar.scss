@@ -1,6 +1,7 @@
 .navbar-default {
     background-color: $cwhite;
     border-bottom: solid 1px $cfont-focus;
+    z-index: 1;
 
     .navbar-nav {
         > li > a{

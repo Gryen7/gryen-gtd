@@ -27,6 +27,33 @@
             max-width: 100%;
             height: auto;
             margin: 1rem auto;
+
+            &:hover,
+            &:active {
+                cursor: pointer;
+            }
         }
+    }
+}
+
+.t-full-screen {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 3;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    display: none;
+    position: fixed;
+
+    img {
+        margin: 30px auto;
+        max-width: 100%;
+        height: 98%;
     }
 }
