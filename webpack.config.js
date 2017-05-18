@@ -2,12 +2,12 @@
  * Created by targaryen on 2017/1/23.
  */
 const webpack = require('webpack');
+const path = require('path');
 const fs = require('fs');
 const _ = require('lodash');
-const PKG = require('./package.json');
-const JS_PATH = __dirname + '/resources/assets/js'; // JS 源文件根目录
-const JS_DIST_PATH = `${__dirname}/public/dist/${PKG.version}/js`; // JS 文件输出
-const jsModules = fs.readdirSync(JS_PATH); // JS 模块
+
+const JS_PATH = './resources/assets/js'; // JS 源文件根目录
+const JS_MODULES = fs.readdirSync(JS_PATH); // JS 模块
 
 // webpack 入口
 let entry = {
@@ -17,9 +17,9 @@ let entry = {
 /**
  * 生成文件入口
  */
-_.forEach(jsModules, module => {
+_.forEach(JS_MODULES, module => {
     if (module !== 'helpers') {
-        entry[module] = `${JS_PATH}/${module}/index.js`;
+        entry[module] = path.resolve(JS_PATH, module, 'index.js');
     }
 });
 
@@ -27,12 +27,11 @@ _.forEach(jsModules, module => {
 module.exports = {
     entry: entry,
     output: {
-        path: JS_DIST_PATH,
         filename: '[name].bundle.js'
     },
     resolve: {
         alias: {
-            'jquery': __dirname + '/node_modules/jquery/src/jquery'
+            'jquery': path.join(__dirname, 'node_modules/jquery/src/jquery')
         }
     },
     plugins: [

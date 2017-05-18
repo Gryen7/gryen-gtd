@@ -1,6 +1,6 @@
 {
   "name": "laravelblog",
-  "version": "v0.3.0",
+  "version": "v0.3",
   "private": true,
   "description": "laravelblog frontend",
   "license": "MIT",
@@ -32,6 +32,7 @@
     "to-markdown": "^3.0.4",
     "vue": "^2.2.4",
     "vue-resource": "^1.2.1",
-    "webpack": "^2.2.0"
+    "webpack": "^2.2.0",
+    "path": "^0.12.7"
   }
 }
