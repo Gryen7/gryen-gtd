@@ -45,6 +45,10 @@ input, textarea:focus {
     z-index: 1;
 }
 
+.t-overflowy-hidden {
+    overflow-y: hidden;
+}
+
 @import "dialog";
 @import "simditor";
 @import "nav";

@@ -4,9 +4,10 @@
 const $ = require('jquery');
 const lazyload = require('jquery-lazyload');
 
-let Images = $('img');
-let TFullScreen = $('#tFullScreen');
-let TFullScreenImg = $('#tFullScreenImg');
+let TBody = $('body');
+let Images = TBody.find('img');
+let TFullScreen = TBody.find('#tFullScreen');
+let TFullScreenImg = TFullScreen.find('#tFullScreenImg');
 
 /**
  * 查看原图
@@ -18,6 +19,7 @@ Images.click((elem) => {
         let src = self.attr('src').split('?')[0];
 
         TFullScreenImg.attr('src', src).data('status', 'open');
+        TBody.addClass('t-overflowy-hidden');
         TFullScreen.css('display', 'flex').hide().fadeIn(700);
         TFullScreenImg.fadeIn(700);
     }
@@ -27,6 +29,7 @@ Images.click((elem) => {
  * 关闭原图查看
  */
 TFullScreen.click(() => {
+    TBody.removeClass('t-overflowy-hidden');
     TFullScreenImg.attr('src', '').data('status', 'close');
     TFullScreenImg.fadeOut(300);
     TFullScreen.fadeOut(300);
