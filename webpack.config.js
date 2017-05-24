@@ -95,7 +95,7 @@ module.exports.output = Mix.output();
 let plugins = [];
 
 if (Mix.options.extractVueStyles) {
-    var vueExtractTextPlugin = Mix.vueExtractTextPlugin();
+    let vueExtractTextPlugin = Mix.vueExtractTextPlugin();
 
     plugins.push(vueExtractTextPlugin);
 }

@@ -16,7 +16,9 @@
     "bootstrap-sass": "^3.3.7",
     "cross-env": "^5.0.0",
     "css-loader": "^0.26.4",
+    "dotenv": "^4.0.0",
     "fs": "0.0.1-security",
+    "glob": "^7.1.2",
     "gulp": "^3.9.1",
     "jquery": "^3.2.0",
     "jquery-lazyload": "^1.9.7",
@@ -25,6 +27,7 @@
     "lodash": "^4.17.4",
     "marked": "^0.3.5",
     "path": "^0.12.7",
+    "purifycss-webpack": "^0.7.0",
     "simple-hotkeys": "^1.0.3",
     "simple-module": "^3.0.3",
     "simple-uploader": "^3.0.0",
@@ -32,6 +35,8 @@
     "tar-simditor": "^2.3.11",
     "tar-simditor-markdown": "^1.1.2",
     "to-markdown": "^3.0.4",
-    "vue": "^2.2.4"
+    "vue": "^2.2.4",
+    "webpack": "^2.6.0",
+    "webpack-merge": "^4.1.0"
   }
 }
