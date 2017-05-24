@@ -1,18 +1,15 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "itargaryen/laravelblog",
+    "description": "A Laravelblog App Based on Laravel Framework.",
+    "keywords": ["app", "laravelblog"],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "aws/aws-php-sns-message-validator": "^1.1",
         "doctrine/cache": "^1.6",
         "guzzlehttp/guzzle": "^6.2",
         "laravel/framework": "5.4.*",
         "laravelcollective/html": "^5.2",
-        "league/flysystem-aws-s3-v3": "^1.0",
-        "league/flysystem-rackspace": "^1.0",
         "predis/predis": "^1.1",
         "qiniu/php-sdk": "^7.0",
         "symfony/psr-http-message-bridge": "^0.2.0",
@@ -40,9 +37,10 @@
         ]
     },
     "autoload-dev": {
-        "classmap": [
-            "tests/TestCase.php"
-        ]
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+
     },
     "scripts": {
         "post-root-package-install": [
@@ -64,6 +62,7 @@
     },
     "config": {
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "optimize-autoloader": true
     }
 }
