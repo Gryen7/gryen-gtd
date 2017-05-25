@@ -1,9 +1,13 @@
 const { mix } = require('laravel-mix');
+const fs = require('fs');
+const _ = require('lodash');
 
 const PKG = require('./package.json');
 const DIST_PATH = 'public/dist';
 const DIST_PATH_WITH_VERSION = `${DIST_PATH}/${PKG.version}`;
-const AWESOME_FONT_PATH = 'node_modules/bootstrap-sass/assets/fonts/bootstrap/**.*';
+
+const JS_PATH = './resources/assets/js'; // JS 源文件根目录
+const JS_MODULES = fs.readdirSync(JS_PATH); // JS 模块
 
 /*
  |--------------------------------------------------------------------------
@@ -15,11 +19,6 @@ const AWESOME_FONT_PATH = 'node_modules/bootstrap-sass/assets/fonts/bootstrap/**
  | file for the application as well as bundling up all the JS files.
  |
  */
-/* bootstrap 字库 */
-mix.copy(AWESOME_FONT_PATH, `${DIST_PATH}/fonts`);
-
-/* 复制图片 */
-mix.copy('resources/assets/img', `${DIST_PATH}/img`);
 
 /* CSS 处理 */
 mix.sass('resources/assets/sass/lib.scss', `${DIST_PATH_WITH_VERSION}/css/lib.css`)
@@ -27,4 +26,11 @@ mix.sass('resources/assets/sass/lib.scss', `${DIST_PATH_WITH_VERSION}/css/lib.cs
     .sass('resources/assets/sass/control.scss', `${DIST_PATH_WITH_VERSION}/css/control.css`);
 
 /* JS 处理 */
-mix.js('resources/assets/js/home/index.js', `${DIST_PATH_WITH_VERSION}/js`);
+_.forEach(JS_MODULES, module => {
+    if (module !== 'helpers') {
+        mix.js(`${JS_PATH}/${module}/index.js`, `${DIST_PATH_WITH_VERSION}/js/${module}.bundle.js`);
+    }
+});
+
+/* 公共库 */
+mix.extract(['jQuery', 'vue'], `${DIST_PATH_WITH_VERSION}/js/vendor.bundle.js`);

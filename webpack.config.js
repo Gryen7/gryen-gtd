@@ -1,3 +1,7 @@
+const PKG = require('./package.json');
+const DIST_PATH = 'dist';
+const DIST_PATH_WITH_VERSION = `${DIST_PATH}/${PKG.version}`;
+
 let path = require('path');
 let glob = require('glob');
 let webpack = require('webpack');
@@ -350,7 +354,7 @@ plugins.push(
     new webpackPlugins.FriendlyErrorsWebpackPlugin({ clearConsole: Mix.options.clearConsole }),
 
     new webpackPlugins.StatsWriterPlugin({
-        filename: 'mix-manifest.json',
+        filename: `${DIST_PATH_WITH_VERSION}/js/mix-manifest.json`,
         transform: Mix.manifest.transform.bind(Mix.manifest),
     }),
 
