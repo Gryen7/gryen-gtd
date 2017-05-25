@@ -9,5 +9,8 @@
                 <a href="mailto:targaryen@gryen.com‍" class="navbar-link">发电邮联系作者</a>
             </p>
         @endif
+            <p class="navbar-text">
+                <a href="http://www.miitbeian.gov.cn/" class="navbar-link">鲁ICP备15009847号</a>
+            </p>
     </div>
 </footer>

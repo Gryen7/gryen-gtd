@@ -1,10 +1,6 @@
 {
-  "name": "laravelblog",
-  "version": "v0.3.3",
+  "version": "v0.3.4",
   "private": true,
-  "description": "laravelblog frontend",
-  "license": "MIT",
-  "repository": "https://github.com/itargaryen/laravelblog",
   "scripts": {
     "prod": "gulp --production",
     "dev": "gulp watch"
