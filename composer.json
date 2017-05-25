@@ -1,7 +1,7 @@
 {
     "name": "itargaryen/laravelblog",
+    "keywords": ["laravelblog", "laravel"],
     "description": "A Laravelblog App Based on Laravel Framework.",
-    "keywords": ["app", "laravelblog"],
     "license": "MIT",
     "type": "project",
     "require": {
