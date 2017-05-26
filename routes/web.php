@@ -26,6 +26,13 @@ Route::group(['prefix' => 'articles'], function () {
 });
 
 /**
+ * 手作
+ */
+Route::group(['prefix' => 'handicrafts'], function () {
+    Route::get('/', 'HandicraftsController@index');
+});
+
+/**
  * 搜索
  */
 Route::group(['prefix' => 'searches'], function () {

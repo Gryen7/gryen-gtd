@@ -18,8 +18,8 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+Vue.component('handicraftList', require('./components/handicraftList.vue'));
 
-const app = new Vue({
-    el: '#laravelblog'
+const handicraftApp = new Vue({
+    el: '#handicraftApp'
 });
