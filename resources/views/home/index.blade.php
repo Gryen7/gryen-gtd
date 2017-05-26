@@ -2,7 +2,7 @@
 @section('base_content')
     @parent
     @include('common._nav')
-    <div class="t-wrap">
+    <div class="t-wrap" id="laravelblog">
         <div class="t-main">
         @if(count($banners) > 0)
             @include('home._banner')
@@ -17,6 +17,7 @@
         @endif
 
         @include('home._more')
+            <example></example>
         </div>
     </div>
 @endsection

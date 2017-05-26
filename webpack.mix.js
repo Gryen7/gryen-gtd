@@ -32,5 +32,8 @@ _.forEach(JS_MODULES, module => {
     }
 });
 
+/* Vue 处理 */
+mix.js('resources/vue/index.js', `${DIST_PATH_WITH_VERSION}/js/vue.bundle.js`);
+
 /* 公共库 */
 mix.extract(['jQuery', 'vue'], `${DIST_PATH_WITH_VERSION}/js/vendor.bundle.js`);
