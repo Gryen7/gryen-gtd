@@ -12,6 +12,8 @@ LaravelBlog
 
 #### v0.4.0
 
+- 前端资源打包工具更新到 laravel-mix
+- 引入 vue
 - 文章中的图片懒加载
 - 文章中的图片限制长宽最大值：tar-simditor
 - 新加商品模块
