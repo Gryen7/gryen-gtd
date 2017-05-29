@@ -28,6 +28,10 @@
         margin: auto 15px;
         background-color: transparent;
 
+        a {
+            color: $cfont-focus;
+        }
+
         .glyphicon {
             font-size: 18px;
         }

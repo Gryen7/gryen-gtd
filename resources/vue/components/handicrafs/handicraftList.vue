@@ -11,12 +11,11 @@
                 </div>
             </div>
         </div>
+        <scroll-to-top></scroll-to-top>
     </div>
 </template>
 
 <script>
-    const axios = require('axios');
-
     export default {
         mounted() {
             axios.get('api/handicrafts/list').then(result => {

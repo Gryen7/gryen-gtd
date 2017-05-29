@@ -18,7 +18,8 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('handicraftList', require('./components/handicraftList.vue'));
+Vue.component('handicraftList', require('./components/handicrafs/handicraftList.vue'));
+Vue.component('scrollToTop', require('./components/plugins/scrollToTop.vue'));
 
 const handicraftApp = new Vue({
     el: '#handicraftApp'
