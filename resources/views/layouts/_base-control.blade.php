@@ -12,9 +12,8 @@
     </title>
     <link rel="stylesheet" media="screen" charset="utf-8" href={{env('STATIC_URL'). '/dist/'. config('app.version') . '/css/lib.css'}}>
     <link rel="stylesheet" media="screen" charset="utf-8" href={{env('STATIC_URL'). '/dist/'. config('app.version') . '/css/control.css'}}>
-
-    <!-- Scripts -->
     <script>
+        // @noinspection
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
