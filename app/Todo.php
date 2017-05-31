@@ -68,6 +68,8 @@ class Todo extends Eloquent
         foreach ($todos as &$todo) {
             $todo->begin_at = Carbon::parse($todo->begin_at)->format('Y-m-d');
             $todo->end_at = Carbon::parse($todo->end_at)->format('Y-m-d');
+            $description = $todo->withDescription()->first();
+            $todo->description = $description ? $description->content : null;
 
             switch ($todo->importance) {
                 case 1:
@@ -89,5 +91,13 @@ class Todo extends Eloquent
         $next = $page + 1 <= $pageCount ? $page + 1 : $pageCount;
 
         return compact('todos', 'prev', 'next', 'pageCount');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function withDescription()
+    {
+        return $this->hasOne('App\TodoDescription');
     }
 }

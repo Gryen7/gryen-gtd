@@ -2,15 +2,23 @@
 
 .tar-add-todo {
     background-color: #e7e7e7;
-    margin-bottom: 1rem;
-    border-radius: 0.25rem;
+    margin-bottom: 10px;
+    border-radius: 4px;
     display: none;
 
+    .t-td-content,
     .tar-todo-content {
         width: 100% !important;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
+    }
+
+    .t-ctl-tddesc {
+        width: 100%;
+        resize: none;
+        margin-top: 10px;
+        display: none;
     }
 
     > form {
@@ -39,14 +47,22 @@
             text-align: left;
         }
     }
+
+    .t-tdlst-desc {
+        padding: 0 30px;
+        display: none;
+
+        textarea {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        textarea[readonly] {
+            background-color: #fff;
+        }
+    }
 }
 
-.tar-todo-desc {
-    width: 100% !important;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
 
 .tar-btn-select {
     padding-left: 0;
@@ -57,5 +73,6 @@
         margin-right: auto;
         background-color: transparent;
         border: 0;
+        font-size: 12px;
     }
 }

@@ -5,7 +5,7 @@
     </div>
     <div class="form-group col-xs-5">
         {!! Form::text('content', null, [
-            'class' => 'form-control tar-todo-content',
+            'class' => 'form-control t-td-content',
             'placeholder' => '待办事项'
         ]) !!}
     </div>
@@ -26,10 +26,13 @@
         ]) !!}
     </div>
     <div class="form-group col-xs-1">
-       {!! Form::button('详细', ['class' => 'btn btn-default']) !!}
+       {!! Form::button('详细', ['class' => 'btn btn-default', 'id' => 'tShowDescription', 'cols' => '', 'rows' => '']) !!}
     </div>
     <div class="form-group col-xs-1">
         {!! Form::submit('创建', ['class' => 'btn btn-primary form-control']) !!}
+    </div>
+    <div class="form-group col-xs-12">
+        {!! Form::textarea('description', null, ['class' => 't-ctl-tddesc form-control', 'id' => 'tCtlDescription']) !!}
     </div>
     {!! Form::close() !!}
 </div>

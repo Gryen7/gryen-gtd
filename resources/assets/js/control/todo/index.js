@@ -2,13 +2,16 @@
  * Created by gcy77 on 2016/8/21.
  */
 require('bootstrap-datetime-picker');
-
+const laravelAlert = require('../../helpers/alert');
 const Fun = require('../function');
 const $ = require("jquery");
 const DeleteTodoModal = $('#deleteTodo');
 const TarTodoContent = $('.tar-todo-content');
 const TarTodoBeginat = $('.tar-todo-beginat');
 const TarTodoEndat = $('.tar-todo-endat');
+const AddTodoForm = $('#tar-add-todo');
+const TDescription = $('#tCtlDescription');
+const TTdList = $('.tar-todo-list');
 
 /**
  * todostart datepicker
@@ -34,22 +37,28 @@ $('#crt-td-end-dtpckr').datetimepicker({
  * add onetodo toggle
  */
 $('#tar-new-todo-btn').on('click', () => {
-    let addTodoForm = $('#tar-add-todo');
-    addTodoForm.slideToggle();
+    TDescription.css('display', 'none');
+    AddTodoForm.slideToggle();
+});
+
+$('#tShowDescription').on('click', () => {
+    TDescription.slideToggle();
 });
 
 /**
- * change content
+ * 查看任务描述
  */
-TarTodoContent.on('click', function () {
-    // let self = $(this);
-    //
-    // if (self.attr('readonly') === 'readonly') {
-    //     self.removeAttr('readonly').focus();
-    // } else {
-    //     self.attr('readonly', 'readonly');
-    // }
+TarTodoContent.on('click', function (elem) {
+    let Description = TTdList.find('.t-tdlst-desc-' + $(elem.currentTarget).data('id'));
 
+    if (Description.length > 0) {
+        Description.slideToggle();
+    } else {
+        laravelAlert.show({
+            type: 'warning',
+            message: '这个任务没有描述'
+        });
+    }
 });
 
 /**
@@ -97,32 +106,34 @@ TarTodoEndat.on('click', function () {
 });
 
 /**
- * show delete ensure modal box
- */
-const showDeleteEnsure = (todoId) => {
-    DeleteTodoModal.find('input[name=todo_id]').val(todoId);
-    DeleteTodoModal.find(window.MODAL_ENSURE).val('deleteTodo');
-    DeleteTodoModal.modal('show');
-};
-
-/**
  * delete onetodo
  */
-const deleteTodo = () => {
+const deleteTodo = (todoId) => {
    $.ajax({
-       url: '/control/todos/delete/' + DeleteTodoModal.find('input[name=todo_id]').val(),
+       url: '/control/todos/delete/' + todoId,
        method: 'GET',
        dataType: 'json',
        success: function (data) {
            if (data.code === 200) {
-               DeleteTodoModal.modal('hide');
-               location.reload();
+               laravelAlert.show({
+                   type: 'success',
+                   message: data.msg
+               });
+               setTimeout(function () {
+                   location.reload();
+               }, 1000)
            } else {
-               console.log(data);
+               laravelAlert.show({
+                   type: 'danger',
+                   message: data
+               });
            }
        },
        error: function (error) {
-           console.log(error);
+           laravelAlert.show({
+               type: 'danger',
+               message: error
+           });
        }
    });
 };
@@ -131,7 +142,7 @@ const deleteTodo = () => {
  * open delete onetodo ensure box
  */
 $('.tar-del-todo').on('click', function () {
-    showDeleteEnsure($(this).data('id'));
+    deleteTodo($(this).data('id'));
 });
 
 /**
@@ -142,7 +153,7 @@ DeleteTodoModal.find('.tar-modal-ensurebtn').on('click', () => {
 });
 
 $('select[name^="importance"]').on('change', function () {
-    var todoId = $(this).data('id'),
+    let todoId = $(this).data('id'),
         status = $(this).val();
 
     $.post('/control/todos/status', {
