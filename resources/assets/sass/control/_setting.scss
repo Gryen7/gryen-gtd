@@ -1,6 +1,13 @@
 .tar-cps-banner {
     padding: 1.5em;
 
+    .t-ctl-btt {
+        width: 80%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
     li {
         overflow: hidden;
 
@@ -39,6 +46,14 @@
     ul {
         li {
             line-height: 2.4em;
+
+            .t-ctl-rtcllst {
+                display: inline-block;
+                width: 80%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
         }
     }
 }

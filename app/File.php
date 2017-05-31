@@ -140,6 +140,6 @@ class File extends Model
             }
         }
 
-        return array_slice($files, $from, $perPageNum);
+        return array_slice(array_reverse($files), $from, $perPageNum);
     }
 }

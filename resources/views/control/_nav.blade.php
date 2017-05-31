@@ -11,7 +11,7 @@
     </li>
     <li class="list-group-item">
         <a href="{{url('/control/todos')}}">
-            <span class="glyphicon glyphicon-calendar" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="任务"></span>
+            <span class="glyphicon glyphicon-tasks" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="任务"></span>
         </a>
     </li>
     <li class="list-group-item">

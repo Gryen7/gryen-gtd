@@ -16,7 +16,7 @@
                             <span class="glyphicon glyphicon-cloud-upload chng-img"></span>
                         </div>
                         <div class="col-xs-6">
-                            <h5>{{ $banner->article_title }}<span class="t-ctl-btg pull-right">{{ $banner->weight }}</span></h5>
+                            <h5 class="clearfix"><span class="t-ctl-btt pull-left">{{ $banner->article_title }}</span><span class="t-ctl-btg pull-right">{{ $banner->weight }}</span></h5>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-info set-top">置顶</button>
                                 <button type="button" class="btn btn-danger delete">移除</button>
@@ -41,7 +41,7 @@
                 <ul class="list-group">
                     @foreach($articles as $article)
                         <li class="list-group-item">
-                            <a href="{{ action('ArticlesController@show',[$article->id]) }}" target="_blank">{{
+                            <a class="t-ctl-rtcllst" href="{{ action('ArticlesController@show',[$article->id]) }}" target="_blank">{{
                         $article->title
                          }}</a>
                             <button type="button" class="btn btn-success pull-right tar-btn-stbnr" data-id="{{ $article->id }}" data-title="{{ $article->title }}">设置</button>
