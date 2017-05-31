@@ -38,4 +38,5 @@
             </div>
         </div>
     </div>
+    @include('errors._list')
 @endsection

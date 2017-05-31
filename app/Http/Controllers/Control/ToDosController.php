@@ -33,7 +33,16 @@ class ToDosController extends Controller
      */
     public function store(CreateTodoRequest $request)
     {
-        Todo::create($request->all());
+        $todo = Todo::create($request->all());
+
+        $description = $request->get('description');
+
+        if (!empty($description)) {
+            $todo->withDescription()->create([
+                'content' => $description
+            ]);
+        }
+
         return redirect('control/todos');
     }
 
@@ -48,7 +57,7 @@ class ToDosController extends Controller
         return response()->json(
             [
                 'code' => 200,
-                'msg' => 'success'
+                'msg' => '任务标记完成'
             ]
         );
     }

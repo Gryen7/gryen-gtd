@@ -10,7 +10,7 @@
                 <div class="btn-group col-xs-12 row">
                     <button class="btn col-xs-1 tar-btn-select btn-{{ $todo->importanceStyle }}">
                         {!! Form::select('importance-' . $todo->id,
-                        [0=> '未开始', 1=> '进行中', 2=> '已完成'],
+                        [0=> '未开始', 1=> '进行中'],
                         $todo->status, ['data-id' => $todo->id]) !!}
                     </button>
                     {{ Form::input('text', 'content', $todo->content, [
@@ -28,8 +28,13 @@
                         'data-id' => $todo->id,
                         'readonly'
                     ]) }}
-                    <button class="btn btn-danger col-xs-1 tar-del-todo" data-id="{{ $todo->id }}">删除</button>
+                    <button class="btn btn-danger col-xs-1 tar-del-todo" data-id="{{ $todo->id }}">完成</button>
                 </div>
+                @if (!empty($todo->description))
+                <div class="btn-group col-xs-12 row t-tdlst-desc t-tdlst-desc-{{ $todo->id }}">
+                    {!! Form::textarea(null, $todo->description, ['readonly', 'class' => 'form-control no-resize']) !!}
+                </div>
+                @endif
             </li>
         @endforeach
     </ul>
