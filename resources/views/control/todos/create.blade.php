@@ -5,7 +5,7 @@
     </div>
     <div class="form-group col-xs-5">
         {!! Form::text('content', null, [
-            'class' => 'form-control tar-todo-content',
+            'class' => 'form-control t-td-content',
             'placeholder' => '待办事项'
         ]) !!}
     </div>
