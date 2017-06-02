@@ -38,7 +38,7 @@
 @if (isset($vue) && $vue)
 <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/vue.bundle.js'}}"></script>
 @endif
-@if (isset($module))
+@if (isset($module) && !isset($noJsLoad))
 <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/' . $module . '.bundle.js'}}"></script>
 @endif
 @if(env('APP_ENV') === 'production')

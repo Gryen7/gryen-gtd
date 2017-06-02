@@ -10,8 +10,13 @@
         </div>
         <div class="collapse navbar-collapse t-nav-brand" id="tNavbarCollapse">
             <ul class="nav navbar-nav navbar-right">
-                <li @if (isset($module) && $module === 'home')class="active"@endif><a href="/">首页</a></li>
-                <li @if (isset($module) && $module === 'article')class="active" @endif><a href="{{url('/articles')}}">笔记</a></li>
+                <li @if (isset($module) && $module === 'home')class="active"@endif><a href="{{ action('HomeController@index')
+                }}">首页</a></li>
+                <li @if (isset($module) && $module === 'article-list')class="active" @endif><a href="{{ action('ArticlesController@index')
+                }}">笔记</a></li>
+                <li @if (isset($module) && $module === 'handicraft-list')class="active" @endif><a href="{{ action
+                ('HandicraftsController@index')
+                }}">手作</a></li>
                 @if (Auth::check())
                     <li><a href="{{url('/articles/create')}}">添加文章</a></li>
                 @endif
