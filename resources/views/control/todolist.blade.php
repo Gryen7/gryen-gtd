@@ -7,17 +7,14 @@
     <ul class="list-unstyled tar-todo-list col-xs-12">
         @foreach($todos as $todo)
             <li class="btn-toolbar row">
-                <div class="btn-group col-xs-12 row">
+                <div class="btn-group col-xs-12 row t-ctl-pertodo">
                     <button class="btn col-xs-1 tar-btn-select btn-{{ $todo->importanceStyle }}">
                         {!! Form::select('importance-' . $todo->id,
                         [0=> '未开始', 1=> '进行中'],
                         $todo->status, ['data-id' => $todo->id]) !!}
                     </button>
-                    {{ Form::input('text', 'content', $todo->content, [
-                        'class' => 'btn btn-default col-xs-6 tar-todo-content',
-                        'data-id' => $todo->id,
-                        'readonly'
-                    ]) }}
+                    <div class="btn btn-default col-xs-6 tar-todo-content" data-id="{{ $todo->id }}">{{
+                    $todo->content }} @if (!empty($todo->description))<span class="label label-info pull-right">详细</span>@endif</div>
                     {{ Form::input('text', 'begin_at', $todo->begin_at, [
                         'class' => 'btn btn-default col-xs-2 tar-todo-beginat',
                         'data-id' => $todo->id,

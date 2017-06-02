@@ -56,7 +56,7 @@ TarTodoContent.on('click', function (elem) {
     } else {
         laravelAlert.show({
             type: 'warning',
-            message: '这个任务没有描述'
+            message: '这个任务没有详细描述'
         });
     }
 });
