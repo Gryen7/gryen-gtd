@@ -26,13 +26,16 @@ class HomeController extends Controller
             $banner['article_description'] = $banner->article->description;
         }
 
+        /* TODO 手作 */
+        $handicrafts = Article::getPhotosForHome(6);
+
         /* 影 */
         $photos = Article::getPhotosForHome();
 
         /* 志 */
         $notes = Article::getNotesForHome();
 
-        return view('home.index', compact('banners', 'photos', 'notes', 'module'));
+        return view('home.index', compact('banners', 'handicrafts', 'photos', 'notes', 'module'));
     }
 
     /**

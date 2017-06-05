@@ -11,9 +11,9 @@
                 </div>
                 <div class="t-index-sldimg pull-left">
                     <img class="" src="{{ imageView2($banner->cover, [
-                        'w' => 896,
-                        'h' => 540
-                    ]) }}" alt="">
+                        'w' => 936,
+                        'h' => 527
+                    ]) }}" alt="{{ $banner->article_title }}">
                 </div>
             </li>
         @endforeach

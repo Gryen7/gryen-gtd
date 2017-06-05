@@ -1,8 +1,8 @@
-<section class="container">
-    <div class="text-center t-index-plttl">
-        <span>笔记</span>
-    </div>
-    <div class="row">
+<section class="container-fluid t-index-note">
+    <header class="text-center t-index-plttl">
+        <div class="t-index-secttl">笔记</div>
+    </header>
+    <section class="row">
         @foreach($notes as $note)
             <div class="col-md-3 t-index-nt">
                 <a href="{{action('ArticlesController@show', ['id' => $note->id])}}" class="thumbnail">
@@ -17,5 +17,5 @@
                 </a>
             </div>
         @endforeach
-    </div>
+    </section>
 </section>
