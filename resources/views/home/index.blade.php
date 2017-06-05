@@ -8,6 +8,8 @@
             @include('home._banner')
         @endif
 
+            @include('home._handicrafts')
+
         @if(count($photos) > 0)
             @include('home._photo')
         @endif

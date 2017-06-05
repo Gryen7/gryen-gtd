@@ -1,4 +1,4 @@
-<div class="tar-index-slider hidden-xs">
+<section class="tar-index-slider hidden-xs">
     <ul class="swiper-wrapper">
         @foreach($banners as $banner)
             <li class="swiper-slide clearfix">
@@ -18,4 +18,4 @@
             </li>
         @endforeach
     </ul>
-</div>
+</section>
