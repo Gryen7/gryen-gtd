@@ -19,30 +19,40 @@
  * @param int $q 图片质量
  * @return string
  */
-function imageView2($image, array $params, $mode = 1, $q = 95)
+function imageView2($image, array $params, $mode = 1, $q = 100)
 {
     if (!is_string($image)) {
         return '';
     }
 
-    if (empty($image) || strpos($image, '?') || empty($params) || count($params) <= 0) {
+    if (empty($image) || strpos($image, '?')) {
         return $image;
     }
 
-    $queryString = '?imageView2/' . $mode . '/interlace/1';
+    $queryString = '';
 
     // 允许的参数
     $allowParams = ['w', 'h'];
 
-    foreach ($params as $key => $value) {
-        if (in_array($key, $allowParams)) {
-            $queryString .= '/' . $key . '/' . $value;
+    if (isset($params) && !empty($params)) {
+        $queryString .= '?imageView2/' . $mode . '/interlace/1';
+        foreach ($params as $key => $value) {
+            if (in_array($key, $allowParams)) {
+                $queryString .= '/' . $key . '/' . $value;
+            }
         }
     }
 
     $image = str_replace('//static.', '//statics.', $image);
 
-    return $image . $queryString . '/q/' . $q;
+    // 质量处理
+    $qhandle = '';
+
+    if ($q != 100) {
+        $qhandle = '/q/' . $q;
+    }
+
+    return $image . $queryString . $qhandle;
 }
 
 /**
@@ -76,7 +86,7 @@ function handleContentImage($content, $mode = 1) {
     switch ($mode) {
         case 1: // 添加参数
             foreach ($result[1] as $value) {
-                array_push($rightSrcs, imageView2($value, ['w' => 600], 0, '100'));
+                array_push($rightSrcs, imageView2($value, [], 0, '100'));
             }
             break;
         case 2: // 去除参数
