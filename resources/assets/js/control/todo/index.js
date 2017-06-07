@@ -61,6 +61,42 @@ TarTodoContent.on('click', function (elem) {
     }
 });
 
+const _postDateChange = (elem) => {
+    let parent = elem.parent();
+    let begin = parent.find('.tar-todo-beginat').val();
+    let end = parent.find('.tar-todo-endat').val();
+
+    $.ajax({
+        method: 'post',
+        url: '/control/todos/date',
+        data: {
+            id: elem.data('id'),
+            begin_at: begin,
+            end_at: end
+        },
+        complete: function () {
+            elem.datetimepicker('remove').unbind('changeDate');
+            setTimeout(function () {
+                location.reload();
+            }, 2000);
+        },
+        success: function (result) {
+            if (result && result.code) {
+                laravelAlert.show({
+                    type: result.type,
+                    message: result.msg
+                });
+            }
+        },
+        error: function () {
+            laravelAlert.show({
+                type: 'danger',
+                message: '未知错误'
+            });
+        }
+    });
+};
+
 /**
  * change start time
  */
@@ -74,10 +110,7 @@ TarTodoBeginat.on('click', function () {
         minView: 2,
         autoclose: true
     }).on('changeDate', function () {
-        $.post('/control/todos/date', {
-            id: self.data('id'),
-            begin_at: self.val()
-        });
+        _postDateChange(self);
     });
 
     self.datetimepicker('show');
@@ -96,10 +129,7 @@ TarTodoEndat.on('click', function () {
         minView: 2,
         autoclose: true
     }).on('changeDate', function () {
-        $.post('/control/todos/date', {
-            id: self.data('id'),
-            end_at: self.val()
-        });
+        _postDateChange(self);
     });
 
     self.datetimepicker('show');

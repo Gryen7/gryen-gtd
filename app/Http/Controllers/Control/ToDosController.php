@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Control;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateTodoRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Todo;
 
@@ -87,20 +88,47 @@ class ToDosController extends Controller
      */
     public function changeDate(Request $request)
     {
-        $todo = Todo::find($request->id);
-        if ($request->begin_at) {
-            $todo->begin_at = $request->begin_at;
-        }
-        if ($request->end_at) {
-            $todo->end_at = $request->end_at;
-        }
-        $result = $todo->save();
 
-        return response()->json(
-            [
-                'code' => 200,
-                'msg' => $result
-            ]
-        );
+        $break = false;
+
+        $response = [
+            'code' => 200,
+            'type' => 'success',
+            'msg' => '修改成功'
+        ];
+
+        $request->begin_at = Carbon::createFromFormat('Y-m-d', $request->begin_at)->toDateString();
+        $request->end_at = Carbon::createFromFormat('Y-m-d', $request->end_at)->toDateString();
+
+        if ($request->end_at < Carbon::now()) {
+            $break = true;
+            $response = [
+                'code' => 400,
+                'type' => 'warning',
+                'msg' => '结束时间小于当前时间'
+            ];
+        }
+
+        if (!$break && $request->end_at < $request->begin_at) {
+            $break = true;
+            $response = [
+                'code' => 400,
+                'type' => 'warning',
+                'msg' => '结束时间小于开始时间'
+            ];
+        }
+
+        $todo = Todo::find($request->id);
+
+        if (!$break && !$todo->update($request->all())) {
+            $response = [
+                'code' => 500,
+                'type' => 'danger',
+                'msg' => '保存失败'
+            ];
+        }
+
+        return response()->json($response);
     }
+
 }
