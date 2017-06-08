@@ -8,6 +8,17 @@
  */
 const $ = require('jquery');
 
+/**
+ * 自动隐藏
+ * @param elem
+ * @private
+ */
+const _hideAuto = (elem) => {
+    setTimeout(() => {
+        elem.addClass('fade-out');
+    }, 3000);
+};
+
 const _createDom = (message, settings, parent) => {
     let div = $('<div class="alert alert-' + settings.type + '" role="alert">');
 
@@ -31,7 +42,9 @@ const _createDom = (message, settings, parent) => {
         $(parent).empty();
     }
 
-    $(div).appendTo(parent);
+    $(div).prependTo(parent);
+
+    _hideAuto($(div));
 };
 
 const show = function (options) {
@@ -66,6 +79,8 @@ const show = function (options) {
     } else {
         _createDom(message, settings, self);
     }
+
+    self.children('.fade-out').remove();
 
     return this;
 };

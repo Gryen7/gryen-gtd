@@ -42,6 +42,10 @@
     li {
         margin-bottom: 1rem;
 
+        .t-ctl-pertodo {
+            z-index: 3;
+        }
+
         .tar-todo-content {
             overflow: hidden;
             text-align: left;
@@ -55,10 +59,14 @@
         textarea {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
+            margin-left: -2px;
+            margin-top: -2px;
+            z-index: 2;
         }
 
         textarea[readonly] {
             background-color: #fff;
+            z-index: 2;
         }
     }
 }

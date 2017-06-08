@@ -38,6 +38,12 @@ body {
             list-style: none;
         }
     }
+
+    .fade-out {
+        visibility: hidden;
+        opacity: 0;
+        transition: all 1s linear;
+    }
 }
 
 .no-resize {
