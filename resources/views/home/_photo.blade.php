@@ -1,6 +1,6 @@
-<section class="container-fluid">
+<section class="container-fluid t-index-photo">
     <header class="text-center t-index-plttl">
-        <div class="t-index-secttl t-index-secttl-red">图片、摄影</div>
+        <div class="t-index-secttl t-index-secttl-red"><a href="{{ action('ArticlesController@index', ['tag' => '摄影']) }}">拍了些照片</a></div>
     </header>
     <section class="row">
         @foreach($photos as $photo)

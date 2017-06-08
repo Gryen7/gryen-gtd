@@ -10,7 +10,7 @@
                 <div class="tar-article-extra clearfix">
                     <div class="t-rtcl-tag pull-left">
                         @foreach($article->tags as $tag)
-                            <span class="label label-tag">{{ $tag }}</span>
+                            <a class="label label-tag" href="{{ action('ArticlesController@index', ['tag' => $tag]) }}">{{ $tag }}</a>
                         @endforeach
                     </div>
                      <div class="pull-right">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}</div>
@@ -29,6 +29,8 @@
         </li>
     @endforeach
 </ul>
+@if(count($articles) > 1)
 <div class="col-md-10 col-md-offset-1 t-rtcl-links">
     {{ $articles->links() }}
 </div>
+@endif

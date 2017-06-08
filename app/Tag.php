@@ -25,6 +25,16 @@ class Tag extends Model
         'name'
     ];
 
+
+    /**
+     * 与文章多对多关联
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function article()
+    {
+        return $this->belongsToMany('App\Article', 'tag_maps', 'tag_id', 'article_id');
+    }
+
     /**
      * 新建文章标签处理
      * @param $tagString

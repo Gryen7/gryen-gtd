@@ -8,20 +8,34 @@ use App\Http\Requests\CreateArticleRequest;
 use App\Tag;
 use App\File;
 use App\Config;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
 class ArticlesController extends Controller
 {
     /**
      * 文章列表页
+     * @param Request $request
      * @return \Illuminate\Http\Response
      * @internal param Article $article
      */
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Article::where('status', '>', 0)
-            ->orderBy('created_at', 'desc')
-            ->paginate(7);
+        $tag = $request->get('tag');
+        if (!empty($tag)) {
+            $tag = Tag::where('name', $tag)
+                ->first();
+
+            $articles = empty($tag) ? (object)[] : $tag->article()
+                ->where('status', '>', 0)
+                ->orderBy('created_at', 'desc')
+                ->paginate(7);
+
+        } else {
+            $articles = Article::where('status', '>', 0)
+                ->orderBy('created_at', 'desc')
+                ->paginate(7);
+        }
 
         foreach ($articles as &$article) {
             if(empty($article->cover)) {
@@ -30,7 +44,7 @@ class ArticlesController extends Controller
         }
 
         $articles = Article::getTagArray($articles);
-        $siteTitle = '记录';
+        $siteTitle = '随便写写';
         return view('articles.index', compact('siteTitle', 'articles'));
     }
 
