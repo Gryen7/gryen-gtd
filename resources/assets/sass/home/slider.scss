@@ -6,12 +6,10 @@
     margin-top: -20px;
 
     ul {
-        height: 100%;
         margin: 0;
         padding: 0;
 
         li {
-            height: 100%;
             list-style: none;
             position: relative;
 
@@ -46,10 +44,6 @@
             .t-index-sldimg {
                 width: 74%;
                 overflow: hidden;
-
-                img {
-                    height: 100%;
-                }
             }
         }
     }

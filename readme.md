@@ -14,6 +14,7 @@ LaravelBlog
 
 - 前端资源打包工具更新到 laravel-mix
 - 引入 vue
+- 文章标签分类
 - 文章中的图片懒加载
 - 文章中的图片限制长宽最大值：tar-simditor
 - 新加手作展示模块
