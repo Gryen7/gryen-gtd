@@ -1,6 +1,6 @@
 <section class="container-fluid t-index-handicraft">
     <header class="text-center t-index-plttl">
-        <div class="t-index-secttl"><a href="{{ action('HandicraftsController@index') }}">格安手作</a></div>
+        <div class="t-index-secttl"><a href="{{ action('HandicraftsController@index') }}">手作</a></div>
     </header>
     <section class="row">
         @foreach($handicrafts as $handicraft)

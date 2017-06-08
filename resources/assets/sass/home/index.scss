@@ -11,13 +11,13 @@
     align-items: center;
     justify-content: center;
 
-    .t-index-secttl {
+    .t-index-secttl > a {
         color: $cbackgroud;
         padding: 14px;
         width: 33.33%;
     }
 
-    .t-index-secttl-red {
+    .t-index-secttl-red > a {
         color: $cfont-focus;
     }
 }

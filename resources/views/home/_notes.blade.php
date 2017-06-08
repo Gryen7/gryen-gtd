@@ -1,6 +1,6 @@
 <section class="container-fluid t-index-note">
     <header class="text-center t-index-plttl">
-        <div class="t-index-secttl"><a href="{{ action('ArticlesController@index', ['tag' => '随笔']) }}">随便写写</a></div>
+        <div class="t-index-secttl"><a href="{{ action('ArticlesController@index', ['tag' => '随笔']) }}">笔记</a></div>
     </header>
     <section class="row">
         @foreach($notes as $note)
