@@ -80,24 +80,33 @@ function version() {
  * @return mixed
  */
 function handleContentImage($content, $mode = 1) {
-    preg_match_all('/<img.*?src="(.*?)".*?>/is', $content, $result);
-    $rightSrcs = [];
+    $rightImgs = [];
 
     switch ($mode) {
         case 1: // 添加参数
+            preg_match_all('/<img.*?src="(.*?)".*?>/is', $content, $result);
+            $oldImgs = [];
             foreach ($result[1] as $value) {
-                array_push($rightSrcs, imageView2($value, [], 0, '100'));
+                array_push($oldImgs, 'src="' . $value . '"');
+                array_push($rightImgs, ' class="lazy" data-original="' . imageView2($value, [], 0, '100') . '"');
             }
+            $content = str_replace($oldImgs, $rightImgs, $content);
             break;
         case 2: // 去除参数
+            preg_match_all('/<img.*?data-original="(.*?)".*?>/is', $content, $result);
             foreach ($result[1] as $value) {
                 $imageCut = explode('?', $value);
-                array_push($rightSrcs, $imageCut[0]);
+                array_push($rightImgs, $imageCut[0]);
             }
+            $content = str_replace($result[1], $rightImgs, $content);
+
+            $oldExtra = ['class="lazy"', 'data-original='];
+            $rightExtra = ['', 'url='];
+            $content = str_replace($oldExtra, $rightExtra, $content);
             break;
         default:
             break;
     }
 
-    return str_replace($result[1], $rightSrcs, $content);
+    return $content;
 }
