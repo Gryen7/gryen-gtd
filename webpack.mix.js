@@ -36,4 +36,4 @@ _.forEach(JS_MODULES, module => {
 mix.js('resources/vue/index.js', `${DIST_PATH_WITH_VERSION}/js/vue.bundle.js`);
 
 /* 公共库 */
-mix.extract(['jQuery', 'vue'], `${DIST_PATH_WITH_VERSION}/js/vendor.bundle.js`);
+mix.extract(['jquery', 'vue'], `${DIST_PATH_WITH_VERSION}/js/vendor.bundle.js`);
