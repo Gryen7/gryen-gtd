@@ -14,9 +14,9 @@
                 }}">首页</a></li>
                 <li @if (isset($module) && $module === 'article-list')class="active" @endif><a href="{{ action('ArticlesController@index')
                 }}">笔记</a></li>
-                <li @if (isset($module) && $module === 'handicraft-list')class="active" @endif><a href="{{ action
+{{--                <li @if (isset($module) && $module === 'handicraft-list')class="active" @endif><a href="{{ action
                 ('HandicraftsController@index')
-                }}">手作</a></li>
+                }}">手作</a></li>--}}
                 @if (Auth::check())
                     <li><a href="{{url('/articles/create')}}">添加文章</a></li>
                 @endif
