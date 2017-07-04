@@ -27,7 +27,8 @@ class HomeController extends Controller
         }
 
         /* TODO 手作 */
-        $handicrafts = Article::getPhotosForHome(6);
+//        $handicrafts = Article::getPhotosForHome(6);
+        $handicrafts = [];
 
         /* 影 */
         $photos = Article::getPhotosForHome();
