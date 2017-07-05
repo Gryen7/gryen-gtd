@@ -11,8 +11,8 @@
                 </div>
                 <div class="t-index-sldimg pull-left">
                     <img class="" src="{{ imageView2($banner->cover, [
-                        'w' => 936,
-                        'h' => 527
+                        'w' => 960,
+                        'h' => 540
                     ]) }}" alt="{{ $banner->article_title }}">
                 </div>
             </li>
