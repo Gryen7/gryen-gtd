@@ -44,6 +44,10 @@
             .t-index-sldimg {
                 width: 74%;
                 overflow: hidden;
+
+                img {
+                    width: 100%;
+                }
             }
         }
     }
