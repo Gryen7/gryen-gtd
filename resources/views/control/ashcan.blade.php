@@ -2,32 +2,26 @@
 @section('subNavigation')
 @stop
 @section('content')
-    <div class="table-responsive">
-        <table class="table table-striped tar-ctl-table">
-            <thead>
-            <tr>
-                <th>标题</th>
-                <th>操作</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($articles as $article)
-                <tr>
-                    <td>{{ $article->title }}</td>
-                    <td>
-                        <ul class="btn-group">
-                            <li class="btn btn-default"><a
-                                        href="{{ action('ArticlesController@edit',[$article->id]) }}"
-                                        target="_blank">恢复</a></li>
-                            <li class="btn btn-default"><a
-                                        href="{{ action('ArticlesController@destroy',[$article->id]) }}">彻底删除</a></li>
-                        </ul>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-    </div>
+    <ul class="list-group tar-cpa-list">
+        <li class="list-group-item">
+            <div class="col-xs-8">标题</div>
+            <div class="col-xs-3 text-center">操作</div>
+        </li>
+        @foreach($articles as $article)
+            <li class="list-group-item">
+                <div class="col-xs-8">{{ $article->title }}</div>
+                <div class="col-xs-4 text-center">
+                    <ul class="btn-group no-padding-left">
+                        <li class="btn btn-success"><a
+                                    href="{{ action('ArticlesController@edit',[$article->id]) }}"
+                                    target="_blank">重新编辑发布</a></li>
+                        <li class="btn btn-danger"><a
+                                    href="{{ action('ArticlesController@destroy',[$article->id]) }}">彻底删除</a></li>
+                    </ul>
+                </div>
+            </li>
+        @endforeach
+    </ul>
     {{ $articles->links() }}
     {{--模态框开始--}}
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
