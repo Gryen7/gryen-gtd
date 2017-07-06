@@ -42,6 +42,17 @@
         max-width: $max-width;
         color: $cgray-base;
     }
+
+    .cloud-tie-wrapper {
+        max-width: 750px;
+        margin-left: auto;
+        margin-right: auto;
+        border-top: 2px solid $cgray-base;
+
+        #yun-tie-sdk-wrap {
+            padding: 0;
+        }
+    }
 }
 
 .t-full-screen {
