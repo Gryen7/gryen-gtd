@@ -42,7 +42,8 @@ function fetchImageList() {
             if (imageSize > 0) {
                 tCtlImage.append(result);
                 $('img.lazy').lazyload({
-                    skip_invisible: true
+                    skip_invisible: true,
+                    effect : "fadeIn"
                 });
                 lastImage = tCtlImage.children(':last-child');
 

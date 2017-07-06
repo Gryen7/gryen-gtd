@@ -10,5 +10,6 @@ $.ajaxSetup({ headers: {
 } });
 
 $('img.lazy').lazyload({
-    skip_invisible: true
+    skip_invisible: true,
+    effect : "fadeIn"
 });
