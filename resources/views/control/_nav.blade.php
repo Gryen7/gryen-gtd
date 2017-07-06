@@ -4,11 +4,11 @@
             <img class="img-circle" src="{{ imageView2('//statics.targaryen.top/logo2.png', ['w' => 120, 'h' => 120]) }}" alt="">
         </a>
     </li>
-    <li class="list-group-item">
-        <a href="{{url('/control')}}">
-            <span class="glyphicon glyphicon-dashboard" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="状态"></span>
-        </a>
-    </li>
+    {{--<li class="list-group-item">--}}
+        {{--<a href="{{url('/control')}}">--}}
+            {{--<span class="glyphicon glyphicon-dashboard" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="状态"></span>--}}
+        {{--</a>--}}
+    {{--</li>--}}
     <li class="list-group-item">
         <a href="{{url('/control/todos')}}">
             <span class="glyphicon glyphicon-tasks" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="任务"></span>
@@ -24,11 +24,11 @@
             <span class="glyphicon glyphicon-comment" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="评论"></span>
         </a>
     </li>
-    <li class="list-group-item">
-        <a href="{{url('/control/user')}}">
-            <span class="glyphicon glyphicon-user" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="用户"></span>
-        </a>
-    </li>
+    {{--<li class="list-group-item">--}}
+        {{--<a href="{{url('/control/user')}}">--}}
+            {{--<span class="glyphicon glyphicon-user" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="用户"></span>--}}
+        {{--</a>--}}
+    {{--</li>--}}
     <li class="list-group-item">
         <a href="{{url('/control/settings')}}">
             <span class="glyphicon glyphicon-cog" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="设置"></span>
