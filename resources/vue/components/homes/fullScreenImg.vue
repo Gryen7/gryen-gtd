@@ -14,6 +14,7 @@
 
     .t-index-fullimg {
         position: absolute;
+        margin-top: -20px;
 
         .t-index-content {
             background: rgba(255, 255, 255, 0.85);
