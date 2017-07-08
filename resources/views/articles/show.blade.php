@@ -5,6 +5,11 @@
         <section class="article-content">
             {!! $article->content !!}
         </section>
+        <section class="t-rtcl-tags">
+            @foreach($article->tagArray as $tag)
+                <a class="label label-tag" href="{{ action('ArticlesController@index', ['tag' => $tag]) }}">{{ $tag }}</a>
+            @endforeach
+        </section>
         <footer class="clearfix">
             <span class="pull-right">本文更新于 <time pubdate >{{ $article->updated_at }}</time></span>
         </footer>

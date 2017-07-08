@@ -1,3 +1,13 @@
+@mixin content-common {
+    width: 100%;
+    max-width: $max-width;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: normal;
+}
+
 .tar-article-box {
     background-color: $cwhite;
     padding: 30px;
@@ -14,15 +24,12 @@
         margin-bottom: 8px;
     }
 
-    .article-content {
-        width: 100%;
-        max-width: $max-width;
-        margin-left: auto;
-        margin-right: auto;
-        overflow: hidden;
-        word-wrap: break-word;
-        word-break: normal;
+    .article-content,
+    .t-rtcl-tags {
+        @include content-common;
+    }
 
+    .article-content {
         img {
             max-width: 100%;
             height: auto;
@@ -33,6 +40,10 @@
                 cursor: pointer;
             }
         }
+    }
+
+    .t-rtcl-tags {
+        margin-bottom: 15px;
     }
 
     footer {
