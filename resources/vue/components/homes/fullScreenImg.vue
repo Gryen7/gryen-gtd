@@ -155,6 +155,9 @@
                     this.imgSrc = this.backgroundImg.src = this.banners[this.imageIndex].cover;
                     this.imageIndex++;
                 } else {
+                    this.title = this.banners[0].title;
+                    this.description = this.banners[0].description;
+                    this.link = this.banners[0].link;
                     this.imgSrc = this.backgroundImg.src = this.banners[0].cover;
                     this.imageIndex = 1;
                     this.allImagesCached = true;
