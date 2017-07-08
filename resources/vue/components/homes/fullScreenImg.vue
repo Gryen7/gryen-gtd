@@ -1,7 +1,7 @@
 <template>
     <div v-show="imageLoaded" class="t-index-fullimg" :style="backgroundStyle">
         <a :href="link" class="t-index-content" :style="sloganHeight">
-            <div>
+            <div style="width: 100%">
                 <div class="text-center t-index-title">{{title}}</div>
                 <div class="t-index-intro">{{description}}</div>
             </div>
@@ -31,6 +31,7 @@
             align-items: center;
 
             .t-index-title {
+                width: 100%;
                 color: $cfont-focus;
                 margin-bottom: 20px;
                 overflow: hidden;
@@ -39,6 +40,7 @@
             }
 
             .t-index-intro {
+                width: 100%;
                 color: $cfont;
                 font-size: 14px;
                 overflow: hidden;
