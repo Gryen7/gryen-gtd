@@ -17,3 +17,4 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::get('/handicrafts/list', 'Api\HandicraftsController@handicraftList');
+Route::get('/homes/fullscreenimgs', 'Api\HomesController@getFullScreenImgs');

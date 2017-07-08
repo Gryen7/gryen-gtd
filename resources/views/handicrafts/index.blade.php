@@ -4,7 +4,5 @@
     'vue' => true
 ])
 @section('content')
-    <div id="handicraftApp">
-        <handicraft-list></handicraft-list>
-    </div>
+    <handicraft-list></handicraft-list>
 @endsection

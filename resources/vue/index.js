@@ -17,10 +17,10 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
+Vue.component('fullScreenImg', require('./components/homes/fullScreenImg.vue'));
 Vue.component('handicraftList', require('./components/handicrafs/handicraftList.vue'));
 Vue.component('scrollToTop', require('./components/plugins/scrollToTop.vue'));
 
-const handicraftApp = new Vue({
-    el: '#handicraftApp'
+const gryenApp = new Vue({
+    el: '#gryenApp'
 });
