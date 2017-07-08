@@ -5,15 +5,17 @@
                 <a href="{{ action('ArticlesController@show',[$article->id]) }}">
                     {{ $article->title }}
                 </a>
+                <span class="t-artl-date pull-right">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s',
+                $article->updated_at)
+                ->toDateString() }}</span>
             </div>
             <div class="col-md-6 t-rtcl-lf">
-                <div class="tar-article-extra clearfix">
-                    <div class="t-rtcl-tag pull-left">
+                <div class="tar-article-extra">
+                    <div class="t-rtcl-tag">
                         @foreach($article->tags as $tag)
                             <a class="label label-tag" href="{{ action('ArticlesController@index', ['tag' => $tag]) }}">{{ $tag }}</a>
                         @endforeach
                     </div>
-                     <div class="pull-right">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}</div>
                 </div>
                 <div class="tar-article-list-decs">{{ $article->description }}</div>
             </div>
