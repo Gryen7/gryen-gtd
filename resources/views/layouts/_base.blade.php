@@ -16,7 +16,8 @@
     <meta name="description" content="{{ isset($CONFIG->SITE_DESCRIPTION) ? $CONFIG->SITE_DESCRIPTION : 'LaravelBlog'
      }}">
     @endif
-    <meta name="baidu-site-verification" content="Iusb2sOx9K" />
+    <meta name="baidu-site-verification" content="Iusb2sOx9K"/>
+    <meta name="sogou_site_verification" content="0nwmiljCcG"/>
     <title>@section('title')@if(isset($siteTitle) && !empty($siteTitle)){{ $siteTitle }} - @endif{{ isset($CONFIG->SITE_TITLE) ? $CONFIG->SITE_TITLE : '格安' }}{{ isset($CONFIG->SITE_SUB_TITLE) ? ' - ' . $CONFIG->SITE_SUB_TITLE : '' }}@show</title>
     <link rel="alternate" href="https://www.gryen.com/" hreflang="zh-Hant" />
     <link rel="stylesheet" media="screen" charset="utf-8" href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/lib.css'}}>
