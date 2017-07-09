@@ -96,6 +96,7 @@
 
 <script>
     const CHANGE_INTERVAL = 10000; // 页面改变的时间间隔
+    const IMAGE_LOADED_LISTENER_OFFSET = 1000; // 单张图片是否加载完毕检测间隔
     const CLIENT_HEIGHT_OFFSET = -76; // 图片容器高度纠错值
     const SLOGAN_MIN_HEIGHT_OFFSET = -13; // 内容高度纠错值
 
@@ -141,6 +142,13 @@
                 } else {
                     this.imageLoaded = true;
                 }
+            },
+            allImagesCached: function () {
+                if (this.allImagesCached) {
+                    setInterval(() => {
+                        this.changeImage();
+                    }, CHANGE_INTERVAL);
+                }
             }
         },
         methods: {
@@ -162,12 +170,6 @@
                     this.imageIndex = 1;
                     this.allImagesCached = true;
                 }
-
-                if (this.allImagesCached) {
-                    setTimeout(() => {
-                        this.changeImage();
-                    }, CHANGE_INTERVAL);
-                }
             },
 
             /**
@@ -182,7 +184,7 @@
                 } else {
                     setTimeout(() => {
                         this.imageLoadedListener();
-                    }, 200);
+                    }, IMAGE_LOADED_LISTENER_OFFSET);
                 }
             },
 
