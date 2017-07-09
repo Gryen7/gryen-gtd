@@ -1,11 +1,16 @@
 <template>
-    <div v-show="imageLoaded" class="t-index-fullimg" :style="backgroundStyle">
-        <a :href="link" class="t-index-content" :style="sloganHeight">
-            <div style="width: 100%">
-                <div class="text-center t-index-title">{{title}}</div>
-                <div class="t-index-intro">{{description}}</div>
-            </div>
-        </a>
+    <div>
+        <div v-show="imageLoaded" class="t-index-fullimg" :style="backgroundStyle">
+            <a :href="link" class="t-index-content" :style="sloganHeight">
+                <div style="width: 100%">
+                    <div class="text-center t-index-title">{{title}}</div>
+                    <div class="t-index-intro">{{description}}</div>
+                </div>
+            </a>
+        </div>
+        <div v-show="(!imageIndex && !imageLoaded)" class="t-index-loading" :style="tIndexLoadingStyle">
+            <div class="t-index-welcome">欢迎到访格安，请稍后……</div>
+        </div>
     </div>
 </template>
 
@@ -13,6 +18,8 @@
     @import "../../../assets/sass/themes/variables";
 
     .t-index-fullimg {
+        background-repeat: no-repeat;
+        background-size: cover;
         position: absolute;
         margin-top: -20px;
 
@@ -34,9 +41,6 @@
                 width: 100%;
                 color: $cfont-focus;
                 margin-bottom: 20px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
             }
 
             .t-index-intro {
@@ -50,6 +54,19 @@
                 -webkit-line-clamp: 4;
                 -webkit-box-orient: vertical;
             }
+        }
+    }
+
+    .t-index-loading {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $cfont-focus;
+        margin-top: -49px;
+
+        .t-index-welcome {
+            font-size: 32px;
         }
     }
 
@@ -96,9 +113,12 @@
 
 <script>
     const CHANGE_INTERVAL = 10000; // 页面改变的时间间隔
-    const IMAGE_LOADED_LISTENER_OFFSET = 1000; // 单张图片是否加载完毕检测间隔
+    const IMAGE_LOADED_LISTENER_OFFSET = 500; // 单张图片是否加载完毕检测间隔
     const CLIENT_HEIGHT_OFFSET = -76; // 图片容器高度纠错值
     const SLOGAN_MIN_HEIGHT_OFFSET = -13; // 内容高度纠错值
+
+    const BOX_WIDTH = document.body.clientWidth;
+    const BOX_HEIGHT = document.body.clientHeight + CLIENT_HEIGHT_OFFSET;
 
     export default {
         data() {
@@ -111,40 +131,44 @@
                 description: '',
                 link: '',
                 imgSrc: '',
-                boxWidth: document.body.clientWidth,
-                boxHeight: document.body.clientHeight + CLIENT_HEIGHT_OFFSET,
                 backgroundImg: new Image(),
-                backgroundStyle: {},
-                sloganHeight: {}
+                backgroundStyle: {
+                    width: `${BOX_WIDTH}px`,
+                    height: `${BOX_HEIGHT}px`,
+                    animation: `allFade ${CHANGE_INTERVAL}ms infinite`
+                },
+                sloganHeight: {
+                    animation: `sloganFade ${CHANGE_INTERVAL}ms infinite`,
+                    minHeight: `${BOX_HEIGHT / 2 + SLOGAN_MIN_HEIGHT_OFFSET}px`
+                },
+                tIndexLoadingStyle: {
+                    width: `${BOX_WIDTH}px`,
+                    height: `${BOX_HEIGHT}px`,
+                }
             };
         },
         mounted() {
-            this.sloganHeight = {
-                animation: `sloganFade ${CHANGE_INTERVAL}ms infinite`,
-                minHeight: `${this.boxHeight / 2 + SLOGAN_MIN_HEIGHT_OFFSET}px`
-            }
             this.getFullScreenImgs();
         },
         watch: {
             imgSrc: function() {
-                this.imageLoaded = false;
-
-                this.backgroundStyle = {
-                    backgroundImage: `url(${this.imgSrc})`,
-                    backgroundRepeat: "no-repeat",
-                    width: `${this.boxWidth}px`,
-                    height: `${this.boxHeight}px`,
-                    animation: `allFade ${CHANGE_INTERVAL}ms infinite`
+                if (!this.allImagesCached) {
+                    this.imageLoaded = false;
                 }
 
+                Object.assign(this.backgroundStyle, {
+                    backgroundImage: `url(${this.imgSrc})`,
+                });
+
                 if (!this.allImagesCached) {
-                    this.imageLoadedListener();
-                } else {
-                    this.imageLoaded = true;
+                    setTimeout(() => {
+                        this.imageLoadedListener();
+                    }, IMAGE_LOADED_LISTENER_OFFSET);
                 }
             },
             allImagesCached: function () {
                 if (this.allImagesCached) {
+                    this.imageLoaded = true;
                     setInterval(() => {
                         this.changeImage();
                     }, CHANGE_INTERVAL);
@@ -192,7 +216,7 @@
              * 服务端获取图片集合
              */
             getFullScreenImgs () {
-                axios.get(`/api/homes/fullscreenimgs?width=${this.boxWidth}&height=${this.boxHeight}`).then(result => {
+                axios.get(`/api/homes/fullscreenimgs?width=${BOX_WIDTH}&height=${BOX_HEIGHT}`).then(result => {
                     this.banners = result.data;
                     this.changeImage();
                 }).catch(error => {
