@@ -9,7 +9,7 @@
             </a>
         </div>
         <div v-show="(!imageIndex && !imageLoaded)" class="t-index-loading" :style="tIndexLoadingStyle">
-            <div class="t-index-welcome">欢迎到访格安，请稍后……</div>
+            <div class="t-index-welcome">欢迎到访格安……</div>
         </div>
     </div>
 </template>
