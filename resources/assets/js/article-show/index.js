@@ -11,7 +11,7 @@ let TFullScreenImg = TFullScreen.find('#tFullScreenImg');
 
 $('img').lazyload({
     skip_invisible: true,
-    threshold : 200,
+    threshold : 400,
     effect : "fadeIn"
 });
 
