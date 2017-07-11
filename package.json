@@ -11,6 +11,7 @@
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules"
   },
   "devDependencies": {
+    "autoprefixer": "^7.1.2",
     "axios": "^0.16.1",
     "bootstrap-datetime-picker": "^2.4.4",
     "bootstrap-sass": "^3.3.7",

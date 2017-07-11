@@ -20,8 +20,10 @@
     .t-index-fullimg {
         background-repeat: no-repeat;
         background-size: cover;
-        position: absolute;
         margin-top: -20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         .t-index-content {
             background: rgba(255, 255, 255, 0.85);
@@ -32,7 +34,6 @@
             width: 80%;
             max-width: 750px;
             position: relative;
-            left: 50%;
             animation: sloganFade 10s infinite;
             display: flex;
             align-items: center;
@@ -63,7 +64,6 @@
         justify-content: center;
         align-items: center;
         color: $cfont-focus;
-        margin-top: -49px;
 
         .t-index-welcome {
             font-size: 32px;
@@ -94,19 +94,19 @@
 
     @keyframes sloganFade {
         0% {
-            transform: translate(-50%, 0%);
+            transform: translateY(-50%);
         }
 
         30% {
-            transform: translate(-50%, 50%);
+            transform: translateY(0%);
         }
 
         90% {
-            transform: translate(-50%, 50%);
+            transform: translateY(0%);
         }
 
         100% {
-            transform: translate(-50%, -200%);
+            transform: translateY(-100%);
         }
     }
 </style>
@@ -114,8 +114,9 @@
 <script>
     const CHANGE_INTERVAL = 10000; // 页面改变的时间间隔
     const IMAGE_LOADED_LISTENER_OFFSET = 500; // 单张图片是否加载完毕检测间隔
-    const CLIENT_HEIGHT_OFFSET = -76; // 图片容器高度纠错值
+    const CLIENT_HEIGHT_OFFSET = -105; // 图片容器高度纠错值
     const SLOGAN_MIN_HEIGHT_OFFSET = -13; // 内容高度纠错值
+    const LOADING_HEIGHT_OFFSET = -20; // 加载中容器高度纠错值
 
     const BOX_WIDTH = document.body.clientWidth;
     const BOX_HEIGHT = document.body.clientHeight + CLIENT_HEIGHT_OFFSET;
@@ -143,12 +144,16 @@
                 },
                 tIndexLoadingStyle: {
                     width: `${BOX_WIDTH}px`,
-                    height: `${BOX_HEIGHT}px`,
+                    height: `${BOX_HEIGHT + LOADING_HEIGHT_OFFSET}px`,
                 }
             };
         },
         mounted() {
             this.getFullScreenImgs();
+            this.tabStatusListener();
+            window.onresize = function () {
+                location.reload();
+            };
         },
         watch: {
             imgSrc: function() {
@@ -176,6 +181,32 @@
             }
         },
         methods: {
+            /**
+             * 标签页状态判断
+             */
+            tabStatusListener() {
+                let state, visibilityChange;
+
+                if (typeof document.hidden !== "undefined") {
+                    visibilityChange = "visibilitychange";
+                    state = "visibilityState";
+                } else if (typeof document.mozHidden !== "undefined") {
+                    visibilityChange = "mozvisibilitychange";
+                    state = "mozVisibilityState";
+                } else if (typeof document.msHidden !== "undefined") {
+                    visibilityChange = "msvisibilitychange";
+                    state = "msVisibilityState";
+                } else if (typeof document.webkitHidden !== "undefined") {
+                    visibilityChange = "webkitvisibilitychange";
+                    state = "webkitVisibilityState";
+                }
+
+                document.addEventListener(visibilityChange, function() {
+                    if (document[state] === 'visible') {
+                        console.log('init...');
+                    }
+                }, false);
+            },
             /**
              * 轮循改变图片
              */
