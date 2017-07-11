@@ -11,5 +11,6 @@ $.ajaxSetup({ headers: {
 
 $('img.lazy').lazyload({
     skip_invisible: true,
+    threshold : 200,
     effect : "fadeIn"
 });

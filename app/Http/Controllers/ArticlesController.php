@@ -149,8 +149,7 @@ class ArticlesController extends Controller
         $article = Article::withTrashed()->find($id);
         $article->cover = empty($article->cover) ? '//statics.targaryen.top/default-image.png' : $article->cover;
 
-        $content = $article->withContent()->first()->content;
-        $article->content = handleContentImage($content);
+        $article->content = $article->withContent()->first()->content;
         return view('articles.edit', compact('article'));
     }
 
@@ -172,13 +171,12 @@ class ArticlesController extends Controller
 
         /* 文章描述处理 */
         $updateData['description'] = Article::descriptionProcess($request->get('content'));
-        $content = handleContentImage($request->get('content'), 2);
 
         $article->update($updateData);
 
         /* 更新文章内容 */
         $article->withContent()->update([
-            'content' => $content
+            'content' => $request->get('content')
         ]);
         return response()->json([
             'code' => 200,

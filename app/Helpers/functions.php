@@ -74,39 +74,20 @@ function version() {
 
 /**
  * 动态处理文章中的图片
- * 添加或者删除七牛图片处理参数
+ * 只在文章详情页使用
  * @param $content
- * @param int $mode 1：添加参数 2：去除参数
  * @return mixed
  */
-function handleContentImage($content, $mode = 1) {
+function handleContentImage($content) {
     $rightImgs = [];
 
-    switch ($mode) {
-        case 1: // 添加参数
-            preg_match_all('/<img.*?src="(.*?)".*?>/is', $content, $result);
-            $oldImgs = [];
-            foreach ($result[1] as $value) {
-                array_push($oldImgs, 'src="' . $value . '"');
-                array_push($rightImgs, ' class="lazy" data-original="' . imageView2($value, [], 0, '100') . '"');
-            }
-            $content = str_replace($oldImgs, $rightImgs, $content);
-            break;
-        case 2: // 去除参数
-            preg_match_all('/<img.*?data-original="(.*?)".*?>/is', $content, $result);
-            foreach ($result[1] as $value) {
-                $imageCut = explode('?', $value);
-                array_push($rightImgs, $imageCut[0]);
-            }
-            $content = str_replace($result[1], $rightImgs, $content);
-
-            $oldExtra = ['class="lazy"', 'data-original='];
-            $rightExtra = ['', 'url='];
-            $content = str_replace($oldExtra, $rightExtra, $content);
-            break;
-        default:
-            break;
+    preg_match_all('/<img.*?src="(.*?)".*?>/is', $content, $result);
+    $oldImgs = [];
+    foreach ($result[1] as $value) {
+        array_push($oldImgs, 'src="' . $value . '"');
+        array_push($rightImgs, 'data-original="' . imageView2($value, [], 0, '100') . '"');
     }
+    $content = str_replace($oldImgs, $rightImgs, $content);
 
     return $content;
 }

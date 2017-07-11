@@ -9,6 +9,12 @@ let Images = TBody.find('img');
 let TFullScreen = TBody.find('#tFullScreen');
 let TFullScreenImg = TFullScreen.find('#tFullScreenImg');
 
+$('img').lazyload({
+    skip_invisible: true,
+    threshold : 200,
+    effect : "fadeIn"
+});
+
 /**
  * 查看原图
  */
