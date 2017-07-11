@@ -37,3 +37,4 @@ mix.js('resources/vue/index.js', `${DIST_PATH_WITH_VERSION}/js/vue.bundle.js`);
 
 /* 公共库 */
 mix.extract(['jquery', 'vue'], `${DIST_PATH_WITH_VERSION}/js/vendor.bundle.js`);
+mix.sourceMaps(false).webpackConfig({ devtool: "inline-source-map" });
