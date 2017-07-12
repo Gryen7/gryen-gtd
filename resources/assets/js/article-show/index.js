@@ -5,7 +5,8 @@ const $ = require('jquery');
 const lazyload = require('jquery-lazyload');
 
 let TBody = $('body');
-let Images = TBody.find('img');
+let TArtclBox = $('.tar-article-box');
+let Images = TArtclBox.find('img');
 let TFullScreen = TBody.find('#tFullScreen');
 let TFullScreenImg = TFullScreen.find('#tFullScreenImg');
 
