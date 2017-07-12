@@ -1,7 +1,7 @@
 @extends('layouts._default', ['module' => 'article-show'])
 @section('content')
     <article class="col-md-10 col-md-offset-1 tar-article-box">
-        <header class="text-center t-rtcl-ttl">{{ $article->title }}</header>
+        <header class="text-center t-rtcl-ttl" id="tArticleTitle">{{ $article->title }}</header>
         <section class="article-content">
             {!! $article->content !!}
         </section>

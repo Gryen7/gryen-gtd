@@ -1,14 +1,17 @@
-<nav class="navbar navbar-default navbar-fixed-top{!! isset($extraClass) ? ' ' . $extraClass : '' !!}">
+<nav class="navbar navbar-default navbar-fixed-top @if(isset($extraClass) && !empty($extraClass)){{ ' ' . $extraClass }}@endif">
     <div class="container">
-        <div class="navbar-header t-nav-brand visible-xs">
-            <a href="{{ action('HomeController@index') }}" class="t-nav-btn pull-left">
-                <span class="glyphicon glyphicon-home"></span>
-            </a>
-            <a href="{{ action('ArticlesController@index') }}" class="t-nav-btn pull-right">
-                <span class="glyphicon glyphicon-list-alt"></span>
-            </a>
+        <div class="navbar-header">
+            <a class="navbar-brand t-navbar-brand" href="{{ action('HomeController@index') }}"><img src="{{ asset('/dist/images/logo.png') }}" alt="格安"></a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tNavbarCollapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
         </div>
-        <div class="collapse navbar-collapse t-nav-brand" id="tNavbarCollapse">
+
+        <p class="navbar-text text-center t-navbar-title" id="tNavbarTitle">@if (isset($siteTitle)){{ $siteTitle }}@endif</p>
+        <div class="collapse navbar-collapse" id="tNavbarCollapse">
             <ul class="nav navbar-nav navbar-right">
                 <li @if (isset($module) && $module === 'home')class="active"@endif><a href="{{ action('HomeController@index')
                 }}">首页</a></li>

@@ -9,6 +9,10 @@ let TArtclBox = $('.tar-article-box');
 let Images = TArtclBox.find('img');
 let TFullScreen = TBody.find('#tFullScreen');
 let TFullScreenImg = TFullScreen.find('#tFullScreenImg');
+let TNavbarTitle = $('#tNavbarTitle');
+let TArticleTitle = $('#tArticleTitle');
+
+let tArticleTitleOffsetTop = TArticleTitle.offset().top;
 
 $('img').lazyload({
     skip_invisible: true,
@@ -40,4 +44,12 @@ TFullScreen.click(() => {
     TFullScreenImg.attr('src', '').data('status', 'close');
     TFullScreenImg.fadeOut(300);
     TFullScreen.fadeOut(300);
+});
+
+$(window).scroll(() => {
+    if ($(window).scrollTop() > (tArticleTitleOffsetTop - 22)) {
+        TNavbarTitle.fadeIn();
+    } else {
+        TNavbarTitle.fadeOut();
+    }
 });
