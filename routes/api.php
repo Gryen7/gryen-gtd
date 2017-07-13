@@ -18,3 +18,5 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/handicrafts/list', 'Api\HandicraftsController@handicraftList');
 Route::get('/homes/fullscreenimgs', 'Api\HomesController@getFullScreenImgs');
+
+Route::get('/notices/wechat', 'Api\NoticesController@wechat');
