@@ -18,6 +18,13 @@
     @endif
     <meta name="baidu-site-verification" content="Iusb2sOx9K"/>
     <meta name="sogou_site_verification" content="0nwmiljCcG"/>
+    @if (isset($module) && $module === 'article-show')
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ $article->title }}">
+    <meta property="og:description" content="{{ $siteDescription }}">
+    <meta property="og:image" content="{{ $article->cover }}">
+    <meta property="og:url" content="{{ action('ArticlesController@show', ['id' => $article->id]) }}">
+    @endif
     <title>@section('title')@if(isset($siteTitle) && !empty($siteTitle)){{ $siteTitle }} - @endif{{ isset($CONFIG->SITE_TITLE) ? $CONFIG->SITE_TITLE : '格安' }}{{ isset($CONFIG->SITE_SUB_TITLE) ? ' - ' . $CONFIG->SITE_SUB_TITLE : '' }}@show</title>
     <link rel="alternate" href="https://www.gryen.com/" hreflang="zh-Hant" />
     <link rel="stylesheet" media="screen" charset="utf-8" href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/lib.css'}}>
