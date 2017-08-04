@@ -151,9 +151,6 @@
         mounted() {
             this.getFullScreenImgs();
             this.tabStatusListener();
-            window.onresize = function () {
-                location.reload();
-            };
         },
         watch: {
             imgSrc: function() {
