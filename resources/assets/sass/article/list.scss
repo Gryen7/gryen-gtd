@@ -3,56 +3,65 @@
     background-color: $cwhite;
     border: none;
     margin-bottom: 20px;
+    padding: 0;
 
-    .t-artl-title {
-        border-bottom: 1px solid $cgray-light;
-        line-height: 32px;
-        margin-bottom: 10px;
+    .t-rtcl-lf {
+        padding-left: 0;
+        padding-right: 0;
 
-        > a {
-            font-size: 16px;
-            font-weight: 400;
-            width: 50%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            display: inline-block;
+        .t-rtc-img {
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .t-rtcl-rt {
+        .t-artl-title {
+            border-bottom: 1px solid $cgray-light;
+            line-height: 32px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+            > a {
+                font-size: 16px;
+                font-weight: 400;
+                width: 75%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                display: inline-block;
+            }
+
+            > .t-artl-date {
+                color: $cgray-base;
+            }
         }
 
-        > .t-artl-date {
+        .tar-article-extra {
             color: $cgray-base;
+
+            .t-rtcl-tag {
+                max-height: 28px;
+                line-height: 28px;
+                overflow: hidden;
+            }
         }
-    }
 
-    .tar-article-extra {
-        color: $cgray-base;
-
-        .t-rtcl-tag {
-            max-height: 28px;
-            line-height: 28px;
+        .tar-article-list-decs {
+            margin: 10px 0;
+            max-height: 190px;
+            word-break: break-all;
+            word-wrap: break-word;
             overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 8;
         }
-    }
 
-    .tar-article-info {
-        img {
-            width: 100%;
+        .tar-article-list-decs:after {
+            content: '...';
         }
-    }
-
-    .tar-article-list-decs {
-        margin: 10px 0;
-        max-height: 190px;
-        word-break: break-all;
-        word-wrap: break-word;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 8;
-    }
-
-    .tar-article-list-decs:after {
-        content: '...';
     }
 }
 
