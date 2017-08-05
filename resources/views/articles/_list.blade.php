@@ -1,7 +1,7 @@
 <ul class="col-md-10 col-md-offset-1">
     @foreach($articles as $article)
         <li class="list-group-item row tar-article-list">
-            <div class="col-md-6 t-rtcl-lf">
+            <div class="col-md-5 t-rtcl-lf">
                 <div class="t-rtc-img">
                     <a href="{{ action('ArticlesController@show',[$article->id]) }}">
                         <img class="lazy"
@@ -10,7 +10,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-6 t-rtcl-rt">
+            <div class="col-md-7 t-rtcl-rt">
                 <div class="t-artl-title">
                     <a href="{{ action('ArticlesController@show',[$article->id]) }}">
                         {{ $article->title }}

@@ -1,5 +1,5 @@
 .tar-article-list {
-    border-radius: 0;
+    border-radius:$border-radius-small;
     background-color: $cwhite;
     border: none;
     margin-bottom: 20px;
@@ -12,6 +12,8 @@
         .t-rtc-img {
             img {
                 width: 100%;
+                border-top-left-radius: $border-radius-small;
+                border-bottom-left-radius: $border-radius-small;
             }
         }
     }
@@ -56,23 +58,13 @@
             overflow: hidden;
             display: -webkit-box;
             -webkit-box-orient: vertical;
-            -webkit-line-clamp: 8;
+            -webkit-line-clamp: 3;
         }
 
         .tar-article-list-decs:after {
             content: '...';
         }
     }
-}
-
-.tar-article-list:first-child {
-    border-radius: 0;
-    border-top: none;
-}
-
-.tar-article-list:last-child {
-    border-radius: 0;
-    border-bottom: none;
 }
 
 .tar-article-list:hover {

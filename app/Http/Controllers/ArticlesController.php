@@ -29,12 +29,12 @@ class ArticlesController extends Controller
             $articles = empty($tag) ? (object)[] : $tag->article()
                 ->where('status', '>', 0)
                 ->orderBy('created_at', 'desc')
-                ->paginate(7);
+                ->paginate(15);
 
         } else {
             $articles = Article::where('status', '>', 0)
                 ->orderBy('created_at', 'desc')
-                ->paginate(7);
+                ->paginate(15);
         }
 
         foreach ($articles as &$article) {
