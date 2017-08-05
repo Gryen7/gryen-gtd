@@ -4,7 +4,6 @@
  * 首页、关于页等
  */
 Route::get('/', 'HomeController@index');
-Route::get('/home', 'HomeController@index');
 Route::get('/about', 'HomeController@about');
 
 Auth::routes();
@@ -20,8 +19,6 @@ Route::get('/error', function () {
 
 Route::group(['prefix' => 'articles'], function () {
     Route::get('/', 'ArticlesController@index');
-    Route::get('/index', 'ArticlesController@index');
-    Route::get('/list', 'ArticlesController@index');
     Route::get('/show/{id}.html', 'ArticlesController@show');
 });
 
