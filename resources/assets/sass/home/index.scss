@@ -1,0 +1,41 @@
+.home-main {
+    display: flex;
+    justify-content: center;
+    background-color: $cwhite;
+    height: 100vh;
+    margin-top: -70px;
+
+    a {
+        max-width: 100%;
+        width: 640px;
+        height: 360px;
+    }
+
+    img {
+        margin-top: 50px;
+        max-width: 100%;
+        width: 640px;
+        height: 360px;
+        color: $cfont;
+        border-radius: $border-radius-small;
+        animation: img-show 2s;
+        box-shadow: $box-shadow;
+    }
+
+    .slogan {
+        position: absolute;
+        bottom: 70px;
+        right: 30px;
+        color: $gray-lighter;
+    }
+}
+
+@keyframes img-show {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
