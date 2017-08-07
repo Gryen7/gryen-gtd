@@ -147,7 +147,9 @@ class ArticlesController extends Controller
         $article->cover = empty($article->cover) ? '//statics.targaryen.top/default-image.png' : $article->cover;
 
         $article->content = $article->withContent()->first()->content;
-        return view('articles.edit', compact('article'));
+        $article = Article::getTagArray($article);
+        $tags = Tag::orderBy('num', 'desc')->take(7)->get();
+        return view('articles.edit', compact('article', 'tags'));
     }
 
     /**
