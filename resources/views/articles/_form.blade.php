@@ -33,24 +33,27 @@
                         </div>
                     </div>
                 </div>
-                @if(!isset($articleShow))
-                    <div class="col-md-7">
-                        <div class="form-group">
-                            {!! Form::textarea('description', '', ['class' => 'form-control no-resize t-rtcl-desc', 'maxlength' => '140', 'rows' => '4', 'placeholder' => '文章描述']) !!}
-                        </div>
-                        <div class="form-control t-lable">
-                            <div class="t-tag-box" id="tTagBox">
-                            </div>
-                            {{ Form::input('text', 'tTagInput', '', ['id' => 'tTagInput']) }}
-                            {{ Form::input('hidden', 'tags', '', ['id' => 'tTags']) }}
-                        </div>
-                        <div class="t-lbl-box" id="tLblBox">
-                            @foreach($tags as $tag)
-                                <span class="t-tag label label-default">{{ $tag->name }}</span>
-                            @endforeach
-                        </div>
+                <div class="col-md-7">
+                    <div class="form-group">
+                        {!! Form::textarea('description', '', ['class' => 'form-control no-resize t-rtcl-desc', 'maxlength' => '140', 'rows' => '4', 'placeholder' => '文章描述']) !!}
                     </div>
-                @endif
+                    <div class="form-control t-lable">
+                        <div class="t-tag-box" id="tTagBox">
+                            @if(count($article->tagArray))
+                                @foreach($article->tagArray as $tagInArticle)
+                                    <span class="t-tag label label-default">{{ $tagInArticle }}</span>
+                                @endforeach
+                            @endif
+                        </div>
+                        {{ Form::input('text', 'tTagInput', '', ['id' => 'tTagInput']) }}
+                        {{ Form::input('hidden', 'tags', '', ['id' => 'tTags']) }}
+                    </div>
+                    <div class="t-lbl-box" id="tLblBox">
+                        @foreach($tags as $tag)
+                            <span class="t-tag label label-default">{{ $tag->name }}</span>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
     </div>
