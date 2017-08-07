@@ -23,7 +23,8 @@ class CreateArticleRequest extends Request
     {
         return [
             'title' => 'required',
-            'content' => 'required'
+            'content' => 'required',
+            'description' => 'required'
         ];
     }
 }

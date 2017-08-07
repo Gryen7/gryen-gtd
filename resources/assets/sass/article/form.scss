@@ -87,11 +87,27 @@
         font-size: 0;
         cursor: pointer;
     }
+
+    .progress {
+        border-top: 1px solid $cgray-light;
+        border-radius: 0;
+        box-shadow: none;
+    }
+}
+
+.t-rtcl-desc {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.t-rtcl-desc:focus {
+    box-shadow: none;
+    border: 1px solid $cfont-focus;
 }
 
 .t-lable {
     overflow: hidden;
-    min-height: 200px;
+    height: 100px;
     box-shadow: none;
     border-radius: 0;
 

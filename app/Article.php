@@ -55,16 +55,6 @@ class Article extends Eloquent
     }
 
     /**
-     * 文章描述处理
-     * @param $articleContent
-     * @return string
-     */
-    public static function descriptionProcess($articleContent)
-    {
-        return mb_substr(strip_tags($articleContent), 0, 140);
-    }
-
-    /**
      * 从数据库获取文章，标签处理
      * @param $article
      * @return bool

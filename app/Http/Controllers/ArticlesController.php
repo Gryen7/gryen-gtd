@@ -72,9 +72,6 @@ class ArticlesController extends Controller
     {
         $resParams = $request->all();
 
-        /* 文章描述处理 */
-        $resParams['description'] = Article::descriptionProcess($request->get('content'));
-
         /* 创建文章 */
         $article = Article::create($resParams);
 
@@ -168,9 +165,6 @@ class ArticlesController extends Controller
             $article->restore();
         }
         $updateData = $request->all();
-
-        /* 文章描述处理 */
-        $updateData['description'] = Article::descriptionProcess($request->get('content'));
 
         $article->update($updateData);
 

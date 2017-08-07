@@ -17,10 +17,10 @@
 </div>
 <div class="col-md-10 col-md-offset-1">
     <div class="panel panel-default">
-        <div class="panel-heading">设置封面及标签：</div>
+        <div class="panel-heading">封面、描述、标签：</div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-6 t-edit-cover">
+                <div class="col-md-5 t-edit-cover">
                     <img id="tEditCover" src="{{ imageView2($article->cover, [
                 'w' => 328,
                 'h' => 246
@@ -34,7 +34,10 @@
                     </div>
                 </div>
                 @if(!isset($articleShow))
-                    <div class="col-md-6">
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            {!! Form::textarea('description', '', ['class' => 'form-control no-resize t-rtcl-desc', 'maxlength' => '140', 'rows' => '4', 'placeholder' => '文章描述']) !!}
+                        </div>
                         <div class="form-control t-lable">
                             <div class="t-tag-box" id="tTagBox">
                             </div>
