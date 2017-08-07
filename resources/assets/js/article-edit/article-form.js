@@ -17,16 +17,15 @@ let tCoverFile = articleForm.find('#tCover'); // 保存成功上传图片后的�
 let tEditCover = articleForm.find('#tEditCover'); // 封面图
 let tCovrProgrs = articleForm.find('#tCovrProgrs'); // 封面图上传进度
 
-let tTagInput = articleForm.find('#tTagInput'); // 手动输入标签的 INPUT 组件
+let tTagInput = articleForm.find('#tTagInput'); // 手动输入标签的 input 组件
 let tTagBox = articleForm.find('#tTagBox'); // 选中的标签存放容器
-let tTag = articleForm.find('.t-tag'); // 标签
-let tTags = articleForm.find('#tTags'); // 要提交的标签
-let tLblBox = articleForm.find('#tLblBox'); // 系统中的标签
+let tTags = articleForm.find('#tTags'); // 表单中要提交的标签 input
+let tLblBox = articleForm.find('#tLblBox'); // 系统中的标签列表容器
 
 let submitArticle = articleForm.find('#submit-article');
 let saveArticle = articleForm.find('#save-article');
 
-let tTagsArray = []; // 标签数组
+let tTagsArray = []; // 标签数组，用于判断标签数量和是否已经重复添加标签
 
 /**
  * 加载编辑器
@@ -129,6 +128,22 @@ const _upCoverError = () => {
 };
 
 /**
+ * 标签重新计算
+ * @returns {Array}
+ */
+const _tTagBoxTagsToString = () => {
+    let tTagsArray = [];
+    let tTagBoxTags = tTagBox.find('.t-tag');
+
+    tTagBoxTags.each((index, elem) => {
+        tTagsArray.push($(elem).text());
+    });
+
+    return tTagsArray;
+};
+
+
+/**
  * 发表文章
  */
 submitArticle.click(() => {
@@ -157,45 +172,63 @@ coverInput.on('change', function () {
 /**
  * 点选添加标签
  */
-tTag.on('click', function () {
+tLblBox.find('.t-tag').on('click', function () {
     let tag = $.trim($(this).text());
 
-    if (tTagBox.children().length < 7 && $.inArray(tag, tTagsArray) < 0) {
-        tTagsArray.push(tag);
-        tTagBox.append($(this));
-        tTags.val(tTagsArray.join(','));
-    } else {
-        console.log('标签最多 7 个！');
+    if (tTagBox.children().length > 7) {
+        laravelAlert.show({
+            type: 'warning',
+            message: '标签最多 7 个'
+        });
+        return;
     }
+
+    if ($.inArray(tag, tTagsArray) > -1) {
+        laravelAlert.show({
+            type: 'warning',
+            message: `[${tag}]已经添加过了`
+        });
+        return;
+    }
+
+    tTagBox.append($(this));
+    tTagsArray = _tTagBoxTagsToString();
+    tTags.val(tTagsArray.join(','));
 });
 
 /**
- * 鼠标点击事件监听
- * 输入框添加标签处理
+ * 输入框添加标签
+ * 删除标签
  */
 
-tTagInput.keydown(function (e) {
+tTagInput.keydown(event => {
     // 添加标签
-    if (e.which === 9) {
+    if (event.which === 9) {
         if (tTagInput.is(":focus") && tTagInput.val().length > 0 && tTagBox.children().length < 7) {
             let tag = $.trim(tTagInput.val());
 
             if ($.inArray(tTagInput.val(), tTagsArray) < 0) {
                 tTagBox.append(`<span class="t-input-tag label label-default">${tag}</span>`);
-                tTagsArray.push(tag);
+                tTagsArray = _tTagBoxTagsToString();
                 tTags.val(tTagsArray.join(','));
             } else {
-                console.log('已经添加过了！');
+                laravelAlert.show({
+                    type: 'warning',
+                    message: '已经添加过了'
+                });
             }
         } else {
-            console.log('输入不合法！');
+            laravelAlert.show({
+                type: 'danger',
+                message: '已经添加过了'
+            });
         }
         tTagInput.val(null);
         return false;
     }
 
     // 删除标签
-    if (tTagInput.val().length < 1 && e.which === 8) {
+    if (tTagInput.val().length < 1 && event.which === 8) {
         let tags = tTagBox.children();
 
         if (tags.length > 0) {
@@ -206,10 +239,13 @@ tTagInput.keydown(function (e) {
             } else {
                 tags.eq(tags.length - 1).remove();
             }
-            tTagsArray.pop();
+            tTagsArray = _tTagBoxTagsToString();
             tTags.val(tTagsArray.join(','));
         } else {
-            console.log('没有标签！');
+            laravelAlert.show({
+                type: 'warning',
+                message: '没有标签'
+            });
         }
         return false;
     }

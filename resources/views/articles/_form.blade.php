@@ -35,18 +35,18 @@
                 </div>
                 <div class="col-md-7">
                     <div class="form-group">
-                        {!! Form::textarea('description', $article->description, ['class' => 'form-control no-resize t-rtcl-desc', 'maxlength' => '140', 'rows' => '4', 'placeholder' => '文章描述']) !!}
+                        {!! Form::textarea('description', isset($article->description) ? $article->description : '', ['class' => 'form-control no-resize t-rtcl-desc', 'maxlength' => '140', 'rows' => '4', 'placeholder' => '文章描述']) !!}
                     </div>
                     <div class="form-control t-lable">
                         <div class="t-tag-box" id="tTagBox">
-                            @if(count($article->tagArray))
+                            @if(isset($article->tagArray) && count($article->tagArray))
                                 @foreach($article->tagArray as $tagInArticle)
                                     <span class="t-tag label label-default">{{ $tagInArticle }}</span>
                                 @endforeach
                             @endif
                         </div>
-                        {{ Form::input('text', 'tTagInput', '', ['id' => 'tTagInput']) }}
-                        {{ Form::input('hidden', 'tags', '', ['id' => 'tTags']) }}
+                        {{ Form::input('text', 'tTagInput', '', ['id' => 'tTagInput', 'class' => 't-tag-input']) }}
+                        {{ Form::input('hidden', 'tags', isset($article->tags) ? $article->tags : '', ['id' => 'tTags']) }}
                     </div>
                     <div class="t-lbl-box" id="tLblBox">
                         @foreach($tags as $tag)

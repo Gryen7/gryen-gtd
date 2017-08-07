@@ -111,8 +111,9 @@
     box-shadow: none;
     border-radius: 0;
 
-    input {
+    .t-tag-input {
         border: none;
+        border-bottom: 1px solid $cgray-base;
         width: 60px;
     }
 }
