@@ -18,6 +18,7 @@
     @endif
     <meta name="baidu-site-verification" content="Iusb2sOx9K"/>
     <meta name="sogou_site_verification" content="0nwmiljCcG"/>
+    <meta name="360-site-verification" content="653944948b9a352496e55a3b76bbae9c" />
     @if (isset($module) && $module === 'article-show')
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ $article->title }}">
@@ -50,7 +51,7 @@
 <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/' . $module . '.bundle.js'}}"></script>
 @endif
 @if(env('APP_ENV') === 'production')
-<!--suppress ES6ConvertVarToLetConst -->
+<!--suppress ES6ConvertVarToLetConst, CommaExpressionJS -->
 <script>
     // baidu push
     (function(){
