@@ -31,7 +31,6 @@
     <link rel="stylesheet" media="screen" charset="utf-8" href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/lib.css'}}>
     <link rel="stylesheet" media="screen" charset="utf-8" href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/app.css'}}>
     <script>
-        // @noinspection
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
@@ -51,9 +50,9 @@
 <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/' . $module . '.bundle.js'}}"></script>
 @endif
 @if(env('APP_ENV') === 'production')
-<!--suppress ES6ConvertVarToLetConst, CommaExpressionJS -->
+<!--suppress ES6ConvertVarToLetConst, CommaExpressionJS, JSUnusedLocalSymbols -->
 <script>
-    // baidu push
+    // 百度推送
     (function(){
         var bp = document.createElement('script');
         var curProtocol = window.location.protocol.split(':')[0];
@@ -67,7 +66,7 @@
         s.parentNode.insertBefore(bp, s);
     })();
 
-    // @noinspection
+    // 谷歌统计
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
         i[r] = i[r] || function () {
@@ -81,6 +80,15 @@
     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
     ga('create', 'UA-92619955-1', 'auto');
     ga('send', 'pageview');
+
+    // 百度统计
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?4ade2d48d626a135da0d8c4e5d4b3b16";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
 </script>
 @endif
 </body>
