@@ -208,7 +208,7 @@ tTagInput.keydown(event => {
             let tag = $.trim(tTagInput.val());
 
             if ($.inArray(tTagInput.val(), tTagsArray) < 0) {
-                tTagBox.append(`<span class="t-input-tag label label-default">${tag}</span>`);
+                tTagBox.append(`<span class="t-tag label label-default">${tag}</span>`);
                 tTagsArray = _tTagBoxTagsToString();
                 tTags.val(tTagsArray.join(','));
             } else {
