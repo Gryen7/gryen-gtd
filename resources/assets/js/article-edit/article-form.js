@@ -250,3 +250,7 @@ tTagInput.keydown(event => {
         return false;
     }
 });
+
+$(() => {
+    $('.navbar-default').fadeOut();
+});

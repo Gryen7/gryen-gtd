@@ -6,6 +6,7 @@
             @endif
             {!! Form::button('提交',['class' => 'btn btn-success','id' => 'submit-article']) !!}
             {!! Form::button('暂存',['class' => 'btn btn-primary','id' => 'save-article']) !!}
+            <a href="javascript:history.go(-1);" class="btn btn-default">放弃</a>
         </div>
     </div>
     <div class="form-group">

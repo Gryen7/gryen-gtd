@@ -2,7 +2,6 @@ const PKG = require('./package.json');
 const DIST_PATH = 'dist';
 const DIST_PATH_WITH_VERSION = `${DIST_PATH}/${PKG.version}`;
 
-let path = require('path');
 let glob = require('glob');
 let webpack = require('webpack');
 let Mix = require('laravel-mix').config;
@@ -326,7 +325,7 @@ module.exports.devtool = Mix.options.sourcemaps;
  |
  */
 module.exports.devServer = {
-     headers: {
+    headers: {
         "Access-Control-Allow-Origin": "*"
     },
     historyApiFallback: true,

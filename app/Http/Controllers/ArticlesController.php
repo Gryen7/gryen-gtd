@@ -58,7 +58,9 @@ class ArticlesController extends Controller
         $tags = Tag::orderBy('num', 'desc')->take(7)->get();
         $article['cover'] = '//statics.targaryen.top/default-image.png';
         $article = (object)$article;
-        return view('articles.create', compact('tags', 'article'));
+        $bodyClassString = 'no-padding';
+        $siteTitle = '新建文章';
+        return view('articles.create', compact('tags', 'article', 'siteTitle', 'bodyClassString'));
     }
 
     /**
@@ -149,7 +151,9 @@ class ArticlesController extends Controller
         $article->content = $article->withContent()->first()->content;
         $article = Article::getTagArray($article);
         $tags = Tag::orderBy('num', 'desc')->take(7)->get();
-        return view('articles.edit', compact('article', 'tags'));
+        $siteTitle = '编辑文章';
+        $bodyClassString = 'no-padding';
+        return view('articles.edit', compact('siteTitle', 'article', 'tags', 'bodyClassString'));
     }
 
     /**

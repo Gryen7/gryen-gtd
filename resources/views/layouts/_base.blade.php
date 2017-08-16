@@ -36,7 +36,7 @@
         ]); ?>
     </script>
 </head>
-<body>
+<body @if(isset($bodyClassString))class="{{ $bodyClassString }}" @endif>
 @section('base_content')
 @show
 @include('common._footer')
