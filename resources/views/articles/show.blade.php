@@ -11,7 +11,7 @@
             @endforeach
         </section>
         <footer class="clearfix">
-            <span class="pull-right">本文更新于 <time pubdate >{{ $article->updated_at }}</time></span>
+            <span class="pull-right">本文更新于 <time pubdate >{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}</time></span>
         </footer>
     </article>
     @if (Auth::check())
