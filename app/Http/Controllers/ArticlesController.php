@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Comment;
+use App\Config;
+use App\File;
 use App\Http\Requests\CreateArticleRequest;
 use App\Tag;
-use App\File;
-use App\Config;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -171,6 +172,7 @@ class ArticlesController extends Controller
             $article->restore();
         }
         $updateData = $request->all();
+        $updateData['updated_at'] = Carbon::now();
 
         $article->update($updateData);
 
