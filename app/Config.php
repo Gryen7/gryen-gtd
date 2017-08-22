@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Redis;
 use Illuminate\Database\Eloquent\Model;
+use Redis;
 
 /**
  * App\Config
@@ -45,7 +45,7 @@ class Config extends Model
         }
 
         if (empty($redisConfig)) {
-            $config = self::all();
+            $config = Config::all();
             foreach ($config as $value) {
                 $returnConfig[$value->name] = $value->value;
             }
@@ -68,6 +68,7 @@ class Config extends Model
     /**
      * 设置站点标题
      * @param $siteTitle
+     * @return Model
      */
     public static function setSiteTitle($siteTitle)
     {
@@ -78,7 +79,7 @@ class Config extends Model
         }
         $config->SITE_TITLE = $siteTitle;
         $redis->set('CONFIG', json_encode($config));
-        return self::updateOrCreate([
+        return Config::updateOrCreate([
             'name' => 'SITE_TITLE',
             'value' => $siteTitle
         ]);
@@ -98,7 +99,7 @@ class Config extends Model
         }
         $config->SITE_SUB_TITLE = $siteSubTitle;
         $redis->set('CONFIG', json_encode($config));
-        return self::updateOrCreate([
+        return Config::updateOrCreate([
             'name' => 'SITE_SUB_TITLE',
             'value' => $siteSubTitle
         ]);
@@ -118,7 +119,7 @@ class Config extends Model
         }
         $config->SITE_KEYWORDS = $siteKeywords;
         $redis->set('CONFIG', json_encode($config));
-        return self::updateOrCreate([
+        return Config::updateOrCreate([
             'name' => 'SITE_KEYWORDS',
             'value' => $siteKeywords
         ]);
@@ -138,7 +139,7 @@ class Config extends Model
         }
         $config->SITE_DESCRIPTION = $siteDescription;
         $redis->set('CONFIG', json_encode($config));
-        return self::updateOrCreate([
+        return Config::updateOrCreate([
             'name' => 'SITE_DESCRIPTION',
             'value' => $siteDescription
         ]);
@@ -158,7 +159,7 @@ class Config extends Model
         }
         $config->SITE_DEFAULT_IMAGE = $siteDefaultImage;
         $redis->set('CONFIG', json_encode($config));
-        return self::updateOrCreate([
+        return Config::updateOrCreate([
             'name' => 'SITE_DEFAULT_IMAGE',
             'value' => $siteDefaultImage
         ]);

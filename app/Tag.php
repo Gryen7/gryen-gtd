@@ -44,7 +44,7 @@ class Tag extends Model
     {
         $tagArray = array_filter(explode(',', $tagString));
 
-        foreach ($tagArray as $key => $tag) {
+        foreach ($tagArray as $tag) {
             $tagInDatabase = Tag::where('name', $tag)->first();
 
             if (empty($tagInDatabase)) {
