@@ -54,7 +54,7 @@ class File extends Model
     private static function isImage($filePath)
     {
         $fileType = strtolower(strchr($filePath, '.'));
-        if (in_array($fileType, self::$IMAGES)) {
+        if (in_array($fileType, File::$IMAGES)) {
             return $filePath;
         } else {
             return false;
@@ -68,7 +68,7 @@ class File extends Model
      */
     private static function isUploadsDirectory($filePath)
     {
-        return substr($filePath, 0, 7) === substr(self::$UPLOAD_PATH, 1, 7);
+        return substr($filePath, 0, 7) === substr(File::$UPLOAD_PATH, 1, 7);
     }
 
     /**
@@ -100,19 +100,19 @@ class File extends Model
     {
         $Disk = \Storage::disk(env('DISK'));
 
-        if (!$File || !$File->getMimeType() || !in_array($File->getMimeType(), self::$ALLOW_FILE_TYPE)) {
-            return self::returnResults(null, 'error! no file or file type error', false);
+        if (!$File || !$File->getMimeType() || !in_array($File->getMimeType(), File::$ALLOW_FILE_TYPE)) {
+            return File::returnResults(null, 'error! no file or file type error', false);
         }
 
         $fileType = strtolower($File->getClientOriginalExtension());
-        $filePath = self::$UPLOAD_PATH . '/' . Carbon::now()->toDateString() . '/' . md5(Carbon::now()->timestamp) . '.' . $fileType;
+        $filePath = File::$UPLOAD_PATH . '/' . Carbon::now()->toDateString() . '/' . md5(Carbon::now()->timestamp) . '.' . $fileType;
 
         $results = $Disk->put($filePath, file_get_contents($File));
 
         if ($results) {
-            return self::returnResults('//' . \Config::get(self::$FILE_RETURN_PATH[env('DISK')]) . $filePath);
+            return File::returnResults('//' . \Config::get(File::$FILE_RETURN_PATH[env('DISK')]) . $filePath);
         } else {
-            return self::returnResults(null, 'error!', false);
+            return File::returnResults(null, 'error!', false);
         }
     }
 
@@ -133,8 +133,8 @@ class File extends Model
         $files =  $Disk->files($directory, true);
 
         foreach ($files as $key => &$file) {
-            if (static::isImage($file) && static::isUploadsDirectory($file)) {
-                $file = '//' . \Config::get(self::$FILE_RETURN_PATH[env('DISK')]) . '/' . $file;
+            if (File::isImage($file) && File::isUploadsDirectory($file)) {
+                $file = '//' . \Config::get(File::$FILE_RETURN_PATH[env('DISK')]) . '/' . $file;
             } else {
                 unset($files[$key]);
             }
