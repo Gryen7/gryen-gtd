@@ -19,11 +19,6 @@
             <span class="glyphicon glyphicon-list-alt" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="文章"></span>
         </a>
     </li>
-    <li class="list-group-item">
-        <a href="{{url('/control/comments')}}">
-            <span class="glyphicon glyphicon-comment" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="评论"></span>
-        </a>
-    </li>
     {{--<li class="list-group-item">--}}
         {{--<a href="{{url('/control/user')}}">--}}
             {{--<span class="glyphicon glyphicon-user" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="用户"></span>--}}

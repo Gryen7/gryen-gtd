@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use App\Comment;
 use App\Config;
 use App\File;
 use App\Http\Requests\CreateArticleRequest;
@@ -130,12 +129,10 @@ class ArticlesController extends Controller
         $content = $article->withContent()->first()->content;
         $article->content = handleContentImage($content);
 
-        $comments = Comment::where('article_id', $id)->get();
-
         $siteTitle = $article->title;
         $siteKeywords = $article->tags;
         $siteDescription = $article->description;
-        return view('articles.show', compact('siteTitle', 'siteKeywords', 'siteDescription', 'article', 'comments'));
+        return view('articles.show', compact('siteTitle', 'siteKeywords', 'siteDescription', 'article'));
     }
 
     /**

@@ -27,11 +27,6 @@ class ControlPanelController extends Controller
         return view('control.articles', compact('articles'));
     }
 
-    public function comments()
-    {
-        return view('control.comments');
-    }
-
     public function user()
     {
         return view('control.user');
