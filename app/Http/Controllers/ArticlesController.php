@@ -44,7 +44,6 @@ class ArticlesController extends Controller
         }
 
         $articles = Article::getTagArray($articles);
-        $siteTitle = '笔记';
         return view('articles.index', compact('siteTitle', 'articles'));
     }
 
