@@ -12,10 +12,10 @@
         "laravelcollective/html": "^5.2",
         "predis/predis": "^1.1",
         "qiniu/php-sdk": "^7.0",
+        "roumen/sitemap": "v2.6.*",
         "symfony/psr-http-message-bridge": "^0.2.0",
         "vinkla/pusher": "^2.4",
-        "zgldh/qiniu-laravel-storage": "^0.3.0",
-        "roumen/sitemap": "2.7.*"
+        "zgldh/qiniu-laravel-storage": "^0.3.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "2.*",
