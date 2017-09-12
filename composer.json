@@ -14,7 +14,8 @@
         "qiniu/php-sdk": "^7.0",
         "symfony/psr-http-message-bridge": "^0.2.0",
         "vinkla/pusher": "^2.4",
-        "zgldh/qiniu-laravel-storage": "^0.3.0"
+        "zgldh/qiniu-laravel-storage": "^0.3.0",
+        "roumen/sitemap": "2.7.*"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "2.*",

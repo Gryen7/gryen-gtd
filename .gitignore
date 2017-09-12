@@ -267,7 +267,6 @@ local.properties
 out
 gen
 *.log
-/composer.lock
 .vscode/
 /_ide_helper.php
 resources/lang/zh-cn/
