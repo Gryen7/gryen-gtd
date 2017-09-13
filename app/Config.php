@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Redis;
 
+
+const CACHE_DURATION = 60; // 缓存超时时间
 /**
  * App\Config
  *
@@ -37,25 +38,16 @@ class Config extends Model
     public static function getAllConfig($key = null)
     {
         $returnConfig = [];
+        $cachedConfig = cache('CONFIG');
 
-        $redis = Redis::connection();
-
-        if ($redis) {
-            $redisConfig = $redis->get('CONFIG');
-        }
-
-        if (empty($redisConfig)) {
+        if (empty($cachedConfig)) {
             $config = Config::all();
             foreach ($config as $value) {
                 $returnConfig[$value->name] = $value->value;
             }
-
-            if ($redis) {
-                $redis->set('CONFIG', json_encode($returnConfig));
-            }
-
+            cache(['CONFIG' => json_encode($returnConfig)], CACHE_DURATION);
         } else {
-            $returnConfig = json_decode($redisConfig, true);
+            $returnConfig = json_decode($cachedConfig, true);
         }
 
         if (empty($key)) {
@@ -72,13 +64,12 @@ class Config extends Model
      */
     public static function setSiteTitle($siteTitle)
     {
-        $redis = Redis::connection();
-        $config = json_decode($redis->get('CONFIG'));
+        $config = json_decode(cache('CONFIG'));
         if(empty($config)) {
             $config = (object)[];
         }
         $config->SITE_TITLE = $siteTitle;
-        $redis->set('CONFIG', json_encode($config));
+        cache(['CONFIG' => json_encode($config)], CACHE_DURATION);
         return Config::updateOrCreate([
             'name' => 'SITE_TITLE',
             'value' => $siteTitle
@@ -92,13 +83,12 @@ class Config extends Model
      */
     public static function setSiteSubTitle($siteSubTitle)
     {
-        $redis = Redis::connection();
-        $config = json_decode($redis->get('CONFIG'));
+        $config = json_decode(cache('CONFIG'));
         if(empty($config)) {
             $config = (object)[];
         }
         $config->SITE_SUB_TITLE = $siteSubTitle;
-        $redis->set('CONFIG', json_encode($config));
+        cache(['CONFIG' => json_encode($config)], CACHE_DURATION);
         return Config::updateOrCreate([
             'name' => 'SITE_SUB_TITLE',
             'value' => $siteSubTitle
@@ -112,13 +102,12 @@ class Config extends Model
      */
     public static function setSiteKeywords($siteKeywords)
     {
-        $redis = Redis::connection();
-        $config = json_decode($redis->get('CONFIG'));
+        $config = json_decode(cache('CONFIG'));
         if(empty($config)) {
             $config = (object)[];
         }
         $config->SITE_KEYWORDS = $siteKeywords;
-        $redis->set('CONFIG', json_encode($config));
+        cache(['CONFIG' => json_encode($config)], CACHE_DURATION);
         return Config::updateOrCreate([
             'name' => 'SITE_KEYWORDS',
             'value' => $siteKeywords
@@ -132,13 +121,12 @@ class Config extends Model
      */
     public static function setSiteDescription($siteDescription)
     {
-        $redis = Redis::connection();
-        $config = json_decode($redis->get('CONFIG'));
+        $config = json_decode(cache('CONFIG'));
         if(empty($config)) {
             $config = (object)[];
         }
         $config->SITE_DESCRIPTION = $siteDescription;
-        $redis->set('CONFIG', json_encode($config));
+        cache(['CONFIG' => json_encode($config)], CACHE_DURATION);
         return Config::updateOrCreate([
             'name' => 'SITE_DESCRIPTION',
             'value' => $siteDescription
@@ -152,13 +140,12 @@ class Config extends Model
      */
     public static function setSiteDefaultImage($siteDefaultImage)
     {
-        $redis = Redis::connection();
-        $config = json_decode($redis->get('CONFIG'));
+        $config = json_decode(cache('CONFIG'));
         if(empty($config)) {
             $config = (object)[];
         }
         $config->SITE_DEFAULT_IMAGE = $siteDefaultImage;
-        $redis->set('CONFIG', json_encode($config));
+        cache(['CONFIG' => json_encode($config)], CACHE_DURATION);
         return Config::updateOrCreate([
             'name' => 'SITE_DEFAULT_IMAGE',
             'value' => $siteDefaultImage
