@@ -21,6 +21,9 @@
  */
 function imageView2($image, array $params, $mode = 1, $q = 100)
 {
+    // 允许的参数
+    $allowParams = ['w', 'h'];
+
     if (!is_string($image)) {
         return '';
     }
@@ -29,16 +32,18 @@ function imageView2($image, array $params, $mode = 1, $q = 100)
         return $image;
     }
 
-    $queryString = '';
+    $queryString = '?imageView2/' . $mode . '/format/webp';
 
-    // 允许的参数
-    $allowParams = ['w', 'h'];
+    if (isset($params['raw'])) {
+        return explode('?', $queryString)[0];
+    }
 
     if (isset($params) && !empty($params)) {
-        $queryString .= '?imageView2/' . $mode . '/interlace/1';
-        foreach ($params as $key => $value) {
-            if (in_array($key, $allowParams)) {
-                $queryString .= '/' . $key . '/' . $value;
+        if (!empty($params)) {
+            foreach ($params as $key => $value) {
+                if (in_array($key, $allowParams)) {
+                    $queryString .= '/' . $key . '/' . $value;
+                }
             }
         }
     }
