@@ -4,6 +4,7 @@
  * 首页、关于页等
  */
 Route::get('/', 'HomeController@index');
+//Route::get('/sitemap.xml', 'HomeController@sitemap');
 Route::get('/about', 'HomeController@about');
 
 Auth::routes();

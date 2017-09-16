@@ -12,7 +12,7 @@
         "laravelcollective/html": "^5.2",
         "predis/predis": "^1.1",
         "qiniu/php-sdk": "^7.0",
-        "roumen/sitemap": "v2.6.*",
+        "spatie/laravel-sitemap": "v2.4.*",
         "symfony/psr-http-message-bridge": "^0.2.0",
         "vinkla/pusher": "^2.4",
         "zgldh/qiniu-laravel-storage": "^0.3.0"

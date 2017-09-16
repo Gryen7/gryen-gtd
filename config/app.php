@@ -162,7 +162,8 @@ return [
 
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class, // Laravel IDE helper
         zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class,
-        Collective\Html\HtmlServiceProvider::class
+        Collective\Html\HtmlServiceProvider::class,
+        Spatie\Sitemap\SitemapServiceProvider::class
     ],
 
     /*
