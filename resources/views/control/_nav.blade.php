@@ -21,7 +21,7 @@
     </li>
     <li class="list-group-item t-ctl-nav-last">
         <a href="{{ action('ControlPanelController@ashcan') }}">
-            <span class="glyphicon glyphicon-trash" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="回收站"></span>
+            <span class="glyphicon glyphicon-trash" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="废纸篓"></span>
         </a>
     </li>
 </ul>
