@@ -19,3 +19,5 @@ Route::get('/user', function (Request $request) {
 Route::get('/handicrafts/list', 'Api\HandicraftsController@handicraftList');
 
 Route::get('/notices/wechat', 'Api\NoticesController@wechat');
+
+Route::post('/pushtokindle', 'Api\PushToKindleController@index');

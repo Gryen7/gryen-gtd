@@ -19,6 +19,9 @@
                                 <a class="btn btn-default navbar-btn" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title="文件管理" href="{{ action('Control\FilesController@index') }}">
                                     <span class="glyphicon glyphicon-hdd"></span>
                                 </a>
+                                <a class="btn btn-default navbar-btn" href="{{ action('ControlPanelController@settings') }}">
+                                    <span class="glyphicon glyphicon-cog" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="设置"></span>
+                                </a>
                             </div>
                         </div>
                     </div>

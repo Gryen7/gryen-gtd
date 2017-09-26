@@ -7,12 +7,17 @@ use App\Article;
 class ControlPanelController extends Controller
 {
     /**
-     * 后台首页
+     * 后台首页 - 基本信息展示页
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
         return view('control.index');
+    }
+
+    public function me()
+    {
+        return view('control.me');
     }
 
     /**
@@ -27,9 +32,9 @@ class ControlPanelController extends Controller
         return view('control.articles', compact('articles'));
     }
 
-    public function user()
+    public function pushToKindle()
     {
-        return view('control.user');
+        return view('control.push-to-kindle');
     }
 
     public function settings()

@@ -26,12 +26,18 @@
             }
 
             .glyphicon-list-alt {
-                padding-right: 3px;
-            }
-
-            .glyphicon-trash {
                 padding-right: 2px;
             }
+
+            .glyphicon-send {
+                padding-right: 3px;
+            }
+        }
+
+        .t-ctl-nav-last {
+            position: absolute;
+            bottom: 0;
+            left: 24px;
         }
 
         .tar-avatar {

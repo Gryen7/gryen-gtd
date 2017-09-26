@@ -70,10 +70,10 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
     Route::get('/articles/destroy/{id}', 'ArticlesController@destroy');
 
     /* 评论管理 */
-    Route::get('/comments', 'ControlPanelController@comments');
+    Route::get('/pushtokindle', 'ControlPanelController@pushToKindle');
 
     /* 用户设置页面 */
-    Route::get('/user', 'ControlPanelController@user');
+    Route::get('/me', 'ControlPanelController@me');
 
     /* 设置首页 */
     Route::get('/settings', 'ControlPanelController@settings');
