@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Todo;
 
 class ControlPanelController extends Controller
 {
@@ -18,6 +19,16 @@ class ControlPanelController extends Controller
     public function me()
     {
         return view('control.me');
+    }
+
+    /**
+     * todolist view
+     * @param $page
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function todos($page = 1)
+    {
+        return view('control.todolist', Todo::getTodoListForControlPannel($page));
     }
 
     /**

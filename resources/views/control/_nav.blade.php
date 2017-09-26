@@ -1,11 +1,11 @@
 <ul class="list-group">
     <li class="list-group-item tar-avatar">
-        <a href="{{url('/control/user')}}">
+        <a href="{{ action('ControlPanelController@me') }}">
             <img class="img-circle" src="{{ imageView2('//statics.targaryen.top/logo2.png', ['w' => 120, 'h' => 120]) }}" alt="">
         </a>
     </li>
     <li class="list-group-item">
-        <a href="{{url('/control/todos')}}">
+        <a href="{{ action('ControlPanelController@todos') }}">
             <span class="glyphicon glyphicon-list" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="任务"></span>
         </a>
     </li>

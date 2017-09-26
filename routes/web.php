@@ -4,12 +4,8 @@
  * 首页、关于页等
  */
 Route::get('/', 'HomeController@index');
-//Route::get('/sitemap.xml', 'HomeController@sitemap');
 Route::get('/about', 'HomeController@about');
-
-Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
-
 Route::get('/error', function () {
     return view('errors.503');
 });
@@ -17,7 +13,6 @@ Route::get('/error', function () {
 /**
  * 文章
  */
-
 Route::group(['prefix' => 'articles'], function () {
     Route::get('/', 'ArticlesController@index');
     Route::get('/show/{id}.html', 'ArticlesController@show');
@@ -38,7 +33,7 @@ Route::group(['prefix' => 'searches'], function () {
 });
 
 /**
- * 需要用户登录的页面
+ * 需要用户权限的路由
  */
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/articles/create', 'ArticlesController@create');
@@ -46,7 +41,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/articles/edit/{id}', 'ArticlesController@edit');
     Route::post('/articles/update/{id}', 'ArticlesController@update');
     Route::post('/articles/cover/upload', 'ArticlesController@cover');
-
     Route::post('/files/upload', 'FilesController@upload');
 });
 
@@ -58,25 +52,23 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
     /* 控制面板首页 */
     Route::get('/', 'ControlPanelController@index');
 
+    /* 用户信息设置页面 */
+    Route::get('/me', 'ControlPanelController@me');
+
     /* 任务管理 */
+    Route::get('/todos', 'ControlPanelController@todos');
     Route::get('/todos/delete/{ids}', 'Control\ToDosController@delete');
+    Route::post('/todos/store', 'Control\ToDosController@store');
     Route::post('/todos/status', 'Control\ToDosController@changeStatus');
     Route::post('/todos/date', 'Control\ToDosController@changeDate');
-    Route::resource('/todos', 'Control\ToDosController');
 
     /* 文章管理 */
     Route::get('/articles', 'ControlPanelController@articles');
     Route::get('/articles/delete/{ids}', 'ArticlesController@delete');
     Route::get('/articles/destroy/{id}', 'ArticlesController@destroy');
 
-    /* 评论管理 */
+    /* Push to Kindle */
     Route::get('/pushtokindle', 'ControlPanelController@pushToKindle');
-
-    /* 用户设置页面 */
-    Route::get('/me', 'ControlPanelController@me');
-
-    /* 设置首页 */
-    Route::get('/settings', 'ControlPanelController@settings');
 
     /* 首页焦点图设置 */
     Route::get('/setting/banners', 'Control\SettingsController@banners');
@@ -98,6 +90,7 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
 
     /* 回收站 */
     Route::get('/ashcan', 'ControlPanelController@ashcan');
-});
 
-Route::resource('comments','CommentsController');
+    /* 设置 */
+    Route::get('/settings', 'ControlPanelController@settings');
+});
