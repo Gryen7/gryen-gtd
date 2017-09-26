@@ -11,21 +11,7 @@
             <div class="col-xs-11">
                 @include('control._top')
                 <hr style="margin: 0.5rem auto">
-                <div class="navbar navbar-default tar-ctl-navbar">
-                    <div class="container-fluid">
-                        <div class="collapse navbar-collapse">
-                            <div class="navbar-right">
-                                @yield('subNavigation')
-                                <a class="btn btn-default navbar-btn" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="top" title="文件管理" href="{{ action('Control\FilesController@index') }}">
-                                    <span class="glyphicon glyphicon-hdd"></span>
-                                </a>
-                                <a class="btn btn-default navbar-btn" href="{{ action('ControlPanelController@settings') }}">
-                                    <span class="glyphicon glyphicon-cog" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="设置"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @include('control._content-nav')
                 <div class="container-fluid tar-cp-main">
                     <div class="row">
                         @yield('content')
