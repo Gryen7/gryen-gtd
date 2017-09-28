@@ -31,8 +31,8 @@ function imageView2($image, array $params, $mode = 1, $q = 100)
     if (empty($image) || strpos($image, '?')) {
         return $image;
     }
-
-    $queryString = '?imageView2/' . $mode . '/format/webp';
+    $webp = (isset($params['webp']) && $params['webp']) ? '/format/webp' : '';
+    $queryString = '?imageView2/' . $mode . $webp;
 
     if (isset($params['raw'])) {
         return explode('?', $queryString)[0];
@@ -81,16 +81,19 @@ function version() {
  * 动态处理文章中的图片
  * 只在文章详情页使用
  * @param $content
+ * @param bool $wepb
  * @return mixed
  */
-function handleContentImage($content) {
+function handleContentImage($content, $wepb = false) {
     $rightImgs = [];
 
     preg_match_all('/<img.*?src="(.*?)".*?>/is', $content, $result);
     $oldImgs = [];
+    $params = [];
+    $params['webp'] = $wepb;
     foreach ($result[1] as $value) {
         array_push($oldImgs, 'src="' . $value . '"');
-        array_push($rightImgs, 'data-original="' . imageView2($value, [], 0, '100') . '"');
+        array_push($rightImgs, 'data-original="' . imageView2($value, $params, 0, '100') . '"');
     }
     $content = str_replace($oldImgs, $rightImgs, $content);
 

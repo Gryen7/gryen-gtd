@@ -18,7 +18,7 @@ Route::get('/error', function () {
  * 文章
  */
 
-Route::group(['prefix' => 'articles'], function () {
+Route::group(['prefix' => 'articles', 'middleware' => 'Webp'], function () {
     Route::get('/', 'ArticlesController@index');
     Route::get('/show/{id}.html', 'ArticlesController@show');
 });
