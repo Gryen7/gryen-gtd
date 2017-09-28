@@ -10,6 +10,8 @@ Route::get('/error', function () {
     return view('errors.503');
 });
 
+Auth::routes();
+
 /**
  * 文章
  */
