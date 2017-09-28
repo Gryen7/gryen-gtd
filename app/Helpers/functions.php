@@ -32,7 +32,7 @@ function imageView2($image, array $params, $mode = 1, $q = 100)
         return $image;
     }
 
-    $queryString = '?imageView2/' . $mode . '/format/webp';
+    $queryString = '?imageView2/' . $mode . ($_COOKIE['webpSupport'] === 'true' ? '/format/webp' : '');
 
     if (isset($params['raw'])) {
         return explode('?', $queryString)[0];
