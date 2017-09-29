@@ -34,20 +34,6 @@
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
-        function setCookie(name,value) {
-            var Days = 30;
-            var exp = new Date();
-            exp.setTime(exp.getTime() + Days*24*60*60*1000);
-            document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
-        }
-        function checkWebp() {
-            try{
-                return (document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0);
-            }catch(err) {
-                return  false;
-            }
-        }
-        setCookie('webpSupport', checkWebp());
     </script>
 </head>
 <body @if(isset($bodyClassString))class="{{ $bodyClassString }}" @endif>
