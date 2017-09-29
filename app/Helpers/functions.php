@@ -19,7 +19,7 @@
  * @param int $q 图片质量
  * @return string
  */
-function imageView2($image, array $params, $mode = 1, $q = 100)
+function imageView2($image, array $params = [], $mode = 1, $q = 100)
 {
     // 允许的参数
     $allowParams = ['w', 'h'];
@@ -31,8 +31,8 @@ function imageView2($image, array $params, $mode = 1, $q = 100)
     if (empty($image) || strpos($image, '?')) {
         return $image;
     }
-
-    $queryString = '?imageView2/' . $mode . '/format/webp';
+    $webp = request()->webp ? '/format/webp' : '';
+    $queryString = '?imageView2/' . $mode . $webp;
 
     if (isset($params['raw'])) {
         return explode('?', $queryString)[0];
