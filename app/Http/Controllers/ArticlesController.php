@@ -109,7 +109,7 @@ class ArticlesController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
+    public function show($id)
     {
         $article = Article::find($id);
 
@@ -126,7 +126,7 @@ class ArticlesController extends Controller
         $article = Article::getTagArray($article);
 
         $content = $article->withContent()->first()->content;
-        $article->content = handleContentImage($content, $request->wepb);
+        $article->content = handleContentImage($content);
 
         $siteTitle = $article->title;
         $siteKeywords = $article->tags;

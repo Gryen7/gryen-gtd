@@ -4,10 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class webpSupportCheck
+class WebpSupportCheck
 {
     /**
-     * Handle an incoming request.
+     * 检测浏览器是否支持 webp
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -15,7 +15,7 @@ class webpSupportCheck
      */
     public function handle($request, Closure $next)
     {
-        $request->wepb = preg_match('/image\/webp/', $request->header('Accept'));
+        $request->webp = preg_match('/image\/webp/', $request->header('Accept'));
         return $next($request);
     }
 }

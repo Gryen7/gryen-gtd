@@ -8,7 +8,7 @@
         <section class="home-main">
             <a href="{{ $banner->link }}">
                 <div class="focus-cover">
-                    <img src="{{ $banner->cover }}" alt="">
+                    <img src="{{ imageView2($banner->cover) }}" alt="">
                     <p class="title text-center">{{ $banner->title }}</p>
                     <div class="description">
                         {{ $banner->description }}

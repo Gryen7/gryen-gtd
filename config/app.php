@@ -212,8 +212,7 @@ return [
         'Notification' => Illuminate\Support\Facades\Notification::class,
 	
         'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class,
-        'Webp' => \App\Http\Middleware\webpSupportCheck::class
+        'Html' => Collective\Html\HtmlFacade::class
     ],
 
 ];
