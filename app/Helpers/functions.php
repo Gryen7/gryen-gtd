@@ -82,7 +82,6 @@ function version() {
  * 只在文章详情页使用
  * @param $content
  * @return mixed
- * @internal param bool $wepb
  */
 function handleContentImage($content) {
     $rightImgs = [];
