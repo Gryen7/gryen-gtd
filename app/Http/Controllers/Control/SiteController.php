@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Control;
 
+use App\Analytics;
 use App\Config;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AddAnalyticsRequest;
+use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
@@ -55,5 +57,14 @@ class SiteController extends Controller
     public function defaultImage(Request $request)
     {
         return Config::setSiteDefaultImage($request->get('default_image'));
+    }
+
+    /**
+     * 添加分析代码请求处理
+     * @param AddAnalyticsRequest $request
+     */
+    public function addAnalyticsCode(AddAnalyticsRequest $request)
+    {
+        return Analytics::addAnalyticsCode($request->all());
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateConfigManysTable extends Migration
+class CreateConfigManiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateConfigManysTable extends Migration
      */
     public function up()
     {
-        Schema::create('config_manys', function (Blueprint $table) {
+        Schema::create('config_manies', function (Blueprint $table) {
             $table->increments('id');
             $table->char('group', 8); // 配置组索引
             $table->string('group_name'); // 配置组名称
@@ -34,6 +34,6 @@ class CreateConfigManysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('config_manys');
+        Schema::dropIfExists('config_manies');
     }
 }

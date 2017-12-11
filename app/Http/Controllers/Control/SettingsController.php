@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Control;
 
+use App\Analytics;
 use App\Article;
 use App\Banner;
 use App\Config;
@@ -16,7 +17,9 @@ class SettingsController extends Controller
     public function site()
     {
         $config = Config::getAllConfig();
-        return view('control.settings.site', compact('config'));
+        $analyticsCodes = Analytics::getAnalyticsCode();
+
+        return view('control.settings.site', compact('config', 'analyticsCodes'));
     }
 
     /**

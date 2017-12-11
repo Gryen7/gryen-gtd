@@ -71,6 +71,46 @@
         </div>
     </div>
     <div class="col-xs-6">
-
+        <div class="panel panel-danger">
+            <div class="panel-heading" role="tab" id="headingAnalyticsCode">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAnalyticsCode" aria-expanded="true" aria-controls="collapseAnalyticsCode">
+                        统计代码
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseAnalyticsCode" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingAnalyticsCode">
+                <div class="panel-body">
+                    {{ Form::open(['action' => 'Control\SiteController@addAnalyticsCode', 'id' => 'addAnalyticsCodeForm']) }}
+                    <div class="form-group">
+                    {{ Form::text('config_name', null, ['class' => 'form-control', 'placeholder' => '统计代码名称']) }}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::text('config', null, ['class' => 'form-control', 'placeholder' => '统计代码代号']) }}
+                    </div>
+                    <div class="form-group">
+                    {{ Form::textarea('config_value', null, ['class' => 'form-control', 'id' => 'analyticsCode', 'placeholder' => '统计代码...']) }}
+                    </div>
+                    <div class="form-group">
+                    {{ Form::button('添加', ['class' => 'btn btn-success form-control', 'id' => 'addAnalyticsCodeBtn']) }}
+                    </div>
+                    {{ Form::close() }}
+                </div>
+                <ul class="list-group">
+                    @foreach($analyticsCodes as $code)
+                    <li class="list-group-item">
+                        <div class="input-group">
+                            <span class="input-group-addon">{{ $code->config_name }}</span>
+                            {{ Form::text('', $code->config_value, ['class' => 'form-control']) }}
+                            <span class="input-group-btn">
+                                <button class="btn btn-warning" type="button">编辑</button>
+                                <button class="btn btn-danger" type="button">删除</button>
+                                </span>
+                        </div>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
     </div>
 @stop

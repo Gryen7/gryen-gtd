@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class ConfigMany extends Model
+class ConfigMany extends Eloquent
 {
 
     protected $fillable = [
@@ -16,21 +16,4 @@ class ConfigMany extends Model
         'status',
         'description'
     ];
-
-    /**
-     * 分析代码添加
-     * @param $analyticsCodeName
-     * @param $analyticsCode
-     */
-    public static function addAnalyticsCode($analyticsCodeName, $analyticsCode)
-    {
-        ConfigMany::updateOrCreate([
-            'name' => 'analyticsCodeName'
-        ]);
-    }
-
-    public static function getAnalyticsCode()
-    {
-        return [];
-    }
 }

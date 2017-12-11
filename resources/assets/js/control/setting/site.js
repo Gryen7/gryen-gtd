@@ -18,6 +18,9 @@ let siteDescriptionBtn = $('#siteDescriptionBtn');
 let siteDefaultImage = $('#siteDefaultImage');
 let siteDefaultImageBtn = $('#siteDefaultImageBtn');
 
+let addAnalyticsCodeForm = $('#addAnalyticsCodeForm');
+let addAnalyticsCodeBtn = $('#addAnalyticsCodeBtn');
+
 /**
  * 设置站点标题
  */
@@ -61,4 +64,11 @@ siteDefaultImageBtn.click(function () {
     if (siteDefaultImage.val().length > 0) {
         $.post('/control/setting/site/defaultimage', {default_image: siteDefaultImage.val()});
     }
+});
+
+/**
+ * 添加统计代码
+ */
+addAnalyticsCodeBtn.click(function () {
+    $.post(addAnalyticsCodeForm.attr('action'), addAnalyticsCodeForm.serialize());
 });

@@ -85,6 +85,7 @@ Route::group(['prefix' => 'control', 'middleware' => 'auth'], function () {
     Route::post('/setting/site/keywords', 'Control\SiteController@keywords');
     Route::post('/setting/site/description', 'Control\SiteController@description');
     Route::post('/setting/site/defaultimage', 'Control\SiteController@defaultImage');
+    Route::post('/setting/site/addAnalyticsCode', 'Control\SiteController@addAnalyticsCode');
 
     /* 后台图片管理相关 */
     Route::get('/setting/files', 'Control\FilesController@index');
