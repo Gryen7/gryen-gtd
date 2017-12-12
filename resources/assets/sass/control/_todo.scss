@@ -49,6 +49,13 @@
         .tar-todo-content {
             overflow: hidden;
             text-align: left;
+
+            .t-todo-title {
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin-right: 15px;
+            }
         }
     }
 

@@ -10,6 +10,13 @@ body {
     height: 100%;
 }
 
+//noinspection CssUnknownProperty
+select {
+    appearance: none;
+    background: url("../../images/arrow-white.png") no-repeat scroll right center transparent;
+    padding-right: 14px;
+}
+
 // 控制面板子导航
 .tar-ctl-navbar {
     margin-bottom: 1rem;
