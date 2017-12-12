@@ -13,6 +13,7 @@ class SettingsController extends Controller
     /**
      * 站点信息
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Exception
      */
     public function site()
     {
@@ -25,6 +26,7 @@ class SettingsController extends Controller
     /**
      * 轮播图设置
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Exception
      */
     public function banners()
     {

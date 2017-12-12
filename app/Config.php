@@ -4,8 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
-const CACHE_DURATION = 60; // 缓存超时时间
 /**
  * App\Config
  *
@@ -42,7 +40,7 @@ class Config extends Model
             foreach ($config as $value) {
                 $returnConfig[$value->name] = $value->value;
             }
-            cache(['CONFIG' => json_encode($returnConfig)], CACHE_DURATION);
+            cache(['CONFIG' => json_encode($returnConfig)], env('CACHE_DURATION'));
         } else {
             $returnConfig = json_decode($cachedConfig, true);
         }
@@ -67,7 +65,7 @@ class Config extends Model
             $config = (object)[];
         }
         $config->SITE_TITLE = $siteTitle;
-        cache(['CONFIG' => json_encode($config)], CACHE_DURATION);
+        cache(['CONFIG' => json_encode($config)], env('CACHE_DURATION'));
         return Config::updateOrCreate([
             'name' => 'SITE_TITLE',
             'value' => $siteTitle
@@ -87,7 +85,7 @@ class Config extends Model
             $config = (object)[];
         }
         $config->SITE_SUB_TITLE = $siteSubTitle;
-        cache(['CONFIG' => json_encode($config)], CACHE_DURATION);
+        cache(['CONFIG' => json_encode($config)], env('CACHE_DURATION'));
         return Config::updateOrCreate([
             'name' => 'SITE_SUB_TITLE',
             'value' => $siteSubTitle
@@ -107,7 +105,7 @@ class Config extends Model
             $config = (object)[];
         }
         $config->SITE_KEYWORDS = $siteKeywords;
-        cache(['CONFIG' => json_encode($config)], CACHE_DURATION);
+        cache(['CONFIG' => json_encode($config)], env('CACHE_DURATION'));
         return Config::updateOrCreate([
             'name' => 'SITE_KEYWORDS',
             'value' => $siteKeywords
@@ -127,7 +125,7 @@ class Config extends Model
             $config = (object)[];
         }
         $config->SITE_DESCRIPTION = $siteDescription;
-        cache(['CONFIG' => json_encode($config)], CACHE_DURATION);
+        cache(['CONFIG' => json_encode($config)], env('CACHE_DURATION'));
         return Config::updateOrCreate([
             'name' => 'SITE_DESCRIPTION',
             'value' => $siteDescription
@@ -147,7 +145,7 @@ class Config extends Model
             $config = (object)[];
         }
         $config->SITE_DEFAULT_IMAGE = $siteDefaultImage;
-        cache(['CONFIG' => json_encode($config)], CACHE_DURATION);
+        cache(['CONFIG' => json_encode($config)], env('CACHE_DURATION'));
         return Config::updateOrCreate([
             'name' => 'SITE_DEFAULT_IMAGE',
             'value' => $siteDefaultImage
