@@ -14,10 +14,6 @@ const CACHE_DURATION = 60; // 缓存超时时间
  * @property string $value
  * @property bool $status
  * @property string $description
- * @method static \Illuminate\Database\Query\Builder|\App\Config whereDescription($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Config whereName($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Config whereStatus($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Config whereValue($value)
  */
 class Config extends Model
 {
@@ -34,6 +30,7 @@ class Config extends Model
      * 获取全部配置或者某个配置
      * @param null $key 空获取全部配置，有值获取值
      * @return object
+     * @throws \Exception
      */
     public static function getAllConfig($key = null)
     {
@@ -61,6 +58,7 @@ class Config extends Model
      * 设置站点标题
      * @param $siteTitle
      * @return Model
+     * @throws \Exception
      */
     public static function setSiteTitle($siteTitle)
     {
@@ -80,6 +78,7 @@ class Config extends Model
      * 设置站点副标题
      * @param $siteSubTitle
      * @return mixed
+     * @throws \Exception
      */
     public static function setSiteSubTitle($siteSubTitle)
     {
@@ -99,6 +98,7 @@ class Config extends Model
      * 设置站点关键字
      * @param $siteKeywords
      * @return mixed
+     * @throws \Exception
      */
     public static function setSiteKeywords($siteKeywords)
     {
@@ -118,6 +118,7 @@ class Config extends Model
      * 设置站点描述
      * @param $siteDescription
      * @return mixed
+     * @throws \Exception
      */
     public static function setSiteDescription($siteDescription)
     {
@@ -137,6 +138,7 @@ class Config extends Model
      * 设置站点默认图片
      * @param $siteDefaultImage
      * @return mixed
+     * @throws \Exception
      */
     public static function setSiteDefaultImage($siteDefaultImage)
     {
