@@ -58,12 +58,17 @@
                 </div>
                 <div id="collapseDefaultImage" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingDetaultImage">
                     <div class="panel-body">
+                        @if(isset($CONFIG->SITE_DEFAULT_IMAGE))
+                            <div class="input-group thumbnail">
+                                <img src="{{ $CONFIG->SITE_DEFAULT_IMAGE }}" alt="默认图">
+                            </div>
+                        @endif
                         <div class="input-group">
                             <span class="input-group-addon">默认图</span>
-                            {{ Form::text('siteDefaultImage', '', ['class' => 'form-control', 'id' => 'siteDefaultImage', 'placeholder' => isset($CONFIG->SITE_DEFAULT_IMAGE) ? $CONFIG->SITE_DEFAULT_IMAGE : '默认图']) }}
+                            {{ Form::text('siteDefaultImage', '', ['class' => 'form-control', 'id' => 'siteDefaultImage', 'placeholder' => isset($CONFIG->SITE_DEFAULT_IMAGE) ? $CONFIG->SITE_DEFAULT_IMAGE : '默认图地址...']) }}
                             <span class="input-group-btn">
-                                <button class="btn btn-danger" type="button" id="siteDefaultImageBtn">设置</button>
-                            </span>
+                            <button class="btn btn-danger" type="button" id="siteDefaultImageBtn">设置</button>
+                        </span>
                         </div>
                     </div>
                 </div>
