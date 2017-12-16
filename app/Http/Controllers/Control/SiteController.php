@@ -14,6 +14,7 @@ class SiteController extends Controller
      * 设置站点标题
      * @param Request $request
      * @return mixed
+     * @throws \Exception
      */
     public function title(Request $request)
     {
@@ -24,6 +25,7 @@ class SiteController extends Controller
      * 设置站点副标题
      * @param Request $request
      * @return mixed
+     * @throws \Exception
      */
     public function subTitle(Request $request)
     {
@@ -34,6 +36,7 @@ class SiteController extends Controller
      * 设置站点关键字
      * @param Request $request
      * @return mixed
+     * @throws \Exception
      */
     public function keywords(Request $request)
     {
@@ -44,6 +47,7 @@ class SiteController extends Controller
      * 设置站点描述
      * @param Request $request
      * @return mixed
+     * @throws \Exception
      */
     public function description(Request $request)
     {
@@ -53,6 +57,7 @@ class SiteController extends Controller
     /**
      * @param Request $request
      * @return mixed
+     * @throws \Exception
      */
     public function defaultImage(Request $request)
     {
@@ -62,9 +67,22 @@ class SiteController extends Controller
     /**
      * 添加分析代码请求处理
      * @param AddAnalyticsRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function addAnalyticsCode(AddAnalyticsRequest $request)
     {
-        return Analytics::addAnalyticsCode($request->all());
+        Analytics::addAnalyticsCode($request->all());
+        return redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    public function delAnalyticsCode(Request $request)
+    {
+        Analytics::destroy($request->id);
+        return response()->json([
+            'code' => 200,
+            'message' => '删除成功',
+            'type' => 'success',
+            'href' => $_SERVER['HTTP_REFERER']
+        ]);
     }
 }

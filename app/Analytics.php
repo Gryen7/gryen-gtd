@@ -39,4 +39,14 @@ class Analytics extends ConfigMany
 
         return ConfigMany::where($where)->get();
     }
+
+    /**
+     * 删除分析代码
+     * @param array|int $ids
+     * @return int
+     */
+    public static function destroy($ids)
+    {
+        return ConfigMany::destroy($ids);
+    }
 }

@@ -2,6 +2,7 @@
  * Created by targaryen on 2017/2/23.
  */
 const $ = require('jquery');
+const laravelAlert = require('../../helpers/alert');
 
 let siteTitle = $('#siteTitle');
 let siteTitleBtn = $('#siteTitleBtn');
@@ -18,8 +19,9 @@ let siteDescriptionBtn = $('#siteDescriptionBtn');
 let siteDefaultImage = $('#siteDefaultImage');
 let siteDefaultImageBtn = $('#siteDefaultImageBtn');
 
-let addAnalyticsCodeForm = $('#addAnalyticsCodeForm');
-let addAnalyticsCodeBtn = $('#addAnalyticsCodeBtn');
+let acDelBtn = $('.t-ac-del');
+let collapseAnalyticsCode = $('#collapseAnalyticsCode');
+let acDelActn = collapseAnalyticsCode.data('delac');
 
 /**
  * 设置站点标题
@@ -67,8 +69,26 @@ siteDefaultImageBtn.click(function () {
 });
 
 /**
- * 添加统计代码
+ * 删除统计代码
  */
-addAnalyticsCodeBtn.click(function () {
-    $.post(addAnalyticsCodeForm.attr('action'), addAnalyticsCodeForm.serialize());
+acDelBtn.click(function (event) {
+    let acId = $(event.currentTarget).data('id');
+
+    $.post(acDelActn, {id: acId}, function (result) {
+        if (result && result.code === 200) {
+            laravelAlert.show({
+                type: result.type,
+                message: result.message
+            });
+
+            setTimeout(function () {
+                location.href = result.href;
+            }, 500);
+        } else {
+            laravelAlert.show({
+                type: 'danger',
+                message: '稍后再试！'
+            });
+        }
+    });
 });

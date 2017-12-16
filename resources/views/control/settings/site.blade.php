@@ -79,7 +79,8 @@
                     </a>
                 </h4>
             </div>
-            <div id="collapseAnalyticsCode" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingAnalyticsCode">
+            <div id="collapseAnalyticsCode" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingAnalyticsCode"
+                data-delac="{{ action('Control\SiteController@delAnalyticsCode') }}">
                 <div class="panel-body">
                     <ul class="list-group">
                         @foreach($analyticsCodes as $code)
@@ -88,24 +89,25 @@
                                     <span class="input-group-addon">{{ $code->config_name }}</span>
                                     {{ Form::text('', $code->config_value, ['class' => 'form-control', 'disabled']) }}
                                     <span class="input-group-btn">
-                                <button class="btn btn-danger" type="button">删除</button>
+                                <button class="btn btn-danger t-ac-del" type="button" data-id="{{ $code->id
+                                }}">删除</button>
                                 </span>
                                 </div>
                             </li>
                         @endforeach
                     </ul>
-                    {{ Form::open(['action' => 'Control\SiteController@addAnalyticsCode', 'id' => 'addAnalyticsCodeForm', 'autocomplete' => 'off']) }}
+                    {{ Form::open(['action' => 'Control\SiteController@addAnalyticsCode', 'autocomplete' => 'off']) }}
                     <div class="form-group">
-                    {{ Form::text('config_name', null, ['class' => 'form-control', 'placeholder' => '统计代码名称']) }}
+                    {{ Form::text('config_name', null, ['class' => 'form-control', 'placeholder' => '第三方分析或统计代码名称']) }}
                     </div>
                     <div class="form-group">
-                        {{ Form::text('config', null, ['class' => 'form-control', 'placeholder' => '统计代码代号']) }}
+                        {{ Form::text('config', null, ['class' => 'form-control', 'placeholder' => '第三方分析或统计代码代号']) }}
                     </div>
                     <div class="form-group">
-                    {{ Form::textarea('config_value', null, ['class' => 'form-control', 'id' => 'analyticsCode', 'placeholder' => '统计代码...']) }}
+                    {{ Form::textarea('config_value', null, ['class' => 'form-control', 'id' => 'analyticsCode', 'placeholder' => '分析或者统计等第三方代码...', 'rows' => 5]) }}
                     </div>
                     <div class="form-group">
-                    {{ Form::button('添加', ['class' => 'btn btn-success form-control', 'id' => 'addAnalyticsCodeBtn']) }}
+                    {{ Form::submit('添加', ['class' => 'btn btn-success form-control']) }}
                     </div>
                     {{ Form::close() }}
                 </div>
