@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->share('CONFIG', Config::getAllConfig());
-        view()->share('CONFIG_MANY', ConfigMany::getAllConfig());
+//        view()->share('CONFIG_MANY', ConfigMany::getAllConfig());
     }
 
     /**
