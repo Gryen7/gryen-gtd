@@ -271,5 +271,6 @@ gen
 /_ide_helper.php
 resources/lang/zh-cn/
 qshell.config
+.qshell/
 /js/
 /.phpstorm.meta.php
