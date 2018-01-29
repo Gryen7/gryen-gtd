@@ -48,7 +48,7 @@ class Config extends Model
         if (empty($key)) {
             return (object)$returnConfig;
         } else {
-            return $returnConfig[$key];
+            return isset($returnConfig[$key]) ? $returnConfig[$key] : null;
         }
     }
 
