@@ -19,7 +19,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property \Carbon\Carbon $deleted_at
- * @method static \Illuminate\Database\Query\Builder|\App\Article whereCover($value)
+ * @method static \Illuminate\Database
+ * \Query\Builder|\App\Article whereCover($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Article whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Article whereDeletedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Article whereDescription($value)
@@ -28,6 +29,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Article whereTags($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Article whereTitle($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Article whereUpdatedAt($value)
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\Article onlyTrashed()
+ * @method static bool|null restore()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Article whereCover($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Article withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Article withoutTrashed()
  */
 class Article extends Eloquent
 {

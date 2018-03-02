@@ -17,6 +17,7 @@ class ArticlesController extends Controller
      * 文章列表页
      * @param Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      * @internal param Article $article
      */
     public function index(Request $request)

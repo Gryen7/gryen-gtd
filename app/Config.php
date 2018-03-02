@@ -12,6 +12,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $value
  * @property bool $status
  * @property string $description
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Config whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Config whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Config whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Config whereValue($value)
  */
 class Config extends Model
 {
@@ -47,6 +51,8 @@ class Config extends Model
 
         if (empty($key)) {
             return (object)$returnConfig;
+        } else if ($key === 'SITE_DEFAULT_IMAGE') {
+            return env('SITE_DEFAULT_IMAGE');
         } else {
             return isset($returnConfig[$key]) ? $returnConfig[$key] : null;
         }

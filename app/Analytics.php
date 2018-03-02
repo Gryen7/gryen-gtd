@@ -2,6 +2,11 @@
 
 namespace App;
 
+/**
+ * App\Analytics
+ *
+ * @mixin \Eloquent
+ */
 class Analytics extends ConfigMany
 {
 

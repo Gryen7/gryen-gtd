@@ -37,6 +37,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Todo whereParentsId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Todo whereStatus($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Todo whereUpdatedAt($value)
+ * @property-read \App\TodoDescription $withDescription
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo onlyTrashed()
+ * @method static bool|null restore()
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo withoutTrashed()
  */
 class Todo extends Eloquent
 {

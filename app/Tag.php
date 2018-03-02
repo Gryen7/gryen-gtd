@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Tag whereName($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Tag whereNum($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Tag whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Article[] $article
  */
 class Tag extends Model
 {
