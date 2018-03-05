@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="robots" content="noindex" />
-    <title>@section('title'){{ isset($CONFIG->SITE_TITLE) ? $CONFIG->SITE_TITLE : 'LaravelBlog' }}{{ isset($CONFIG->SITE_SUB_TITLE) ? ' - ' . $CONFIG->SITE_SUB_TITLE : '' }}@show</title>
+    <title>@section('title'){{ isset($CONFIG->SITE_TITLE) ? $CONFIG->SITE_TITLE : env('APP_NAME') }}{{ isset($CONFIG->SITE_SUB_TITLE) ? ' - ' . $CONFIG->SITE_SUB_TITLE : '' }}@show</title>
     <link rel="stylesheet" media="screen" charset="utf-8" href={{env('STATIC_URL'). '/dist/'. config('app.version') . '/css/lib.css'}}>
     <link rel="stylesheet" media="screen" charset="utf-8" href={{env('STATIC_URL'). '/dist/'. config('app.version') . '/css/control.css'}}>
     <script>
