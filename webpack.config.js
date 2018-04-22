@@ -347,6 +347,7 @@ module.exports.devServer = {
  |
  */
 
+console.log(Mix)
 plugins.push(
     new webpack.ProvidePlugin(Mix.autoload || {}),
 

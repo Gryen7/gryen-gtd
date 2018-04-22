@@ -6,8 +6,6 @@
  * A jQuery plugin for displaying Laravel-Bootstrap laravelError .
  * Licensed under the MIT License
  */
-const $ = require('jquery');
-
 /**
  * 自动隐藏
  * @param elem

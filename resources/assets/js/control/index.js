@@ -1,7 +1,6 @@
 /**
  * Created by targaryen on 16-9-3.
  */
-const $ = require('jquery');
 require('./constant');
 require('bootstrap-sass');
 

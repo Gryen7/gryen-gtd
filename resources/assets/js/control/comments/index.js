@@ -1,5 +1,3 @@
-const $ = require('jquery');
-
 let TarCpMain = $('.tar-cp-main');
 let tCtlCmnt = $('#tCtlCmnt');
 

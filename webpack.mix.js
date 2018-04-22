@@ -35,12 +35,16 @@ _.forEach(JS_MODULES, module => {
 /* Vue 处理 */
 mix.js('resources/vue/index.js', `${DIST_PATH_WITH_VERSION}/js/vue.bundle.js`);
 
-/* 公共库 */
+/* 公共库抽离 */
 mix.extract(['jquery', 'vue'], `${DIST_PATH_WITH_VERSION}/js/vendor.bundle.js`);
 
 /* sourceMap */
-mix.sourceMaps(false).webpackConfig({ devtool: "inline-source-map" });
-
+mix.sourceMaps(false);
+mix.config.autoload = {
+    $: 'jquery',
+    jQuery: 'jquery',
+    jquery: 'jquery'
+};
 /* autoprefixer */
 mix.options({
     postCss: [

@@ -1,7 +1,6 @@
 /**
  * Created by targaryen on 2017/5/18.
  */
-const $ = require('jquery');
 const lazyload = require('jquery-lazyload');
 
 let TBody = $('body');

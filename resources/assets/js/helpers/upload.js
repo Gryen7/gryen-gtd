@@ -1,4 +1,3 @@
-const $ = require('jquery');
 const laravelAlert = require('./alert');
 
 module.exports = (file, ajaxConfig, successCall, errorCall, onprogress) => {

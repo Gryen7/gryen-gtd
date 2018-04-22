@@ -1,8 +1,6 @@
 /**
  * Created by targaryen on 17-3-18.
  */
-const $ = require('jquery');
-
 require('jquery-lazyload');
 
 let tCtlImage = $('#tCtlImage');

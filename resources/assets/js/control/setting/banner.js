@@ -1,8 +1,6 @@
 /**
  * Created by targaryen on 2016/12/17.
  */
-const $ = require('jquery');
-
 let Fun = require('../function');
 let Banner = $('.tar-cps-upfile');
 let SetBannerBtn = $('.tar-btn-stbnr');

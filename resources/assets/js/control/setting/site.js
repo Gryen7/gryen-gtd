@@ -1,7 +1,6 @@
 /**
  * Created by targaryen on 2017/2/23.
  */
-const $ = require('jquery');
 const laravelAlert = require('../../helpers/alert');
 
 let siteTitle = $('#siteTitle');

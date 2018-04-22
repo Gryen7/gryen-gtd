@@ -1,7 +1,6 @@
 /**
  * Created by gcy77 on 2016/3/17.
  */
-const $ = require('jquery');
 require('jquery-serializejson');
 const Simditor = require('tar-simditor');
 const laravelAlert = require('../helpers/alert');
