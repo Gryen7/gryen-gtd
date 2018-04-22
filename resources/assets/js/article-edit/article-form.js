@@ -3,7 +3,6 @@
  */
 const $ = require('jquery');
 require('jquery-serializejson');
-require('tar-simditor-markdown');
 const Simditor = require('tar-simditor');
 const laravelAlert = require('../helpers/alert');
 const upload = require('../helpers/upload');

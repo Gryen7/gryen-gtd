@@ -3907,21 +3907,13 @@ jquery-serializejson@^2.8.1:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/jquery-serializejson/-/jquery-serializejson-2.8.1.tgz#fc40dd11e5d9a6fd2a3614fdcba89e4af794f0a8"
 
-jquery@2.x, jquery@^2.1.4:
+jquery@2.x:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-2.2.4.tgz#2c89d6889b5eac522a7eea32c14521559c6cbf02"
 
-jquery@^3.0.0, jquery@^3.2.0:
+jquery@^3.2.0:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
-
-jquery@~2.1.4:
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-2.1.4.tgz#228bde698a0c61431dc2630a6a154f15890d2317"
-
-jquery@~3.1.0:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.1.1.tgz#347c1c21c7e004115e0a4da32cece041fad3c8a3"
 
 js-base64@^2.1.8, js-base64@^2.1.9:
   version "2.4.3"
@@ -6143,38 +6135,25 @@ signal-exit@^3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
-simple-hotkeys@^1.0.3, simple-hotkeys@~1.0.3:
+simple-hotkeys@~1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/simple-hotkeys/-/simple-hotkeys-1.0.3.tgz#47a5bc35362ca7339611bd09a84fa37818b0bbc6"
   dependencies:
     jquery "2.x"
     simple-module "~2.0.5"
 
-simple-module@^2.0.6, simple-module@~2.0.5, simple-module@~2.0.6:
+simple-module@~2.0.5, simple-module@~2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/simple-module/-/simple-module-2.0.6.tgz#cec8250325f8c7f575f4aa75c919b38396a6037b"
   dependencies:
     jquery "2.x"
 
-simple-module@^3.0.3, simple-module@~3.0.0:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/simple-module/-/simple-module-3.0.3.tgz#ad52766785d27cd9427ee8645a49e41199725a92"
-  dependencies:
-    jquery "^3.0.0"
-
-simple-uploader@^2.0.7, simple-uploader@~2.0.7:
+simple-uploader@~2.0.7:
   version "2.0.8"
   resolved "https://registry.yarnpkg.com/simple-uploader/-/simple-uploader-2.0.8.tgz#5fc4106c6d968b0b353293e3b16094aafde957ba"
   dependencies:
     jquery "2.x"
     simple-module "~2.0.5"
-
-simple-uploader@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/simple-uploader/-/simple-uploader-3.0.0.tgz#c09f706f1cfcbea1fe780e35759a683b1336d4d1"
-  dependencies:
-    jquery "~3.1.0"
-    simple-module "~3.0.0"
 
 slash@^1.0.0:
   version "1.0.0"
@@ -6638,26 +6617,15 @@ tar-pack@^3.4.0:
     tar "^2.2.1"
     uid-number "^0.0.6"
 
-tar-simditor-markdown@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/tar-simditor-markdown/-/tar-simditor-markdown-1.2.1.tgz#2d69139346dd3af655de5248611b9b5896d5d146"
+tar-simditor@^2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/tar-simditor/-/tar-simditor-2.4.3.tgz#be18c3a906540869c535db655d4ab35b8880b54b"
   dependencies:
-    jquery "^2.1.4"
     marked "^0.3.5"
-    simple-hotkeys "^1.0.3"
-    simple-module "^2.0.6"
-    simple-uploader "^2.0.7"
-    tar-simditor "^2.3.15"
-    to-markdown "^3.1.0"
-
-tar-simditor@^2.3.15:
-  version "2.3.15"
-  resolved "https://registry.yarnpkg.com/tar-simditor/-/tar-simditor-2.3.15.tgz#60a1e8679e4a33672df6206cde436268b7b4ec41"
-  dependencies:
-    jquery "~2.1.4"
     simple-hotkeys "~1.0.3"
     simple-module "~2.0.6"
     simple-uploader "~2.0.7"
+    to-markdown "^3.1.0"
 
 tar-stream@^1.1.1:
   version "1.5.5"
