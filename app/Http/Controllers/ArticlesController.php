@@ -52,11 +52,12 @@ class ArticlesController extends Controller
      * 新建文章页面
      *
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function create()
     {
         $tags = Tag::orderBy('num', 'desc')->take(7)->get();
-        $article['cover'] = '//statics.targaryen.top/default-image.png';
+        $article['cover'] = Config::getAllConfig('SITE_DEFAULT_IMAGE');
         $article = (object)$article;
         $bodyClassString = 'no-padding';
         $siteTitle = '新建文章';
@@ -140,11 +141,12 @@ class ArticlesController extends Controller
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function edit($id)
     {
         $article = Article::withTrashed()->find($id);
-        $article->cover = empty($article->cover) ? '//statics.targaryen.top/default-image.png' : $article->cover;
+        $article->cover = empty($article->cover) ? Config::getAllConfig('SITE_DEFAULT_IMAGE') : $article->cover;
 
         $article->content = $article->withContent()->first()->content;
         $article = Article::getTagArray($article);
