@@ -85,7 +85,7 @@ const _postArticle = (status) => {
         error: function (xhr) {
             laravelAlert.show({
                 type: 'danger',
-                message: xhr.responseText
+                message: xhr.responseJSON.message
             });
         }
     });

@@ -88,10 +88,10 @@ const _postDateChange = (elem) => {
                 });
             }
         },
-        error: function () {
+        error: function (xhr) {
             laravelAlert.show({
                 type: 'danger',
-                message: '未知错误'
+                message: xhr.responseJSON.message
             });
         }
     });
@@ -159,10 +159,10 @@ const deleteTodo = (todoId) => {
                });
            }
        },
-       error: function (error) {
+       error: function (xhr) {
            laravelAlert.show({
                type: 'danger',
-               message: error
+               message: xhr.responseJSON.message
            });
        }
    });
