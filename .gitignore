@@ -274,3 +274,5 @@ qshell.config
 .qshell/
 /js/
 /.phpstorm.meta.php
+npm-debug.log
+yarn-error.log
