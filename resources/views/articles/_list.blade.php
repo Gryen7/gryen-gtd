@@ -4,9 +4,13 @@
             <div class="col-md-5 t-rtcl-lf">
                 <div class="t-rtc-img">
                     <a href="{{ action('ArticlesController@show',[$article->id]) }}">
+                        @if($article->index > 4)
                         <img class="lazy"
                              data-original="{{ imageView2($article->cover, ['w' => 600,'h' => 300]) }}"
-                             src="" alt="...">
+                             src="" alt="{{ $article->title }}">
+                        @else
+                        <img src="{{ imageView2($article->cover, ['w' => 600,'h' => 300]) }}" alt="{{ $article->title }}">
+                        @endif
                     </a>
                 </div>
             </div>
