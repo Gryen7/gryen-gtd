@@ -24,8 +24,8 @@ for (let module of JS_MODULES) {
 mix.js('resources/vue/index.js', `${DIST_PATH_WITH_VERSION}/js/vue.bundle.js`);
 
 /* 公共库抽离 */
-mix.extract(['jquery', 'vue'], `${DIST_PATH_WITH_VERSION}/js/vendor.bundle.js`);
-
+mix.extract(['jquery'], `${DIST_PATH_WITH_VERSION}/js/vendor.bundle.js`);
+mix.sourceMaps(false);
 mix.autoload({
     jquery: ['$', 'window.jQuery', 'jQuery']
 });
