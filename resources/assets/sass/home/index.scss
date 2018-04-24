@@ -11,7 +11,7 @@
         width: 320px;
         height: 480px;
         max-height: 70vh;
-        color: $cfont;
+        color: $cfont-semi;
         border-radius: $border-radius-small;
         box-shadow: 0 0 4px 0 $cgray-base;
         animation: focus-cover 3s;
@@ -31,7 +31,7 @@
             width: 100%;
             max-height: 40vh;
             padding: 0 30px 30px;
-            color: $cfont;
+            color: $cfont-semi;
             overflow: hidden;
         }
     }
@@ -51,7 +51,7 @@
 
     .slogan:hover {
         animation: slogan-show 700ms;
-        color: $cfont;
+        color: $cfont-semi;
     }
 }
 
@@ -71,6 +71,6 @@
     }
 
     to {
-        color: $cfont;
+        color: $cfont-semi;
     }
 }

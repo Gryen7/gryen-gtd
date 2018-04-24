@@ -19,6 +19,9 @@
     }
 
     .t-rtcl-rt {
+        height: 203.13px;
+        position: relative;
+
         .t-artl-title {
             border-bottom: 1px solid $cgray-light;
             line-height: 32px;
@@ -41,7 +44,9 @@
         }
 
         .tar-article-extra {
-            color: $cgray-base;
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
 
             .t-rtcl-tag {
                 max-height: 28px;

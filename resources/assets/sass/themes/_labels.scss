@@ -1,5 +1,11 @@
-.label-tag {
-    color: $ctag-color;
-    background-color: $ctag-backgroud;
-    font-weight: 300;
+.t-label {
+    color: $cfont-focus;
+}
+
+.t-label:before {
+    content: '#';
+}
+
+.t-label:after {
+    content: '#';
 }

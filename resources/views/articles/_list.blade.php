@@ -21,14 +21,14 @@
                     </a>
                     <span class="t-artl-date pull-right">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}</span>
                 </div>
+                <div class="tar-article-list-decs">{{ $article->description }}</div>
                 <div class="tar-article-extra">
                     <div class="t-rtcl-tag">
                         @foreach($article->tags as $tag)
-                            <a class="label label-tag" href="{{ action('ArticlesController@index', ['tag' => $tag]) }}">{{ $tag }}</a>
+                            <a class="t-label" href="{{ action('ArticlesController@index', ['tag' => $tag]) }}">{{ $tag }}</a>
                         @endforeach
                     </div>
                 </div>
-                <div class="tar-article-list-decs">{{ $article->description }}</div>
             </div>
         </li>
     @endforeach
