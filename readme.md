@@ -11,7 +11,8 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 Laravel 开发
 * 授权协议
 * 免责声明
 
-### 功能一览
+### 功能列表
+
 * [x] 博客发布
     使用优雅的 simditor 编辑文章，支持 markdown。
     
@@ -34,13 +35,14 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 Laravel 开发
 * [ ] 个人资料整理展示
 
 ### 技术一览
+
 * 基于 Laravel 5.6，需要 php 7.1.3 以上版本
 * 推荐使用 MariaDB 数据库
 * 推荐使用 Redis 缓存数据库
 
 ### 安装说明
-### 授权协议
-gryen-gtd 是根据 [MIT(麻省理工学院许可证)](https://opensource.org/licenses/MIT) 开发的开源软件。
+
+暂无
 
 ### 版本更新
 #### v0.7
@@ -89,6 +91,13 @@ gryen-gtd 是根据 [MIT(麻省理工学院许可证)](https://opensource.org/li
 
 ### 版本预览
 #### v0.8
+
 暂未安排
+
+### 授权协议
+
+gryen-gtd 是根据 [MIT(麻省理工学院许可证)](https://opensource.org/licenses/MIT) 开发的开源软件。
+
 ### 免责声明
+
 在任何状况下，对于使用软件所带来的各种损害均不负赔偿责任。
