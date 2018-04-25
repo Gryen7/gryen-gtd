@@ -13,6 +13,11 @@ $('.tar-cp-nav .list-group-item span').mouseover(event => {
     $(event.currentTarget).tooltip('show');
 });
 
+// 设置 tooltip
+$('.tar-ctl-navbar .navbar-right span').mouseover(event => {
+    $(event.currentTarget).tooltip('show');
+});
+
 require('./todo');
 require('./setting');
 require('./files');

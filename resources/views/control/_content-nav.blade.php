@@ -6,7 +6,8 @@
             </div>
             <div class="navbar-right">
                 <a class="btn btn-default navbar-btn" href="{{ action('ControlPanelController@settings') }}">
-                    <span class="glyphicon glyphicon-cog" onMouseOver="$(this).tooltip('show')" data-toggle="tooltip" data-placement="right" title="设置"></span>
+                    <span class="glyphicon glyphicon-cog" data-toggle="tooltip" data-placement="top"
+                          title="设置"></span>
                 </a>
             </div>
         </div>
