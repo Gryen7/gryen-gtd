@@ -15,23 +15,20 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 Laravel 开发
 * [x] 博客发布
     使用优雅的 simditor 编辑文章，支持 markdown。
     
-<center>![-w600](http://7xrgso.com1.z0.glb.clouddn.com/2018-04-25-15087530267780.jpg)
-</center>
-<center>文章便捷页面</center>
+![-w600](http://7xrgso.com1.z0.glb.clouddn.com/2018-04-25-15087530267780.jpg)
+文章便捷页面
 支持添加文章封面图，描述和关键词。
     
-<center>![-w600](http://7xrgso.com1.z0.glb.clouddn.com/2018-04-25-15087538382652.jpg)
-</center>
-<center>文章列表页面</center>
+![-w600](http://7xrgso.com1.z0.glb.clouddn.com/2018-04-25-15087538382652.jpg)
+文章列表页面
 
-<center>![-w600](http://7xrgso.com1.z0.glb.clouddn.com/2018-04-25-15087539469788.jpg)
-</center>
-<center>站点首页页面</center>
+![-w600](http://7xrgso.com1.z0.glb.clouddn.com/2018-04-25-15087539469788.jpg)
+站点首页页面
 
 * [x] 待办列表
-<center>![-w600](http://7xrgso.com1.z0.glb.clouddn.com/2018-04-25-15087544092838.jpg)
-</center>
-<center>待办列表页面</center>
+![-w600](http://7xrgso.com1.z0.glb.clouddn.com/2018-04-25-15087544092838.jpg)
+待办列表页面
+
 * [ ] 收藏网络文章
 * [ ] 发送文章到 Kindle
 * [ ] 个人资料整理展示
