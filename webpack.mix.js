@@ -27,5 +27,6 @@ mix.js('resources/vue/index.js', `${DIST_PATH_WITH_VERSION}/js/vue.bundle.js`);
 mix.extract(['jquery'], `${DIST_PATH_WITH_VERSION}/js/vendor.bundle.js`);
 mix.sourceMaps(false);
 mix.autoload({
-    jquery: ['$', 'window.jQuery', 'jQuery']
+    jquery: ['$', 'window.jQuery', 'jQuery'],
+    lodash: ['_', 'window._', 'lodash']
 });

@@ -35,10 +35,12 @@ class BannersController extends Controller
         // 是否已经设置过了
         $oldBanner = Banner::where('article_id', $request->get('article_id'))->first();
 
-        if ($oldBanner) {
-            $msg = $oldBanner->update($request->all());
+        if (empty($oldBanner)) {
+            $msg = Banner::create(array_merge($request->all(), [
+                'status' => 1
+            ]));
         } else {
-            $msg = Banner::create($request->all());
+            $msg = $oldBanner->update($request->all());
         }
 
         return response()->json([
