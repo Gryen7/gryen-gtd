@@ -1,4 +1,7 @@
-@extends('layouts._default', ['module' => 'article-show'])
+@extends('layouts._default', [
+    'module' => 'article-show',
+    'vue' => true
+])
 @section('content')
     <article class="col-md-10 col-md-offset-1 tar-article-box">
         <header class="text-center t-rtcl-ttl" id="tArticleTitle">{{ $article->title }}</header>
@@ -14,6 +17,7 @@
             <span class="pull-right">本文更新于 <time pubdate >{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}</time></span>
         </footer>
     </article>
+    <more-articles></more-articles>
     @if (Auth::check())
     <div class="form-group tar-artl-ssbtn">
         <div class="btn-group-vertical">

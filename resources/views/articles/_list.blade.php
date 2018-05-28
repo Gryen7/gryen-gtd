@@ -5,7 +5,7 @@
                 <div class="t-rtc-img">
                     <a href="{{ action('ArticlesController@show',[$article->id]) }}">
                         @if($loop->iteration > 4)
-                        <img class="lazy"
+                        <img class="img-responsive lazy"
                              data-original="{{ imageView2($article->cover, ['w' => 600,'h' => 300]) }}"
                              src="" alt="{{ $article->title }}">
                         @else
