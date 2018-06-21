@@ -14,6 +14,7 @@
     "axios": "^0.18.0",
     "bootstrap-datetime-picker": "^2.4.4",
     "bootstrap-sass": "^3.3.7",
+    "cz-conventional-changelog": "^2.1.0",
     "fs": "0.0.1-security",
     "jquery": "=3.1.1",
     "jquery-lazyload": "^1.9.7",
@@ -22,6 +23,12 @@
     "lodash": "^4.17.4",
     "popper.js": "^1.12",
     "tar-simditor": "=3.0.5",
-    "vue": "^2.5.7"
+    "vue": "^2.5.7",
+    "vue-lazyload": "^1.2.6"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
