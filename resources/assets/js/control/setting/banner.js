@@ -12,6 +12,7 @@ let Cover = $('input[name="cover"]');
 let ArticleId = $('input[name="article_id"]');
 let ArticleTitle = $('input[name="article_title"]');
 let BannerList = $('.t-ctl-bnrlist');
+let ArticleBTG = $('.t-ctl-btg');
 
 /**
  * 模态框初始化
@@ -108,6 +109,20 @@ const choseBanner = () => {
     });
 };
 
+const _newWeightValue = () => {
+    let bannerIndexes = [];
+    let weightValue = 0;
+    ArticleBTG.each((index, elem) => {
+        bannerIndexes.push(_.parseInt($(elem).text()));
+    });
+
+    if (bannerIndexes.length) {
+        weightValue = _.max(bannerIndexes) + 1;
+    }
+
+    return weightValue;
+}
+
 /**
  * 向服务端发起请求设置 banner
  */
@@ -122,7 +137,8 @@ const setBanner = () => {
         data: {
             article_id: ArticleId.val(),
             article_title: ArticleTitle.val(),
-            cover: Cover.val()
+            cover: Cover.val(),
+            weight: _newWeightValue()
         },
         dataType: 'json',
         success: function (resData) {

@@ -29,6 +29,6 @@ mix.sourceMaps(false);
 mix.autoload({
     jquery: ['$', 'window.jQuery', 'jQuery'],
     vue: ['window.Vue', 'Vue'],
-    lodash: ['_', 'window._'],
+    lodash: ['_', 'window._', 'lodash'],
     axios: ['window.axios', 'axios']
 });

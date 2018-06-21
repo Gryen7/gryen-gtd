@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top @if(isset($extraClass) && !empty($extraClass)){{ ' ' . $extraClass }}@endif">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand t-navbar-brand" href="{{ action('HomeController@index') }}"><img src="//statics.targaryen.top/logo.png" alt="格安"></a>
+            <a class="navbar-brand t-navbar-brand" href="{{ action('HomeController@index') }}"><img src="//statics.gryen.com/logo.png" alt="格安"></a>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tNavbarCollapse" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
