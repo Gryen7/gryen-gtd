@@ -30,5 +30,5 @@ mix.autoload({
     jquery: ['$', 'window.jQuery', 'jQuery'],
     vue: ['window.Vue', 'Vue'],
     lodash: ['_', 'window._'],
-    axios: ['window.axios']
+    axios: ['window.axios', 'axios']
 });
