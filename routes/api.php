@@ -16,7 +16,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-Route::get('/handicrafts/list', 'Api\HandicraftsController@handicraftList');
+Route::get('/articles/list', 'Api\ArticlesController@moreArticles');
 
 Route::get('/notices/wechat', 'Api\NoticesController@wechat');
 

@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class HandicraftsController extends Controller
+class ArticlesController extends Controller
 {
-    public function handicraftList()
+    public function moreArticles()
     {
         return 'ok';
     }

@@ -31,10 +31,18 @@
 </template>
 
 <script>
-    import Vue from 'vue'
+    import Vue from 'vue';
     import VueLazyload from 'vue-lazyload';
 
     Vue.use(VueLazyload);
+
+    export default {
+        created: function () {
+            axios.get('/api/articles/list').then(response => {
+                console.log(response);
+            });
+        }
+    };
 </script>
 <style>
     .more-article {
