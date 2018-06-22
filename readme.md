@@ -15,11 +15,11 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 Laravel 开发
 
 * [x] 博客发布
     使用优雅的 simditor 编辑文章，支持 markdown。
-    
+
 ![-w600](http://7xrgso.com1.z0.glb.clouddn.com/2018-04-25-15087530267780.jpg)
 文章便捷页面
 支持添加文章封面图，描述和关键词。
-    
+
 ![-w600](http://7xrgso.com1.z0.glb.clouddn.com/2018-04-25-15087538382652.jpg)
 文章列表页面
 
@@ -45,6 +45,10 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 Laravel 开发
 暂无
 
 ### 版本更新
+#### v0.8
+
+- 添加相关文章功能
+
 #### v0.7
 
 - 升级到 laravel 5.6
@@ -88,11 +92,6 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 Laravel 开发
 - 后台文章管理里列表添加状态指示
 - 后台 Banner 设置支持直接输入资源地址
 - 导航文案调整
-
-### 版本预览
-#### v0.8
-
-暂未安排
 
 ### 授权协议
 

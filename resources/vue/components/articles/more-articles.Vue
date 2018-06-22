@@ -1,28 +1,13 @@
 <template>
-    <div class="col-md-10 col-md-offset-1 more-article">
+
+    <div class="col-md-10 col-md-offset-1 more-article" v-if="articles.length">
         <h5>相关文章</h5>
-        <div class="row" v-lazy-container="{ selector: 'img' }">
-            <div class="col-md-4">
-                <a href="#" class="thumbnail">
-                    <img data-src="//7xnswo.com1.z0.glb.clouddn.com/uploads/2018-04-23/e4eff9d791a6d5e83d85f19526f66282.jpg?imageView2/0" alt="测试图片">
+        <div class="row">
+            <div class="col-md-4" v-for="article in articles" :key='article.id'>
+                <a :href="article.href" class="thumbnail">
+                    <img v-lazy="article.cover" alt="测试图片">
                     <div class="caption">
-                        <h5>第七篇文章</h5>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="#" class="thumbnail">
-                    <img data-src="//7xnswo.com1.z0.glb.clouddn.com/uploads/2018-04-23/e4eff9d791a6d5e83d85f19526f66282.jpg?imageView2/0" alt="测试图片">
-                    <div class="caption">
-                        <h5>第七篇文章</h5>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="#" class="thumbnail">
-                    <img data-src="//7xnswo.com1.z0.glb.clouddn.com/uploads/2018-04-23/e4eff9d791a6d5e83d85f19526f66282.jpg?imageView2/0" alt="测试图片">
-                    <div class="caption">
-                        <h5>第七篇文章</h5>
+                        <h5>{{ article.title }}</h5>
                     </div>
                 </a>
             </div>
@@ -37,10 +22,35 @@
     Vue.use(VueLazyload);
 
     export default {
-        created: function () {
-            axios.get('/api/articles/list').then(response => {
-                console.log(response);
+        data: function () {
+            return {
+                articles: []
+            }
+        },
+        created: async function() {
+            let articleId = this.getArticleId();
+            let response = await axios.get('/api/articles/list', {
+                params: {
+                    articleId
+                }
             });
+
+            if (response && response.status === 200) {
+                this.articles = response.data;
+            }
+        },
+        methods: {
+            getArticleId: function() {
+                let articleId = -1;
+
+                try {
+                    articleId = /\/articles\/show\/(\d+).html/.exec(location.href)[1];
+                } catch (error) {
+                    console.error('not get articleId');
+                }
+
+                return articleId;
+            }
         }
     };
 </script>
