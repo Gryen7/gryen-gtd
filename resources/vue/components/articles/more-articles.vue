@@ -1,7 +1,7 @@
 <template>
 
     <div class="col-md-10 col-md-offset-1 more-article" v-if="articles.length">
-        <h5>相关文章</h5>
+        <h5>其他文章</h5>
         <div class="row">
             <div class="col-md-4" v-for="article in articles" :key='article.id'>
                 <a :href="article.href" class="thumbnail">
