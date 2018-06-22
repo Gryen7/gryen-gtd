@@ -66,5 +66,6 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         text-align: center;
+        line-height: 24px;
     }
 </style>
