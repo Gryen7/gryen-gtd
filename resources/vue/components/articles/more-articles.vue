@@ -7,7 +7,7 @@
                 <a :href="article.href" class="thumbnail">
                     <img v-lazy="article.cover" alt="测试图片">
                     <div class="caption">
-                        <h5>{{ article.title }}</h5>
+                        <h5 class="article-title">{{ article.title }}</h5>
                     </div>
                 </a>
             </div>
@@ -59,5 +59,12 @@
         background-color: #fff;
         margin-bottom: 30px;
         padding-top: 8px;
+    }
+
+    .more-article .article-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: center;
     }
 </style>
