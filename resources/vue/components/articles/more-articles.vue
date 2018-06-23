@@ -1,5 +1,4 @@
 <template>
-
     <div class="col-md-10 col-md-offset-1 more-article" v-if="articles.length">
         <h5>其他文章</h5>
         <div class="row">
