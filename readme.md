@@ -1,20 +1,19 @@
 # README
 
-gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 Laravel 开发，提供博客发布、任务列表等功能。
+gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 [Laravel](https://laravel.com/) 开发，提供博客发布、任务列表等功能。
 
 ## 目录
-* 功能列表
-* 技术一览
-* 安装说明
-* 版本更新
-* 版本预览
-* 授权协议
-* 免责声明
+* [功能列表](https://gitee.com/targaryen/gryen-gtd/blob/develop/readme.md#%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8)
+* [运行环境要求](https://gitee.com/targaryen/gryen-gtd/blob/develop/readme.md#%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82)
+* [安装说明](https://gitee.com/targaryen/gryen-gtd/blob/develop/readme.md#%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E)
+* [版本更新](https://gitee.com/targaryen/gryen-gtd/blob/develop/readme.md#%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0)
+* [授权协议](https://gitee.com/targaryen/gryen-gtd/blob/develop/readme.md#%E6%8E%88%E6%9D%83%E5%8D%8F%E8%AE%AE)
+* [免责声明](https://gitee.com/targaryen/gryen-gtd/blob/develop/readme.md#%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E)
 
 ### 功能列表
 
 * [x] 博客发布
-    使用优雅的 simditor 编辑文章，支持 markdown。
+    使用优雅的 [simditor](https://simditor.tower.im/) 编辑文章，支持 markdown 语法。
 
 ![-w600](http://7xrgso.com1.z0.glb.clouddn.com/2018-04-25-15087530267780.jpg)
 文章编辑页面
