@@ -17,17 +17,18 @@ class ArticlesController extends Controller
         $theArticle = Article::find($request->articleId);
         $tags = explode(',', $theArticle->tags);
         $articles = $this->getArticlesByTags($tags)
-            ->diff(collect([$theArticle]))
-            ->random(3)
-            ->map(function ($article, $key) {
-                $article->cover = imageView2($article->cover, ['w' => '287', 'h' => '192']);
-                $article->href = action('ArticlesController@show', ['id' => $article->id]);
+            ->diff(collect([$theArticle]));
 
-                return collect($article)->only(['id', 'title', 'cover', 'href']);
-            });
-
-        if ($articles->count() !== 3) {
+        if ($articles->count() < 3) {
             $articles = [];
+        } else {
+            $articles = $articles->random(3)
+                ->map(function ($article) {
+                    $article->cover = imageView2($article->cover, ['w' => '287', 'h' => '192']);
+                    $article->href = action('ArticlesController@show', ['id' => $article->id]);
+
+                    return collect($article)->only(['id', 'title', 'cover', 'href']);
+                });
         }
 
         return $articles;
