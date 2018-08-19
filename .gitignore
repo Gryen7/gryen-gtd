@@ -276,3 +276,4 @@ qshell.config
 /.phpstorm.meta.php
 npm-debug.log
 yarn-error.log
+/_ide_helper_models.php
