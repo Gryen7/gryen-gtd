@@ -24,6 +24,12 @@ class ToDosController extends Controller
      */
     public function store(CreateTodoRequest $request)
     {
+        $request->merge([
+            'parents_id' => 0,
+            'grandparents_id' => 0,
+            'status' => 1
+        ]);
+
         $todo = Todo::create($request->all());
 
         $description = $request->get('description');
