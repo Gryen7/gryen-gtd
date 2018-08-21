@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Todo;
-use App\Events\OperationEvent;
 
 class ControlPanelController extends Controller
 {
@@ -14,7 +13,6 @@ class ControlPanelController extends Controller
      */
     public function index()
     {
-        event(new OperationEvent('后台首页'));
         return view('control.index');
     }
 

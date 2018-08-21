@@ -10,20 +10,22 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class OperationEvent implements ShouldBroadcast
+class Operation implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $msg;
+    public $type;
 
     /**
      * Create a new event instance.
      *
-     * @return void
+     * @param array $event
      */
-    public function __construct($msg)
+    public function __construct(array $event)
     {
-        $this->msg = $msg;
+        $this->msg = $event['msg'];
+        $this->type = $event['type'];
     }
 
     /**
@@ -33,6 +35,6 @@ class OperationEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('channel-operation');
+        return new Channel('event.operation');
     }
 }

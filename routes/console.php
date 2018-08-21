@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\Operation;
 use Illuminate\Foundation\Inspiring;
 
 /*
@@ -16,3 +17,8 @@ use Illuminate\Foundation\Inspiring;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
+Artisan::command('bignews', function () {
+    broadcast(new Operation(date('Y-m-d h:i:s A').": BIG NEWS!"));
+    $this->comment("news sent");
+})->describe('Send news');

@@ -129,7 +129,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-//        App\Providers\BroadcastServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
 
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class, // Laravel IDE helper
         zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class,

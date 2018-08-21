@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Events\OperationEvent;
+use App\Events\Operation;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -21,10 +21,10 @@ class OperationEventListener
     /**
      * Handle the event.
      *
-     * @param  OperationEvent  $event
+     * @param  Operation  $event
      * @return void
      */
-    public function handle(OperationEvent $event)
+    public function handle(Operation $event)
     {
         //
     }
