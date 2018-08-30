@@ -35,8 +35,19 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WW9GPF5');</script>
+    <!-- End Google Tag Manager -->
 </head>
 <body @if(isset($bodyClassString))class="{{ $bodyClassString }}" @endif>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WW9GPF5"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 @section('base_content')
 @show
 @include('common._footer')
@@ -48,13 +59,6 @@
 @endif
 @if (isset($module) && !isset($noJsLoad))
 <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/' . $module . '.bundle.js'}}"></script>
-@endif
-@if(env('APP_ENV') === 'production')
-    @if( isset($CONFIG_MANY->AC))
-        @foreach($CONFIG_MANY->AC as $ac)
-            {!! $ac !!}
-        @endforeach
-    @endif
 @endif
 </body>
 </html>
