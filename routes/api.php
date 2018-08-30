@@ -16,7 +16,9 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-Route::get('/todos/list', 'Api\TodosController@getList');
+Route::post('/user/login', 'Api\UserController@login');
+
+Route::get('/todos/list/{page?}', 'Api\TodosController@getList');
 
 Route::get('/articles/list', 'Api\ArticlesController@moreArticles');
 

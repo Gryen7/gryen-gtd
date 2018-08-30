@@ -7,9 +7,9 @@ use App\Todo;
 
 class TodosController extends Controller
 {
-    public function getList()
+    public function getList($page = 1)
     {
-        $todos = Todo::all();
+        $todos = Todo::getTodoListForControlPannel($page);
         return response()->json($todos);
     }
 }
