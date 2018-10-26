@@ -2,31 +2,37 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Validation\UnauthorizedException;
-use App\Traits\AuthProxy;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    use AuthProxy;
-
+    /**
+     * 无状态登录
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function login(Request $request)
     {
-        $user = User::where('email', $request->get('userName'))->first();
+        $content = [
+            'status' => 'fail',
+        ];
+        $status = 200;
+        $credentials = [
+            'email' => $request->get('username'),
+            'password' => $request->get('password')
+        ];
 
-        if (!$user) {
-            throw new UnauthorizedException('用户不存在');
+        if ($token = \JWTAuth::attempt($credentials)) {
+            $content = [
+                'token' => 'bearer ' . $token,
+                'status' => 'ok',
+                'currentAuthority' => 'admin',
+            ];
+        } else {
+            $status = 401;
         }
 
-        $tokens = $this->authenticate();
-
-        return response()->json([
-            'token' => $tokens,
-            'user' => $user,
-            'status' => 'ok',
-            'currentAuthority' => 'admin'
-        ]);
+        return response($content, $status);
     }
 }

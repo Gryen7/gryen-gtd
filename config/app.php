@@ -134,7 +134,8 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class, // Laravel IDE helper
         zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Spatie\Sitemap\SitemapServiceProvider::class
+        Spatie\Sitemap\SitemapServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
     ],
     /*
     |--------------------------------------------------------------------------
