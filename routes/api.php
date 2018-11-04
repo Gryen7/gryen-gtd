@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,26 +12,21 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware(['refresh.token'])->group(function() {
-    Route::get('/currentUser', function (Request $request) {
-        $currentUser = $request->user('api');
+    Route::get('/currentUser', 'Api\UserController@currentUser');
 
-        if (!empty($currentUser)) {
-            $currentUser->avatar = 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png';
-        }
 
-        return $currentUser;
-    });
+    Route::get('/todos/count', 'Api\TodosController@count');
+    Route::get('/todos/list', 'Api\TodosController@getList');
+    Route::post('/todos/updateOrCreate', 'Api\TodosController@updateOrCreate');
+    Route::post('/todos/update', 'Api\TodosController@updateTodo');
+    Route::post('/todos/delete/{id}', 'Api\TodosController@deleteTodo');
+
+    Route::post('/pushtokindle', 'Api\PushToKindleController@index');
+
+    Route::get('/webarticle/get', 'Api\WebArticles@getArticleData');
+    Route::get('/webarticle/tpl', 'Api\WebArticles@webArticleTpl');
 });
 
 Route::post('/user/login', 'Api\UserController@login');
-
-Route::get('/todos/list/{page?}', 'Api\TodosController@getList');
-
 Route::get('/articles/list', 'Api\ArticlesController@moreArticles');
-
 Route::get('/notices/wechat', 'Api\NoticesController@wechat');
-
-Route::post('/pushtokindle', 'Api\PushToKindleController@index');
-
-Route::get('/webarticle/get', 'Api\WebArticles@getArticleData');
-Route::get('/webarticle/tpl', 'Api\WebArticles@webArticleTpl');

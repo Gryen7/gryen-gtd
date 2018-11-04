@@ -35,4 +35,15 @@ class UserController extends Controller
 
         return response($content, $status);
     }
+
+    public function currentUser(Request $request)
+    {
+        $currentUser = $request->user('api');
+
+        if (!empty($currentUser)) {
+            $currentUser->avatar = 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png';
+        }
+
+        return $currentUser;
+    }
 }
