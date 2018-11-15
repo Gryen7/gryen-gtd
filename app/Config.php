@@ -4,19 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * App\Config
- *
- * @mixin \Eloquent
- * @property string $name
- * @property string $value
- * @property bool $status
- * @property string $description
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Config whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Config whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Config whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Config whereValue($value)
- */
 class Config extends Model
 {
     protected $fillable = [

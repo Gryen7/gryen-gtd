@@ -30,3 +30,4 @@ Route::middleware(['refresh.token'])->group(function() {
 Route::post('/user/login', 'Api\UserController@login');
 Route::get('/articles/list', 'Api\ArticlesController@moreArticles');
 Route::get('/notices/wechat', 'Api\NoticesController@wechat');
+Route::post('/xmlrpc', 'Api\MetaWeblogController@index');

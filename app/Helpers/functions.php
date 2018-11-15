@@ -96,3 +96,16 @@ function handleContentImage($content) {
 
     return $content;
 }
+
+function fun_adm_each(&$array){
+    $res = array();
+    $key = key($array);
+    if($key !== null){
+        next($array);
+        $res[1] = $res['value'] = $array[$key];
+        $res[0] = $res['key'] = $key;
+    }else{
+        $res = false;
+    }
+    return $res;
+}

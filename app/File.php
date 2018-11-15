@@ -116,6 +116,25 @@ class File extends Model
         }
     }
 
+    /**
+     * 服务端已存在的文件上传到云存储
+     * @param $fileSavePath
+     * @param $fileName
+     * @return array
+     */
+    public static function uploadSrvFile($fileSavePath, $fileName)
+    {
+        $filePath = File::$UPLOAD_PATH . '/' . Carbon::now()->toDateString() . '/' . md5(Carbon::now()->timestamp) . '/' . $fileName;
+        $Disk = \Storage::disk(env('DISK'));
+        $results = $Disk->put($filePath, file_get_contents($fileSavePath));
+
+        if ($results) {
+            return File::returnResults('//' . \Config::get(File::$FILE_RETURN_PATH[env('DISK')]) . $filePath);
+        } else {
+            return File::returnResults(null, 'error!', false);
+        }
+    }
+
 
     /**
      * 取得上传目录下所有图片文件
