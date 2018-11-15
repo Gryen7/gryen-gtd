@@ -54,7 +54,7 @@ class MetaWeblogController extends Controller
     }
 
     /**
-     * authenticate
+     * 认证
      * @param $email
      * @param $password
      * @return bool
@@ -68,7 +68,7 @@ class MetaWeblogController extends Controller
         return false;
     }
     /**
-     * Get Blogs Info
+     * 获取博客信息
      * @param $method
      * @param $params
      */
@@ -80,17 +80,6 @@ class MetaWeblogController extends Controller
             'blogName' => "Gryen-GTD"
         ];
         XmlRpc::response($response);
-    }
-
-    /**
-     * TODO Get Categories
-     * @param $method
-     * @param $params
-     */
-    public function getCategories($method, $params)
-    {
-        $category = [];
-        XmlRpc::response($category);
     }
 
     /**
@@ -194,7 +183,18 @@ class MetaWeblogController extends Controller
     }
 
     /**
-     * TODO Create new Category
+     * TODO 获取目录
+     * @param $method
+     * @param $params
+     */
+    public function getCategories($method, $params)
+    {
+        $category = [];
+        XmlRpc::response($category);
+    }
+
+    /**
+     * TODO 创建目录
      * @param $method
      * @param $params
      */
@@ -208,20 +208,7 @@ class MetaWeblogController extends Controller
     }
 
     /**
-     * Method Not Found
-     * @param $methodName
-     */
-    protected function methodNotFound($methodName)
-    {
-        $response = [
-            'faultCode' => '2',
-            'faultString' => "The method you requested, '$methodName', was not found."
-        ];
-        XmlRpc::response($response, 'error');
-    }
-
-    /**
-     * Upload new Media Object
+     * 上传图片
      * @param $method
      * @param $params
      */
@@ -269,6 +256,18 @@ class MetaWeblogController extends Controller
         return $request;
     }
 
+    /**
+     * Method Not Found
+     * @param $methodName
+     */
+    protected function methodNotFound($methodName)
+    {
+        $response = [
+            'faultCode' => '2',
+            'faultString' => "The method you requested, '$methodName', was not found."
+        ];
+        XmlRpc::response($response, 'error');
+    }
 
     /**
      * Get Request Show Error Message
