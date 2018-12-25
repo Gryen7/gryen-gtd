@@ -97,15 +97,27 @@ function handleContentImage($content) {
     return $content;
 }
 
-function fun_adm_each(&$array){
-    $res = array();
-    $key = key($array);
-    if($key !== null){
-        next($array);
-        $res[1] = $res['value'] = $array[$key];
-        $res[0] = $res['key'] = $key;
-    }else{
-        $res = false;
-    }
-    return $res;
+/**
+ * 截取指定字符串之间的字符串
+ * @param $begin
+ * @param $end
+ * @param $str
+ * @return string
+ */
+function cutString($begin,$end,$str){
+    $b = mb_strpos($str,$begin) + mb_strlen($begin);
+    $e = mb_strpos($str,$end) - $b;
+
+    return mb_substr($str,$b,$e);
+}
+
+/**
+ * 去掉字符串的所有空格
+ * @param $str
+ * @return mixed
+ */
+function trimAll($str) {
+    $before=array(" ","　","\t","\n","\r");
+    $after=array("","","","","");
+    return str_replace($before, $after, $str);
 }

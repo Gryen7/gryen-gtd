@@ -83,7 +83,7 @@ class MetaWeblogController extends Controller
     }
 
     /**
-     * TODO 获取文章
+     * 获取文章
      * @param $method
      * @param $params
      */
@@ -114,8 +114,7 @@ class MetaWeblogController extends Controller
     {
         list($blogid, $username, $password, $struct, $publish) = $params;
 
-        $request = $this->transform($struct);
-        $request['description'] = $request['content']; // TODO 描述
+        $request = self::handleDescContent($this->transform($struct));
 
         /* 创建文章 */
         $article = Article::create($request);
@@ -140,7 +139,7 @@ class MetaWeblogController extends Controller
     {
         list($post_id, $username, $password, $struct, $publish) = $params;
 
-        $request = $this->transform($struct);
+        $request = self::handleDescContent($this->transform($struct));
 
         $article = Article::withTrashed()
             ->find($post_id);
@@ -158,16 +157,30 @@ class MetaWeblogController extends Controller
         $this->creatorSuccess($article);
     }
 
+    private function handleDescContent($request)
+    {
+        $description = trimAll(strip_tags(cutString('<description>', '</description>', $request['content'])));
+
+        if (strlen($description) < 1) {
+            $description = mb_strcut($request['content'], 0, 100, 'utf-8');
+        }
+
+        $request['description'] = $description;
+        $request['content'] = preg_replace('/<description>(.|\n)*<\/description>/', '', $request['content']);
+
+        return $request;
+    }
     /**
-     * TODO 删除文章
+     * 删除文章
      * @param $method
      * @param $params
      */
     public function deletePost($method, $params)
     {
         list($appKey, $postid, $username, $password, $publish) = $params;
+        $res = Article::destroy($postid);
 
-        XmlRpc::response(intval($params) > 0 ? true : false);
+        XmlRpc::response($res > 0);
     }
 
     /**
@@ -236,7 +249,7 @@ class MetaWeblogController extends Controller
     }
 
     /**
-     * TODO transform data
+     *
      * @param $struct: post_type|categories|title|
      * @return array
      */
