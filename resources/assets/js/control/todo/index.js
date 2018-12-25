@@ -76,23 +76,6 @@ const _postDateChange = (elem) => {
         },
         complete: function () {
             elem.datetimepicker('remove').unbind('changeDate');
-            setTimeout(function () {
-                location.reload();
-            }, 2000);
-        },
-        success: function (result) {
-            if (result && result.code) {
-                laravelAlert.show({
-                    type: result.type,
-                    message: result.msg
-                });
-            }
-        },
-        error: function (xhr) {
-            laravelAlert.show({
-                type: 'danger',
-                message: xhr.responseJSON.message
-            });
         }
     });
 };

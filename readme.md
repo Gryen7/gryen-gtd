@@ -15,18 +15,18 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 [Laravel](http
 * [x] 博客发布
     使用优雅的 [simditor](https://simditor.tower.im/) 编辑文章，支持 markdown 语法。
 
-![-w600](http://markdown.gryen.com/2018-04-25-15087530267780.jpg)
+![-w600](http://markdown.gryen.com/2018-04-25-15087530267780-1.jpg)
 文章编辑页面
 支持添加文章封面图，描述和关键词。
 
-![-w600](http://markdown.gryen.com/2018-04-25-15087538382652.jpg)
+![-w600](http://markdown.gryen.com/2018-04-25-15087538382652-1.jpg)
 文章列表页面
 
-![-w600](http://markdown.gryen.com/2018-04-25-15087539469788.jpg)
+![-w600](http://markdown.gryen.com/2018-04-25-15087539469788-1.jpg)
 站点首页页面
 
 * [x] 待办列表
-![-w600](http://markdown.gryen.com/2018-04-25-15087544092838.jpg)
+![-w600](http://markdown.gryen.com/2018-04-25-15087544092838-1.jpg)
 待办列表页面
 
 * [ ] 收藏网络文章
@@ -49,6 +49,22 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 [Laravel](http
 6. 开始使用。
 
 ### 版本更新
+
+#### v0.9
+
+* 支持 MetaWeblogApi
+
+[x] 新建文章
+[x] 编辑文章
+[x] Tags
+[x] 发布时间
+[ ] 删除文章
+[x] 获取文章信息
+[ ] 获取最近文章
+[ ] 获取目录
+[ ] 创建目录
+[ ] 文章描述
+[ ] 缩略图
 
 #### v0.8
 

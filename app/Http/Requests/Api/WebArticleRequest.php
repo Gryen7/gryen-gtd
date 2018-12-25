@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Api;
 
-class CreateCommentRequest extends Request
+use Illuminate\Foundation\Http\FormRequest;
+
+class WebArticleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +24,7 @@ class CreateCommentRequest extends Request
     public function rules()
     {
         return [
-            'article_id' => 'required',
-            'content' => 'required'
+            'url' => 'required',
         ];
     }
 }

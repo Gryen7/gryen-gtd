@@ -96,3 +96,28 @@ function handleContentImage($content) {
 
     return $content;
 }
+
+/**
+ * 截取指定字符串之间的字符串
+ * @param $begin
+ * @param $end
+ * @param $str
+ * @return string
+ */
+function cutString($begin,$end,$str){
+    $b = mb_strpos($str,$begin) + mb_strlen($begin);
+    $e = mb_strpos($str,$end) - $b;
+
+    return mb_substr($str,$b,$e);
+}
+
+/**
+ * 去掉字符串的所有空格
+ * @param $str
+ * @return mixed
+ */
+function trimAll($str) {
+    $before=array(" ","　","\t","\n","\r");
+    $after=array("","","","","");
+    return str_replace($before, $after, $str);
+}

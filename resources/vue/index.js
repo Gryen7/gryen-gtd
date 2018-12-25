@@ -12,7 +12,7 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('moreArticles', require('./components/articles/more-articles'))
+Vue.component('moreArticles', require('./components/articles/more-articles'));
 
 // noinspection ES6ModulesDependencies
 new Vue({

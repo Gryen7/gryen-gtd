@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Control;
 
+use App\Events\Operation;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateTodoRequest;
 use Carbon\Carbon;
@@ -123,6 +124,8 @@ class ToDosController extends Controller
                 'msg' => '保存失败'
             ];
         }
+
+        event(new Operation($response));
 
         return response()->json($response);
     }

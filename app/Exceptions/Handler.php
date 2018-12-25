@@ -21,11 +21,13 @@ class Handler extends ExceptionHandler
         'password',
         'password_confirmation',
     ];
+
     /**
      * Report or log an exception.
      *
-     * @param  \Exception  $exception
+     * @param  \Exception $exception
      * @return void
+     * @throws Exception
      */
     public function report(Exception $exception)
     {
