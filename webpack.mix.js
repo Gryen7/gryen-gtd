@@ -6,7 +6,7 @@ const DIST_PATH_WITH_VERSION = `${DIST_PATH}/${PKG.version}`;
 const JS_PATH = './resources/assets/js'; // JS 源文件根目录
 const JS_MODULES = fs.readdirSync(JS_PATH); // JS 模块
 
-let mix  = require('laravel-mix');
+const mix  = require('laravel-mix');
 
 /* CSS 处理 */
 mix.sass('resources/assets/sass/lib.scss', `${DIST_PATH_WITH_VERSION}/css/lib.css`)
