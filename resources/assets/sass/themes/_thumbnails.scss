@@ -1,4 +1,14 @@
-@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables";
+$gray-base:              #000 !default;
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+$gray-dark:              lighten($gray-base, 20%) !default;   // #333
+$body-bg:               #fff !default;
+$text-color:            $gray-dark !default;
+$font-size-base:          14px !default;
+$line-height-base:        1.428571429 !default; // 20/14
+$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
+$thumbnail-caption-padding:   9px !default;
+$thumbnail-bg:                $body-bg !default;
+$thumbnail-caption-color:     $text-color !default;
 
 @mixin transition($transition...) {
     -webkit-transition: $transition;
@@ -13,7 +23,7 @@
 }
 
 .thumbnail {
-    border: 4px solid $cwhite;
+    border: 4px solid $white;
     border-radius: 0;
     padding: 0;
 }
@@ -21,12 +31,12 @@
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-    border-color: $cwhite;
+    border-color: $white;
     box-shadow: $box-shadow;
 }
 
 .thumbnail-noactive {
-    border: 4px solid $cwhite;
+    border: 4px solid $white;
     border-radius: 0;
     padding: 0;
     display: block;

@@ -1,32 +1,7 @@
-input, textarea:focus {
-    outline: none;
-}
+// 公共样式定义及引入
 
-.bg-white {
-    background: #fff;
-}
-
-.tar-error {
-    position: fixed;
-    top: 70px;
-    right: 30px;
-    z-index: 10;
-
-    ul {
-        li {
-            list-style: none;
-        }
-    }
-
-    .fade-out {
-        visibility: hidden;
-        opacity: 0;
-        transition: all 1s linear;
-    }
-}
-
-.tar-ul-nomargin {
-    margin: 0;
+.t-main {
+    min-height: 100%;
 }
 
 .no-resize {
@@ -37,34 +12,37 @@ input, textarea:focus {
     padding-left: 0;
 }
 
-.no-padding-right {
-    padding-right: 0;
-}
-
 .no-padding {
     padding: 0;
 }
 
-.t-wrap {
-    min-height: 100%;
-}
-
-.t-main {
-    padding-bottom: 55px;
-}
-
 .t-index-ftr {
-    background-color: $cwhite;
+    background-color: $white;
     border: 0;
     border-radius: 0;
     border-top: solid 1px $cgray-light;
-    margin: -55px 0 0;
     height: 55px;
     z-index: 1;
 }
 
 .t-overflowy-hidden {
     overflow-y: hidden;
+}
+
+.t-line-ellipsis {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.t-line-ellipsis-1 {
+    overflow: hidden;
+    text-overflow:ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 
 @import "dialog";

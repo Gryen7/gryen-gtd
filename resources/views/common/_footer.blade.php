@@ -1,5 +1,5 @@
-<footer class="navbar navbar-default t-index-ftr">
-    <div class="container-fluid">
+<footer class="t-index-ftr">
+    <div class="container">
             <p class="navbar-text">
                 @if (Auth::check())
                     <a href="{{ action('ControlPanelController@articles') }}" class="navbar-link">站点管理</a>

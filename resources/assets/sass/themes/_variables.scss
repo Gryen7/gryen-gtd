@@ -1,12 +1,10 @@
 /* color */
-$cblack:         #000;
-$cwhite:         #fff;
+$white:          #fff;
 $cgray-base:     #ccc;
 $cgray-light:    #f9f9f9;
 $cbackgroud:     #f9f9f9;
 $cfont-black:    #000;
 $cfont-semi:     #353535;
-$cfont-grey:     #888;
 $cfont-light:    #b2b2b2;
 $cfont-focus:    #8e354a;
 $ctag-backgroud: #d7c4bb;
@@ -19,3 +17,6 @@ $box-shadow: 0 0 1px 0 $cgray-base;
 $max-width: 750px;
 
 $border-radius-small: 2px;
+$primary:                     $cfont-focus !default;
+$font-size-base:              0.875rem !default; // Assumes the browser default, typically `16px`
+$body-bg:                     $cbackgroud;

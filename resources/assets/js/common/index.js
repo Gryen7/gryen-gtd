@@ -1,7 +1,7 @@
 /**
  * Created by targaryen on 16-9-4.
  */
-require('bootstrap-sass');
+require('bootstrap');
 require('jquery-lazyload');
 
 $.ajaxSetup({ headers: {

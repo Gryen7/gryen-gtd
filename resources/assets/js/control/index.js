@@ -2,7 +2,6 @@
  * Created by targaryen on 16-9-3.
  */
 require('./constant');
-require('bootstrap-sass');
 require('./notification');
 
 $.ajaxSetup({ headers: {
