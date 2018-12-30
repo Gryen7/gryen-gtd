@@ -17,20 +17,20 @@
      }}">
     @endif
     @if (isset($module) && $module === 'article-show')
-        <meta property="og:type" content="article"/>
-        <meta property="og:image" content="{{ $article->cover }}"/>
-        <meta property="og:release_date" content="{{ $article->updated_at }}"/>
-        <meta property="og:title" content="{{ $article->title }}"/>
-        <meta property="og:description" content="{{ $siteDescription }}"/>
-        <meta property="og:url" content="{{ action('ArticlesController@show', ['id' => $article->id]) }}"/>
+        <meta property="og:type" content="article">
+        <meta property="og:image" content="{{ $article->cover }}">
+        <meta property="og:release_date" content="{{ $article->updated_at }}">
+        <meta property="og:title" content="{{ $article->title }}">
+        <meta property="og:description" content="{{ $siteDescription }}">
+        <meta property="og:url" content="{{ action('ArticlesController@show', ['id' => $article->id]) }}">
     @endif
     <title>@section('title')@if(isset($siteTitle) && !empty($siteTitle)){{ $siteTitle }}
         - @endif{{ isset($CONFIG->SITE_TITLE) ? $CONFIG->SITE_TITLE : env('APP_NAME') }}{{ isset($CONFIG->SITE_SUB_TITLE) ? ' - ' . $CONFIG->SITE_SUB_TITLE : '' }}@show</title>
     <link rel="alternate" href="https://www.gryen.com/" hreflang="zh-Hant"/>
     <link rel="stylesheet" media="screen" charset="utf-8"
-          href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/lib.css'}}>
+          href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/lib.css'}} />
     <link rel="stylesheet" media="screen" charset="utf-8"
-          href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/app.css'}}>
+          href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/app.css'}} />
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -49,7 +49,8 @@
             j.src =
                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
             f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-WW9GPF5');</script>
+        })(window, document, 'script', 'dataLayer', 'GTM-WW9GPF5');
+    </script>
     <!-- End Google Tag Manager -->
 </head>
 <body @if(isset($bodyClassString))class="{{ $bodyClassString }}" @endif>
