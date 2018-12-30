@@ -20,7 +20,7 @@
     <meta name="sogou_site_verification" content="0nwmiljCcG"/>
     <meta name="360-site-verification" content="653944948b9a352496e55a3b76bbae9c" />
     @if (isset($module) && $module === 'article-show')
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="link" />
     <meta property="og:title" content="{{ $article->title }}">
     <meta property="og:description" content="{{ $siteDescription }}">
     <meta property="og:image" content="{{ $article->cover }}">
