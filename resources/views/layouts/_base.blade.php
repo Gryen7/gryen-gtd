@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-cn">
+<html lang="zh-cmn-Hans">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
