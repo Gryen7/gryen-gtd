@@ -1,4 +1,4 @@
-<div class="col-md-10 col-md-offset-1">
+<div>
     <div class="form-group tar-artl-ssbtn">
         <div class="btn-group-vertical">
             @if(isset($articleShow))
@@ -16,7 +16,7 @@
         {!! Form::textarea('content',null,['class' => 'form-control','id'=>'content-textarea']) !!}
     </div>
 </div>
-<div class="col-md-10 col-md-offset-1">
+<div>
     <div class="panel panel-default">
         <div class="panel-heading">封面、描述、标签：</div>
         <div class="panel-body">
