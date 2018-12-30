@@ -129,6 +129,7 @@ class ArticlesController extends Controller
 
         $content = $article->withContent()->first()->content;
         $article->content = handleContentImage($content);
+        $article->cover = 'https:' . $article->cover;
 
         $siteTitle = $article->title;
         $siteKeywords = $article->tags;
