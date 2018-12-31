@@ -14,3 +14,6 @@
   </a>
   @endforeach
 </div>
+<div class="row t-rtcl-pagination">
+  {{ $articles->links() }}
+</div>

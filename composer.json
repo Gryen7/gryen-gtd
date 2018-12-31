@@ -23,10 +23,9 @@
         "doctrine/dbal": "^2.6",
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.7",
-        "laravel/dusk": "^4.0",
         "mockery/mockery": "0.9.*",
         "nunomaduro/collision": "^2.0",
-        "phpunit/phpunit": "~7.1.0"
+        "phpunit/phpunit": "~7.5.0"
     },
     "config": {
         "optimize-autoloader": true,

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Input;
 
 class ArticlesController extends Controller
 {
+    private static $PAGE_SIZE = 15;
     /**
      * 文章列表页
      * @param Request $request
@@ -30,12 +31,12 @@ class ArticlesController extends Controller
             $articles = empty($tag) ? (object)[] : $tag->article()
                 ->where('status', '>', 0)
                 ->orderBy('created_at', 'desc')
-                ->paginate(15);
+                ->paginate(self::$PAGE_SIZE);
 
         } else {
             $articles = Article::where('status', '>', 0)
                 ->orderBy('created_at', 'desc')
-                ->paginate(15);
+                ->paginate(self::$PAGE_SIZE);
         }
 
         foreach ($articles as &$article) {
