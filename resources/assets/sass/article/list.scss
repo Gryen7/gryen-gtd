@@ -1,8 +1,14 @@
 .t-rtcl {
-  margin-top: 20px;
+  margin-top: 30px;
 
-  .t-rtcl-figure:hover {
-    border-color: $primary !important;
+  .t-rtcl-figure {
+    background-color: $white;
+    box-shadow: $box-shadow-sm;
+    margin-bottom: 30px;
+
+    &:hover {
+      box-shadow: $box-shadow;
+    }
   }
 
   .t-rtcl-desc {

@@ -1,7 +1,6 @@
 /**
  * Created by targaryen on 2017/5/18.
  */
-require('jquery-lazyload');
 
 const TBody = $('body');
 const TArtclBox = $('.t-rtcl-box');
@@ -25,7 +24,7 @@ Images.click((elem) => {
         const src = self.attr('src').split('?')[0];
 
         TFullScreenImg.attr('src', src).data('status', 'open');
-        TBody.addClass('t-overflowy-hidden');
+        TBody.addClass('t-overflow-y-hidden');
         TFullScreen.css('display', 'flex').hide().fadeIn(700);
         TFullScreenImg.fadeIn(700);
     }
@@ -35,7 +34,7 @@ Images.click((elem) => {
  * 关闭原图查看
  */
 TFullScreen.click(() => {
-    TBody.removeClass('t-overflowy-hidden');
+    TBody.removeClass('t-overflow-y-hidden');
     TFullScreenImg.attr('src', '').data('status', 'close');
     TFullScreenImg.fadeOut(300);
     TFullScreen.fadeOut(300);

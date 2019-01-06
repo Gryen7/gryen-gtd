@@ -1,1 +1,1 @@
-require('./article-form');
+import './article-form';

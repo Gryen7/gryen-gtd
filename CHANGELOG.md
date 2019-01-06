@@ -1,35 +1,40 @@
-### 版本更新
+# 更新日志
 
-#### v1.0
+## v1.0
+
+### Features
 
 * [x] 升级到 laravel 5.7
 * [x] 升级到 bootstrap 4
 * [x] 新的笔记页
-    * [x] 分页
+* [x] 优化 JS、CSS，进一步提升页面加载速度
+* [x] 标签列表页 URL 优化
+
+### BREAKING CHANGES
+
 * [ ] 新的封面
-* [ ] 引入测试
+* 删除后台，使用 [gryen-dashboard](https://github.com/itargaryen/gryen-dashboard)
+* 删除手作展示模块
 
-#### v0.9
+## v0.9
 
-* 支持 MetaWeblogApi
+### Features
 
-* [x] 新建文章
-* [x] 编辑文章
-* [x] Tags
-* [x] 发布时间
-* [ ] 删除文章
-* [x] 获取文章信息
-* [ ] 获取最近文章
-* [ ] 获取目录
-* [ ] 创建目录
-* [x] 文章描述
-* [ ] 缩略图
+* 新建文章：`metaWeblog.newPost`
+* 编辑文章：`metaWeblog.editPost`
+* 获取文章：`metaWeblog.getPost`
+* 标签支持
+* 文章描述
 
-#### v0.8
+## v0.8
+
+### Features
 
 * 添加相关文章功能
 
-#### v0.7
+## v0.7
+
+### Features
 
 * 升级到 laravel 5.6
 * 编辑器整合 markdown
@@ -37,12 +42,16 @@
 * 标签显示优化
 * 整站文字 weight 调整
 
-#### v0.5
+## v0.5
+
+### Features
 
 * 简化首页
 * 内容页添加标签
 
-#### v0.4
+## v0.4
+
+### Features
 
 * 前端资源打包工具更新到 laravel-mix
 * 引入 vue
@@ -50,7 +59,9 @@
 * 文章中的图片懒加载
 * 新加手作展示模块
 
-#### v0.3
+## v0.3
+
+### Features
 
 * 使用 tar-simditor 替代 simditor(原作者不再维护此项目)
 * JS 打包优化，自动获取模块名，简化开发过程中新建模块的步骤
@@ -59,12 +70,19 @@
 * 文章封面图单独上传
 * 文章中图片点击查看大图
 
-#### v0.2
+## v0.2
+
+### Features
 
 * 首页推荐轮播图更换图片、置顶、移除
+
+### BREAKING CHANGES
+
 * 去除首页多余板块
 
-#### v0.1
+## v0.1
+
+### Features
 
 * 首页板块优化
 * 文章中的图片处理

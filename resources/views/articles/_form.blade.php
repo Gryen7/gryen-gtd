@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-md-7">
                     <div class="form-group">
-                        {!! Form::textarea('description', isset($article->description) ? $article->description : '', ['class' => 'form-control no-resize t-rtcl-desc', 'maxlength' => '140', 'rows' => '4', 'placeholder' => '文章描述']) !!}
+                        {!! Form::textarea('description', isset($article->description) ? $article->description : '', ['class' => 'form-control t-no-resize t-rtcl-desc', 'maxlength' => '140', 'rows' => '4', 'placeholder' => '文章描述']) !!}
                     </div>
                     <div class="form-control t-form-labels">
                         <div class="t-tag-box" id="tTagBox">

@@ -10,7 +10,7 @@
         </section>
         <section class="t-rtcl-tags">
             @foreach($article->tagArray as $tag)
-                <a class="t-label" href="{{ action('ArticlesController@index', ['tag' => $tag]) }}">{{ $tag }}</a>
+                <a class="badge badge-dark" href="{{ action('ArticlesController@tag', ['tag' => $tag]) }}">{{ $tag }}</a>
             @endforeach
         </section>
         <footer class="clearfix">

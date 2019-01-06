@@ -1,76 +1,59 @@
-.home-main {
-    display: flex;
-    justify-content: center;
-    background-color: $white;
-    height: 100vh;
-    margin-top: -70px;
-
-    .focus-cover {
-        margin-top: 70px;
-        max-width: 98vw;
-        width: 320px;
-        height: 480px;
-        max-height: 70vh;
-        color: $cfont-semi;
-        border-radius: $border-radius-small;
-        box-shadow: 0 0 4px 0 $cgray-base;
-        animation: focus-cover 3s;
-        transition: all 500ms linear;
-
-        img {
-            width: 100%;
-            max-height: 30vh;
-        }
-
-        .title {
-            font-weight: 400;
-            margin-top: 10px;
-        }
-
-        .description {
-            width: 100%;
-            max-height: 40vh;
-            padding: 0 30px 30px;
-            color: $cfont-semi;
-            overflow: hidden;
-        }
-    }
-
-    .focus-cover:hover {
-        box-shadow: 0 0 10px 0 $cgray-base;
-    }
-
-    .slogan {
-        position: absolute;
-        bottom: 70px;
-        right: 30px;
-        color: $gray-lighter;
-        cursor: pointer;
-        transition: all 1s linear;
-    }
-
-    .slogan:hover {
-        animation: slogan-show 700ms;
-        color: $cfont-semi;
-    }
+.t-index-carousel {
+  margin-top: 30px;
+  box-shadow: $box-shadow-sm;
 }
 
-@keyframes focus-cover {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+.t-index-right {
+  min-height: calc(100% + 4px);
+  z-index: 1021;
+  margin-top: -1px;
+  margin-bottom: -1px;
 }
 
-@keyframes slogan-show {
-    from {
-        color: $gray-lighter;
+.t-index-intro {
+  min-height: 100%;
+  background-color: $white;
+  box-shadow: 0 .25rem .25rem rgba($black, .075);
+  position: relative;
+
+  .t-index-avatar {
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 20%;
+    position: absolute;
+
+    img {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      max-height: 50%;
+      max-width: 50%;
+    }
+  }
+
+  .t-index-social {
+    background-color: $dark;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-height: 80%;
+    position: absolute;
+    color: $white;
+    font-size: $font-size-sm;
+
+    svg {
+      margin-right: 0.125rem;
     }
 
-    to {
-        color: $cfont-semi;
+    a {
+      color: $white;
+      text-decoration-line: underline;
     }
+
+    .icon-gitee {
+      color: #C6262B;
+    }
+  }
 }

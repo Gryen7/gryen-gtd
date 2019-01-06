@@ -14,30 +14,18 @@ use Illuminate\Support\Facades\Input;
 class ArticlesController extends Controller
 {
     private static $PAGE_SIZE = 15;
+
     /**
      * 文章列表页
-     * @param Request $request
      * @return \Illuminate\Http\Response
      * @throws \Exception
      * @internal param Article $article
      */
-    public function index(Request $request)
+    public function index()
     {
-        $tag = $request->get('tag');
-        if (!empty($tag)) {
-            $tag = Tag::where('name', $tag)
-                ->first();
-
-            $articles = empty($tag) ? (object)[] : $tag->article()
-                ->where('status', '>', 0)
-                ->orderBy('created_at', 'desc')
-                ->paginate(self::$PAGE_SIZE);
-
-        } else {
-            $articles = Article::where('status', '>', 0)
-                ->orderBy('created_at', 'desc')
-                ->paginate(self::$PAGE_SIZE);
-        }
+        $articles = Article::where('status', '>', 0)
+            ->orderBy('created_at', 'desc')
+            ->paginate(self::$PAGE_SIZE);
 
         foreach ($articles as &$article) {
             if(empty($article->cover)) {
@@ -45,7 +33,25 @@ class ArticlesController extends Controller
             }
         }
 
-        $articles = Article::getTagArray($articles);
+        return view('articles.index', compact('siteTitle', 'articles'));
+    }
+
+    public function tag($tag)
+    {
+        $tag = Tag::where('name', $tag)
+            ->first();
+
+        $articles = empty($tag) ? (object)[] : $tag->article()
+            ->where('status', '>', 0)
+            ->orderBy('created_at', 'desc')
+            ->paginate(self::$PAGE_SIZE);
+
+        foreach ($articles as &$article) {
+            if(empty($article->cover)) {
+                $article->cover = Config::getAllConfig('SITE_DEFAULT_IMAGE');
+            }
+        }
+
         return view('articles.index', compact('siteTitle', 'articles'));
     }
 

@@ -1,8 +1,8 @@
 // 博客展示样式引入
 
-@import "themes/variables";           // 主题样式值定义
+@import "variables";                  // 主题样式值定义
 @import "~bootstrap/scss/bootstrap";  // bootstrap 库
-@import "themes/index";               // 主题定义
-@import "common/index";               // 公共样式
+@import "themes/index";               // 主题定义、bootstrap 样式重写
+@import "common/index";               // 自定义公共 class
 @import "home/index";                 // 首页样式
 @import "article/index";              // 文章列表及详情样式
