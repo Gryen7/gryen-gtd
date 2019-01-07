@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Tag;
+use App\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Article;
-use App\Tag;
 
 class ArticlesController extends Controller
 {
     /**
-     * 获取关联文章
+     * 获取关联文章.
      */
     public function moreArticles(Request $request)
     {
@@ -35,7 +35,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * 通过 tags 获取文章
+     * 通过 tags 获取文章.
      */
     private function getArticlesByTags(array $tags)
     {

@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
-use App\Config;
-use App\File;
-use App\Http\Requests\CreateArticleRequest;
 use App\Tag;
+use App\File;
+use App\Config;
+use App\Article;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use App\Http\Requests\CreateArticleRequest;
 
 class ArticlesController extends Controller
 {
     private static $PAGE_SIZE = 15;
 
     /**
-     * 文章列表页
+     * 文章列表页.
      * @return \Illuminate\Http\Response
      * @throws \Exception
      * @internal param Article $article
@@ -28,7 +27,7 @@ class ArticlesController extends Controller
             ->paginate(self::$PAGE_SIZE);
 
         foreach ($articles as &$article) {
-            if(empty($article->cover)) {
+            if (empty($article->cover)) {
                 $article->cover = Config::getAllConfig('SITE_DEFAULT_IMAGE');
             }
         }
@@ -41,13 +40,13 @@ class ArticlesController extends Controller
         $tag = Tag::where('name', $tag)
             ->first();
 
-        $articles = empty($tag) ? (object)[] : $tag->article()
+        $articles = empty($tag) ? (object) [] : $tag->article()
             ->where('status', '>', 0)
             ->orderBy('created_at', 'desc')
             ->paginate(self::$PAGE_SIZE);
 
         foreach ($articles as &$article) {
-            if(empty($article->cover)) {
+            if (empty($article->cover)) {
                 $article->cover = Config::getAllConfig('SITE_DEFAULT_IMAGE');
             }
         }
@@ -56,7 +55,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * 新建文章页面
+     * 新建文章页面.
      *
      * @return \Illuminate\Http\Response
      * @throws \Exception
@@ -65,14 +64,15 @@ class ArticlesController extends Controller
     {
         $tags = Tag::orderBy('num', 'desc')->take(7)->get();
         $article['cover'] = Config::getAllConfig('SITE_DEFAULT_IMAGE');
-        $article = (object)$article;
+        $article = (object) $article;
         $bodyClassString = 'no-padding';
         $siteTitle = '新建文章';
+
         return view('articles.create', compact('tags', 'article', 'siteTitle', 'bodyClassString'));
     }
 
     /**
-     * 保存新的文章
+     * 保存新的文章.
      *
      * @param CreateArticleRequest|\Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -90,30 +90,30 @@ class ArticlesController extends Controller
 
         /* 更新文章内容 */
         $article->withContent()->create([
-            'content' => $request->get('content')
+            'content' => $request->get('content'),
         ]);
 
         return response()->json([
             'code' => 200,
             'message' => '文章提交成功',
             'type' => 'success',
-            'href' => (int)$resParams['status'] === 1 ? action('ArticlesController@show', ['id' => $article->id]) : ''
+            'href' => (int) $resParams['status'] === 1 ? action('ArticlesController@show', ['id' => $article->id]) : '',
         ]);
     }
 
-
     /**
-     * 上传文章封面图
+     * 上传文章封面图.
      * @return array
      */
     public function cover()
     {
         $File = Input::file('cover');
+
         return File::upload($File);
     }
 
     /**
-     * 文章详情页
+     * 文章详情页.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -128,7 +128,7 @@ class ArticlesController extends Controller
         }
 
         /* 没有权限跳转首页 */
-        if (($article->trashed() || $article->status < 1) && !\Auth::check()) {
+        if (($article->trashed() || $article->status < 1) && ! \Auth::check()) {
             return redirect('/');
         }
 
@@ -140,11 +140,12 @@ class ArticlesController extends Controller
         $siteTitle = $article->title;
         $siteKeywords = $article->tags;
         $siteDescription = $article->description;
+
         return view('articles.show', compact('siteTitle', 'siteKeywords', 'siteDescription', 'article'));
     }
 
     /**
-     * 文章编辑页
+     * 文章编辑页.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -160,11 +161,12 @@ class ArticlesController extends Controller
         $tags = Tag::orderBy('num', 'desc')->take(7)->get();
         $siteTitle = '编辑文章';
         $bodyClassString = 'no-padding';
+
         return view('articles.edit', compact('siteTitle', 'article', 'tags', 'bodyClassString'));
     }
 
     /**
-     * 更新文章
+     * 更新文章.
      *
      * @param  int $id
      * @param CreateArticleRequest|\Illuminate\Http\Request $request
@@ -184,18 +186,19 @@ class ArticlesController extends Controller
 
         /* 更新文章内容 */
         $article->withContent()->update([
-            'content' => $request->get('content')
+            'content' => $request->get('content'),
         ]);
+
         return response()->json([
             'code' => 200,
             'message' => '文章更新成功',
             'type' => 'success',
-            'href' => (int)$updateData['status'] === 1 ? action('ArticlesController@show', ['id' => $article->id]) : ''
+            'href' => (int) $updateData['status'] === 1 ? action('ArticlesController@show', ['id' => $article->id]) : '',
         ]);
     }
 
     /**
-     * 软删除文章
+     * 软删除文章.
      *
      * @param $ids
      * @return \Illuminate\Http\Response
@@ -204,11 +207,12 @@ class ArticlesController extends Controller
     public function delete($ids)
     {
         Article::destroy($ids);
+
         return redirect($_SERVER['HTTP_REFERER']);
     }
 
     /**
-     * 彻底删除一篇文章
+     * 彻底删除一篇文章.
      *
      * @param $id
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
@@ -218,11 +222,12 @@ class ArticlesController extends Controller
         $article = Article::onlyTrashed()
             ->find($id);
         $article->forceDelete();
+
         return redirect($_SERVER['HTTP_REFERER']);
     }
 
     /**
-     * 恢复被删除的文章
+     * 恢复被删除的文章.
      *
      * @param $ids
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
@@ -232,6 +237,7 @@ class ArticlesController extends Controller
         Article::onlyTrashed()
             ->where('id', $ids)
             ->restore();
+
         return redirect($_SERVER['HTTP_REFERER']);
     }
 }
