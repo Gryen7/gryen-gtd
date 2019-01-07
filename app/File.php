@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\File
+ * App\File.
  *
  * @mixin \Eloquent
  */
@@ -16,7 +16,7 @@ class File extends Model
         'table',
         'id_in_table',
         'url',
-        'status'
+        'status',
     ];
 
     private static $UPLOAD_PATH = '/uploads';
@@ -25,7 +25,7 @@ class File extends Model
     private static $ALLOW_FILE_TYPE = [
         'image/jpeg',
         'image/png',
-        'image/gif'
+        'image/gif',
     ];
 
     /* 图片类型 */
@@ -33,28 +33,27 @@ class File extends Model
         '.jpg',
         '.jpeg',
         '.png',
-        '.gif'
+        '.gif',
     ];
-
 
     /* 服务器端的文件路径 */
     private static $FILE_RETURN_PATH = [
         'local' => 'filesystems.disks.local.root',
         'public' => 'filesystems.disks.public.root',
-        's3' => 'filesystems.disks.s3.region' . '/' . 'filesystems.disks.s3.bucket',
+        's3' => 'filesystems.disks.s3.region'.'/'.'filesystems.disks.s3.bucket',
         'qiniu' => 'filesystems.disks.qiniu.domains.https',
     ];
 
     /**
-     * 是否是图片
+     * 是否是图片.
      * @param $filePath
      * @return bool
      * @internal param $file
      */
     private static function isImage($filePath)
     {
-        $fileType = strtolower(strchr($filePath, '.'));
-        if (in_array($fileType, File::$IMAGES)) {
+        $fileType = strtolower(strstr($filePath, '.'));
+        if (in_array($fileType, self::$IMAGES)) {
             return $filePath;
         } else {
             return false;
@@ -62,17 +61,17 @@ class File extends Model
     }
 
     /**
-     * 是否是 Upload 目录下的文件
+     * 是否是 Upload 目录下的文件.
      * @param $filePath
      * @return bool
      */
     private static function isUploadsDirectory($filePath)
     {
-        return substr($filePath, 0, 7) === substr(File::$UPLOAD_PATH, 1, 7);
+        return substr($filePath, 0, 7) === substr(self::$UPLOAD_PATH, 1, 7);
     }
 
     /**
-     * 处理返回信息，兼容 simditor
+     * 处理返回信息，兼容 simditor.
      *
      * @param string $file_path
      * @param string $msg
@@ -88,9 +87,8 @@ class File extends Model
         ];
     }
 
-
     /**
-     * 上传图片
+     * 上传图片.
      * @param $File
      * @return array
      * @internal param bool $fromServer
@@ -100,44 +98,43 @@ class File extends Model
     {
         $Disk = \Storage::disk(env('DISK'));
 
-        if (!$File || !$File->getMimeType() || !in_array($File->getMimeType(), File::$ALLOW_FILE_TYPE)) {
-            return File::returnResults(null, 'error! no file or file type error', false);
+        if (! $File || ! $File->getMimeType() || ! in_array($File->getMimeType(), self::$ALLOW_FILE_TYPE)) {
+            return self::returnResults(null, 'error! no file or file type error', false);
         }
 
         $fileType = strtolower($File->getClientOriginalExtension());
-        $filePath = File::$UPLOAD_PATH . '/' . Carbon::now()->toDateString() . '/' . md5(Carbon::now()->timestamp) . '.' . $fileType;
+        $filePath = self::$UPLOAD_PATH.'/'.Carbon::now()->toDateString().'/'.md5(Carbon::now()->timestamp).'.'.$fileType;
 
         $results = $Disk->put($filePath, file_get_contents($File));
 
         if ($results) {
-            return File::returnResults('//' . \Config::get(File::$FILE_RETURN_PATH[env('DISK')]) . $filePath);
+            return self::returnResults('//'.\Config::get(self::$FILE_RETURN_PATH[env('DISK')]).$filePath);
         } else {
-            return File::returnResults(null, 'error!', false);
+            return self::returnResults(null, 'error!', false);
         }
     }
 
     /**
-     * 服务端已存在的文件上传到云存储
+     * 服务端已存在的文件上传到云存储.
      * @param $fileSavePath
      * @param $fileName
      * @return array
      */
     public static function uploadSrvFile($fileSavePath, $fileName)
     {
-        $filePath = File::$UPLOAD_PATH . '/' . Carbon::now()->toDateString() . '/' . md5(Carbon::now()->timestamp) . '/' . $fileName;
+        $filePath = self::$UPLOAD_PATH.'/'.Carbon::now()->toDateString().'/'.md5(Carbon::now()->timestamp).'/'.$fileName;
         $Disk = \Storage::disk(env('DISK'));
         $results = $Disk->put($filePath, file_get_contents($fileSavePath));
 
         if ($results) {
-            return File::returnResults('//' . \Config::get(File::$FILE_RETURN_PATH[env('DISK')]) . $filePath);
+            return self::returnResults('//'.\Config::get(self::$FILE_RETURN_PATH[env('DISK')]).$filePath);
         } else {
-            return File::returnResults(null, 'error!', false);
+            return self::returnResults(null, 'error!', false);
         }
     }
 
-
     /**
-     * 取得上传目录下所有图片文件
+     * 取得上传目录下所有图片文件.
      * @param string $directory
      * @param int $page
      * @return array
@@ -149,11 +146,11 @@ class File extends Model
         $from = ($page - 1) * $perPageNum;
 
         $Disk = \Storage::disk(env('DISK'));
-        $files =  $Disk->files($directory, true);
+        $files = $Disk->files($directory, true);
 
         foreach ($files as $key => &$file) {
-            if (File::isImage($file) && File::isUploadsDirectory($file)) {
-                $file = '//' . \Config::get(File::$FILE_RETURN_PATH[env('DISK')]) . '/' . $file;
+            if (self::isImage($file) && self::isUploadsDirectory($file)) {
+                $file = '//'.\Config::get(self::$FILE_RETURN_PATH[env('DISK')]).'/'.$file;
             } else {
                 unset($files[$key]);
             }

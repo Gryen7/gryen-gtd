@@ -3,13 +3,14 @@
  * Created by PhpStorm.
  * User: targaryen
  * Date: 2016/11/18
- * Time: 下午10:59
+ * Time: 下午10:59.
  */
+
 namespace App;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Todo extends Eloquent
 {
@@ -28,40 +29,38 @@ class Todo extends Eloquent
     protected $dates = ['deleted_at'];
 
     /**
-     * get todo-list for control pannel
+     * get todo-list for control pannel.
      * @param array $params
      * @return array
      */
-    public static function getTodoListForControlPannel ($params = ['page' => 1, 'status' => 'all']) {
-        $total = Todo::all()->count();
-        $todosCount = Todo::where('status', 0)->count();
-        $doingCount = Todo::where('status', 1)->count();
-        $doneCount = Todo::where('status', 2)->count();
+    public static function getTodoListForControlPannel($params = ['page' => 1, 'status' => 'all'])
+    {
+        $total = self::all()->count();
+        $todosCount = self::where('status', 0)->count();
+        $doingCount = self::where('status', 1)->count();
+        $doneCount = self::where('status', 2)->count();
         $page = $params['page'];
         $pageSize = 10;
         $skip = ($page - 1) * $pageSize;
 
-
-        $pageCount = ceil(Todo::all()->count() / $pageSize);
+        $pageCount = ceil(self::all()->count() / $pageSize);
         $prev = $page - 1 > 0 ? $page - 1 : 0;
         $next = $page + 1 <= $pageCount ? $page + 1 : $pageCount;
 
-
-        $status = Todo::handleStatus(isset($params['status']) ? $params['status']: null);
+        $status = self::handleStatus(isset($params['status']) ? $params['status'] : null);
 
         if ($status) {
-            $todos = Todo::where('status', $status)
+            $todos = self::where('status', $status)
                 ->orderByDesc('created_at')
                 ->skip($skip)
                 ->take($pageSize)
                 ->get();
         } else {
-            $todos = Todo::orderByDesc('created_at')
+            $todos = self::orderByDesc('created_at')
                 ->skip($skip)
                 ->take($pageSize)
                 ->get();
         }
-
 
         foreach ($todos as &$todo) {
             $todo->begin_at = Carbon::parse($todo->begin_at)->format('Y-m-d');
@@ -75,7 +74,8 @@ class Todo extends Eloquent
         return compact('todos', 'prev', 'next', 'pageCount', 'pageSize', 'total', 'todosCount', 'doingCount', 'doneCount');
     }
 
-    private static function handleStatus($statusStr) {
+    private static function handleStatus($statusStr)
+    {
         $status = null;
 
         switch ($statusStr) {

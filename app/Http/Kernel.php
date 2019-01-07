@@ -1,12 +1,15 @@
 <?php
+
 namespace App\Http;
-use App\Http\Middleware\EncryptCookies;
-use App\Http\Middleware\RedirectIfAuthenticated;
-use App\Http\Middleware\RefreshToken;
+
 use App\Http\Middleware\TrimStrings;
+use App\Http\Middleware\RefreshToken;
 use App\Http\Middleware\TrustProxies;
+use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\VerifyCsrfToken;
+use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+
 class Kernel extends HttpKernel
 {
     /**
@@ -41,7 +44,7 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1',
             'bindings',
-            \Barryvdh\Cors\HandleCors::class
+            \Barryvdh\Cors\HandleCors::class,
         ],
     ];
     /**
@@ -80,4 +83,3 @@ class Kernel extends HttpKernel
         \Illuminate\Auth\Middleware\Authorize::class,
     ];
 }
-

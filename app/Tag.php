@@ -7,12 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     protected $fillable = [
-        'name'
+        'name',
     ];
 
-
     /**
-     * 与文章多对多关联
+     * 与文章多对多关联.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function article()
@@ -21,7 +20,7 @@ class Tag extends Model
     }
 
     /**
-     * 新建文章标签处理
+     * 新建文章标签处理.
      * @param $tagString
      * @param $articleId
      */
@@ -30,11 +29,11 @@ class Tag extends Model
         $tagArray = array_filter(explode(',', $tagString));
 
         foreach ($tagArray as $tag) {
-            $tagInDatabase = Tag::where('name', $tag)->first();
+            $tagInDatabase = self::where('name', $tag)->first();
 
             if (empty($tagInDatabase)) {
                 // 标签不存在，创建标签
-                $tagInDatabase = Tag::create(['name' => $tag]);
+                $tagInDatabase = self::create(['name' => $tag]);
             }
 
             $tagMapInDatabase = TagMap::where('article_id', $articleId)
@@ -48,6 +47,5 @@ class Tag extends Model
                 $tagInDatabase->increment('num');
             }
         }
-
     }
 }

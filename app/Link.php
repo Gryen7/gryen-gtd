@@ -10,6 +10,6 @@ class Link extends Model
         'name',
         'url',
         'pictrue',
-        'status'
+        'status',
     ];
 }
