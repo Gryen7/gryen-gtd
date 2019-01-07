@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\ArticleData
+ * App\ArticleData.
  *
  * @mixin \Eloquent
  * @property int $id
@@ -23,5 +23,4 @@ class ArticleData extends Model
     ];
 
     public $timestamps = false;
-
 }

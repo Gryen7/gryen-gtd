@@ -23,7 +23,7 @@ class CreateCommentRequest extends Request
     {
         return [
             'article_id' => 'required',
-            'content' => 'required'
+            'content' => 'required',
         ];
     }
 }

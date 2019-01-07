@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
     /**
-     * 无状态登录
+     * 无状态登录.
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
@@ -20,12 +20,12 @@ class UserController extends Controller
         $status = 200;
         $credentials = [
             'email' => $request->get('username'),
-            'password' => $request->get('password')
+            'password' => $request->get('password'),
         ];
 
         if ($token = \JWTAuth::attempt($credentials)) {
             $content = [
-                'token' => 'bearer ' . $token,
+                'token' => 'bearer '.$token,
                 'status' => 'ok',
                 'currentAuthority' => 'admin',
             ];
@@ -40,7 +40,7 @@ class UserController extends Controller
     {
         $currentUser = $request->user('api');
 
-        if (!empty($currentUser)) {
+        if (! empty($currentUser)) {
             $currentUser->avatar = 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png';
         }
 

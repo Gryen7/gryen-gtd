@@ -11,9 +11,8 @@
 |
 */
 
-Route::middleware(['refresh.token'])->group(function() {
+Route::middleware(['refresh.token'])->group(function () {
     Route::get('/currentUser', 'Api\UserController@currentUser');
-
 
     Route::get('/todos/count', 'Api\TodosController@count');
     Route::get('/todos/list', 'Api\TodosController@getList');

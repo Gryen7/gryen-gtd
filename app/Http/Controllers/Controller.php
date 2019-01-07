@@ -12,7 +12,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     /**
-     * 异步请求，json 结果处理
+     * 异步请求，json 结果处理.
      * @param $code
      * @param $msg
      * @param mixed $data
@@ -23,7 +23,7 @@ class Controller extends BaseController
         return [
             'code' => $code,
             'msg' => $msg,
-            'data' => $data
+            'data' => $data,
         ];
     }
 }

@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateTodoRequest;
 use App\Todo;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateTodoRequest;
 
 class TodosController extends Controller
 {
     public function getList(Request $request)
     {
         $todos = Todo::getTodoListForControlPannel($request->all());
+
         return response($todos);
     }
 
@@ -25,7 +26,7 @@ class TodosController extends Controller
 
         $description = $request->get('description');
 
-        if (!empty($description)) {
+        if (! empty($description)) {
             $desRes = $todo->withDescription()->updateOrCreate(
                 ['todo_id' => $todo->getKey()],
                 ['content' => $description]
@@ -33,6 +34,7 @@ class TodosController extends Controller
 
             if (empty($desRes)) {
                 Todo::destroy($todo->id);
+
                 return response(['message' => '任务创建失败'], 400);
             }
         }

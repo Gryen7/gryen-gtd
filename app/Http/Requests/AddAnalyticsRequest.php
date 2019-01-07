@@ -26,7 +26,7 @@ class AddAnalyticsRequest extends FormRequest
         return [
             'config',
             'config_name',
-            'config_value'
+            'config_value',
         ];
     }
 }

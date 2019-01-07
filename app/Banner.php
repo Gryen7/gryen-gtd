@@ -10,7 +10,7 @@ class Banner extends Eloquent
         'article_id',
         'cover',
         'weight',
-        'status'
+        'status',
     ];
 
     public function article()
