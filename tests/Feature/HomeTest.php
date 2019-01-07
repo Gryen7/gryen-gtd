@@ -10,7 +10,7 @@ class HomeTest extends TestCase
     {
         $this->get('/')
             ->assertStatus(200)
-            ->assertSeeText('与其波流茅靡，不如从容燃烧。');
+            ->assertSeeText('Gryen-GTD');
     }
 
     public function testNav()
