@@ -19,8 +19,8 @@ class CreateTodosTable extends Migration
             $table->string('content');
             $table->tinyInteger('status');
             $table->tinyInteger('importance');
-            $table->timestamp('begin_at');
-            $table->timestamp('end_at');
+            $table->nullableTimestamps('begin_at');
+            $table->nullableTimestamps('end_at');
             $table->softDeletes();
             $table->timestamps();
         });
