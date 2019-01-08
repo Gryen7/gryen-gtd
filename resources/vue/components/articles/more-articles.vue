@@ -28,11 +28,7 @@ export default {
   },
   created: async function() {
     let articleId = this.getArticleId();
-    let response = await axios.get("/api/articles/list", {
-      params: {
-        articleId
-      }
-    });
+    let response = await axios.get(`/api/articles/list/${articleId}`);
 
     if (response && response.status === 200) {
       this.articles = response.data;
