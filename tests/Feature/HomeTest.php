@@ -13,8 +13,8 @@ class HomeTest extends TestCase
             ->assertSeeText('Gryen-GTD');
     }
 
-    public function testNav()
-    {
-        $this->assertTrue(true);
-    }
+//    public function testNav()
+//    {
+//        $this->assertSeeText('');
+//    }
 }

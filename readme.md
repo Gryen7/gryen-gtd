@@ -49,7 +49,7 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 [Laravel](http
 
 1. 克隆或下载代码；
 2. 执行 `composer install` 安装 PHP 依赖；
-3. 执行 `npm install` 或 `yarn` 安装 JS 依赖；
+3. 执行 `yarn` 安装 JS 依赖；
 4. 复制 `.env.example` 到 `.env` 并修改其内容；
 5. 执行 `php artisan key:generate` 生成应用密钥；
 6. 开始使用。
