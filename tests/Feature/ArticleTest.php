@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ArticleTest extends TestCase
 {
@@ -21,7 +21,7 @@ class ArticleTest extends TestCase
 
         $this->articles = factory(\App\Article::class, 5)
             ->create()
-            ->each(function($article) {
+            ->each(function ($article) {
                 $article->withContent()->save(factory(\App\ArticleData::class)->make());
                 \App\Tag::createArticleTagProcess($article->tags, $article->id);
             });
@@ -49,7 +49,7 @@ class ArticleTest extends TestCase
 
     public function testArticleShowPage()
     {
-        $this->get('/articles/show/' . $this->firstArticle->id .'.html')
+        $this->get('/articles/show/'.$this->firstArticle->id.'.html')
             ->assertOk()
             ->assertSeeText($this->firstArticle->title)
             ->assertSeeText($this->firstArticle->withContent()->first()->content);
@@ -71,7 +71,7 @@ class ArticleTest extends TestCase
             'cover' => env('SITE_DEFAULT_IMAGE'),
             'description' => $faker->text(),
             'tags' => implode(',', $faker->words()),
-            'status' => 1
+            'status' => 1,
         ];
 
         $response = $this->actingAs($this->user)
@@ -97,7 +97,7 @@ class ArticleTest extends TestCase
             'cover' => env('SITE_DEFAULT_IMAGE'),
             'description' => $faker->text(),
             'tags' => implode(',', $faker->words()),
-            'status' => 1
+            'status' => 1,
         ];
 
         $response = $this->actingAs($this->user)
@@ -120,12 +120,12 @@ class ArticleTest extends TestCase
 
         $response = $this->actingAs($this->user)
             ->post('/articles/cover/upload', [
-                'cover' => UploadedFile::fake()->image('cover.jpg')->size(200)
+                'cover' => UploadedFile::fake()->image('cover.jpg')->size(200),
             ]);
 
         $response->assertOk()
             ->assertJson([
-                'success' => true
+                'success' => true,
             ]);
 
         $filePathArr = explode(env('STATIC_URL'), $response->json('file_path'));
