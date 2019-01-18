@@ -89,7 +89,7 @@ class File extends Model
 
     /**
      * 上传图片.
-     * @param $File
+     * @param \CURLFile $File
      * @return array
      * @internal param bool $fromServer
      * @internal param Request $request
@@ -108,7 +108,7 @@ class File extends Model
         $results = $Disk->put($filePath, file_get_contents($File));
 
         if ($results) {
-            return self::returnResults('//'.\Config::get(self::$FILE_RETURN_PATH[env('DISK')]).$filePath);
+            return self::returnResults(env('STATIC_URL').$filePath);
         } else {
             return self::returnResults(null, 'error!', false);
         }
