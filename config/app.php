@@ -11,7 +11,7 @@ return [
     | any other location as required by the application or its packages.
     |
     */
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Gryen-GTD'),
 
     'version' => version(),
 
@@ -47,7 +47,7 @@ return [
     | your application so that it is used when running Artisan tasks.
     |
     */
-    'url' => env('APP_URL', 'http://www.gryen.local'),
+    'url' => env('APP_URL', 'http://www.gryen.localdev'),
 
     'asset_url' => env('ASSET_URL', null),
     /*
@@ -73,7 +73,7 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-    'locale' => 'en',
+    'locale' => 'zh_CN',
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
