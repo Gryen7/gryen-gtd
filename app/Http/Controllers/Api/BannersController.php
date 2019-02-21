@@ -14,15 +14,15 @@ class BannersController extends Controller
         if ($count >= 5) {
             return response()->json([
                 'code' => 403,
-                'msg' => '超出了首页推荐的可设置数量'
+                'msg' => '超出了首页推荐的可设置数量',
             ]);
         }
 
         //  是否有封面图
-        if (!$request->get('cover')) {
+        if (! $request->get('cover')) {
             return response()->json([
                 'code' => 403,
-                'msg' => '没有设置封面图'
+                'msg' => '没有设置封面图',
             ]);
         }
 
@@ -30,7 +30,7 @@ class BannersController extends Controller
         $oldBanner = Banner::where('article_id', $request->get('article_id'))->first();
         if (empty($oldBanner)) {
             $msg = Banner::create(array_merge($request->all(), [
-                'status' => 1
+                'status' => 1,
             ]));
         } else {
             $msg = $oldBanner->update($request->all());
@@ -38,16 +38,17 @@ class BannersController extends Controller
 
         return response()->json([
             'code' => 200,
-            'msg' => $msg
+            'msg' => $msg,
         ]);
     }
 
     public function delete($id)
     {
         Banner::destroy($id);
+
         return response()->json([
             'code' => 200,
-            'msg' => 'success'
+            'msg' => 'success',
         ]);
     }
 
@@ -55,7 +56,7 @@ class BannersController extends Controller
     {
         $returnMsg = [
             'code' => 200,
-            'msg' => '设置成功'
+            'msg' => '设置成功',
         ];
         $banner = Banner::find($id);
         $max = Banner::max('weight');
@@ -64,6 +65,7 @@ class BannersController extends Controller
         } else {
             $returnMsg['msg'] = $banner->update(['weight' => Banner::max('weight') + 1]);
         }
+
         return response()->json($returnMsg);
     }
 }
