@@ -10,10 +10,10 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 [Laravel](http
 </p>
 
 ## 目录
-* [功能列表](https://gitee.com/targaryen/gryen-gtd/blob/master/readme.md#%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8)
-* [运行环境要求](https://gitee.com/targaryen/gryen-gtd/blob/develop/readme.md#%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82)
-* [安装说明](https://gitee.com/targaryen/gryen-gtd/blob/develop/readme.md#%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E)
-* [版本更新](https://gitee.com/targaryen/gryen-gtd/blob/develop/CHANGELOG.md)
+* [功能列表](readme.md#%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8)
+* [运行环境要求](readme.md#%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82)
+* [安装说明](readme.md#%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E)
+* [版本更新](CHANGELOG.md)
 
 ### 功能列表
 
