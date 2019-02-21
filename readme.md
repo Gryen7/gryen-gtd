@@ -5,8 +5,8 @@ Gryen-GTD
 gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 [Laravel](https://laravel.com/) 开发，提供博客发布、任务列表等功能。
 </p>
 <p align="center">
-[![Build Status](https://travis-ci.org/itargaryen/gryen-gtd.svg?branch=develop)](https://travis-ci.org/itargaryen/gryen-gtd)
-[![StyleCI](https://github.styleci.io/repos/164370918/shield?branch=develop)](https://github.styleci.io/repos/164370918)
+<a href="https://travis-ci.org/itargaryen/gryen-gtd"><img src="https://travis-ci.org/itargaryen/gryen-gtd.svg?branch=develop" alt="Build Status" /></a>
+<a href="https://github.styleci.io/repos/164370918"><img src="https://github.styleci.io/repos/164370918/shield?branch=develop" alt="StyleCI" /></a>
 </p>
 
 ## 目录
