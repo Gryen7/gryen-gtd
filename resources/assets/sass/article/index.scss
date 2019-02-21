@@ -1,24 +1,4 @@
-.t-rtcl-back {
-    margin-right: 30px;
-    margin-top: -7px;
-    z-index: 2;
-    border-top: 1px solid $cbackgroud;
-
-    .btn {
-        background: linear-gradient($cbackgroud, $carticle-btn);
-        border-radius: 0;
-        border-color: #483F3D;
-        border-top: 1px solid $cbackgroud;
-    }
-
-    .btn:first-child {
-        border-right: none;
-    }
-
-    .btn:last-child {
-        border-left: none;
-    }
-}
+$max-width: 750px;
 
 @import "list";
 @import "show";

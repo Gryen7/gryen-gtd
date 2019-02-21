@@ -2,29 +2,31 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Article;
 use App\Tag;
+use App\Article;
+use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Collection;
 
 class ArticlesController extends Controller
 {
     /**
-     * 获取关联文章
+     * 获取关联文章.
+     * @param $articleId
+     * @return array
      */
-    public function moreArticles(Request $request)
+    public function moreArticles($articleId)
     {
-        $theArticle = Article::find($request->articleId);
+        $theArticle = Article::find($articleId);
         $tags = explode(',', $theArticle->tags);
         $articles = $this->getArticlesByTags($tags)
             ->diff(collect([$theArticle]));
 
         if ($articles->count() < 3) {
-            $articles = [];
+            $articles = null;
         } else {
             $articles = $articles->random(3)
                 ->map(function ($article) {
-                    $article->cover = imageView2($article->cover, ['w' => '287', 'h' => '192']);
+                    $article->cover = imageView2($article->cover, ['w' => '672', 'h' => '450']);
                     $article->href = action('ArticlesController@show', ['id' => $article->id]);
 
                     return collect($article)->only(['id', 'title', 'cover', 'href']);
@@ -35,19 +37,17 @@ class ArticlesController extends Controller
     }
 
     /**
-     * 通过 tags 获取文章
+     * 通过 tags 获取文章.
+     * @param array $tags
+     * @return Collection
      */
     private function getArticlesByTags(array $tags)
     {
-        $articles = null;
+        $articles = new Collection();
         $tagsWithArticles = Tag::whereIn('name', $tags)->with('article')->get();
 
         foreach ($tagsWithArticles as $tagsObj) {
-            if (empty($articles)) {
-                $articles = $tagsObj->article;
-            } else {
-                $articles->merge($tagsObj->article);
-            }
+            $articles = $articles->merge($tagsObj->article);
         }
 
         return $articles;

@@ -1,0 +1,64 @@
+.t-main {
+  min-height: calc(100% - 60px);
+  position: relative;
+}
+
+.t-min-height-100 {
+  min-height: 100%;
+  position: absolute;
+  left: 15px;
+  right: 15px;
+}
+
+.t-no-resize {
+  resize: none;
+}
+
+.t-no-padding-left {
+  padding-left: 0;
+}
+
+.t-overflow-y-hidden {
+  overflow-y: hidden;
+}
+
+@mixin t-line-ellipsis($line) {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+}
+
+.t-line-ellipsis-1 {
+  @include t-line-ellipsis(1);
+}
+
+.t-line-ellipsis-3 {
+  @include t-line-ellipsis(3);
+}
+
+.t-error {
+  position: fixed;
+  top: 70px;
+  right: 30px;
+
+  ul {
+    list-style: none;
+  }
+}
+
+/* navbar */
+.t-navbar-brand {
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}

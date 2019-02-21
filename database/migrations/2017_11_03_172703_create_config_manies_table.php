@@ -20,7 +20,7 @@ class CreateConfigManiesTable extends Migration
             $table->char('config', 8); // 配置索引
             $table->string('config_name'); // 配置名称
             $table->text('config_value'); // 配置值
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(1);
             $table->string('description'); // 额外的描述
             $table->timestamps();
             $table->unique(['group', 'config']);

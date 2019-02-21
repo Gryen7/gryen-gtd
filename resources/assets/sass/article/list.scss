@@ -1,82 +1,24 @@
-.tar-article-list {
-    border-radius:$border-radius-small;
-    background-color: $cwhite;
-    border: none;
-    margin-bottom: 20px;
-    padding: 0;
+.t-rtcl {
+  margin-top: 30px;
 
-    .t-rtcl-lf {
-        padding-left: 0;
-        padding-right: 0;
+  .t-rtcl-figure {
+    background-color: $white;
+    box-shadow: $box-shadow-sm;
+    margin-bottom: 30px;
 
-        .t-rtc-img {
-            img {
-                width: 100%;
-                border-top-left-radius: $border-radius-small;
-                border-bottom-left-radius: $border-radius-small;
-            }
-        }
+    &:hover {
+      box-shadow: $box-shadow;
     }
+  }
 
-    .t-rtcl-rt {
-        height: 203.13px;
-        position: relative;
-
-        .t-artl-title {
-            border-bottom: 1px solid $cgray-light;
-            line-height: 32px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-
-            > a {
-                font-size: 16px;
-                font-weight: 400;
-                width: 75%;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                display: inline-block;
-            }
-
-            > .t-artl-date {
-                color: $cgray-base;
-            }
-        }
-
-        .tar-article-extra {
-            position: absolute;
-            bottom: 15px;
-            left: 15px;
-
-            .t-rtcl-tag {
-                max-height: 28px;
-                line-height: 28px;
-                overflow: hidden;
-            }
-        }
-
-        .tar-article-list-decs {
-            margin: 10px 0;
-            max-height: 190px;
-            word-break: break-all;
-            word-wrap: break-word;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
-        }
-
-        .tar-article-list-decs:after {
-            content: '...';
-        }
-    }
+  .t-rtcl-desc {
+    height: 85px;
+  }
 }
 
-.tar-article-list:hover {
-    box-shadow: $box-shadow;
-}
-
-.t-rtcl-links {
-    padding: 0 5px;
-    text-align: center;
+.t-rtcl-pagination {
+  .pagination {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

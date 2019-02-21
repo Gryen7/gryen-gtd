@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Article extends Eloquent
 {
@@ -16,13 +16,13 @@ class Article extends Eloquent
         'cover',
         'status',
         'created_at',
-        'updated_at'
+        'updated_at',
     ];
 
     protected $dates = ['deleted_at'];
 
     /**
-     * 文章内容
+     * 文章内容.
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function withContent()
@@ -31,7 +31,7 @@ class Article extends Eloquent
     }
 
     /**
-     * 从数据库获取文章，标签处理
+     * 从数据库获取文章，标签处理.
      * @param $article
      * @return bool
      */

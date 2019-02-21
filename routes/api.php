@@ -11,15 +11,18 @@
 |
 */
 
-Route::middleware(['refresh.token'])->group(function() {
+Route::middleware(['refresh.token'])->group(function () {
     Route::get('/currentUser', 'Api\UserController@currentUser');
-
 
     Route::get('/todos/count', 'Api\TodosController@count');
     Route::get('/todos/list', 'Api\TodosController@getList');
     Route::post('/todos/updateOrCreate', 'Api\TodosController@updateOrCreate');
     Route::post('/todos/update', 'Api\TodosController@updateTodo');
     Route::post('/todos/delete/{id}', 'Api\TodosController@deleteTodo');
+
+    Route::post('/banners/set', 'Api\BannersController@set');
+    Route::delete('/banners/delete/{id}', 'Api\BannersController@delete');
+    Route::post('/banners/top/{id}', 'Api\BannersController@top');
 
     Route::post('/pushtokindle', 'Api\PushToKindleController@index');
 
@@ -28,6 +31,6 @@ Route::middleware(['refresh.token'])->group(function() {
 });
 
 Route::post('/user/login', 'Api\UserController@login');
-Route::get('/articles/list', 'Api\ArticlesController@moreArticles');
+Route::get('/articles/list/{articleId}', 'Api\ArticlesController@moreArticles');
 Route::get('/notices/wechat', 'Api\NoticesController@wechat');
 Route::post('/xmlrpc', 'Api\MetaWeblogController@index');

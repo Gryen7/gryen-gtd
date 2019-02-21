@@ -1,4 +1,5 @@
 <?php
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -10,7 +11,7 @@ return [
     | syntax for every one. Here you may define a default connection.
     |
     */
-    'default' => env('QUEUE_DRIVER', 'sync'),
+    'default' => env('QUEUE_CONNECTION', 'sync'),
     /*
     |--------------------------------------------------------------------------
     | Queue Connections
@@ -50,7 +51,7 @@ return [
         'redis' => [
             'driver' => 'redis',
             'connection' => 'default',
-            'queue' => 'default',
+            'queue' => env('REDIS_QUEUE', 'default'),
             'retry_after' => 90,
             'block_for' => null,
         ],

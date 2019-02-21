@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class ConfigMany extends Model
 {
-
     protected $fillable = [
         'group',
         'group_name',
@@ -14,7 +13,7 @@ class ConfigMany extends Model
         'config_name',
         'config_value',
         'status',
-        'description'
+        'description',
     ];
 
     /**
@@ -27,7 +26,7 @@ class ConfigMany extends Model
         $cachedConfig = json_decode(cache('CONFIG_MANY'), true);
 
         if (empty($cachedConfig)) {
-            $configMany = ConfigMany::all();
+            $configMany = self::all();
             foreach ($configMany as $value) {
                 if ($value) {
                     $returnConfig[$value->group][$value->config] = $value->config_value;
@@ -39,7 +38,7 @@ class ConfigMany extends Model
         }
 
         if (empty($key)) {
-            return (object)$returnConfig;
+            return (object) $returnConfig;
         } else {
             return $returnConfig[$key];
         }

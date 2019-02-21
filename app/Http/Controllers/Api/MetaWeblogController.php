@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Article;
-use App\File;
 use App\Tag;
+use App\File;
+use App\Article;
 use Carbon\Carbon;
+use App\Services\XmlRpc;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Services\XmlRpc;
 
 class MetaWeblogController extends Controller
 {
@@ -16,7 +16,7 @@ class MetaWeblogController extends Controller
 
     public function index(Request $request)
     {
-        $methods = array(
+        $methods = [
             'blogger.getUsersBlogs' => 'getUsersBlogs',
             'blogger.deletePost' => 'deletePost',
             'metaWeblog.newPost' => 'newPost',
@@ -25,7 +25,7 @@ class MetaWeblogController extends Controller
             'metaWeblog.getCategories' => 'getCategories',
             'metaWeblog.newMediaObject' => 'newMediaObject',
             'metaWeblog.getRecentPosts' => 'getRecentPosts',
-        );
+        ];
 
         $this->client_id = $request->getClientIp();
         $request = $request->getContent();
@@ -34,16 +34,16 @@ class MetaWeblogController extends Controller
 
         list($appkey, $username, $password) = $response;
 
-        if (!$this->authenticate($username, $password)) {
+        if (! $this->authenticate($username, $password)) {
             $response = [
                 'faultCode' => '2',
-                'faultString' => "Name or password is wrong, if you forget, please contect Administrator"
+                'faultString' => 'Name or password is wrong, if you forget, please contect Administrator',
             ];
             XmlRpc::response($response, 'error');
             exit();
         }
 
-        /**
+        /*
          * 正常执行
          */
         if (isset($methods[$method])) {
@@ -67,8 +67,9 @@ class MetaWeblogController extends Controller
 
         return false;
     }
+
     /**
-     * 获取博客信息
+     * 获取博客信息.
      * @param $method
      * @param $params
      */
@@ -76,14 +77,14 @@ class MetaWeblogController extends Controller
     {
         $response[0] = [
             'url' => url('/'),
-            'blogid' => !empty($appkey) ? $appkey : '1',
-            'blogName' => "Gryen-GTD"
+            'blogid' => ! empty($appkey) ? $appkey : '1',
+            'blogName' => 'Gryen-GTD',
         ];
         XmlRpc::response($response);
     }
 
     /**
-     * 获取文章
+     * 获取文章.
      * @param $method
      * @param $params
      */
@@ -106,7 +107,7 @@ class MetaWeblogController extends Controller
     }
 
     /**
-     * 创建文章
+     * 创建文章.
      * @param $method
      * @param $params
      */
@@ -124,14 +125,14 @@ class MetaWeblogController extends Controller
 
         /* 更新文章内容 */
         $article->withContent()->create([
-            'content' => $request['content']
+            'content' => $request['content'],
         ]);
 
         $this->creatorSuccess($article);
     }
 
     /**
-     * 编辑文章
+     * 编辑文章.
      * @param $method
      * @param $params
      */
@@ -151,7 +152,7 @@ class MetaWeblogController extends Controller
 
         /* 更新文章内容 */
         $article->withContent()->update([
-            'content' => $request['content']
+            'content' => $request['content'],
         ]);
 
         $this->creatorSuccess($article);
@@ -170,8 +171,9 @@ class MetaWeblogController extends Controller
 
         return $request;
     }
+
     /**
-     * 删除文章
+     * 删除文章.
      * @param $method
      * @param $params
      */
@@ -184,7 +186,7 @@ class MetaWeblogController extends Controller
     }
 
     /**
-     * TODO  获取最近推送的文章
+     * TODO  获取最近推送的文章.
      * @param $method
      * @param $params
      */
@@ -196,7 +198,7 @@ class MetaWeblogController extends Controller
     }
 
     /**
-     * TODO 获取目录
+     * TODO 获取目录.
      * @param $method
      * @param $params
      */
@@ -207,7 +209,7 @@ class MetaWeblogController extends Controller
     }
 
     /**
-     * TODO 创建目录
+     * TODO 创建目录.
      * @param $method
      * @param $params
      */
@@ -221,7 +223,7 @@ class MetaWeblogController extends Controller
     }
 
     /**
-     * 上传图片
+     * 上传图片.
      * @param $method
      * @param $params
      */
@@ -231,7 +233,7 @@ class MetaWeblogController extends Controller
 
         preg_match('/^(data:\s*image\/(\w+);base64,)/', $struct['bits']->scalar, $result);
 
-        $tmpFilePath = base_path() . '/storage/app/tmp/' . $struct['name'];
+        $tmpFilePath = base_path().'/storage/app/tmp/'.$struct['name'];
 
         $tmpFileCreated = file_put_contents($tmpFilePath, $struct['bits']->scalar);
 
@@ -249,7 +251,6 @@ class MetaWeblogController extends Controller
     }
 
     /**
-     *
      * @param $struct: post_type|categories|title|
      * @return array
      */
@@ -270,20 +271,20 @@ class MetaWeblogController extends Controller
     }
 
     /**
-     * Method Not Found
+     * Method Not Found.
      * @param $methodName
      */
     protected function methodNotFound($methodName)
     {
         $response = [
             'faultCode' => '2',
-            'faultString' => "The method you requested, '$methodName', was not found."
+            'faultString' => "The method you requested, '$methodName', was not found.",
         ];
         XmlRpc::response($response, 'error');
     }
 
     /**
-     * Get Request Show Error Message
+     * Get Request Show Error Message.
      */
     public function errorMessage()
     {
@@ -291,20 +292,20 @@ class MetaWeblogController extends Controller
     }
 
     /**
-     * Observer creator Fail
+     * Observer creator Fail.
      * @param $error
      */
     public function creatorFail($error)
     {
         $response = [
             'faultCode' => '2',
-            'faultString' => $error
+            'faultString' => $error,
         ];
         XmlRpc::response($response, 'error');
     }
 
     /**
-     * creator Success
+     * creator Success.
      * @param $model
      */
     public function creatorSuccess($model)

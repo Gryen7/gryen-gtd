@@ -4,7 +4,7 @@
         box-shadow: $box-shadow;
 
         .simditor-wrapper {
-            background-color: $cwhite;
+            background-color: $white;
         }
 
         .simditor-body {
@@ -13,7 +13,12 @@
             font-size: 14px;
             margin-left: auto;
             margin-right: auto;
-            background-color: $cwhite;
+            background-color: $white;
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
         }
 
         .markdown-editor {
@@ -22,7 +27,7 @@
             margin-right: auto;
 
             textarea {
-                background-color: $cwhite;
+                background-color: $white;
                 font-size: 14px;
             }
         }
@@ -47,7 +52,7 @@
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    background-color: $cbackgroud;
+    background-color: $body-bg;
 }
 
 .tar-artl-title:focus {
@@ -85,7 +90,7 @@
     }
 
     .progress {
-        border-top: 1px solid $cgray-light;
+        border-top: 1px solid $gray-100;
         border-radius: 0;
         box-shadow: none;
     }
@@ -98,7 +103,7 @@
 
 .t-rtcl-desc:focus {
     box-shadow: none;
-    border: 1px solid $cfont-focus;
+    border: 1px solid $primary;
 }
 
 .t-form-labels {
@@ -109,7 +114,7 @@
 
     .t-tag-input {
         border: none;
-        border-bottom: 1px solid $cgray-base;
+        border-bottom: 1px solid $gray-400;
         width: 60px;
     }
 }

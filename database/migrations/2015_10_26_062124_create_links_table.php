@@ -17,7 +17,7 @@ class CreateLinksTable extends Migration
             $table->string('name');
             $table->string('url');
             $table->string('picture');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

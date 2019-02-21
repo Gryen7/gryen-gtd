@@ -1,5 +1,17 @@
 <?php
+
 return [
+    /*
+    |--------------------------------------------------------------------------
+    | Application Name
+    |--------------------------------------------------------------------------
+    |
+    | This value is the name of your application. This value is used when the
+    | framework needs to place the application's name in a notification or
+    | any other location as required by the application or its packages.
+    |
+    */
+    'name' => env('APP_NAME', 'Gryen-GTD'),
 
     'version' => version(),
 
@@ -35,7 +47,9 @@ return [
     | your application so that it is used when running Artisan tasks.
     |
     */
-    'url' => env('APP_URL', 'http://www.gryen.local'),
+    'url' => env('APP_URL', 'http://www.gryen.localdev'),
+
+    'asset_url' => env('ASSET_URL', null),
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -59,7 +73,7 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-    'locale' => 'en',
+    'locale' => 'zh_CN',
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -71,6 +85,18 @@ return [
     |
     */
     'fallback_locale' => 'en',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Faker Locale
+    |--------------------------------------------------------------------------
+    |
+    | This locale will be used by the Faker PHP library when generating fake
+    | data for your database seeds. For example, this will be used to get
+    | localized telephone numbers, street address information and more.
+    |
+    */
+    'faker_locale' => 'en_US',
     /*
     |--------------------------------------------------------------------------
     | Encryption Key
@@ -183,6 +209,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class
+        'Html' => Collective\Html\HtmlFacade::class,
     ],
 ];

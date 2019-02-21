@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\WebArticleRequest;
-use DummyFullModelClass;
+use DomXPath;
 use GuzzleHttp;
 use DOMDocument;
-use DomXPath;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\WebArticleRequest;
 
 class WebArticles extends Controller
 {
-    public function getArticleData(WebArticleRequest $request) {
+    public function getArticleData(WebArticleRequest $request)
+    {
         libxml_use_internal_errors(true);
         $url = $request->get('url');
         $html = null;
