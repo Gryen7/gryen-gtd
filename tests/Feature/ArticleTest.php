@@ -65,7 +65,7 @@ class ArticleTest extends TestCase
     public function testEditArticlePage()
     {
         $this->actingAs($this->user)
-            ->get('/articles/edit/'. $this->firstArticle->id)
+            ->get('/articles/edit/'.$this->firstArticle->id)
             ->assertOk();
     }
 
