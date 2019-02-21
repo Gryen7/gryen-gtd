@@ -17,8 +17,8 @@ class CreateBannersTable extends Migration
             $table->increments('id');
             $table->integer('article_id')->unsigned();
             $table->string('cover');
-            $table->tinyInteger('weight');
-            $table->tinyInteger('status');
+            $table->tinyInteger('weight')->default(0);
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
             $table->foreign('article_id')->references('id')->on('articles');
         });

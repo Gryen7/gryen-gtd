@@ -65,7 +65,7 @@ const show = function (options) {
 
     //noinspection JSJQueryEfficiency
     if ($('#laravelAlertContainer').length < 1) {
-        $('body').append('<div class="tar-error" id="laravelAlertContainer"></div>');
+        $('body').append('<div class="t-error" id="laravelAlertContainer"></div>');
     }
     //noinspection JSJQueryEfficiency
     let self = $('#laravelAlertContainer');

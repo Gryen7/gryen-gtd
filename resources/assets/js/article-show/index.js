@@ -2,6 +2,9 @@
  * Created by targaryen on 2017/5/18.
  */
 
+import hljs from 'highlight.js';
+import 'highlight.js/styles/github.css';
+
 const TBody = $('body');
 const TArtclBox = $('.t-rtcl-box');
 const Images = TArtclBox.find('img');
@@ -13,6 +16,8 @@ $('img').lazyload({
     threshold : 400,
     effect : "fadeIn"
 });
+
+hljs.initHighlighting();
 
 /**
  * 查看原图

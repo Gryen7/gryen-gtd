@@ -10,11 +10,6 @@ class HomeTest extends TestCase
     {
         $this->get('/')
             ->assertStatus(200)
-            ->assertSeeText('Gryen-GTD');
+            ->assertSeeText(env('APP_NAME'));
     }
-
-//    public function testNav()
-//    {
-//        $this->assertSeeText('');
-//    }
 }
