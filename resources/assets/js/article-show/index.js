@@ -1,17 +1,15 @@
 /**
  * Created by targaryen on 2017/5/18.
  */
-const lazyload = require('jquery-lazyload');
 
-let TBody = $('body');
-let TArtclBox = $('.tar-article-box');
-let Images = TArtclBox.find('img');
-let TFullScreen = TBody.find('#tFullScreen');
-let TFullScreenImg = TFullScreen.find('#tFullScreenImg');
-let TNavbarTitle = $('#tNavbarTitle');
-let TArticleTitle = $('#tArticleTitle');
+import hljs from 'highlight.js';
+import 'highlight.js/styles/github.css';
 
-let tArticleTitleOffsetTop = TArticleTitle.offset().top;
+const TBody = $('body');
+const TArtclBox = $('.t-rtcl-box');
+const Images = TArtclBox.find('img');
+const TFullScreen = TBody.find('#tFullScreen');
+const TFullScreenImg = TFullScreen.find('#tFullScreenImg');
 
 $('img').lazyload({
     skip_invisible: true,
@@ -19,17 +17,19 @@ $('img').lazyload({
     effect : "fadeIn"
 });
 
+hljs.initHighlighting();
+
 /**
  * 查看原图
  */
 Images.click((elem) => {
-    let self = $(elem.currentTarget);
+    const self = $(elem.currentTarget);
 
     if (self.data('status') !== 'open') {
-        let src = self.attr('src').split('?')[0];
+        const src = self.attr('src').split('?')[0];
 
         TFullScreenImg.attr('src', src).data('status', 'open');
-        TBody.addClass('t-overflowy-hidden');
+        TBody.addClass('t-overflow-y-hidden');
         TFullScreen.css('display', 'flex').hide().fadeIn(700);
         TFullScreenImg.fadeIn(700);
     }
@@ -39,16 +39,8 @@ Images.click((elem) => {
  * 关闭原图查看
  */
 TFullScreen.click(() => {
-    TBody.removeClass('t-overflowy-hidden');
+    TBody.removeClass('t-overflow-y-hidden');
     TFullScreenImg.attr('src', '').data('status', 'close');
     TFullScreenImg.fadeOut(300);
     TFullScreen.fadeOut(300);
-});
-
-$(window).scroll(() => {
-    if ($(window).scrollTop() > (tArticleTitleOffsetTop - 22)) {
-        TNavbarTitle.fadeIn();
-    } else {
-        TNavbarTitle.fadeOut();
-    }
 });

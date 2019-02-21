@@ -3,18 +3,19 @@
     'vue' => true
 ])
 @section('content')
-    <article class="col-md-10 col-md-offset-1 tar-article-box">
-        <header class="text-center t-rtcl-ttl" id="tArticleTitle">{{ $article->title }}</header>
-        <section class="article-content">
+    <article class="t-rtcl-box">
+        <h1 class="text-center t-rtcl-ttl" id="tArticleTitle">{{ $article->title }}</h1>
+        <hr>
+        <section class="t-rtcl-content">
             {!! $article->content !!}
         </section>
         <section class="t-rtcl-tags">
             @foreach($article->tagArray as $tag)
-                <a class="t-label" href="{{ action('ArticlesController@index', ['tag' => $tag]) }}">{{ $tag }}</a>
+                <a class="badge badge-dark" href="{{ action('ArticlesController@tag', ['tag' => $tag]) }}">{{ $tag }}</a>
             @endforeach
         </section>
         <footer class="clearfix">
-            <span class="pull-right">本文更新于 <time pubdate >{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}</time></span>
+            <span>本文更新于 <time pubdate >{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}</time></span>
         </footer>
     </article>
     <more-articles></more-articles>

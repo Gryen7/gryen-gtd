@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Str;
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -58,7 +61,7 @@ return [
     | correspond to a connection in your database configuration options.
     |
     */
-    'connection' => null,
+    'connection' => env('SESSION_CONNECTION', null),
     /*
     |--------------------------------------------------------------------------
     | Session Database Table
@@ -80,7 +83,7 @@ return [
     | correspond with one of the application's configured cache stores.
     |
     */
-    'store' => null,
+    'store' => env('SESSION_STORE', null),
     /*
     |--------------------------------------------------------------------------
     | Session Sweeping Lottery
@@ -104,7 +107,7 @@ return [
     */
     'cookie' => env(
         'SESSION_COOKIE',
-        str_slug(env('APP_NAME', 'laravel'), '_').'_session'
+        Str::slug(env('APP_NAME', 'laravel'), '_').'_session'
     ),
     /*
     |--------------------------------------------------------------------------

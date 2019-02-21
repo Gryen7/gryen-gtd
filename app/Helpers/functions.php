@@ -3,16 +3,15 @@
  * Created by PhpStorm.
  * User: targaryen
  * Date: 2017/2/26
- * Time: 上午11:41
+ * Time: 上午11:41.
  */
 
 /* ------------------------------------------------------------ */
 /* ---------------------- 自定义全局函数 ----------------------- */
 /* ------------------------------------------------------------ */
 
-
 /**
- * 对应七牛 imageView2 图片处理接口
+ * 对应七牛 imageView2 图片处理接口.
  * @param string $image 图片原始路径
  * @param array $params 参数
  * @param int $mode 图片处理模式
@@ -24,7 +23,7 @@ function imageView2($image, array $params = [], $mode = 1, $q = 100)
     // 允许的参数
     $allowParams = ['w', 'h'];
 
-    if (!is_string($image)) {
+    if (! is_string($image)) {
         return '';
     }
 
@@ -32,17 +31,17 @@ function imageView2($image, array $params = [], $mode = 1, $q = 100)
         return $image;
     }
     $webp = request()->webp ? '/format/webp' : '';
-    $queryString = '?imageView2/' . $mode . $webp;
+    $queryString = '?imageView2/'.$mode.$webp;
 
     if (isset($params['raw'])) {
         return explode('?', $queryString)[0];
     }
 
-    if (isset($params) && !empty($params)) {
-        if (!empty($params)) {
+    if (isset($params) && ! empty($params)) {
+        if (! empty($params)) {
             foreach ($params as $key => $value) {
                 if (in_array($key, $allowParams)) {
-                    $queryString .= '/' . $key . '/' . $value;
+                    $queryString .= '/'.$key.'/'.$value;
                 }
             }
         }
@@ -54,43 +53,47 @@ function imageView2($image, array $params = [], $mode = 1, $q = 100)
     $qhandle = '';
 
     if ($q != 100) {
-        $qhandle = '/q/' . $q;
+        $qhandle = '/q/'.$q;
     }
 
-    return $image . $queryString . $qhandle;
+    return $image.$queryString.$qhandle;
 }
 
 /**
  * 获取 package.json 对象
  * @return mixed
  */
-function package() {
-    $packageFilePath = base_path() . '/package.json';
+function package()
+{
+    $packageFilePath = base_path().'/package.json';
+
     return json_decode(file_get_contents($packageFilePath));
 }
 
 /**
- * 获取版本
+ * 获取版本.
  * @return string
  */
-function version() {
+function version()
+{
     return isset(package()->version) ? package()->version : '0.0.1';
 }
 
 /**
  * 动态处理文章中的图片
- * 只在文章详情页使用
+ * 只在文章详情页使用.
  * @param $content
  * @return mixed
  */
-function handleContentImage($content) {
+function handleContentImage($content)
+{
     $rightImgs = [];
 
     preg_match_all('/<img.*?src="(.*?)".*?>/is', $content, $result);
     $oldImgs = [];
     foreach ($result[1] as $value) {
-        array_push($oldImgs, 'src="' . $value . '"');
-        array_push($rightImgs, 'data-original="' . imageView2($value, [], 0, '100') . '"');
+        array_push($oldImgs, 'src="'.$value.'"');
+        array_push($rightImgs, 'data-original="'.imageView2($value, [], 0, '100').'"');
     }
     $content = str_replace($oldImgs, $rightImgs, $content);
 
@@ -98,17 +101,18 @@ function handleContentImage($content) {
 }
 
 /**
- * 截取指定字符串之间的字符串
+ * 截取指定字符串之间的字符串.
  * @param $begin
  * @param $end
  * @param $str
  * @return string
  */
-function cutString($begin,$end,$str){
-    $b = mb_strpos($str,$begin) + mb_strlen($begin);
-    $e = mb_strpos($str,$end) - $b;
+function cutString($begin, $end, $str)
+{
+    $b = mb_strpos($str, $begin) + mb_strlen($begin);
+    $e = mb_strpos($str, $end) - $b;
 
-    return mb_substr($str,$b,$e);
+    return mb_substr($str, $b, $e);
 }
 
 /**
@@ -116,8 +120,10 @@ function cutString($begin,$end,$str){
  * @param $str
  * @return mixed
  */
-function trimAll($str) {
-    $before=array(" ","　","\t","\n","\r");
-    $after=array("","","","","");
+function trimAll($str)
+{
+    $before = [' ', '　', "\t", "\n", "\r"];
+    $after = ['', '', '', '', ''];
+
     return str_replace($before, $after, $str);
 }

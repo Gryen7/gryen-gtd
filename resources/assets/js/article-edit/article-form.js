@@ -1,27 +1,27 @@
 /**
  * Created by gcy77 on 2016/3/17.
  */
-require('jquery-serializejson');
-const Simditor = require('tar-simditor');
-const laravelAlert = require('../helpers/alert');
-const upload = require('../helpers/upload');
+import 'jquery-serializejson';
+import Simditor from 'tar-simditor';
+import laravelAlert from '../helpers/alert';
+import upload from '../helpers/upload';
 
-let trArtclFrm = $('.tar-article-form');
-let articleForm = trArtclFrm.find('form');
-let textarea = articleForm.find('#content-textarea');
+const trArtclFrm = $('.tar-article-form');
+const articleForm = trArtclFrm.find('form');
+const textarea = articleForm.find('#content-textarea');
 
-let coverInput = articleForm.find('#tCoverFile'); // 选择图片文件
-let tCoverFile = articleForm.find('#tCover'); // 保存成功上传图片后的链接
-let tEditCover = articleForm.find('#tEditCover'); // 封面图
-let tCovrProgrs = articleForm.find('#tCovrProgrs'); // 封面图上传进度
+const coverInput = articleForm.find('#tCoverFile'); // 选择图片文件
+const tCoverFile = articleForm.find('#tCover'); // 保存成功上传图片后的链接
+const tEditCover = articleForm.find('#tEditCover'); // 封面图
+const tCovrProgrs = articleForm.find('#tCovrProgrs'); // 封面图上传进度
 
-let tTagInput = articleForm.find('#tTagInput'); // 手动输入标签的 input 组件
-let tTagBox = articleForm.find('#tTagBox'); // 选中的标签存放容器
-let tTags = articleForm.find('#tTags'); // 表单中要提交的标签 input
-let tLblBox = articleForm.find('#tLblBox'); // 系统中的标签列表容器
+const tTagInput = articleForm.find('#tTagInput'); // 手动输入标签的 input 组件
+const tTagBox = articleForm.find('#tTagBox'); // 选中的标签存放容器
+const tTags = articleForm.find('#tTags'); // 表单中要提交的标签 input
+const tLblBox = articleForm.find('#tLblBox'); // 系统中的标签列表容器
 
-let submitArticle = articleForm.find('#submit-article');
-let saveArticle = articleForm.find('#save-article');
+const submitArticle = articleForm.find('#submit-article');
+const saveArticle = articleForm.find('#save-article');
 
 let tTagsArray = []; // 标签数组，用于判断标签数量和是否已经重复添加标签
 

@@ -1,32 +1,38 @@
 {
-  "version": "v0.9.4",
+  "version": "v1.0.0",
   "private": true,
   "scripts": {
-    "dev": "npm run development",
+    "dev": "yarn run development",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "npm run development -- --watch",
-    "watch-poll": "npm run watch -- --watch-poll",
+    "watch": "yarn run development -- --watch",
+    "watch-poll": "yarn run watch -- --watch-poll",
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "prod": "npm run production",
+    "prod": "yarn run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "devDependencies": {
     "axios": "^0.18.0",
+    "bootstrap": "^4.0.0",
     "bootstrap-datetime-picker": "^2.4.4",
-    "bootstrap-sass": "^3.4.0",
+    "cross-env": "^5.2.0",
     "cz-conventional-changelog": "^2.1.0",
     "fs": "0.0.1-security",
+    "highlight.js": "^9.14.2",
     "jquery": "=3.1.1",
     "jquery-lazyload": "^1.9.7",
     "jquery-serializejson": "^2.9.0",
     "laravel-echo": "^1.4.0",
-    "laravel-mix": "^2.1.14",
+    "laravel-mix": "^4.0.13",
     "lodash": "^4.17.11",
     "popper.js": "^1.14.6",
+    "resolve-url-loader": "2.3.1",
+    "sass": "^1.16.0",
+    "sass-loader": "7.*",
     "socket.io-client": "^2.1.1",
     "tar-simditor": "=3.0.5",
-    "vue": "^2.5.17",
-    "vue-lazyload": "^1.2.6"
+    "vue": "^2.6.6",
+    "vue-lazyload": "^1.2.6",
+    "vue-template-compiler": "^2.6.6"
   },
   "config": {
     "commitizen": {

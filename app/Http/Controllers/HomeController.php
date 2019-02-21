@@ -16,15 +16,9 @@ class HomeController extends Controller
     public function index()
     {
         $module = 'home';
-        $banner = Banner::orderByDesc('weight')->first();
+        $banners = Banner::orderByDesc('weight')->get();
 
-        if ($banner) {
-            $banner->link = action('ArticlesController@show', ['id' => $banner->article_id]);
-            $banner->description = $banner->article->description;
-            $banner->title = $banner->article->title;
-        }
-
-        return view('home.index', compact('module', 'banner', 'siteTitle'));
+        return view('home.index', compact('module', 'banners', 'siteTitle'));
     }
 
     public function sitemap()

@@ -1,40 +1,19 @@
-<ul class="col-md-10 col-md-offset-1">
-    @foreach($articles as $article)
-        <li class="list-group-item row tar-article-list">
-            <div class="col-md-5 t-rtcl-lf">
-                <div class="t-rtc-img">
-                    <a href="{{ action('ArticlesController@show',[$article->id]) }}">
-                        @if($loop->iteration > 4)
-                        <img class="img-responsive lazy"
-                             data-original="{{ imageView2($article->cover, ['w' => 600,'h' => 300]) }}"
-                             src="" alt="{{ $article->title }}">
-                        @else
-                        <img src="{{ imageView2($article->cover, ['w' => 600,'h' => 300]) }}" alt="{{ $article->title }}">
-                        @endif
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-7 t-rtcl-rt">
-                <div class="t-artl-title">
-                    <a href="{{ action('ArticlesController@show',[$article->id]) }}">
-                        {{ $article->title }}
-                    </a>
-                    <span class="t-artl-date pull-right">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}</span>
-                </div>
-                <div class="tar-article-list-decs">{{ $article->description }}</div>
-                <div class="tar-article-extra">
-                    <div class="t-rtcl-tag">
-                        @foreach($article->tags as $tag)
-                            <a class="t-label" href="{{ action('ArticlesController@index', ['tag' => $tag]) }}">{{ $tag }}</a>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </li>
-    @endforeach
-</ul>
-@if(count($articles) > 1)
-<div class="col-md-10 col-md-offset-1 t-rtcl-links">
-    {{ $articles->links() }}
+<div class="row t-rtcl">
+  @foreach($articles as $article)
+  <a href="{{ action('ArticlesController@show',[$article->id]) }}" class="col-md-4">
+    <figure class="figure p-2 t-rtcl-figure">
+      <img data-original="{{ imageView2($article->cover, ['w' => 600,'h' => 300]) }}" src="{{ env('SITE_DEFAULT_IMAGE') }}" class="figure-img img-fluid lazy" alt="{{ $article->title }}">
+      <figcaption class="figure-caption">
+        <p class="text-left text-dark font-weight-bold t-line-ellipsis-1">{{ $article->title }}</p>
+        <p class="text-left t-line-ellipsis-3 t-rtcl-desc">{{ $article->description }}</p>
+        <p class="text-right">
+          {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}
+        </p>
+      </figcaption>
+    </figure>
+  </a>
+  @endforeach
 </div>
-@endif
+<div class="row t-rtcl-pagination">
+  {{ $articles->links() }}
+</div>
