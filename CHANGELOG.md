@@ -12,7 +12,7 @@
 
 ### BREAKING CHANGES
 
-* [ ] 新的封面
+* [x] 新的封面
 * 删除后台，使用 [gryen-dashboard](https://github.com/itargaryen/gryen-dashboard)
 * 删除手作展示模块
 
