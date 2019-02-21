@@ -17,7 +17,7 @@ class CreateUploadsTable extends Migration
             $table->string('table');
             $table->integer('id_in_table')->unsigned();
             $table->string('url');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(1);;
             $table->timestamps();
         });
     }

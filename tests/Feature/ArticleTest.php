@@ -62,6 +62,13 @@ class ArticleTest extends TestCase
             ->assertOk();
     }
 
+    public function testEditArticlePage()
+    {
+        $this->actingAs($this->user)
+            ->get('/articles/edit/'. $this->firstArticle->id)
+            ->assertOk();
+    }
+
     public function testStoreArticle()
     {
         $faker = \Faker\Factory::create();

@@ -14,10 +14,10 @@ class CreateTodosTable extends Migration
     {
         Schema::create('todos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('parents_id')->unsigned();
-            $table->integer('grandparents_id')->unsigned();
+            $table->integer('parents_id')->default(-1);
+            $table->integer('grandparents_id')->default(-1);
             $table->string('content');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(1);
             $table->tinyInteger('importance');
             $table->timestamp('begin_at')->nullable();
             $table->timestamp('end_at')->nullable();

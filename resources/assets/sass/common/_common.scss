@@ -38,6 +38,16 @@
   @include t-line-ellipsis(3);
 }
 
+.t-error {
+  position: fixed;
+  top: 70px;
+  right: 30px;
+
+  ul {
+    list-style: none;
+  }
+}
+
 /* navbar */
 .t-navbar-brand {
   img {

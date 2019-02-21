@@ -14,6 +14,12 @@
     padding: 30px;
     margin-bottom: 30px;
 
+    .t-rtcl-ttl {
+        max-width: $max-width;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .t-rtcl-content,
     .t-rtcl-tags {
         @include content-common;
@@ -22,6 +28,8 @@
     }
 
     .t-rtcl-content {
+        margin-top: 20px;
+
         img {
             max-width: 100%;
             height: auto;

@@ -20,6 +20,10 @@ Route::middleware(['refresh.token'])->group(function () {
     Route::post('/todos/update', 'Api\TodosController@updateTodo');
     Route::post('/todos/delete/{id}', 'Api\TodosController@deleteTodo');
 
+    Route::post('/banners/set', 'Api\BannersController@set');
+    Route::delete('/banners/delete/{id}', 'Api\BannersController@delete');
+    Route::post('/banners/top/{id}', 'Api\BannersController@top');
+
     Route::post('/pushtokindle', 'Api\PushToKindleController@index');
 
     Route::get('/webarticle/get', 'Api\WebArticles@getArticleData');

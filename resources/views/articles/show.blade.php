@@ -5,6 +5,7 @@
 @section('content')
     <article class="t-rtcl-box">
         <h1 class="text-center t-rtcl-ttl" id="tArticleTitle">{{ $article->title }}</h1>
+        <hr>
         <section class="t-rtcl-content">
             {!! $article->content !!}
         </section>

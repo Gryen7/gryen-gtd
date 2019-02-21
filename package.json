@@ -17,6 +17,7 @@
     "cross-env": "^5.2.0",
     "cz-conventional-changelog": "^2.1.0",
     "fs": "0.0.1-security",
+    "highlight.js": "^9.14.2",
     "jquery": "=3.1.1",
     "jquery-lazyload": "^1.9.7",
     "jquery-serializejson": "^2.9.0",
@@ -29,9 +30,9 @@
     "sass-loader": "7.*",
     "socket.io-client": "^2.1.1",
     "tar-simditor": "=3.0.5",
-    "vue": "^2.5.17",
+    "vue": "^2.6.6",
     "vue-lazyload": "^1.2.6",
-    "vue-template-compiler": "^2.5.21"
+    "vue-template-compiler": "^2.6.6"
   },
   "config": {
     "commitizen": {
