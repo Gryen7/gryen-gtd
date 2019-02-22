@@ -1,3 +1,5 @@
+@import "~highlight.js/styles/github.css";
+
 @mixin content-common {
     width: 100%;
     max-width: $max-width;
