@@ -49,7 +49,7 @@
                             <span>Github：</span>
                         </dt>
                         <dd class="col-7">
-                            <a href="https://www.douban.com/people/itargaryen/" target="_blank">
+                            <a href="https://github.com/itargaryen" target="_blank">
                                 <span class="font-weight-light">Gryen</span>
                             </a>
                         </dd>
