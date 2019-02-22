@@ -2,8 +2,14 @@
  * Created by targaryen on 2017/5/18.
  */
 
-import hljs from 'highlight.js';
-import 'highlight.js/styles/github.css';
+import hljs from 'highlight.js/lib/highlight';
+import javascript from 'highlight.js/lib/languages/javascript';
+import bash from 'highlight.js/lib/languages/bash';
+import php from 'highlight.js/lib/languages/php';
+import python from 'highlight.js/lib/languages/python';
+import scss from 'highlight.js/lib/languages/scss';
+import less from 'highlight.js/lib/languages/less';
+import json from 'highlight.js/lib/languages/json';
 
 const TBody = $('body');
 const TArtclBox = $('.t-rtcl-box');
@@ -17,7 +23,16 @@ $('img').lazyload({
     effect : "fadeIn"
 });
 
+hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('bash', bash);
+hljs.registerLanguage('php', php);
+hljs.registerLanguage('python', python);
+hljs.registerLanguage('scss', scss);
+hljs.registerLanguage('less', less);
+hljs.registerLanguage('json', json);
 hljs.initHighlighting();
+
+console.log(hljs.listLanguages());
 
 /**
  * 查看原图
