@@ -26,8 +26,9 @@ before_install:
 
 install:
   - travis_retry composer update --prefer-dist --no-interaction --prefer-stable --no-suggest;
-  - travis_retry npm install;
-  - travis_retry npm run prod;
+  - travis_retry npm install -g yarn;
+  - travis_retry yarn;
+  - travis_retry yarn run prod;
 
 before_script:
   - composer self-update
