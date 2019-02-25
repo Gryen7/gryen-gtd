@@ -163,11 +163,11 @@ class MetaWeblogController extends Controller
         $description = trimAll(strip_tags(cutString('<description>', '</description>', $request['content'])));
 
         if (strlen($description) < 1) {
-            $description = mb_strcut($request['content'], 0, 100, 'utf-8');
+            $description = mb_strcut($request['content'], 0, 85, 'utf-8');
         }
 
         $request['description'] = $description;
-        $request['content'] = preg_replace('/<description>(.|\n)*<\/description>/', '', $request['content']);
+//        $request['content'] = preg_replace('/<description>(.|\n)*<\/description>/', '', $request['content']);
 
         return $request;
     }
