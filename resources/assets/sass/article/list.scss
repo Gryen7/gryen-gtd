@@ -5,6 +5,11 @@
     background-color: $white;
     box-shadow: $box-shadow-sm;
     margin-bottom: 30px;
+    width: 100%;
+
+    .t-rtcl-figure-caption {
+      width: 100%;
+    }
 
     &:hover {
       box-shadow: $box-shadow;
