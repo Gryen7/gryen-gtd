@@ -24,18 +24,25 @@
 
 @mixin t-line-ellipsis($line) {
   overflow: hidden;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: $line;
+  /*! autoprefixer: off */
   -webkit-box-orient: vertical;
 }
 
 .t-line-ellipsis-1 {
-  @include t-line-ellipsis(1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .t-line-ellipsis-3 {
   @include t-line-ellipsis(3);
+}
+
+.t-line-ellipsis-4 {
+  @include t-line-ellipsis(4);
 }
 
 .t-error {
