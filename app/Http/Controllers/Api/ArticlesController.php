@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Tag;
+use App\Config;
 use App\Article;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -51,5 +53,103 @@ class ArticlesController extends Controller
         }
 
         return $articles;
+    }
+
+    /**
+     * 获取文章列表
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
+     */
+    public function getList(Request $request)
+    {
+        $sorter = null;
+        $pageSize = empty($request->get('pageSize')) ? env('ARTICLE_PAGE_SIZE') : $request->get('pageSize');
+
+        if (!empty($request)) {
+            $onlyTrashed = $request->get('only_trashed');
+            $sorter = $request->get('sorter');
+        }
+
+        if (empty($onlyTrashed)) {
+            $sort = $sorter == 'updated_at_ascend' ? 'asc': 'desc';
+            $articles = Article::where('status', '>', 0)
+                ->orderBy('updated_at', $sort)
+                ->paginate($pageSize);
+        } else {
+            $sort = $sorter == 'deleted_at_ascend' ? 'asc': 'desc';
+            $articles = Article::onlyTrashed()
+                ->orderBy('deleted_at', $sort)
+                ->paginate($pageSize);
+        }
+
+        foreach ($articles as &$article) {
+            if (empty($article->cover)) {
+                $article->cover = Config::getAllConfig('SITE_DEFAULT_IMAGE');
+            }
+
+            $article->href = action('ArticlesController@show', ['id' => $article->id]);
+        }
+
+        return response($articles);
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Illuminate\Http\Response|null
+     * @throws \Exception
+     */
+    public function delete(Request $request)
+    {
+        $ids = $request->get('ids');
+        $response = null;
+
+        if (empty($ids)) {
+            return response()->noContent(404);
+        }
+
+        $res = Article::destroy($request->get('ids'));
+
+        if ($res > 0) {
+            $response = $this->getList($request);
+        }
+
+        return empty($response) ? response($response) : $response;
+    }
+
+    /**
+     * 快速恢复文章为发布状态
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
+     */
+    public function restore(Request $request)
+    {
+        $id = $request->get('id');
+
+        Article::onlyTrashed()
+            ->find($id)->restore();
+
+        $response = $this->getList($request);
+
+        return empty($response) ? response($response) : $response;
+    }
+
+    /**
+     * 彻底删除一篇文章.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
+     */
+    public function forceDelete(Request $request)
+    {
+        $id = $request->get('id');
+        Article::onlyTrashed()
+            ->find($id)->forceDelete();
+
+        $response = $this->getList($request);
+
+        return empty($response) ? response($response) : $response;
     }
 }
