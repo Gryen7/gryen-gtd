@@ -56,7 +56,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * 获取文章列表
+     * 获取文章列表.
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
@@ -66,18 +66,18 @@ class ArticlesController extends Controller
         $sorter = null;
         $pageSize = empty($request->get('pageSize')) ? env('ARTICLE_PAGE_SIZE') : $request->get('pageSize');
 
-        if (!empty($request)) {
+        if (! empty($request)) {
             $onlyTrashed = $request->get('only_trashed');
             $sorter = $request->get('sorter');
         }
 
         if (empty($onlyTrashed)) {
-            $sort = $sorter == 'updated_at_ascend' ? 'asc': 'desc';
+            $sort = $sorter == 'updated_at_ascend' ? 'asc' : 'desc';
             $articles = Article::where('status', '>', 0)
                 ->orderBy('updated_at', $sort)
                 ->paginate($pageSize);
         } else {
-            $sort = $sorter == 'deleted_at_ascend' ? 'asc': 'desc';
+            $sort = $sorter == 'deleted_at_ascend' ? 'asc' : 'desc';
             $articles = Article::onlyTrashed()
                 ->orderBy('deleted_at', $sort)
                 ->paginate($pageSize);
