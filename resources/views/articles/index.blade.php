@@ -1,4 +1,5 @@
 @extends('layouts._default', [
+    'siteTitle' => '笔记',
     'module' => 'article-list',
     'noJsLoad' => true
 ])
