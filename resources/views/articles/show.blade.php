@@ -15,7 +15,8 @@
             @endforeach
         </section>
         <footer class="clearfix">
-            <span>本文更新于 <time pubdate >{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}</time></span>
+            <p>版权声明：自由转载-非商用-非衍生-保持署名（<a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>）</p>
+            <p><span>本文更新于 <time pubdate >{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}</time></span></p>
         </footer>
     </article>
     <more-articles></more-articles>
