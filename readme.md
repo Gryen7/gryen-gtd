@@ -51,13 +51,13 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 [Laravel](http
 3. 执行 `yarn` 安装 JS 依赖；
 4. 复制 `.env.example` 到 `.env`，修改数据库连接参数：
 
-  ```
-  DB_DATABASE=
-  DB_USERNAME=
-  DB_PASSWORD=
-  ```
+    ```
+    DB_DATABASE=
+    DB_USERNAME=
+    DB_PASSWORD=
+    ```
   
-  亦可进一步修改其他参数，使用 Redis 或者使用[七牛云](https://portal.qiniu.com/signup?code=3loirka20zp76)加速网站。
+    亦可进一步修改其他参数，使用 Redis 或者使用[七牛云](https://portal.qiniu.com/signup?code=3loirka20zp76)加速网站。
   
 5. 执行 `php artisan key:generate` 生成应用密钥；
 6. 执行 `php artisan migrate`，生成数据表；
