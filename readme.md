@@ -18,26 +18,25 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 [Laravel](http
 
 ### 页面一览
 
-<center>
-![-w600](https://statics.gryen.com/index.jpg)
-封面
-</center>
+<p align="center">
+<img src="http://markdown.gryen.com/index.jpg" alt="封面" style="width: 600px">
+</p>
+<p align="center">封面</p>
 
-<center>
-![-w600](https://statics.gryen.com/articles.jpg)
-笔记列表
-</center>
+<p align="center">
+<img src="http://markdown.gryen.com/articles.jpg" alt="笔记列表" style="width: 600px">
+</p>
+<p align="center">笔记列表</p>
 
-<center>
-![-w600](https://statics.gryen.com/article_detail.jpg)
+<p align="center">
+<img src="http://markdown.gryen.com/article_detail.jpg" alt="笔记详情" style="width: 600px">
+</p>
+<p align="center">笔记详情</p>
 
-笔记详情
-</center>
-
-<center>
-![-w600](http://markdown.gryen.com/2018-04-25-15087530267780-1.jpg)
-笔记编辑
-</center>
+<p align="center">
+<img src="http://markdown.gryen.com/2018-04-25-15087530267780-1.jpg" alt="笔记编辑" style="width: 600px">
+</p>
+<p align="center">笔记编辑</p>
 
 ### 运行环境
 
