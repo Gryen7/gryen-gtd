@@ -4,41 +4,41 @@ Gryen-GTD
 <p align="center">
 gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 [Laravel](https://laravel.com/) 开发，提供博客发布、任务列表等功能。
 </p>
+
 <p align="center">
-<a href="https://travis-ci.org/itargaryen/gryen-gtd"><img src="https://travis-ci.org/itargaryen/gryen-gtd.svg?branch=develop" alt="Build Status" /></a>
-<a href="https://github.styleci.io/repos/164370918"><img src="https://github.styleci.io/repos/164370918/shield?branch=develop" alt="StyleCI" /></a>
+<a href="https://travis-ci.org/itargaryen/gryen-gtd"><img src="https://travis-ci.org/itargaryen/gryen-gtd.svg" alt="Build Status" /></a>
+<a href="https://github.styleci.io/repos/164370918"><img src="https://github.styleci.io/repos/164370918/shield" alt="StyleCI" /></a>
 </p>
 
 ## 目录
-* [功能列表](readme.md#%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8)
-* [运行环境要求](readme.md#%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82)
-* [安装说明](readme.md#%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E)
-* [版本更新](CHANGELOG.md)
+* [页面一览](readme.md#页面一览)
+* [运行环境](readme.md#运行环境)
+* [安装说明](readme.md#安装说明)
+* [更新日志](CHANGELOG.md)
 
-### 功能列表
+### 页面一览
 
-* [x] 博客发布
-    使用优雅的 [simditor](https://simditor.tower.im/) 编辑文章，支持 markdown 语法。
+<p align="center">
+<img src="http://markdown.gryen.com/index.jpg" alt="封面" style="width: 600px">
+</p>
+<p align="center">封面</p>
 
-![-w600](http://markdown.gryen.com/2018-04-25-15087530267780-1.jpg)
-文章编辑页面
-支持添加文章封面图，描述和关键词。
+<p align="center">
+<img src="http://markdown.gryen.com/articles.jpg" alt="笔记列表" style="width: 600px">
+</p>
+<p align="center">笔记列表</p>
 
-![-w600](http://markdown.gryen.com/2018-04-25-15087538382652-1.jpg)
-文章列表页面
+<p align="center">
+<img src="http://markdown.gryen.com/article_detail.jpg" alt="笔记详情" style="width: 600px">
+</p>
+<p align="center">笔记详情</p>
 
-![-w600](http://markdown.gryen.com/2018-04-25-15087539469788-1.jpg)
-站点首页页面
+<p align="center">
+<img src="http://markdown.gryen.com/2018-04-25-15087530267780-1.jpg" alt="笔记编辑" style="width: 600px">
+</p>
+<p align="center">笔记编辑</p>
 
-* [x] 待办列表
-![-w600](http://markdown.gryen.com/2018-04-25-15087544092838-1.jpg)
-待办列表页面
-
-* [ ] 收藏网络文章
-* [ ] 发送文章到 Kindle
-* [ ] 个人资料整理展示
-
-### 运行环境要求
+### 运行环境
 
 * 正确搭建 PHP 站点运行环境（PHP 7.1.3 及以上版本），推荐 OpenResty（Nginx） + PHP + MariaDB；
 * 安装 NodeJS 以支持前端构建；
@@ -49,6 +49,17 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 [Laravel](http
 1. 克隆或下载代码；
 2. 执行 `composer install` 安装 PHP 依赖；
 3. 执行 `yarn` 安装 JS 依赖；
-4. 复制 `.env.example` 到 `.env` 并修改其内容；
+4. 复制 `.env.example` 到 `.env`，修改数据库连接参数：
+
+    ```
+    DB_DATABASE=
+    DB_USERNAME=
+    DB_PASSWORD=
+    ```
+  
+    亦可进一步修改其他参数，使用 Redis 或者使用[七牛云](https://portal.qiniu.com/signup?code=3loirka20zp76)加速网站。
+  
 5. 执行 `php artisan key:generate` 生成应用密钥；
-6. 开始使用。
+6. 执行 `php artisan migrate`，生成数据表；
+7. 通过 http(s)://[yourdomain]/register 注册用户；
+8. 开始使用。

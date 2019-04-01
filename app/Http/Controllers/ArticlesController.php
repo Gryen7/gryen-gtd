@@ -57,7 +57,7 @@ class ArticlesController extends Controller
             }
         }
 
-        return view('articles.index', compact('siteTitle', 'articles'));
+        return view('articles.index', compact('articles'));
     }
 
     /**
@@ -72,9 +72,8 @@ class ArticlesController extends Controller
         $article['cover'] = Config::getAllConfig('SITE_DEFAULT_IMAGE');
         $article = (object) $article;
         $bodyClassString = 'no-padding';
-        $siteTitle = '新建文章';
 
-        return view('articles.create', compact('tags', 'article', 'siteTitle', 'bodyClassString'));
+        return view('articles.create', compact('tags', 'article', 'bodyClassString'));
     }
 
     /**
@@ -166,10 +165,9 @@ class ArticlesController extends Controller
         $article->content = $article->withContent()->first()->content;
         $article = Article::getTagArray($article);
         $tags = Tag::orderBy('num', 'desc')->take(7)->get();
-        $siteTitle = '编辑文章';
         $bodyClassString = 'no-padding';
 
-        return view('articles.edit', compact('siteTitle', 'article', 'tags', 'bodyClassString'));
+        return view('articles.edit', compact('article', 'tags', 'bodyClassString'));
     }
 
     /**
