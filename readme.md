@@ -1,20 +1,32 @@
 <h1 align="center">
 Gryen-GTD
 </h1>
+
 <p align="center">
 gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 [Laravel](https://laravel.com/) 开发，提供博客发布、任务列表等功能。
 </p>
 
 <p align="center">
-<a href="https://travis-ci.org/itargaryen/gryen-gtd"><img src="https://travis-ci.org/itargaryen/gryen-gtd.svg" alt="Build Status" /></a>
-<a href="https://github.styleci.io/repos/164370918"><img src="https://github.styleci.io/repos/164370918/shield" alt="StyleCI" /></a>
+<a href="https://travis-ci.org/itargaryen/gryen-gtd">
+  <img src="https://travis-ci.org/itargaryen/gryen-gtd.svg?branch=master" alt="Build Status" />
+</a>
+<a href="https://github.styleci.io/repos/164370918">
+  <img src="https://github.styleci.io/repos/164370918/shield?branch=master" alt="StyleCI">
+</a>
+<a href="https://packagist.org/packages/itargaryen/gryen-gtd">
+  <img alt="Packagist" src="https://img.shields.io/packagist/l/itargaryen/gryen-gtd.svg?color=%231380C3">
+</a>
+<a href="https://github.com/itargaryen/gryen-gtd">
+  <img src="https://img.shields.io/badge/Awesome-Laravel-brightgreen.svg?style=flat-square" alt="Awesome Laravel">
+</a>
 </p>
 
 ## 目录
-* [页面一览](readme.md#页面一览)
-* [运行环境](readme.md#运行环境)
-* [安装说明](readme.md#安装说明)
-* [更新日志](CHANGELOG.md)
+
+-   [页面一览](readme.md#页面一览)
+-   [运行环境](readme.md#运行环境)
+-   [安装说明](readme.md#安装说明)
+-   [更新日志](CHANGELOG.md)
 
 ### 页面一览
 
@@ -40,9 +52,9 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 [Laravel](http
 
 ### 运行环境
 
-* 正确搭建 PHP 站点运行环境（PHP 7.1.3 及以上版本），推荐 OpenResty（Nginx） + PHP + MariaDB；
-* 安装 NodeJS 以支持前端构建；
-* 推荐安装启用 Redis 以提高性能。
+-   正确搭建 PHP 站点运行环境（PHP 7.1.3 及以上版本），推荐 OpenResty（Nginx） + PHP + MariaDB；
+-   安装 NodeJS 以支持前端构建；
+-   推荐安装启用 Redis 以提高性能。
 
 ### 安装说明
 
@@ -56,9 +68,9 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 [Laravel](http
     DB_USERNAME=
     DB_PASSWORD=
     ```
-  
+
     亦可进一步修改其他参数，使用 Redis 或者使用[七牛云](https://portal.qiniu.com/signup?code=3loirka20zp76)加速网站。
-  
+
 5. 执行 `php artisan key:generate` 生成应用密钥；
 6. 执行 `php artisan migrate`，生成数据表；
 7. 通过 http(s)://[yourdomain]/register 注册用户；
