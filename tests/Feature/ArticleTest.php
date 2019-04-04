@@ -26,7 +26,11 @@ class ArticleTest extends TestCase
                 \App\Tag::createArticleTagProcess($article->tags, $article->id);
             });
 
-        $this->firstArticle = $this->articles->first();
+        $this->firstArticle = \DB::table('articles')
+            ->join('article_datas', 'articles.id', '=', 'article_datas.article_id')
+            ->select('articles.id', 'articles.tags', 'articles.title', 'articles.description', 'article_datas.content')
+            ->first();
+        $this->firstArticle->tagArray = explode(',', $this->firstArticle->tags);
         $this->user = factory(\App\User::class)->create();
     }
 
@@ -40,9 +44,7 @@ class ArticleTest extends TestCase
 
     public function testTagPage()
     {
-        $tags = $this->firstArticle->getTagArray($this->firstArticle);
-
-        $this->get('/articles/tag/'.$tags->tagArray[0])
+        $this->get('/articles/tag/' . $this->firstArticle->tagArray[0])
             ->assertOk()
             ->assertSeeText($this->firstArticle->title);
     }
@@ -52,7 +54,7 @@ class ArticleTest extends TestCase
         $this->get('/articles/show/'.$this->firstArticle->id.'.html')
             ->assertOk()
             ->assertSeeText($this->firstArticle->title)
-            ->assertSeeText($this->firstArticle->withContent()->first()->content);
+            ->assertSeeText($this->firstArticle->content);
     }
 
     public function testCreateArticlePage()
