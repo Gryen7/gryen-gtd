@@ -44,7 +44,7 @@ class ArticleTest extends TestCase
 
     public function testTagPage()
     {
-        $this->get('/articles/tag/' . $this->firstArticle->tagArray[0])
+        $this->get('/articles/tag/'.$this->firstArticle->tagArray[0])
             ->assertOk()
             ->assertSeeText($this->firstArticle->title);
     }
