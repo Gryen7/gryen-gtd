@@ -20,10 +20,10 @@ class BannerTest extends TestCase
             ->each(function ($article) {
                 factory(\App\Banner::class)->create([
                     'article_id' => $article->id,
-                    'weight' => $article->id
+                    'weight' => $article->id,
                 ]);
             });
-        
+
         $this->user = factory(\App\User::class)->create();
     }
 
@@ -37,7 +37,7 @@ class BannerTest extends TestCase
         ];
 
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer '.\JWTAuth::fromUser($this->user)
+            'Authorization' => 'Bearer '.\JWTAuth::fromUser($this->user),
         ])->postJson('/api/banners/set', $postData);
 
         $response->assertOk();
@@ -55,7 +55,7 @@ class BannerTest extends TestCase
             ->first();
 
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer '.\JWTAuth::fromUser($this->user)
+            'Authorization' => 'Bearer '.\JWTAuth::fromUser($this->user),
         ])->delete('/api/banners/delete/'.$banner->id);
 
         $response->assertOk();
@@ -73,7 +73,7 @@ class BannerTest extends TestCase
             ->first();
 
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer '.\JWTAuth::fromUser($this->user)
+            'Authorization' => 'Bearer '.\JWTAuth::fromUser($this->user),
         ])->post('/api/banners/top/'.$banner->id);
 
         $response->assertOk();
