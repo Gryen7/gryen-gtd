@@ -16,7 +16,7 @@ class BannersController extends Controller
         if (empty($oldBanner)) {
             $msg = Banner::create(array_merge($request->all(), [
                 'status' => 1,
-                'weight' => Banner::max('weight') + 1
+                'weight' => Banner::max('weight') + 1,
             ]));
         } else {
             $msg = $oldBanner->update(array_merge($request->all(),

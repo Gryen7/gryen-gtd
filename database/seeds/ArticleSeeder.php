@@ -17,7 +17,7 @@ class ArticleSeeder extends Seeder
                 $article->withContent()->save(factory(\App\ArticleData::class)->make());
                 factory(\App\Banner::class)->create([
                     'article_id' => $article->id,
-                    'weight' => $article->id
+                    'weight' => $article->id,
                 ]);
                 \App\Tag::createArticleTagProcess($article->tags, $article->id);
             });
