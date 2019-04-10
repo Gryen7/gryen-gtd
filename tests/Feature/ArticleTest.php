@@ -15,7 +15,7 @@ class ArticleTest extends TestCase
     private $firstArticle;
     private $user;
 
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
 
@@ -37,7 +37,7 @@ class ArticleTest extends TestCase
     public function testArticlesPage()
     {
         $this->get('/articles')
-            ->assertOk()
+            ->assertSuccessful()
             ->assertSeeText($this->firstArticle->title)
             ->assertSeeText($this->firstArticle->description);
     }
@@ -45,14 +45,14 @@ class ArticleTest extends TestCase
     public function testTagPage()
     {
         $this->get('/articles/tag/'.$this->firstArticle->tagArray[0])
-            ->assertOk()
+            ->assertSuccessful()
             ->assertSeeText($this->firstArticle->title);
     }
 
     public function testArticleShowPage()
     {
         $this->get('/articles/show/'.$this->firstArticle->id.'.html')
-            ->assertOk()
+            ->assertSuccessful()
             ->assertSeeText($this->firstArticle->title)
             ->assertSeeText($this->firstArticle->content);
     }
@@ -61,14 +61,14 @@ class ArticleTest extends TestCase
     {
         $this->actingAs($this->user)
             ->get('/articles/create')
-            ->assertOk();
+            ->assertSuccessful();
     }
 
     public function testEditArticlePage()
     {
         $this->actingAs($this->user)
             ->get('/articles/edit/'.$this->firstArticle->id)
-            ->assertOk();
+            ->assertSuccessful();
     }
 
     public function testStoreArticle()
@@ -86,7 +86,7 @@ class ArticleTest extends TestCase
         $response = $this->actingAs($this->user)
             ->postJson('/articles/store', $postData);
 
-        $response->assertOk();
+        $response->assertSuccessful();
 
         $tagArray = array_filter(explode(',', $postData['tags']));
 
@@ -94,7 +94,7 @@ class ArticleTest extends TestCase
             ->assertSeeText($postData['title'])
             ->assertSeeText($postData['content'])
             ->assertSeeText($tagArray[0])
-            ->assertOk();
+            ->assertSuccessful();
     }
 
     public function testUpdateArticle()
@@ -112,7 +112,7 @@ class ArticleTest extends TestCase
         $response = $this->actingAs($this->user)
             ->postJson('/articles/update/'.$this->firstArticle->id, $postData);
 
-        $response->assertOk();
+        $response->assertSuccessful();
 
         $tagArray = array_filter(explode(',', $postData['tags']));
 
@@ -120,7 +120,7 @@ class ArticleTest extends TestCase
             ->assertSeeText($postData['title'])
             ->assertSeeText($postData['content'])
             ->assertSeeText($tagArray[0])
-            ->assertOk();
+            ->assertSuccessful();
     }
 
     public function testUploadCover()
@@ -132,7 +132,7 @@ class ArticleTest extends TestCase
                 'cover' => UploadedFile::fake()->image('cover.jpg')->size(200),
             ]);
 
-        $response->assertOk()
+        $response->assertSuccessful()
             ->assertJson([
                 'success' => true,
             ]);

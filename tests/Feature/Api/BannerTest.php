@@ -11,7 +11,7 @@ class BannerTest extends TestCase
 
     private $user;
 
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
 
@@ -40,7 +40,7 @@ class BannerTest extends TestCase
             'Authorization' => 'Bearer '.\JWTAuth::fromUser($this->user),
         ])->postJson('/api/banners/set', $postData);
 
-        $response->assertOk();
+        $response->assertSuccessful();
 
         $banner = \DB::table('banners')
             ->orderBy('weight', 'desc')
@@ -58,7 +58,7 @@ class BannerTest extends TestCase
             'Authorization' => 'Bearer '.\JWTAuth::fromUser($this->user),
         ])->delete('/api/banners/delete/'.$banner->id);
 
-        $response->assertOk();
+        $response->assertSuccessful();
 
         $banner = \DB::table('banners')
             ->find($banner->id);
@@ -76,7 +76,7 @@ class BannerTest extends TestCase
             'Authorization' => 'Bearer '.\JWTAuth::fromUser($this->user),
         ])->post('/api/banners/top/'.$banner->id);
 
-        $response->assertOk();
+        $response->assertSuccessful();
 
         $banner = \DB::table('banners')->find($banner->id);
         $maxWeight = \DB::table('banners')->max('weight');

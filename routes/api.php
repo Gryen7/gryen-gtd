@@ -15,7 +15,7 @@ Route::middleware(['refresh.token'])->group(function () {
     Route::get('/currentuser', 'Api\UserController@currentUser');
 
     Route::get('/articles/list', 'Api\ArticlesController@getList');
-    Route::delete('/articles/delete', 'Api\ArticlesController@delete');
+    Route::post('/articles/delete', 'Api\ArticlesController@delete');
     Route::post('/articles/restore', 'Api\ArticlesController@restore');
     Route::post('/articles/forcedelete', 'Api\ArticlesController@forceDelete');
 

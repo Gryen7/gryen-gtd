@@ -73,5 +73,6 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 [Laravel](http
 
 5. 执行 `php artisan key:generate` 生成应用密钥；
 6. 执行 `php artisan migrate`，生成数据表；
-7. 通过 http(s)://[yourdomain]/register 注册用户；
-8. 开始使用。
+7. 执行 `php artisan jwt:secret`，生成 jwt secret；
+8. 通过 http(s)://[yourdomain]/register 注册用户；
+9. 开始使用。
