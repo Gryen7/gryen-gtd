@@ -7,7 +7,6 @@ use Tests\TestCase;
 
 class ArticleTest extends TestCase
 {
-
     private $firstArticle;
     private $user;
     private static $COUNT = 3;
@@ -24,10 +23,10 @@ class ArticleTest extends TestCase
             });
 
         $this->firstArticle = \DB::table('articles')->first();
-        
+
         factory(\App\Article::class, self::$COUNT)
             ->create([
-                'tags' => $this->firstArticle->tags
+                'tags' => $this->firstArticle->tags,
             ])
             ->each(function ($article) {
                 $article->withContent()->save(factory(\App\ArticleData::class)->make());
@@ -64,7 +63,7 @@ class ArticleTest extends TestCase
         $article = \DB::table('articles')
             ->find($this->firstArticle->id);
 
-        $this->assertTrue(!empty($article) && !empty($article->deleted_at));
+        $this->assertTrue(! empty($article) && ! empty($article->deleted_at));
     }
 
     public function testRestore()
@@ -76,7 +75,7 @@ class ArticleTest extends TestCase
         $article = \DB::table('articles')
             ->find($this->firstArticle->id);
 
-        $this->assertTrue(!empty($article) && empty($article->deleted_at));
+        $this->assertTrue(! empty($article) && empty($article->deleted_at));
     }
 
     public function testForceDelete()
@@ -84,7 +83,7 @@ class ArticleTest extends TestCase
         \DB::table('articles')
             ->where('id', $this->firstArticle->id)
             ->update([
-                'deleted_at' => Carbon::now()
+                'deleted_at' => Carbon::now(),
             ]);
 
         $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
@@ -94,7 +93,7 @@ class ArticleTest extends TestCase
 
         $article = \DB::table('articles')
             ->find($this->firstArticle->id);
-        
+
         $this->assertTrue(empty($article));
     }
 }
