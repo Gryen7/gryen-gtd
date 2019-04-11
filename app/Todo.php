@@ -39,9 +39,6 @@ class Todo extends Eloquent
         $todosCount = self::where('status', 0)->count();
         $doingCount = self::where('status', 1)->count();
         $doneCount = self::where('status', 2)->count();
-
-        \Log::debug('getTodoListForControlPannel', [$params]);
-
         $page = $params['page'];
         $pageSize = 10;
         $skip = ($page - 1) * $pageSize;
