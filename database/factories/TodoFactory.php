@@ -12,6 +12,6 @@ $factory->define(App\Todo::class, function (Faker $faker) {
         'status' => $faker->numberBetween(0, 2),
         'importance' => $faker->numberBetween(0, 3),
         'begin_at' => $beginAt,
-        'end_at' => $endAt
+        'end_at' => $endAt,
     ];
 });

@@ -3,8 +3,8 @@
 namespace Tests\Feature\Api;
 
 use Carbon\Carbon;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class TodoTest extends TestCase
 {
@@ -22,7 +22,7 @@ class TodoTest extends TestCase
         factory(\App\Todo::class, self::$COUNT)->create()
             ->each(function ($todo) {
                 $todo->withDescription()->save(factory(\App\TodoDescription::class)->make([
-                    'todo_id' => $todo->id
+                    'todo_id' => $todo->id,
                 ]));
             });
     }
@@ -48,7 +48,7 @@ class TodoTest extends TestCase
             'importance' => $faker->numberBetween(0, 2),
             'begin_at' => $beginAt,
             'end_at' => $endAt,
-            'description' => $faker->text
+            'description' => $faker->text,
         ];
 
         $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
@@ -80,7 +80,7 @@ class TodoTest extends TestCase
     public function testDeleteTodo()
     {
         $todo = \DB::table('todos')->first();
-        
+
         $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
             ->post('/api/todos/delete/'.$todo->id);
         $response->assertSuccessful();

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Requests\UpdateTodoRequest;
 use App\Todo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateTodoRequest;
+use App\Http\Requests\UpdateTodoRequest;
 
 class TodosController extends Controller
 {
