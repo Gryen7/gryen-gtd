@@ -39,9 +39,8 @@ class ArticleTest extends TestCase
 
     public function testMoreArticles()
     {
-        $response = $this->withHeaders([
-            'Authorization' => 'Bearer '.\JWTAuth::fromUser($this->user),
-        ])->getJson('/api/articles/list/'.$this->firstArticle->id);
+        $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
+            ->getJson('/api/articles/list/'.$this->firstArticle->id);
 
         $response->assertSuccessful()
             ->assertJsonCount(self::$COUNT);
@@ -49,18 +48,16 @@ class ArticleTest extends TestCase
 
     public function testGetList()
     {
-        $response = $this->withHeaders([
-            'Authorization' => 'Bearer '.\JWTAuth::fromUser($this->user),
-        ])->getJson('/api/articles/list');
+        $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
+            ->getJson('/api/articles/list');
 
         $response->assertSuccessful();
     }
 
     public function testDelete()
     {
-        $response = $this->withHeaders([
-            'Authorization' => 'Bearer '.\JWTAuth::fromUser($this->user),
-        ])->post('/api/articles/delete', ['ids' => [$this->firstArticle->id]]);
+        $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
+            ->post('/api/articles/delete', ['ids' => [$this->firstArticle->id]]);
 
         $response->assertSuccessful();
 
