@@ -40,7 +40,7 @@ class Todo extends Eloquent
         $doingCount = self::where('status', 1)->count();
         $doneCount = self::where('status', 2)->count();
 
-        \Log::debug('getTodoListForControlPannel', array($params));
+        \Log::debug('getTodoListForControlPannel', [$params]);
 
         $page = $params['page'];
         $pageSize = 10;
