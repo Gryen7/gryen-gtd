@@ -19,14 +19,14 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 <a target="_bl
 <a href="https://github.com/itargaryen/gryen-gtd">
   <img src="https://img.shields.io/badge/Awesome-Laravel-brightgreen.svg?style=flat-square" alt="Awesome Laravel">
 </a>
-<a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu" /></a>
 </p>
 
 ## 目录
 
 -   [页面一览](readme.md#页面一览)
 -   [运行环境](readme.md#运行环境)
--   [安装说明](readme.md#安装说明)
+-   [安装指南](readme.md#安装指南)
+-   [日常维护](readme.md#日常维护)
 -   [更新日志](CHANGELOG.md)
 
 ### 页面一览
@@ -57,7 +57,9 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 <a target="_bl
 -   安装 NodeJS 以支持前端构建；
 -   推荐安装启用 Redis 以提高性能。
 
-### 安装说明
+### 安装指南
+
+#### 基础配置
 
 1. 克隆或下载代码；
 2. 执行 `composer install` 安装 PHP 依赖；
@@ -70,10 +72,25 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 <a target="_bl
     DB_PASSWORD=
     ```
 
-    亦可进一步修改其他参数，使用 Redis 或者使用[七牛云](https://portal.qiniu.com/signup?code=3loirka20zp76)加速网站。
+    _亦可进一步修改其他参数，使用 Redis 或者使用[七牛云](https://portal.qiniu.com/signup?code=3loirka20zp76)加速网站。_
 
 5. 执行 `php artisan key:generate` 生成应用密钥；
-6. 执行 `php artisan migrate`，生成数据表；
-7. 执行 `php artisan jwt:secret`，生成 jwt secret；
-8. 通过 http(s)://[yourdomain]/register 注册用户；
-9. 开始使用。
+6. 执行 `php artisan migrate`，生成数据表。
+
+#### 评估试用
+
+1. 借助 Laravel 提供的快速填充数据能力，配置成功后可以马上看到 Gryen-GTD 铺满笔记的效果：执行 `php artisan db:seed` 填充数据，然后访问 `http(s)://[yourdomain]/` 查看；
+2. 访问 `http(s)://[yourdomain]/login` 登录用户（邮箱：`user@gryen.com`，密码：`secret`）；
+3. 访问 `http(s)://[yourdomain]/articles/create` 尝试创作。
+
+**借助 artisan 命令，评估结束后可以方便地移除测试数据，执行 `php artisan migrate:fresh` 重建数据表。**
+
+#### 正式使用
+
+1. 确保已经执行 `php artisan migrate:fresh` 重建数据表，访问 `http(s)://[yourdomain]/register` 注册用户获取权限；
+2. 访问 `http(s)://[yourdomain]/login` 登录用户；
+3. 访问 `http(s)://[yourdomain]/articles/create` 开始创作。
+
+### 日常维护
+
+1.0 版本之后，移除了管理部分的代码，现在使用 [Gryen-Dashboard](https://github.com/itargaryen/gryen-dashboard) 管理 Gryen-GTD，最终希望实现本地、线上随时随地的编辑发布体验。
