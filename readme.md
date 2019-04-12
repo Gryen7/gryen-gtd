@@ -3,7 +3,7 @@ Gryen-GTD
 </h1>
 
 <p align="center">
-gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 [Laravel](https://laravel.com/) 开发，提供博客发布、任务列表等功能。
+gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 <a target="_blank" href="https://laravel.com/" rel="noopener noreferrer">Laravel</a> 开发，提供博客发布、任务列表等功能。
 </p>
 
 <p align="center">
