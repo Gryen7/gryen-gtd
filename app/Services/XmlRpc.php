@@ -12,7 +12,7 @@ namespace App\Services;
  * XmlRpc Encode 类
  * PHP自带的有xmlrpc类 @link http://php.net/manual/zh/book.xmlrpc.php
  * 但是PHP自带的xmlrpc类是实验性质的，同时文档过少，还有解析出来的xml结构在部分xmlrpc发布的软件上不支持
- * 本类中部分函数来自于github 的gist ，具体地址找不到了，即此感谢原作者.
+ * 本类中部分函数来自于github 的 gist ，具体地址找不到了，即此感谢原作者.
  */
 class XmlRpc
 {
@@ -44,7 +44,6 @@ class XmlRpc
                         //you can't have numeric keys at two levels in a row, so this is ok
                         //echo "Checking to see if a numeric key exists in data.";
                         if (is_array($value) and array_key_exists(0, $value)) {
-                            //	echo " It does! Calling myself as a result of a numeric array.<br>";
                             $numeric_array = true;
                             $XMLSerialized_string .= self::XMLSerialize($value, $level, $key);
                         }
@@ -85,7 +84,7 @@ class XmlRpc
                 } else {
                     $returnvalue['array']['data']['value'] = [];
                     $temp = &$returnvalue['array']['data']['value'];
-                    $count = self::count_numeric_items($data);
+                    $count = self::countNumericItems($data);
                     for ($n = 0; $n < $count; $n++) {
                         $type = null;
                         if (array_key_exists("$n type", $data)) {
@@ -182,7 +181,7 @@ class XmlRpc
         }
     }
 
-    public static function count_numeric_items(&$array)
+    public static function countNumericItems(&$array)
     {
         return is_array($array) ? count(array_filter(array_keys($array), 'is_numeric')) : 0;
     }
