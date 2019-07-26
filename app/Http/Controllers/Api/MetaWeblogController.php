@@ -32,7 +32,7 @@ class MetaWeblogController extends Controller
         $method = null;
         $response = xmlrpc_decode_request($request, $method);
 
-        list($appkey, $username, $password) = $response;
+        [$appkey, $username, $password] = $response;
 
         if (! $this->authenticate($username, $password)) {
             $response = [
@@ -90,7 +90,7 @@ class MetaWeblogController extends Controller
      */
     public function getPost($method, $params)
     {
-        list($post_id) = $params;
+        [$post_id] = $params;
 
         $response = [];
 
@@ -113,7 +113,7 @@ class MetaWeblogController extends Controller
      */
     public function newPost($method, $params)
     {
-        list($blogid, $username, $password, $struct, $publish) = $params;
+        [$blogid, $username, $password, $struct, $publish] = $params;
 
         $request = self::handleDescContent($this->transform($struct));
 
@@ -138,7 +138,7 @@ class MetaWeblogController extends Controller
      */
     public function editPost($method, $params)
     {
-        list($post_id, $username, $password, $struct, $publish) = $params;
+        [$post_id, $username, $password, $struct, $publish] = $params;
 
         $request = self::handleDescContent($this->transform($struct));
 
@@ -179,7 +179,7 @@ class MetaWeblogController extends Controller
      */
     public function deletePost($method, $params)
     {
-        list($appKey, $postid, $username, $password, $publish) = $params;
+        [$appKey, $postid, $username, $password, $publish] = $params;
         $res = Article::destroy($postid);
 
         XmlRpc::response($res > 0);
@@ -192,7 +192,7 @@ class MetaWeblogController extends Controller
      */
     public function getRecentPosts($method, $params)
     {
-        list($blogid, $username, $password, $numberOfPosts) = $params;
+        [$blogid, $username, $password, $numberOfPosts] = $params;
 
         XmlRpc::response($params);
     }
@@ -215,7 +215,7 @@ class MetaWeblogController extends Controller
      */
     public function newCategory($method, $params)
     {
-        list($blog_id, $username, $password, $category) = $params;
+        [$blog_id, $username, $password, $category] = $params;
 
         $categorys['id'] = 1;
 
@@ -229,7 +229,7 @@ class MetaWeblogController extends Controller
      */
     public function newMediaObject($method, $params)
     {
-        list($blogid, $username, $password, $struct) = $params;
+        [$blogid, $username, $password, $struct] = $params;
 
         preg_match('/^(data:\s*image\/(\w+);base64,)/', $struct['bits']->scalar, $result);
 

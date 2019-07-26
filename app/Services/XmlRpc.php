@@ -31,7 +31,7 @@ class XmlRpc
                 //echo "My current key is '$key', called with prior key '$prior_key'<br>";
                 if (! strstr($key, ' attr')) { //if it's not an attribute
                     if (array_key_exists("$key attr", $data)) {
-                        while (list($attr_name, $attr_value) = each($data["$key attr"])) {
+                        while ([$attr_name, $attr_value] = each($data["$key attr"])) {
                             //echo "Found attribute $attribute_name with value $attribute_value<br>";
                             $attr_value = &htmlspecialchars($attr_value, ENT_QUOTES);
                             $attributes .= " $attr_name=\"$attr_value\"";
