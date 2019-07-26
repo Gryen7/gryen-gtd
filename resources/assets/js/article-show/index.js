@@ -17,12 +17,6 @@ const Images = TArtclBox.find('img');
 const TFullScreen = TBody.find('#tFullScreen');
 const TFullScreenImg = TFullScreen.find('#tFullScreenImg');
 
-$('img').lazyload({
-    skip_invisible: true,
-    threshold : 400,
-    effect : "fadeIn"
-});
-
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('bash', bash);
 hljs.registerLanguage('php', php);
@@ -31,8 +25,6 @@ hljs.registerLanguage('scss', scss);
 hljs.registerLanguage('less', less);
 hljs.registerLanguage('json', json);
 hljs.initHighlighting();
-
-console.log(hljs.listLanguages());
 
 /**
  * 查看原图

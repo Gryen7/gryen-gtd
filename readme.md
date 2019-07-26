@@ -83,7 +83,7 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 <a target="_bl
 2. 访问 `http(s)://[yourdomain]/login` 登录用户（邮箱：`user@gryen.com`，密码：`secret`）；
 3. 访问 `http(s)://[yourdomain]/articles/create` 尝试创作。
 
-**借助 artisan 命令，评估结束后可以方便地移除测试数据，执行 `php artisan migrate:fresh` 重建数据表。**
+**借助 artisan 命令，评估结束后可以p方便地移除测试数据，执行 `php artisan migrate:fresh` 重建数据表。**
 
 #### 正式使用
 
