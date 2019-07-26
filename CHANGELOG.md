@@ -1,5 +1,17 @@
 # 更新日志
 
+## v1.1
+
+### Features
+
+* [ ] 升级到 Laravel 5.8
+* [x] 图片懒加载由 `jquery-lazyload` 换到 `lazysizes`
+* [ ] 评估试用使用 `php artisan db:seed` 快速填充数据
+* [ ] 提升功能点测试覆盖率，提升系统稳定性
+* [ ] 封面页设计美化
+
+### BREAKING CHANGES
+
 ## v1.0
 
 ### Features
@@ -12,9 +24,9 @@
 
 ### BREAKING CHANGES
 
-* [x] 新的封面
-* 删除后台，使用 [gryen-dashboard](https://github.com/itargaryen/gryen-dashboard)
-* 删除手作展示模块
+* [x] 新的封面页
+* [x] 删除后台，使用 [gryen-dashboard](https://github.com/itargaryen/gryen-dashboard)
+* [x] 删除手作展示模块
 
 ## v0.9
 
