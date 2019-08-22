@@ -79,11 +79,12 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 <a target="_bl
 
 #### 评估试用
 
-1. 借助 Laravel 提供的快速填充数据能力，配置成功后可以马上看到 Gryen-GTD 铺满笔记的效果：执行 `php artisan db:seed` 填充数据，然后访问 `http(s)://[yourdomain]/` 查看；
-2. 访问 `http(s)://[yourdomain]/login` 登录用户（邮箱：`user@gryen.com`，密码：`secret`）；
-3. 访问 `http(s)://[yourdomain]/articles/create` 尝试创作。
+1. 首先，执行 `composer dumpautoload` 转储自动加载器；
+2. 借助 Laravel 提供的快速填充数据能力，配置成功后可以马上看到 Gryen-GTD 铺满笔记的效果：执行 `php artisan db:seed` 填充数据，然后访问 `http(s)://[yourdomain]/` 查看；
+3. 访问 `http(s)://[yourdomain]/login` 登录用户（邮箱：`user@comgryen.com`，密码：`secret`）；
+4. 访问 `http(s)://[yourdomain]/articles/create` 尝试创作。
 
-**借助 artisan 命令，评估结束后可以p方便地移除测试数据，执行 `php artisan migrate:fresh` 重建数据表。**
+**评估结束后可以方便地移除测试数据，执行 `php artisan migrate:fresh` 重建数据表即可。**
 
 #### 正式使用
 
