@@ -75,7 +75,8 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 <a target="_bl
     _亦可进一步修改其他参数，使用 Redis 或者使用[七牛云](https://portal.qiniu.com/signup?code=3loirka20zp76)加速网站。_
 
 5. 执行 `php artisan key:generate` 生成应用密钥；
-6. 执行 `php artisan migrate`，生成数据表。
+6. 执行 `php artisan migrate`，生成数据表；
+7. 执行 `php artisan jwt:secret` 生成 jwt 秘钥。
 
 #### 评估试用
 
