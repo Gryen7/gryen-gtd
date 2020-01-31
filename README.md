@@ -23,10 +23,10 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 <a target="_bl
 
 ## 目录
 
--   [页面一览](readme.md#页面一览)
--   [运行环境](readme.md#运行环境)
--   [安装指南](readme.md#安装指南)
--   [日常维护](readme.md#日常维护)
+-   [页面一览](README.md#页面一览)
+-   [运行环境](README.md#运行环境)
+-   [安装指南](README.md#安装指南)
+-   [日常维护](README.md#日常维护)
 -   [更新日志](CHANGELOG.md)
 
 ### 页面一览
