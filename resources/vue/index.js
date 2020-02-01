@@ -13,6 +13,7 @@ require('./bootstrap');
  */
 
 Vue.component('moreArticles', require('./components/articles/more-articles').default);
+Vue.component('topArticles', require('./components/home/top-articles').default);
 
 // noinspection ES6ModulesDependencies
 new Vue({
