@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Tag;
 use App\Article;
 use App\Http\Controllers\Controller;
+use App\Tag;
 use Illuminate\Database\Eloquent\Collection;
 
 class ArticlesController extends Controller
