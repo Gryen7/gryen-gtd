@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use Exception;
 use App\Config;
 use App\ConfigMany;
+use Exception;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

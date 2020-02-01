@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use DomXPath;
-use GuzzleHttp;
-use DOMDocument;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\WebArticleRequest;
+use DOMDocument;
+use DomXPath;
+use GuzzleHttp;
 
 class WebArticles extends Controller
 {
