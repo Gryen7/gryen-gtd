@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Tag;
-use App\File;
-use App\Config;
 use App\Article;
+use App\Config;
+use App\File;
+use App\Http\Requests\CreateArticleRequest;
+use App\Tag;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
-use App\Http\Requests\CreateArticleRequest;
 
 class ArticlesController extends Controller
 {
