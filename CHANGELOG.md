@@ -30,11 +30,11 @@
 
 ### Features
 
-* [x] 升级到 laravel 5.7
-* [x] 升级到 bootstrap 4
-* [x] 新的笔记页
-* [x] 优化 JS、CSS，进一步提升页面加载速度
-* [x] 标签列表页 URL 优化
+* 升级到 laravel 5.7
+* 升级到 bootstrap 4
+* 新的笔记页
+* 优化 JS、CSS，进一步提升页面加载速度
+* 标签列表页 URL 优化
 
 ### BREAKING CHANGES
 
