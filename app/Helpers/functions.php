@@ -87,15 +87,15 @@ function version()
  */
 function handleContentImage($content)
 {
-    $rightImgs = [];
+    $newImgs = [];
 
     preg_match_all('/<img.*?src="(.*?)".*?>/is', $content, $result);
     $oldImgs = [];
     foreach ($result[1] as $value) {
         array_push($oldImgs, 'src="'.$value.'"');
-        array_push($rightImgs, 'data-original="'.imageView2($value, [], 0, '100').'"');
+        array_push($newImgs, 'data-src="'.imageView2($value, [], 0, '100').'" class="'.env('LAZY_LOAD_CLASS').'"');
     }
-    $content = str_replace($oldImgs, $rightImgs, $content);
+    $content = str_replace($oldImgs, $newImgs, $content);
 
     return $content;
 }

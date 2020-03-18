@@ -26,6 +26,7 @@ class CreateTodoRequest extends FormRequest
         return [
             'importance' => 'required',
             'content' => 'required',
+            'begin_at' => 'required',
             'end_at' => 'required',
         ];
     }
