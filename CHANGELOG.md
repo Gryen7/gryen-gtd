@@ -1,24 +1,30 @@
 # 更新日志
 
+## v1.2
+
+### Features
+
+* [ ] 封面页设计美化
+* [ ] 升级到 Laravel 5.8
+
 ## v1.1
 
 ### Features
 
-* [ ] 升级到 Laravel 5.8
-* [x] 图片懒加载由 `jquery-lazyload` 换到 `lazysizes`
-* [ ] 评估试用使用 `php artisan db:seed` 快速填充数据
-* [ ] 提升功能点测试覆盖率，提升系统稳定性
-* [ ] 封面页设计美化
+* [x] 评估试用使用 `php artisan db:seed` 快速填充数据
+* [x] 提升功能点测试覆盖率，提升系统稳定性
 * [x] 伪静态页面
 * [x] 文章列表页文章数量参数化
 * [x] Travis jwt 初始化
 * [x] 添加获取文章列表、删除文章、恢复删除文章、彻底删除文章等 Api
-* [x] 去掉通过站点直接彻底删除文章的功能
 * [x] 去掉冗余代码
 * [x] 其他问题修复
 
 
 ### BREAKING CHANGES
+
+* [x] 图片懒加载由 `jquery-lazyload` 换到 `lazysizes`
+* [x] 去掉通过站点直接彻底删除文章的功能
 
 ## v1.0
 
