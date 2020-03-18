@@ -6,6 +6,7 @@
 Route::get('/', 'HomeController@index');
 Route::get('/sitemap', 'HomeController@sitemap');
 Route::get('/logout', 'Auth\LoginController@logout');
+Route::get('/privacypolicy', 'HomeController@privacyPolicy');
 
 Auth::routes();
 
