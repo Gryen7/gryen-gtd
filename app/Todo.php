@@ -49,7 +49,7 @@ class Todo extends Eloquent
 
         $status = self::handleStatus(isset($params['status']) ? $params['status'] : null);
 
-        if ($status) {
+        if ($status !== null) {
             $todos = self::where('status', $status)
                 ->orderByDesc('created_at')
                 ->skip($skip)
@@ -71,7 +71,17 @@ class Todo extends Eloquent
             $todo->statusText = ['active', 'exception', 'normal', 'success'][$todo->status];
         }
 
-        return compact('todos', 'prev', 'next', 'pageCount', 'pageSize', 'total', 'todosCount', 'doingCount', 'doneCount');
+        return compact(
+            'todos',
+            'prev',
+            'next',
+            'pageCount',
+            'pageSize',
+            'total',
+            'todosCount',
+            'doingCount',
+            'doneCount'
+        );
     }
 
     private static function handleStatus($statusStr)

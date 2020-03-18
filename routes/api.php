@@ -12,25 +12,24 @@
 */
 
 Route::middleware(['refresh.token'])->group(function () {
-    Route::get('/currentUser', 'Api\UserController@currentUser');
+    Route::get('/currentuser', 'Api\UserController@currentUser');
+
+    Route::get('/articles/list', 'Api\ArticlesController@getList');
+    Route::post('/articles/delete', 'Api\ArticlesController@delete');
+    Route::post('/articles/restore', 'Api\ArticlesController@restore');
+    Route::post('/articles/forcedelete', 'Api\ArticlesController@forceDelete');
 
     Route::get('/todos/count', 'Api\TodosController@count');
     Route::get('/todos/list', 'Api\TodosController@getList');
-    Route::post('/todos/updateOrCreate', 'Api\TodosController@updateOrCreate');
+    Route::post('/todos/updateorcreate', 'Api\TodosController@updateOrCreate');
     Route::post('/todos/update', 'Api\TodosController@updateTodo');
     Route::post('/todos/delete/{id}', 'Api\TodosController@deleteTodo');
 
     Route::post('/banners/set', 'Api\BannersController@set');
     Route::delete('/banners/delete/{id}', 'Api\BannersController@delete');
     Route::post('/banners/top/{id}', 'Api\BannersController@top');
-
-    Route::post('/pushtokindle', 'Api\PushToKindleController@index');
-
-    Route::get('/webarticle/get', 'Api\WebArticles@getArticleData');
-    Route::get('/webarticle/tpl', 'Api\WebArticles@webArticleTpl');
 });
 
 Route::post('/user/login', 'Api\UserController@login');
 Route::get('/articles/list/{articleId}', 'Api\ArticlesController@moreArticles');
-Route::get('/notices/wechat', 'Api\NoticesController@wechat');
 Route::post('/xmlrpc', 'Api\MetaWeblogController@index');

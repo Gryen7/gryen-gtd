@@ -12,8 +12,6 @@ use Illuminate\Support\Facades\Input;
 
 class ArticlesController extends Controller
 {
-    private static $PAGE_SIZE = 15;
-
     /**
      * 文章列表页.
      * @return \Illuminate\Http\Response
@@ -24,7 +22,7 @@ class ArticlesController extends Controller
     {
         $articles = Article::where('status', '>', 0)
             ->orderBy('created_at', 'desc')
-            ->paginate(self::$PAGE_SIZE);
+            ->paginate(env('ARTICLE_PAGE_SIZE'));
 
         foreach ($articles as &$article) {
             if (empty($article->cover)) {
@@ -35,6 +33,10 @@ class ArticlesController extends Controller
         return view('articles.index', compact('articles'));
     }
 
+    /**
+     * @param $tag
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function tag($tag)
     {
         $tag = Tag::where('name', $tag)
@@ -43,11 +45,15 @@ class ArticlesController extends Controller
         $articles = empty($tag) ? (object) [] : $tag->article()
             ->where('status', '>', 0)
             ->orderBy('created_at', 'desc')
-            ->paginate(self::$PAGE_SIZE);
+            ->paginate(env('ARTICLE_PAGE_SIZE'));
 
         foreach ($articles as &$article) {
             if (empty($article->cover)) {
-                $article->cover = Config::getAllConfig('SITE_DEFAULT_IMAGE');
+                try {
+                    $article->cover = Config::getAllConfig('SITE_DEFAULT_IMAGE');
+                } catch (\Exception $e) {
+                    \Log::error('Get SITE_DEFAULT_IMAGE error.', $e);
+                }
             }
         }
 
@@ -206,21 +212,6 @@ class ArticlesController extends Controller
     public function delete($ids)
     {
         Article::destroy($ids);
-
-        return redirect($_SERVER['HTTP_REFERER']);
-    }
-
-    /**
-     * 彻底删除一篇文章.
-     *
-     * @param $id
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
-    public function destroy($id)
-    {
-        $article = Article::onlyTrashed()
-            ->find($id);
-        $article->forceDelete();
 
         return redirect($_SERVER['HTTP_REFERER']);
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateTodoRequest;
+use App\Http\Requests\UpdateTodoRequest;
 use App\Todo;
 use Illuminate\Http\Request;
 
@@ -44,7 +45,7 @@ class TodosController extends Controller
         return response($todos);
     }
 
-    public function updateTodo(Request $request)
+    public function updateTodo(UpdateTodoRequest $request)
     {
         $status = null;
 

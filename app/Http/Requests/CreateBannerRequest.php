@@ -25,7 +25,6 @@ class CreateBannerRequest extends FormRequest
     {
         return [
             'article_id' => 'required',
-            'article_title' => 'required',
             'cover' => 'required',
         ];
     }
