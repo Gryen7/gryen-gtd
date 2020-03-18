@@ -3,8 +3,8 @@
 namespace Tests\Feature\Api;
 
 use Carbon\Carbon;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class TodoTest extends TestCase
 {
