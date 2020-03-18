@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Tag;
-use App\Config;
 use App\Article;
-use Illuminate\Http\Request;
+use App\Config;
 use App\Http\Controllers\Controller;
+use App\Tag;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
