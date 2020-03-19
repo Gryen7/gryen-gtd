@@ -12,6 +12,16 @@ use Illuminate\Database\Eloquent\Collection;
 class ArticlesController extends Controller
 {
     /**
+     * 获取首页推荐文章
+     */
+    public function topArticles()
+    {
+        $articles = Article::all();
+
+        return $articles;
+    }
+
+    /**
      * 获取关联文章.
      * @param $articleId
      * @return array
@@ -66,7 +76,7 @@ class ArticlesController extends Controller
         $sorter = null;
         $pageSize = empty($request->get('pageSize')) ? env('ARTICLE_PAGE_SIZE') : $request->get('pageSize');
 
-        if (! empty($request)) {
+        if (!empty($request)) {
             $onlyTrashed = $request->get('only_trashed');
             $sorter = $request->get('sorter');
         }
