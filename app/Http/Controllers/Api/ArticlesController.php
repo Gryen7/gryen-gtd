@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class ArticlesController extends Controller
 {
     /**
-     * 获取首页推荐文章
+     * 获取首页推荐文章.
      */
     public function topArticles()
     {
