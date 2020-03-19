@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Tag;
-use App\Config;
 use App\Article;
-use Illuminate\Http\Request;
+use App\Config;
 use App\Http\Controllers\Controller;
+use App\Tag;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
@@ -76,7 +76,7 @@ class ArticlesController extends Controller
         $sorter = null;
         $pageSize = empty($request->get('pageSize')) ? env('ARTICLE_PAGE_SIZE') : $request->get('pageSize');
 
-        if (!empty($request)) {
+        if (! empty($request)) {
             $onlyTrashed = $request->get('only_trashed');
             $sorter = $request->get('sorter');
         }

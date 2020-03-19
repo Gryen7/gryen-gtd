@@ -21,6 +21,13 @@ class HomeController extends Controller
         return view('home.index', compact('module', 'banners'));
     }
 
+    public function privacyPolicy()
+    {
+        $module = 'home';
+
+        return view('home.privacy-policy', compact('module'));
+    }
+
     public function sitemap()
     {
         return Sitemap::create()
