@@ -9,10 +9,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 
-
 class GenSiteMapListener implements ShouldQueue
 {
-
     /**
      * Create the event listener.
      *
@@ -45,7 +43,7 @@ class GenSiteMapListener implements ShouldQueue
                 ->setChangeFrequency(\Spatie\Sitemap\Tags\Url::CHANGE_FREQUENCY_YEARLY)
                 ->setPriority(0.1));
 
-        Article::all()->each(function($article) use($siteMap) {
+        Article::all()->each(function ($article) use ($siteMap) {
             if ($article->status === 1) {
                 $siteMap->add(Url::create(action('ArticlesController@show', [$article->id]))
                     ->setLastModificationDate($article->updated_at)
