@@ -4,7 +4,6 @@
  * 首页、关于页等.
  */
 Route::get('/', 'HomeController@index');
-Route::get('/sitemap', 'HomeController@sitemap');
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/privacypolicy', 'HomeController@privacyPolicy');
 

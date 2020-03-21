@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Article;
 use App\Config;
+use App\Events\PublishArticle;
 use App\Http\Controllers\Controller;
 use App\Tag;
 use Illuminate\Database\Eloquent\Collection;
@@ -124,6 +125,8 @@ class ArticlesController extends Controller
             $response = $this->getList($request);
         }
 
+        event(new PublishArticle());
+
         return empty($response) ? response($response) : $response;
     }
 
@@ -141,6 +144,8 @@ class ArticlesController extends Controller
             ->find($id)->restore();
 
         $response = $this->getList($request);
+
+        event(new PublishArticle());
 
         return empty($response) ? response($response) : $response;
     }
