@@ -11,12 +11,17 @@
 }
 
 .t-index-right {
-  height: 100vh;
   z-index: 1021;
   margin-top: -1px;
   margin-bottom: -1px;
   position: sticky;
   top: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .t-index-right {
+        height: 100vh;
+    }
 }
 
 .t-index-intro {
