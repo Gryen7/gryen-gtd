@@ -31,8 +31,7 @@
           href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/lib.css'}} />
     <link rel="stylesheet prefetch" media="screen" charset="utf-8"
           href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/app.css'}} />
-    <link rel="preload" href="{{ imageView2(env('SITE_DEFAULT_IMAGE'), ['w' => 600,'h' => 300]) }}" as="image">
-    <link rel="preload" href="{{ imageView2(env('SITE_DEFAULT_IMAGE'), ['w' => 960,'h' => 540]) }}" as="image">
+    <link rel="preload" href="{{ env('SITE_DEFAULT_IMAGE') }}">
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),

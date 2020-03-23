@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Banner;
-use Carbon\Carbon;
-use Spatie\Sitemap\Sitemap;
 
 class HomeController extends Controller
 {
@@ -18,6 +16,13 @@ class HomeController extends Controller
         $module = 'home';
         $banners = Banner::orderByDesc('weight')->get();
 
+        $banners = $banners->map(function ($banner) {
+            $banner->href = action('ArticlesController@show', ['id' => $banner->article_id]);
+            $banner->articleTitle = $banner->article->title;
+
+            return $banner;
+        });
+
         return view('home.index', compact('module', 'banners'));
     }
 
@@ -26,15 +31,5 @@ class HomeController extends Controller
         $module = 'home';
 
         return view('home.privacy-policy', compact('module'));
-    }
-
-    public function sitemap()
-    {
-        return Sitemap::create()
-            ->add(\Spatie\Sitemap\Tags\Url::create('/home')
-                ->setLastModificationDate(Carbon::yesterday())
-                ->setChangeFrequency(\Spatie\Sitemap\Tags\Url::CHANGE_FREQUENCY_YEARLY)
-                ->setPriority(0.1))
-            ->render();
     }
 }
