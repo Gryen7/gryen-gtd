@@ -150,6 +150,8 @@ class ArticlesController extends Controller
         $siteKeywords = $article->tags;
         $siteDescription = $article->description;
 
+        $article->increment('views');
+
         return view('articles.show', compact('siteTitle', 'siteKeywords', 'siteDescription', 'article'));
     }
 

@@ -16,6 +16,13 @@ class HomeController extends Controller
         $module = 'home';
         $banners = Banner::orderByDesc('weight')->get();
 
+        $banners = $banners->map(function($banner) {
+            $banner->href = action('ArticlesController@show', ['id' => $banner->article_id]);
+            $banner->articleTitle = $banner->article->title;
+
+            return $banner;
+        });
+
         return view('home.index', compact('module', 'banners'));
     }
 

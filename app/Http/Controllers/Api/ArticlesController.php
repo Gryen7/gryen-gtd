@@ -17,7 +17,15 @@ class ArticlesController extends Controller
      */
     public function topArticles()
     {
-        $articles = Article::all();
+        $articles = Article::where('status', '>', 0)
+            ->orderBy('views', 'desc')
+            ->paginate(7);
+
+        $articles = $articles->map(function ($article) {
+            $article->href = action('ArticlesController@show', ['id' => $article->id]);
+
+            return $article;
+        });
 
         return $articles;
     }

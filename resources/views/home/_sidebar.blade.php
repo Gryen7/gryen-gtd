@@ -1,6 +1,6 @@
 <div class="col-md-4 t-index-right">
     <div class="t-index-intro">
-        <div class="t-index-avatar d-none d-sm-block">
+        <div class="t-index-avatar">
             <img src="https://statics.gryen.com/logo-120.png" alt="..."
                  class="rounded mx-auto d-block">
         </div>
