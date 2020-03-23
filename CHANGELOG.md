@@ -1,16 +1,21 @@
 # 更新日志
 
+## v1.5
+
+* [ ] 升级到 Laravel 5.8
+
+## v1.3
+
+### Features
+
+* [ ] RSS 订阅支持
+
 ## v1.2
 
 ### Features
 
-* [ ] 封面页设计美化
-* [ ] 升级到 Laravel 5.8
-* [x] 自动生成 sitemap 文件
-
-### BREAKING CHANGES
-
-* 无
+* 封面页设计美化
+* 自动生成 sitemap 文件
 
 ## v1.1
 
