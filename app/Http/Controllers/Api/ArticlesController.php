@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Article;
 use App\Config;
+use App\Events\PublishArticle;
 use App\Http\Controllers\Controller;
 use App\Tag;
 use Illuminate\Database\Eloquent\Collection;
@@ -11,6 +12,24 @@ use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
+    /**
+     * 获取首页推荐文章.
+     */
+    public function topArticles()
+    {
+        $articles = Article::where('status', '>', 0)
+            ->orderBy('views', 'desc')
+            ->paginate(7);
+
+        $articles = $articles->map(function ($article) {
+            $article->href = action('ArticlesController@show', ['id' => $article->id]);
+
+            return $article;
+        });
+
+        return $articles;
+    }
+
     /**
      * 获取关联文章.
      * @param $articleId
@@ -114,6 +133,8 @@ class ArticlesController extends Controller
             $response = $this->getList($request);
         }
 
+        event(new PublishArticle());
+
         return empty($response) ? response($response) : $response;
     }
 
@@ -131,6 +152,8 @@ class ArticlesController extends Controller
             ->find($id)->restore();
 
         $response = $this->getList($request);
+
+        event(new PublishArticle());
 
         return empty($response) ? response($response) : $response;
     }

@@ -11,7 +11,7 @@ class ArticleTest extends TestCase
     private $user;
     private static $COUNT = 3;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

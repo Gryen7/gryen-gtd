@@ -22,5 +22,7 @@ class ArticleData extends Model
         'content',
     ];
 
+    public $table = 'article_datas';
+
     public $timestamps = false;
 }

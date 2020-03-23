@@ -15,39 +15,40 @@
 </template>
 
 <script>
-import Vue from "vue";
-import VueLazyload from "vue-lazyload";
+import Vue from 'vue';
+import VueLazyload from 'vue-lazyload';
 
 Vue.use(VueLazyload);
 
 export default {
-  data: function() {
-    return {
-      articles: []
-    };
-  },
-  created: async function() {
-    let articleId = this.getArticleId();
-    let response = await axios.get(`/api/articles/list/${articleId}`);
+    data: function() {
+        return {
+            articles: []
+        };
+    },
+    created: async function() {
+        let articleId = this.getArticleId();
+        let response = await axios.get(`/api/articles/list/${articleId}`);
 
-    if (response && response.status === 200) {
-      this.articles = response.data;
+        if (response && response.status === 200) {
+            this.articles = response.data;
+        }
+    },
+    methods: {
+        getArticleId: function() {
+            let articleId = -1;
+
+            try {
+                articleId = /\/articles\/show\/(\d+).html/.exec(location.href)[1];
+            } catch (error) {
+                console.error('not get articleId');
+            }
+
+            return articleId;
+        }
     }
-  },
-  methods: {
-    getArticleId: function() {
-      let articleId = -1;
-
-      try {
-        articleId = /\/articles\/show\/(\d+).html/.exec(location.href)[1];
-      } catch (error) {
-        console.error("not get articleId");
-      }
-
-      return articleId;
-    }
-  }
 };
+
 </script>
 <style lang="scss">
 .card {

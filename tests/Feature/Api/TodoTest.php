@@ -13,7 +13,7 @@ class TodoTest extends TestCase
     private static $COUNT = 10;
     private $user;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

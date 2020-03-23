@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Config;
+use App\Events\PublishArticle;
 use App\File;
 use App\Http\Requests\CreateArticleRequest;
 use App\Tag;
@@ -98,6 +99,8 @@ class ArticlesController extends Controller
             'content' => $request->get('content'),
         ]);
 
+        event(new PublishArticle());
+
         return response()->json([
             'code' => 200,
             'message' => '文章提交成功',
@@ -146,6 +149,8 @@ class ArticlesController extends Controller
         $siteTitle = $article->title;
         $siteKeywords = $article->tags;
         $siteDescription = $article->description;
+
+        $article->increment('views');
 
         return view('articles.show', compact('siteTitle', 'siteKeywords', 'siteDescription', 'article'));
     }
@@ -213,6 +218,8 @@ class ArticlesController extends Controller
     {
         Article::destroy($ids);
 
+        event(new PublishArticle());
+
         return redirect($_SERVER['HTTP_REFERER']);
     }
 
@@ -227,6 +234,8 @@ class ArticlesController extends Controller
         Article::onlyTrashed()
             ->where('id', $ids)
             ->restore();
+
+        event(new PublishArticle());
 
         return redirect($_SERVER['HTTP_REFERER']);
     }
