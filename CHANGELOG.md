@@ -8,7 +8,9 @@
 
 ### Features
 
-* [ ] RSS 订阅支持
+* [x] RSS 订阅支持
+* [ ] 修复 https://github.com/itargaryen/gryen-gtd/issues/3
+* [ ] 修复上传文件失败的 BUG
 
 ## v1.2
 

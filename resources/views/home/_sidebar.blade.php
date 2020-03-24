@@ -52,12 +52,23 @@
                 </dd>
                 <dt class="col-5">
                     <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-RSS"></use>
+                    </svg>
+                    <span>RSS：</span>
+                </dt>
+                <dd class="col-7">
+                    <a href="/feed.xml" target="_blank">
+                        <span class="font-weight-light">点我订阅</span>
+                    </a>
+                </dd>
+                <dt class="col-5">
+                    <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-icon-beian"></use>
                     </svg>
                     <span>ICP 备案：</span>
                 </dt>
                 <dd class="col-7">
-                    <a href="http://www.miitbeian.gov.cn/">
+                    <a href="http://www.miitbeian.gov.cn/" target="_blank">
                         <span class="font-weight-light">鲁 ICP 备15009847号</span>
                     </a>
                 </dd>
