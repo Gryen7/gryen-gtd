@@ -1,6 +1,6 @@
 <template>
     <div class="card" v-if="articles.length">
-        <div class="card-header">推荐文章</div>
+        <div class="card-header">可能还想看</div>
         <div class="row card-body">
             <a  v-for="article in articles" :key="article.id" :href="article.href" class="col-md-4">
                 <figure class="figure">

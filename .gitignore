@@ -277,3 +277,4 @@ qshell.config
 npm-debug.log
 yarn-error.log
 /_ide_helper_models.php
+*.key
