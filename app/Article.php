@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Spatie\Feed\Feedable;
-use Spatie\Feed\FeedItem;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 
 class Article extends Eloquent implements Feedable
 {
@@ -68,6 +68,6 @@ class Article extends Eloquent implements Feedable
 
     public static function getFeedItems()
     {
-        return Article::all();
+        return self::all();
     }
 }

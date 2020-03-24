@@ -18,8 +18,8 @@ return [
              */
             'url' => '/feed.xml',
 
-            'title' => env('APP_NAME') . '\'s feed',
-            'description' => 'The feed of ' . env('APP_NAME'),
+            'title' => env('APP_NAME').'\'s feed',
+            'description' => 'The feed of '.env('APP_NAME'),
             'language' => 'zh-cmn-Hans',
 
             /*
