@@ -19,7 +19,7 @@ class ArticlesController extends Controller
     {
         $articles = Article::where('status', '>', 0)
             ->orderBy('views', 'desc')
-            ->paginate(7);
+            ->paginate(9);
 
         $articles = $articles->map(function ($article) {
             $article->href = action('ArticlesController@show', ['id' => $article->id]);
