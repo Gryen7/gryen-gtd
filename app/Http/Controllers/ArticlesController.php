@@ -199,6 +199,8 @@ class ArticlesController extends Controller
             'content' => $request->get('content'),
         ]);
 
+        event(new PublishArticle());
+
         return response()->json([
             'code' => 200,
             'message' => '文章更新成功',
