@@ -8,6 +8,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/privacypolicy', 'HomeController@privacyPolicy');
 
 Auth::routes();
+Route::feeds();
 
 /*
  * 文章

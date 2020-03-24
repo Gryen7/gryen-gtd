@@ -32,6 +32,7 @@
     <link rel="stylesheet prefetch" media="screen" charset="utf-8"
           href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/app.css'}} />
     <link rel="preload" href="{{ env('SITE_DEFAULT_IMAGE') }}">
+    @include('feed::links')
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),

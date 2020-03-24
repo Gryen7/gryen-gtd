@@ -4,8 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 
-class Article extends Eloquent
+class Article extends Eloquent implements Feedable
 {
     use SoftDeletes;
 
@@ -50,5 +52,22 @@ class Article extends Eloquent
         }
 
         return $article;
+    }
+
+    public function toFeedItem()
+    {
+        return FeedItem::create([
+            'id' => $this->id,
+            'title' => $this->title,
+            'summary' => $this->description,
+            'updated' => $this->updated_at,
+            'link' => action('ArticlesController@show', ['id' => $this->id]),
+            'author' => env('APP_NAME'),
+        ]);
+    }
+
+    public static function getFeedItems()
+    {
+        return self::all();
     }
 }
