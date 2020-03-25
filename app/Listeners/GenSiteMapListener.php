@@ -36,19 +36,19 @@ class GenSiteMapListener implements ShouldQueue
         $siteMap
             ->add(Url::create(action('HomeController@index'))
                 ->setLastModificationDate(Carbon::yesterday())
-                ->setChangeFrequency(\Spatie\Sitemap\Tags\Url::CHANGE_FREQUENCY_YEARLY)
+                ->setChangeFrequency(\Spatie\Sitemap\Tags\Url::CHANGE_FREQUENCY_WEEKLY)
                 ->setPriority(0.1))
             ->add(Url::create(action('ArticlesController@index'))
                 ->setLastModificationDate(Carbon::yesterday())
-                ->setChangeFrequency(\Spatie\Sitemap\Tags\Url::CHANGE_FREQUENCY_YEARLY)
+                ->setChangeFrequency(\Spatie\Sitemap\Tags\Url::CHANGE_FREQUENCY_MONTHLY)
                 ->setPriority(0.1));
 
         Article::all()->each(function ($article) use ($siteMap) {
             if ($article->status === 1) {
                 $siteMap->add(Url::create(action('ArticlesController@show', [$article->id]))
                     ->setLastModificationDate($article->updated_at)
-                    ->setChangeFrequency(\Spatie\Sitemap\Tags\Url::CHANGE_FREQUENCY_YEARLY)
-                    ->setPriority(0.1));
+                    ->setChangeFrequency(\Spatie\Sitemap\Tags\Url::CHANGE_FREQUENCY_MONTHLY)
+                    ->setPriority(0.2));
             }
         });
 
