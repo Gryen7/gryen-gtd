@@ -2,15 +2,14 @@
 
 ## v1.5
 
-* [ ] 升级到 Laravel 5.8
+* [x] 升级到 Laravel 5.8
+* [ ] 队列查看界面
 
 ## v1.3
 
 ### Features
 
-* [x] RSS 订阅支持
-* [x] 修复 https://github.com/itargaryen/gryen-gtd/issues/3
-* [x] 修复上传文件失败的 BUG
+* RSS 订阅支持
 
 ## v1.2
 
@@ -23,7 +22,7 @@
 
 ### Features
 
-* 评估试用使用 `php artisan db:seed` 快速填充数据
+* 使用 `php artisan db:seed` 快速填充试用数据
 * 提升功能点测试覆盖率，提升系统稳定性
 * 伪静态页面
 * 文章列表页文章数量参数化
@@ -31,7 +30,6 @@
 * 添加获取文章列表、删除文章、恢复删除文章、彻底删除文章等 Api
 * 去掉冗余代码
 * 其他问题修复
-
 
 ### BREAKING CHANGES
 
