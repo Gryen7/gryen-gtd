@@ -9,7 +9,7 @@ use App\File;
 use App\Http\Requests\CreateArticleRequest;
 use App\Tag;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 
 class ArticlesController extends Controller
 {
@@ -115,7 +115,7 @@ class ArticlesController extends Controller
      */
     public function cover()
     {
-        $File = Input::file('cover');
+        $File = Request::file('cover');
 
         return File::upload($File);
     }

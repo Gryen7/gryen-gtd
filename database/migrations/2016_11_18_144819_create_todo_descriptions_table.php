@@ -13,7 +13,7 @@ class CreateTodoDescriptionsTable extends Migration
     public function up()
     {
         Schema::create('todo_descriptions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('todo_id')->unsigned();
             $table->string('content');
             $table->timestamps();
