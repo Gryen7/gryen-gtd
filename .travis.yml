@@ -8,7 +8,7 @@ env:
 matrix:
   fast_finish: true
   include:
-    - php: 7.2
+    - php: 7.2.5
 
 cache:
   directories:
@@ -33,9 +33,8 @@ install:
 before_script:
   - composer self-update
   - composer install --prefer-source --no-interaction
-  - cp .env.example .env
   - php artisan key:generate
-  - php artisan migrate
-  - php artisan jwt:secret
+  - php artisan migrate --env testing
+  - php artisan jwt:secret --env testing
 
-script: vendor/bin/phpunit
+script: php artisan test

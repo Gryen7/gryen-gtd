@@ -3,6 +3,7 @@
 ## v1.6
 
 * [ ] 升级到 laravel 7
+* [ ] 提供了 .env.testing 文件，测试使用 sqlite
 
 ## v1.5
 
