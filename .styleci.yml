@@ -1,5 +1,4 @@
-php:
-  preset: laravel
+preset: laravel
   disabled:
     - unused_use
   finder:
