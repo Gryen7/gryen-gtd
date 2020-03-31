@@ -3,10 +3,13 @@
 namespace Tests\Feature\Api;
 
 use Carbon\Carbon;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ArticleTest extends TestCase
 {
+    use RefreshDatabase;
+
     private $firstArticle;
     private $user;
     private static $COUNT = 3;
@@ -68,6 +71,12 @@ class ArticleTest extends TestCase
 
     public function testRestore()
     {
+        \DB::table('articles')
+            ->where('id', $this->firstArticle->id)
+            ->update([
+                'deleted_at' => Carbon::now(),
+            ]);
+
         $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
             ->post('/api/articles/restore', ['id' => $this->firstArticle->id]);
         $response->assertSuccessful();

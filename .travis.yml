@@ -33,7 +33,7 @@ install:
 before_script:
   - composer self-update
   - composer install --prefer-source --no-interaction
-  - php artisan key:generate
+  - php artisan key:generate --env testing
   - php artisan migrate --env testing
   - php artisan jwt:secret --env testing
 
