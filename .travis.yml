@@ -1,5 +1,9 @@
 dist: xenial
 language: php
+php:
+  - '7.2.5'
+node_js:
+  - '12.14.1'
 
 env:
   global:
@@ -7,9 +11,6 @@ env:
 
 matrix:
   fast_finish: true
-  include:
-    - php: 7.2.5
-    - node_js: 12.14.1
 
 cache:
   directories:
