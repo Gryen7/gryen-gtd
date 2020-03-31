@@ -9,14 +9,11 @@ matrix:
   fast_finish: true
   include:
     - php: 7.2.5
+    - node_js: 12.14.1
 
 cache:
   directories:
     - $HOME/.composer/cache
-
-services:
-  - redis-server
-  - mysql
 
 before_install:
   - phpenv config-rm xdebug.ini || true
