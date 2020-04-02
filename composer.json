@@ -1,7 +1,7 @@
 {
     "name": "itargaryen/gryen-gtd",
     "keywords": ["gtd", "blog", "laravel"],
-    "description": "A GTD App Based on Laravel v5.8.",
+    "description": "A blog and GTD application based on Laravel.",
     "license": "MIT",
     "type": "project",
     "require": {
