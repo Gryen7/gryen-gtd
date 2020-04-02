@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Article;
+use App\ArticleData;
 use App\Config;
 use App\Events\PublishArticle;
 use App\Http\Controllers\Controller;
@@ -55,6 +56,14 @@ class ArticlesController extends Controller
         }
 
         return $articles;
+    }
+
+
+    public function getArticleContent($articleId)
+    {
+        $content = ArticleData::where('article_id', $articleId)->get()->first();
+
+        return $content;
     }
 
     /**
