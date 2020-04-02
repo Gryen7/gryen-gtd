@@ -2,8 +2,10 @@
 
 ## v1.6
 
-* [ ] 升级到 laravel 7
-* [ ] 提供了 .env.testing 文件，测试使用 sqlite
+* [x] 升级到 laravel 7
+* [x] 提供了 .env.testing 文件，测试使用 sqlite
+* [x] 采用新的编辑器
+* [ ] 编辑器直接上传图片
 
 ## v1.5
 

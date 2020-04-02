@@ -53,9 +53,9 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 <a target="_bl
 
 ### 运行环境
 
--   正确搭建 PHP 站点运行环境（PHP 7.1.3 及以上版本），推荐 OpenResty（Nginx） + PHP + MariaDB；
+-   正确搭建 PHP 站点运行环境（PHP 7.2.5 及以上版本），推荐 OpenResty（Nginx） + PHP + MariaDB；
 -   安装 NodeJS 以支持前端构建；
--   推荐安装启用 Redis 以提高性能。
+-   推荐安装启用 Redis 以提高性能（非必须）。
 
 ### 安装指南
 
