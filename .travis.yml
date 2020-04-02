@@ -6,7 +6,6 @@ php:
 env:
   global:
     - setup=stable
-  - TRAVIS_NODE_VERSION="12.16.1"
 
 matrix:
   fast_finish: true
@@ -21,7 +20,7 @@ before_install:
 
 install:
   - travis_retry composer update --prefer-dist --no-interaction --prefer-stable --no-suggest;
-  - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
+  - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install 12.16.1
   - travis_retry npm install -g yarn;
   - travis_retry yarn;
   - travis_retry yarn run prod;
