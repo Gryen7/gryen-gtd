@@ -10,10 +10,10 @@
         </div>
     </div>
     <div class="form-group">
-        {!! Form::text('title',null,['class' => 'form-control tar-artl-title','placeholder' =>'文章标题', 'autocomplete' => 'off']) !!}
+        <div class="tar-artl-title" contenteditable="true" placeholder="输入标题..." id="title">@if(isset($articleShow)){{$article->title}}@endif</div>
     </div>
     <div class="form-group">
-        <div id="content-textarea"></div>
+        <div id="content-textarea" class="t-editor"></div>
     </div>
 </div>
 <div>

@@ -45,18 +45,31 @@
     border: none;
     border-radius: 0;
     box-shadow: none;
-    line-height: 2.5rem;
-    font-size: 16px;
-    font-weight: 400;
+    line-height: 1.2;
+    font-size: 2.5rem;
+    font-weight: 500;
     text-align: center;
+    min-height: 2.5rem;
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     background-color: $body-bg;
+    word-wrap: break-word;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+    padding: 0.2rem 0;
 }
 
 .tar-artl-title:focus {
     box-shadow: none;
+}
+
+.tar-artl-title:empty::before{
+    content: attr(placeholder);
+    font-size: 2.5rem;
+    color: #CCC;
+    line-height: 2.5rem;
 }
 
 .tar-artl-ttlbox {
@@ -68,6 +81,13 @@
     position: fixed;
     bottom: 0;
     right: 1em;
+}
+
+.t-editor {
+    .CodeMirror-scroll {
+        overflow: auto!important;
+        overflow-y: scroll !important;
+    }
 }
 
 .t-edit-cover {

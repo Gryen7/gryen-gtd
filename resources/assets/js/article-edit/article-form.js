@@ -19,6 +19,7 @@ const tTagInput = articleForm.find('#tTagInput'); // 手动输入标签的 input
 const tTagBox = articleForm.find('#tTagBox'); // 选中的标签存放容器
 const tTags = articleForm.find('#tTags'); // 表单中要提交的标签 input
 const tLblBox = articleForm.find('#tLblBox'); // 系统中的标签列表容器
+const title = articleForm.find('#title');
 
 const submitArticle = articleForm.find('#submit-article');
 const saveArticle = articleForm.find('#save-article');
@@ -71,6 +72,7 @@ const _postArticle = (status) => {
     }
 
     let postData = Object.assign(articleForm.serializeJSON(), {
+        title: title.text(),
         content: editorInstance.getHtml(),
         status: status
     });
