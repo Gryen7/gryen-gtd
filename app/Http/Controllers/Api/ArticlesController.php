@@ -58,7 +58,6 @@ class ArticlesController extends Controller
         return $articles;
     }
 
-
     public function getArticleContent($articleId)
     {
         $content = ArticleData::where('article_id', $articleId)->get()->first();
