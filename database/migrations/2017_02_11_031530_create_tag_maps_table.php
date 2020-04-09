@@ -14,7 +14,7 @@ class CreateTagMapsTable extends Migration
     public function up()
     {
         Schema::create('tag_maps', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('tag_id')->unsigned();
             $table->integer('article_id')->unsigned();
             $table->timestamps();

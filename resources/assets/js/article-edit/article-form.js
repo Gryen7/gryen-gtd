@@ -2,13 +2,13 @@
  * Created by gcy77 on 2016/3/17.
  */
 import 'jquery-serializejson';
-import Simditor from 'tar-simditor';
+import Editor from 'tui-editor';
 import laravelAlert from '../helpers/alert';
 import upload from '../helpers/upload';
 
 const trArtclFrm = $('.tar-article-form');
 const articleForm = trArtclFrm.find('form');
-const textarea = articleForm.find('#content-textarea');
+const textarea = document.querySelector('#content-textarea');
 
 const coverInput = articleForm.find('#tCoverFile'); // 选择图片文件
 const tCoverFile = articleForm.find('#tCover'); // 保存成功上传图片后的链接
@@ -19,27 +19,43 @@ const tTagInput = articleForm.find('#tTagInput'); // 手动输入标签的 input
 const tTagBox = articleForm.find('#tTagBox'); // 选中的标签存放容器
 const tTags = articleForm.find('#tTags'); // 表单中要提交的标签 input
 const tLblBox = articleForm.find('#tLblBox'); // 系统中的标签列表容器
+const title = articleForm.find('#title');
 
 const submitArticle = articleForm.find('#submit-article');
 const saveArticle = articleForm.find('#save-article');
 
 let tTagsArray = []; // 标签数组，用于判断标签数量和是否已经重复添加标签
 
-/**
- * 加载编辑器
- */
-new Simditor({
-    textarea: textarea,
-    markdown: false,
-    toolbar: ['bold', 'italic', 'underline', 'strikethrough', 'ol', 'ul', 'blockquote', 'code', 'link', 'image', 'hr', 'alignment', 'markdown'],
-    upload: {
-        url: '/files/upload',
-        params: null,
-        fileKey: 'upload_file',
-        connectionCount: 3,
-        leaveConfirm: '文件正在上传中，确定离开？'
-    }
+const editorInstance = new Editor({
+    el: textarea,
+    initialEditType: 'markdown',
+    previewStyle: 'vertical',
+    height: 'auto',
+    minHeight: '600px'
 });
+
+/**
+ *
+ * @param {*} articleId
+ */
+const _getArticleContent = (articleId) => {
+    $.ajax({
+        type: 'GET',
+        url: `/api/articles/content/${articleId}`,
+        success: res => {
+            editorInstance.setHtml(res.content);
+        }
+    });
+}
+
+/**
+ * 获取 ID
+ */
+const _getArticleId = () => {
+    const pathArr = window.location.pathname.split('/');
+
+    return pathArr[pathArr.length - 1];
+}
 
 /**
  * 发送提交或者保存文章请求
@@ -56,6 +72,8 @@ const _postArticle = (status) => {
     }
 
     let postData = Object.assign(articleForm.serializeJSON(), {
+        title: title.text(),
+        content: editorInstance.getHtml(),
         status: status
     });
 
@@ -251,4 +269,7 @@ tTagInput.keydown(event => {
 
 $(() => {
     $('.navbar-default').fadeOut();
+    const articleId = _getArticleId();
+
+    _getArticleContent(articleId);
 });

@@ -1,3 +1,6 @@
 // 第三方库样式引入
 
-@import "~tar-simditor/styles/simditor.scss";
+@import "~tui-editor/dist/tui-editor.css"; // editor's ui
+@import "~tui-editor/dist/tui-editor-contents.css"; // editor's content
+@import "~codemirror/lib/codemirror.css"; // codemirror
+@import "~highlight.js/styles/github.css"; // code block highlight

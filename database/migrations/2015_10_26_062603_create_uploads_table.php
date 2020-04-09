@@ -13,7 +13,7 @@ class CreateUploadsTable extends Migration
     public function up()
     {
         Schema::create('uploads', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('table');
             $table->integer('id_in_table')->unsigned();
             $table->string('url');

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\File;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 
 class FilesController extends Controller
 {
@@ -16,7 +16,7 @@ class FilesController extends Controller
      */
     public function upload()
     {
-        $File = Input::file('upload_file');
+        $File = Request::file('upload_file');
 
         return File::upload($File);
     }

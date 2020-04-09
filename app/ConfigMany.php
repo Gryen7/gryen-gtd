@@ -17,10 +17,11 @@ class ConfigMany extends Model
     ];
 
     /**
+     * @param null $key 空获取全部配置，有值获取值
      * @return mixed|object
      * @throws \Exception
      */
-    public static function getAllConfig()
+    public static function getAllConfig($key = null)
     {
         $returnConfig = [];
         $cachedConfig = json_decode(cache('CONFIG_MANY'), true);

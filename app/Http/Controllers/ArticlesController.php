@@ -9,7 +9,7 @@ use App\File;
 use App\Http\Requests\CreateArticleRequest;
 use App\Tag;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 
 class ArticlesController extends Controller
 {
@@ -87,6 +87,7 @@ class ArticlesController extends Controller
     public function store(CreateArticleRequest $request)
     {
         $resParams = $request->all();
+        $resParams['cover'] = empty($resParams['cover']) ? env('SITE_DEFAULT_IMAGE') : $resParams['cover'];
 
         /* 创建文章 */
         $article = Article::create($resParams);
@@ -115,7 +116,7 @@ class ArticlesController extends Controller
      */
     public function cover()
     {
-        $File = Input::file('cover');
+        $File = Request::file('cover');
 
         return File::upload($File);
     }
@@ -168,7 +169,6 @@ class ArticlesController extends Controller
         $article = Article::withTrashed()->find($id);
         $article->cover = empty($article->cover) ? Config::getAllConfig('SITE_DEFAULT_IMAGE') : $article->cover;
 
-        $article->content = $article->withContent()->first()->content;
         $article = Article::getTagArray($article);
         $tags = Tag::orderBy('num', 'desc')->take(7)->get();
         $bodyClassString = 'no-padding';

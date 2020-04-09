@@ -53,9 +53,9 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 <a target="_bl
 
 ### 运行环境
 
--   正确搭建 PHP 站点运行环境（PHP 7.1.3 及以上版本），推荐 OpenResty（Nginx） + PHP + MariaDB；
+-   正确搭建 PHP 站点运行环境（PHP 7.2.5 及以上版本），推荐 OpenResty（Nginx） + PHP + MariaDB；
 -   安装 NodeJS 以支持前端构建；
--   推荐安装启用 Redis 以提高性能。
+-   推荐安装启用 Redis 以提高性能（非必须）。
 
 ### 安装指南
 
@@ -82,7 +82,7 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 <a target="_bl
 
 1. 首先，执行 `composer dumpautoload` 转储自动加载器；
 2. 借助 Laravel 提供的快速填充数据能力，配置成功后可以马上看到 Gryen-GTD 铺满笔记的效果：执行 `php artisan db:seed` 填充数据，然后访问 `http(s)://[yourdomain]/` 查看；
-3. 访问 `http(s)://[yourdomain]/login` 登录用户（邮箱：`user@comgryen.com`，密码：`secret`）；
+3. 访问 `http(s)://[yourdomain]/login` 登录用户（邮箱：`[user@gryen.com]`，密码：`password`）；
 4. 访问 `http(s)://[yourdomain]/articles/create` 尝试创作。
 
 **评估结束后可以方便地移除测试数据，执行 `php artisan migrate:fresh` 重建数据表即可。**
@@ -95,4 +95,4 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 <a target="_bl
 
 ### 日常维护
 
-1.0 版本之后，移除了管理部分的代码，现在使用 [Gryen-Dashboard](https://github.com/itargaryen/gryen-dashboard) 管理 Gryen-GTD，最终希望实现本地、线上随时随地的编辑发布体验。
+1.0 版本之后，移除了部分属于管理功能的代码（实现的不够优雅）

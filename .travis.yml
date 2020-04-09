@@ -1,5 +1,7 @@
 dist: xenial
 language: php
+php:
+  - '7.2.5'
 
 env:
   global:
@@ -7,25 +9,18 @@ env:
 
 matrix:
   fast_finish: true
-  include:
-    - php: 7.2
 
 cache:
   directories:
     - $HOME/.composer/cache
 
-services:
-  - redis-server
-  - mysql
-
 before_install:
   - phpenv config-rm xdebug.ini || true
-  - printf "\n" | pecl install -f redis
   - travis_retry composer self-update
-  - mysql -e 'CREATE DATABASE gryengtd;'
 
 install:
   - travis_retry composer update --prefer-dist --no-interaction --prefer-stable --no-suggest;
+  - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install 12.16.1
   - travis_retry npm install -g yarn;
   - travis_retry yarn;
   - travis_retry yarn run prod;
@@ -33,9 +28,8 @@ install:
 before_script:
   - composer self-update
   - composer install --prefer-source --no-interaction
-  - cp .env.example .env
-  - php artisan key:generate
-  - php artisan migrate
-  - php artisan jwt:secret
+  - php artisan key:generate --env testing
+  - php artisan migrate --env testing
+  - php artisan jwt:secret -f --env testing
 
-script: vendor/bin/phpunit
+script: php artisan test

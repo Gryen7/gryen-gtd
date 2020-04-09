@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -33,4 +35,5 @@ Route::middleware(['refresh.token'])->group(function () {
 Route::post('/user/login', 'Api\UserController@login');
 Route::get('/articles/list/top', 'Api\ArticlesController@topArticles');
 Route::get('/articles/list/{articleId}', 'Api\ArticlesController@moreArticles');
+Route::get('/articles/content/{articleId}', 'Api\ArticlesController@getArticleContent');
 Route::post('/xmlrpc', 'Api\MetaWeblogController@index');

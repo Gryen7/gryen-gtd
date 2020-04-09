@@ -14,7 +14,7 @@ class CreateConfigManiesTable extends Migration
     public function up()
     {
         Schema::create('config_manies', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->char('group', 8); // 配置组索引
             $table->string('group_name'); // 配置组名称
             $table->char('config', 8); // 配置索引

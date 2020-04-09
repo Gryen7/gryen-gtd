@@ -108,6 +108,7 @@ bootstrap/cache/
 .env.*.php
 .env.php
 .env
+.env.backup
 
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
@@ -278,3 +279,4 @@ npm-debug.log
 yarn-error.log
 /_ide_helper_models.php
 *.key
+.phpunit.result.cache
