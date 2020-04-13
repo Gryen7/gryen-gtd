@@ -1,46 +1,3 @@
-.tar-article-form {
-    .simditor {
-        border: none;
-        box-shadow: $box-shadow;
-
-        .simditor-wrapper {
-            background-color: $white;
-        }
-
-        .simditor-body {
-            max-width: $max-width;
-            min-height: 450px;
-            font-size: 14px;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: $white;
-
-            img {
-                max-width: 100%;
-                height: auto;
-            }
-        }
-
-        .markdown-editor {
-            max-width: $max-width;
-            margin-left: auto;
-            margin-right: auto;
-
-            textarea {
-                background-color: $white;
-                font-size: 14px;
-            }
-        }
-
-        .simditor-image-loading {
-            > .progress {
-                margin-bottom: 0;
-            }
-        }
-
-    }
-}
-
 .tar-artl-title {
     border: none;
     border-radius: 0;
@@ -65,10 +22,10 @@
     box-shadow: none;
 }
 
-.tar-artl-title:empty::before{
+.tar-artl-title:empty::before {
     content: attr(placeholder);
     font-size: 2.5rem;
-    color: #CCC;
+    color: #ccc;
     line-height: 2.5rem;
 }
 
@@ -85,8 +42,14 @@
 
 .t-editor {
     .CodeMirror-scroll {
-        overflow: auto!important;
+        overflow: auto !important;
         overflow-y: scroll !important;
+    }
+
+    .te-toolbar-section {
+        position: sticky;
+        top: 0;
+        z-index: 3;
     }
 }
 
@@ -98,7 +61,7 @@
         width: 100%;
     }
 
-    input[type=file] {
+    input[type="file"] {
         position: absolute;
         top: 0;
         right: 0;
