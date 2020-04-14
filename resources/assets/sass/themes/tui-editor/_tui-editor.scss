@@ -39,21 +39,26 @@
 .tui-editor {
     position: absolute;
     line-height: 1;
-    color: #181818;
+    color: #333;
     width: 100%;
     height: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 750px;
 }
 
 .te-editor-section {
     min-height: 0px;
     position: relative;
     height: inherit;
+    background-color: #fff;
 }
 
 .te-md-container {
     display: none;
     overflow: hidden;
     height: 100%;
+    background-color: #fff;
 }
 
 .te-md-container .te-editor {
@@ -74,7 +79,6 @@
 
 .te-md-container .te-preview {
     overflow: auto;
-    padding: 0 25px;
     height: 100%;
 }
 
@@ -146,14 +150,10 @@
     outline: none;
 }
 
-.te-ww-container .tui-editor-contents {
-    padding: 0 25px;
-}
-
 .te-ww-container .tui-editor-contents:first-child {
     box-sizing: border-box;
     margin: 0px;
-    padding: 16px 25px 0px 25px;
+    padding: 16px 0 0 0;
     height: inherit;
 }
 
@@ -179,11 +179,6 @@
 .tui-editor-defaultUI .CodeMirror-lines {
     padding-top: 18px;
     padding-bottom: 18px;
-}
-
-.tui-editor-defaultUI pre.CodeMirror-line {
-    padding-left: 25px;
-    padding-right: 25px;
 }
 
 .tui-editor-defaultUI .CodeMirror pre.CodeMirror-placeholder {

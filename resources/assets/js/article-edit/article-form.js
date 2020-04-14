@@ -29,7 +29,7 @@ let tTagsArray = []; // 标签数组，用于判断标签数量和是否已经�
 const editorInstance = new Editor({
     el: textarea,
     initialEditType: 'markdown',
-    previewStyle: 'vertical',
+    previewStyle: 'tab',
     height: 'auto',
     minHeight: '600px'
 });
