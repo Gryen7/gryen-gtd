@@ -102,11 +102,22 @@ class ArticlesController extends Controller
 
         event(new PublishArticle());
 
+        $href = '';
+        $status = (int) $resParams['status'];
+
+        if ($status === 1) {
+            $href = action('ArticlesController@show', ['id' => $article->id]);
+        }
+
+        if ($status === 0) {
+            $href = action('ArticlesController@edit', ['id' => $article->id]);
+        }
+
         return response()->json([
             'code' => 200,
             'message' => '文章提交成功',
             'type' => 'success',
-            'href' => (int) $resParams['status'] === 1 ? action('ArticlesController@show', ['id' => $article->id]) : '',
+            'href' => $href,
         ]);
     }
 
