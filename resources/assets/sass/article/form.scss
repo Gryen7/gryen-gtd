@@ -37,25 +37,20 @@
     z-index: 2;
     position: fixed;
     bottom: 0;
-    right: 1em;
+    right: 1rem;
 }
 
-.t-editor {
-    .CodeMirror-scroll {
-        overflow: auto !important;
-        overflow-y: scroll !important;
-    }
+.tar-article-form {
+    margin-bottom: 1rem;
+}
 
-    .te-toolbar-section {
-        position: sticky;
-        top: 0;
-        z-index: 3;
-    }
+.t-editor-form-group {
+    min-height: 600px;
 }
 
 .t-edit-cover {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 
     img {
         width: 100%;
@@ -91,7 +86,7 @@
 
 .t-form-labels {
     overflow: hidden;
-    height: 100px;
+    min-height: 1rem;
     box-shadow: none;
     border-radius: 0;
 
@@ -117,7 +112,7 @@
 
     span {
         display: inline-block;
-        margin-bottom: 10px;
+        margin: 5px auto;
         cursor: pointer;
     }
 }
