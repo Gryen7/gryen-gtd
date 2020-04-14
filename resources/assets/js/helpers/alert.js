@@ -13,7 +13,7 @@
  */
 const _hideAuto = (elem) => {
     setTimeout(() => {
-        elem.addClass('fade-out');
+        elem.addClass('fade');
     }, 3000);
 };
 

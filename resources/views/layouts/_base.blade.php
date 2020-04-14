@@ -31,7 +31,7 @@
           href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/lib.css'}} />
     <link rel="stylesheet prefetch" media="screen" charset="utf-8"
           href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/app.css'}} />
-    <link rel="preload" href="{{ env('SITE_DEFAULT_IMAGE') }}">
+    <link rel="preload" href="{{ env('SITE_DEFAULT_IMAGE') }}" as="image">
     @include('feed::links')
     <script>
         window.Laravel = <?php echo json_encode([
