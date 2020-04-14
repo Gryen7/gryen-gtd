@@ -32,6 +32,12 @@
     .t-rtcl-content {
         margin-top: 20px;
 
+        blockquote {
+            border-left: 4px solid #ddd;
+            padding: 0 15px;
+            color: #777;
+        }
+
         img {
             max-width: 100%;
             height: auto;

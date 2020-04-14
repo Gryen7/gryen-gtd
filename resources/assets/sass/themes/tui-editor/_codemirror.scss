@@ -4,7 +4,7 @@
   /* Set height, width, borders, and global font properties here */
   font-family: sans-serif;
   height: 300px;
-  color: black;
+  color: #333;
   direction: ltr;
 }
 
@@ -12,10 +12,6 @@
 
 .CodeMirror-lines {
   padding: 4px 0; /* Vertical padding around content */
-}
-.CodeMirror pre.CodeMirror-line,
-.CodeMirror pre.CodeMirror-line-like {
-  padding: 0 4px; /* Horizontal padding of content */
 }
 
 .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
