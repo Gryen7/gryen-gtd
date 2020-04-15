@@ -14,6 +14,7 @@
 const _hideAuto = (elem) => {
     setTimeout(() => {
         elem.addClass('fade');
+        elem.remove();
     }, 3000);
 };
 
