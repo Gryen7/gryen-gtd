@@ -13,7 +13,7 @@ import json from 'highlight.js/lib/languages/json';
 
 const TBody = $('body');
 const TArtclBox = $('.t-rtcl-box');
-const Images = TArtclBox.find('img');
+const Images = TArtclBox.find('img').not('a img');
 const TFullScreen = TBody.find('#tFullScreen');
 const TFullScreenImg = TFullScreen.find('#tFullScreenImg');
 
