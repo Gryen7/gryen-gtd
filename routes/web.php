@@ -26,8 +26,8 @@ Route::group(['prefix' => 'articles'], function () {
  */
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/articles/create', 'ArticlesController@create');
-    Route::post('/articles/store', 'ArticlesController@store');
     Route::get('/articles/edit/{id}', 'ArticlesController@edit');
+    Route::post('/articles/store', 'ArticlesController@store');
     Route::post('/articles/update/{id}', 'ArticlesController@update');
     Route::post('/articles/cover/upload', 'ArticlesController@cover');
     Route::post('/files/upload', 'FilesController@upload');
