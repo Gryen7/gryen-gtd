@@ -7,6 +7,7 @@ use App\Config;
 use App\Events\PublishArticle;
 use App\File;
 use App\Http\Requests\CreateArticleRequest;
+use App\Http\Requests\UpdateArticleStatus;
 use App\Tag;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Request;
@@ -87,7 +88,17 @@ class ArticlesController extends Controller
     public function store(CreateArticleRequest $request)
     {
         $resParams = $request->all();
+
+        if (isset($resParams['status'])) {
+            return response()->json([
+                'code' => 400,
+                'message' => 'Status Not Allowed',
+                'type' => 'danger'
+            ]);
+        }
+
         $resParams['cover'] = empty($resParams['cover']) ? env('SITE_DEFAULT_IMAGE') : $resParams['cover'];
+        $resParams['status'] = 0;
 
         /* 创建文章 */
         $article = Article::create($resParams);
@@ -100,18 +111,7 @@ class ArticlesController extends Controller
             'content' => $request->get('content'),
         ]);
 
-        event(new PublishArticle());
-
-        $href = '';
-        $status = (int) $resParams['status'];
-
-        if ($status === 1) {
-            $href = action('ArticlesController@show', ['id' => $article->id]);
-        }
-
-        if ($status === 0) {
-            $href = action('ArticlesController@edit', ['id' => $article->id]);
-        }
+        $href = action('ArticlesController@edit', ['id' => $article->id]);
 
         return response()->json([
             'code' => 200,
@@ -196,13 +196,21 @@ class ArticlesController extends Controller
      */
     public function update($id, CreateArticleRequest $request)
     {
+        $updateData = $request->all();
+
+        if (isset($updateData['status'])) {
+            return response()->json([
+                'code' => 400,
+                'message' => 'Status Not Allowed',
+                'type' => 'danger'
+            ]);
+        }
+
+        $updateData['updated_at'] = Carbon::now();
+        $updateData['status'] = 0;
+
         $article = Article::withTrashed()
             ->find($id);
-        if ($article->trashed()) {
-            $article->restore();
-        }
-        $updateData = $request->all();
-        $updateData['updated_at'] = Carbon::now();
 
         $article->update($updateData);
 
@@ -211,46 +219,27 @@ class ArticlesController extends Controller
             'content' => $request->get('content'),
         ]);
 
-        event(new PublishArticle());
-
         return response()->json([
             'code' => 200,
-            'message' => '文章更新成功',
-            'type' => 'success',
-            'href' => (int) $updateData['status'] === 1 ? action('ArticlesController@show', ['id' => $article->id]) : '',
+            'message' => '更新成功',
+            'type' => 'success'
         ]);
     }
 
     /**
-     * 软删除文章.
-     *
-     * @param $ids
-     * @return \Illuminate\Http\Response
-     * @internal param int $id
+     * 更新文章状态：0，草稿；1，已发布
      */
-    public function delete($ids)
+    public function updateStatus(UpdateArticleStatus $request)
     {
-        Article::destroy($ids);
+        $res = Article::where('id', $request->get('id'))
+            ->update(['status' => $request->get('status')]);
 
         event(new PublishArticle());
 
-        return redirect($_SERVER['HTTP_REFERER']);
-    }
-
-    /**
-     * 恢复被删除的文章.
-     *
-     * @param $ids
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
-    public function restore($ids)
-    {
-        Article::onlyTrashed()
-            ->where('id', $ids)
-            ->restore();
-
-        event(new PublishArticle());
-
-        return redirect($_SERVER['HTTP_REFERER']);
+        return response()->json([
+            'code' => 200,
+            'message' => $res ? '更新成功' : '更新失败',
+            'type' => $res ? 'success' : 'danger'
+        ]);
     }
 }

@@ -23,7 +23,7 @@
     @if (Auth::check())
     <div class="form-group tar-artl-ssbtn">
         <div class="btn-group-vertical">
-            <a href="{{ action('ArticlesController@edit', ['id' => $article->id]) }}" class="btn btn-primary">编辑这篇文章</a>
+            <a href="{{ action('ArticlesController@edit', ['id' => $article->id]) }}" class="btn btn-primary">编辑</a>
         </div>
     </div>
     @endif

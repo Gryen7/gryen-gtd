@@ -122,6 +122,7 @@ class ArticlesController extends Controller
     }
 
     /**
+     * TODO: 只允许软删除 status 为 0 的文章
      * @param Request $request
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Illuminate\Http\Response|null
      * @throws \Exception
@@ -141,12 +142,11 @@ class ArticlesController extends Controller
             $response = $this->getList($request);
         }
 
-        event(new PublishArticle());
-
         return empty($response) ? response($response) : $response;
     }
 
     /**
+     * TODO: 只允许处理 status 为 0 的文章，且不能直接发布文章
      * 快速恢复文章为发布状态
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -161,14 +161,12 @@ class ArticlesController extends Controller
 
         $response = $this->getList($request);
 
-        event(new PublishArticle());
-
         return empty($response) ? response($response) : $response;
     }
 
     /**
      * 彻底删除一篇文章.
-     *
+     * TODO: 只允许处理已经软删除了的文章
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
