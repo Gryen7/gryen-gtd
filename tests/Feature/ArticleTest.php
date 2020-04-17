@@ -79,8 +79,7 @@ class ArticleTest extends TestCase
             'content' => $faker->text(),
             'cover' => env('SITE_DEFAULT_IMAGE'),
             'description' => $faker->text(),
-            'tags' => implode(',', $faker->words()),
-            'status' => 1,
+            'tags' => implode(',', $faker->words())
         ];
 
         $response = $this->actingAs($this->user)
@@ -92,7 +91,6 @@ class ArticleTest extends TestCase
 
         $this->get($response->original['href'])
             ->assertSeeText($postData['title'])
-            ->assertSeeText($postData['content'])
             ->assertSeeText($tagArray[0])
             ->assertSuccessful();
     }
@@ -105,8 +103,7 @@ class ArticleTest extends TestCase
             'content' => $faker->text(),
             'cover' => env('SITE_DEFAULT_IMAGE'),
             'description' => $faker->text(),
-            'tags' => implode(',', $faker->words()),
-            'status' => 1,
+            'tags' => implode(',', $faker->words())
         ];
 
         $response = $this->actingAs($this->user)
@@ -116,10 +113,14 @@ class ArticleTest extends TestCase
 
         $tagArray = array_filter(explode(',', $postData['tags']));
 
-        $this->get($response->original['href'])
+        $this->get(action('ArticlesController@show', ['id' => $this->firstArticle->id]))
             ->assertSeeText($postData['title'])
             ->assertSeeText($postData['content'])
             ->assertSeeText($tagArray[0])
+            ->assertSuccessful();
+
+        $this->get(action('Api\ArticlesController@getArticleContent', ['articleId' => $this->firstArticle->id]))
+            ->assertSeeText($postData['content'])
             ->assertSuccessful();
     }
 
