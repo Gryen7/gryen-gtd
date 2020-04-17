@@ -56,53 +56,53 @@ class ArticleTest extends TestCase
         $response->assertSuccessful();
     }
 
-    public function testDelete()
-    {
-        $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
-            ->post('/api/articles/delete', ['ids' => [$this->firstArticle->id]]);
+    // public function testDelete()
+    // {
+    //     $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
+    //         ->post('/api/articles/delete', ['ids' => [$this->firstArticle->id]]);
 
-        $response->assertSuccessful();
+    //     $response->assertSuccessful();
 
-        $article = \DB::table('articles')
-            ->find($this->firstArticle->id);
+    //     $article = \DB::table('articles')
+    //         ->find($this->firstArticle->id);
 
-        $this->assertTrue(! empty($article) && ! empty($article->deleted_at));
-    }
+    //     $this->assertTrue(! empty($article) && ! empty($article->deleted_at));
+    // }
 
-    public function testRestore()
-    {
-        \DB::table('articles')
-            ->where('id', $this->firstArticle->id)
-            ->update([
-                'deleted_at' => Carbon::now(),
-            ]);
+    // public function testRestore()
+    // {
+    //     \DB::table('articles')
+    //         ->where('id', $this->firstArticle->id)
+    //         ->update([
+    //             'deleted_at' => Carbon::now(),
+    //         ]);
 
-        $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
-            ->post('/api/articles/restore', ['id' => $this->firstArticle->id]);
-        $response->assertSuccessful();
+    //     $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
+    //         ->post('/api/articles/restore', ['id' => $this->firstArticle->id]);
+    //     $response->assertSuccessful();
 
-        $article = \DB::table('articles')
-            ->find($this->firstArticle->id);
+    //     $article = \DB::table('articles')
+    //         ->find($this->firstArticle->id);
 
-        $this->assertTrue(! empty($article) && empty($article->deleted_at));
-    }
+    //     $this->assertTrue(! empty($article) && empty($article->deleted_at));
+    // }
 
-    public function testForceDelete()
-    {
-        \DB::table('articles')
-            ->where('id', $this->firstArticle->id)
-            ->update([
-                'deleted_at' => Carbon::now(),
-            ]);
+    // public function testForceDelete()
+    // {
+    //     \DB::table('articles')
+    //         ->where('id', $this->firstArticle->id)
+    //         ->update([
+    //             'deleted_at' => Carbon::now(),
+    //         ]);
 
-        $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
-            ->post('/api/articles/forcedelete', ['id' => $this->firstArticle->id]);
+    //     $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
+    //         ->post('/api/articles/forcedelete', ['id' => $this->firstArticle->id]);
 
-        $response->assertSuccessful();
+    //     $response->assertSuccessful();
 
-        $article = \DB::table('articles')
-            ->find($this->firstArticle->id);
+    //     $article = \DB::table('articles')
+    //         ->find($this->firstArticle->id);
 
-        $this->assertTrue(empty($article));
-    }
+    //     $this->assertTrue(empty($article));
+    // }
 }
