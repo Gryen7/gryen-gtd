@@ -79,7 +79,7 @@ class ArticleTest extends TestCase
             'content' => $faker->text(),
             'cover' => env('SITE_DEFAULT_IMAGE'),
             'description' => $faker->text(),
-            'tags' => implode(',', $faker->words())
+            'tags' => implode(',', $faker->words()),
         ];
 
         $response = $this->actingAs($this->user)
@@ -103,7 +103,7 @@ class ArticleTest extends TestCase
             'content' => $faker->text(),
             'cover' => env('SITE_DEFAULT_IMAGE'),
             'description' => $faker->text(),
-            'tags' => implode(',', $faker->words())
+            'tags' => implode(',', $faker->words()),
         ];
 
         $response = $this->actingAs($this->user)

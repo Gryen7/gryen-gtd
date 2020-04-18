@@ -93,7 +93,7 @@ class ArticlesController extends Controller
             return response()->json([
                 'code' => 400,
                 'message' => 'Status Not Allowed',
-                'type' => 'danger'
+                'type' => 'danger',
             ]);
         }
 
@@ -202,7 +202,7 @@ class ArticlesController extends Controller
             return response()->json([
                 'code' => 400,
                 'message' => 'Status Not Allowed',
-                'type' => 'danger'
+                'type' => 'danger',
             ]);
         }
 
@@ -222,12 +222,12 @@ class ArticlesController extends Controller
         return response()->json([
             'code' => 200,
             'message' => '更新成功',
-            'type' => 'success'
+            'type' => 'success',
         ]);
     }
 
     /**
-     * 更新文章状态：0，草稿；1，已发布
+     * 更新文章状态：0，草稿；1，已发布.
      */
     public function updateStatus(UpdateArticleStatus $request)
     {
@@ -239,7 +239,7 @@ class ArticlesController extends Controller
         return response()->json([
             'code' => 200,
             'message' => $res ? '更新成功' : '更新失败',
-            'type' => $res ? 'success' : 'danger'
+            'type' => $res ? 'success' : 'danger',
         ]);
     }
 }
