@@ -12,6 +12,7 @@
                     <a class="nav-link" href="{{ action('ArticlesController@index') }}">笔记</a>
                 </li>
                 @if (Auth::check())
+                    <li class="nav-item "><a class="nav-link" href="{{url('/dashboard')}}">仪表盘</a></li>
                     <li class="nav-item "><a class="nav-link" href="{{url('/articles/create')}}">添加文章</a></li>
                 @endif
             </ul>

@@ -33,3 +33,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/articles/cover/upload', 'ArticlesController@cover');
     Route::post('/files/upload', 'FilesController@upload');
 });
+
+Route::group(['prefix' => 'dashboard'],  function () {
+    Route::get('/', function() {
+        return view('dashboard.home');
+    });
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
