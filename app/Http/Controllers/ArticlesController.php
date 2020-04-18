@@ -9,6 +9,7 @@ use App\File;
 use App\Http\Requests\CreateArticleRequest;
 use App\Http\Requests\UpdateArticleStatus;
 use App\Tag;
+use Auth;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Request;
 
@@ -163,7 +164,10 @@ class ArticlesController extends Controller
         $siteDescription = $article->description;
 
         $article->timestamps = false;
-        $article->increment('views');
+
+        if (!Auth::check()) {
+            $article->increment('views');
+        }
 
         return view('articles.show', compact('siteTitle', 'siteKeywords', 'siteDescription', 'article'));
     }
