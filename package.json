@@ -1,5 +1,5 @@
 {
-  "version": "v1.6.6",
+  "version": "v1.7.0",
   "private": true,
   "scripts": {
     "dev": "yarn run development",
@@ -18,7 +18,7 @@
     "cz-conventional-changelog": "^2.1.0",
     "fs": "0.0.1-security",
     "highlight.js": "^9.14.2",
-    "jquery": "^3.4",
+    "jquery": "3.4.1",
     "jquery-serializejson": "^2.9.0",
     "laravel-echo": "^1.4.0",
     "laravel-mix": "^5.0.1",

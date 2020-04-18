@@ -23,6 +23,7 @@ const title = articleForm.find('#title');
 
 const submitArticle = articleForm.find('#submit-article');
 const saveArticle = articleForm.find('#save-article');
+const unpubArticle = articleForm.find('#unpubArticle');
 
 let tTagsArray = []; // 标签数组，用于判断标签数量和是否已经重复添加标签
 
@@ -54,7 +55,35 @@ const _getArticleContent = (articleId) => {
 const _getArticleId = () => {
     const pathArr = window.location.pathname.split('/');
 
-    return pathArr[pathArr.length - 1];
+    return parseInt(pathArr[pathArr.length - 1], 10);
+}
+
+/**
+ * 更新文章状态
+ * @param {} status
+ */
+const _updatestatus = (status) => {
+    $.post('/articles/updatestatus', { id: _getArticleId(), status}, res => {
+        if (res && res.code === 200) {
+            laravelAlert.show({
+                type: res.type,
+                message: res.message
+            });
+
+            if (res.type !== 'success') {
+                return;
+            }
+
+            setTimeout(() => {
+                location.reload();
+            });
+        } else {
+            laravelAlert.show({
+                type: 'danger',
+                message: 'NetWork Error'
+            });
+        }
+    });
 }
 
 /**
@@ -62,19 +91,10 @@ const _getArticleId = () => {
  * @param status
  * @private
  */
-const _postArticle = (status) => {
-    if (typeof status === 'undefined') {
-        laravelAlert.show({
-            type: 'danger',
-            message: '不知道是提交还是仅保存'
-        });
-        return;
-    }
-
+const _postArticle = () => {
     let postData = Object.assign(articleForm.serializeJSON(), {
         title: title.text(),
-        content: editorInstance.getHtml(),
-        status: status
+        content: editorInstance.getHtml()
     });
 
     $.ajax({
@@ -158,19 +178,25 @@ const _tTagBoxTagsToString = () => {
     return tTagsArray;
 };
 
+/**
+ * 保存文章
+ */
+saveArticle.click(() => {
+    _postArticle();
+});
 
 /**
  * 发表文章
  */
 submitArticle.click(() => {
-    _postArticle(1);
+    _updatestatus(1);
 });
 
 /**
- * 保存文章
+ * 撤回文章
  */
-saveArticle.click(() => {
-    _postArticle(0);
+unpubArticle.click(() => {
+    _updatestatus(0);
 });
 
 /**
@@ -271,5 +297,7 @@ $(() => {
     $('.navbar-default').fadeOut();
     const articleId = _getArticleId();
 
-    _getArticleContent(articleId);
+    if (articleId) {
+        _getArticleContent(articleId);
+    }
 });

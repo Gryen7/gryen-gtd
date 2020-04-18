@@ -8,9 +8,6 @@
         </button>
         <div class="collapse navbar-collapse" id="tNavbarCollapse">
             <ul class="nav navbar-nav">
-                <li class="nav-item @if (isset($module) && $module === 'home')active @endif">
-                    <a class="nav-link" href="{{ action('HomeController@index') }}">封面</a>
-                </li>
                 <li class="nav-item @if (isset($module) && $module === 'article-list') active @endif">
                     <a class="nav-link" href="{{ action('ArticlesController@index') }}">笔记</a>
                 </li>

@@ -1,11 +1,17 @@
 <div class="form-group tar-artl-ssbtn">
     <div class="btn-group-vertical">
         @if(isset($articleShow))
-        <a href="{{ $articleShow }}" class="btn btn-outline-info">查看</a>
+        <a href="{{ $articleShow }}" class="btn btn-outline-secondary">查看</a>
         @endif
-        {!! Form::button('暂存',['class' => 'btn btn-outline-success','id' => 'save-article']) !!}
-        {!! Form::button('提交',['class' => 'btn btn-outline-danger','id' => 'submit-article']) !!}
-        <a href="javascript:history.go(-1);" class="btn btn-outline-warning">放弃</a>
+        @if(isset($article->status) && $article->status === 1)
+            {!! Form::button('撤回',['class' => 'btn btn-outline-danger','id' => 'unpubArticle']) !!}
+        @endif
+        @if(!isset($article->status) || $article->status < 1)
+            {!! Form::button('保存',['class'=> 'btn btn-outline-info','id' => 'save-article']) !!}
+        @endif
+        @if(isset($article->status) && $article->status < 1)
+            {!! Form::button('发布',['class'=> 'btn btn-outline-success','id' => 'submit-article']) !!}
+        @endif
     </div>
 </div>
 <div class="form-group">

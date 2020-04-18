@@ -1,5 +1,4 @@
 @extends('layouts._default', [
-    'siteTitle' => '封面',
     'module' => 'home',
     'noJsLoad' => true,
     'vue' => true

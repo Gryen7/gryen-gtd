@@ -17,9 +17,9 @@ Route::middleware(['refresh.token'])->group(function () {
     Route::get('/currentuser', 'Api\UserController@currentUser');
 
     Route::get('/articles/list', 'Api\ArticlesController@getList');
-    Route::post('/articles/delete', 'Api\ArticlesController@delete');
-    Route::post('/articles/restore', 'Api\ArticlesController@restore');
-    Route::post('/articles/forcedelete', 'Api\ArticlesController@forceDelete');
+    // Route::post('/articles/delete', 'Api\ArticlesController@delete');
+    // Route::post('/articles/restore', 'Api\ArticlesController@restore');
+    // Route::post('/articles/forcedelete', 'Api\ArticlesController@forceDelete');
 
     Route::get('/todos/count', 'Api\TodosController@count');
     Route::get('/todos/list', 'Api\TodosController@getList');
