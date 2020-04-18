@@ -26,7 +26,7 @@ class UpdateArticleStatus extends FormRequest
     {
         return [
             'id' => 'required|exists:articles,id',
-            'status' => ['required', Rule::in([1, 0])]
+            'status' => ['required', Rule::in([1, 0])],
         ];
     }
 }
