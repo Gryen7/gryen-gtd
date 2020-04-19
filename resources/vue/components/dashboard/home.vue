@@ -1,7 +1,10 @@
 <template>
-    <div>
-        home
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="https://statics.gryen.com/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            仪表盘
+        </a>
+    </nav>
 </template>
 
 <script>
@@ -12,7 +15,7 @@ export default {
         };
     },
     created: async function() {
-        this.renderArticleList();
+        // this.renderArticleList();
     },
     methods: {
         renderArticleList: async function() {
