@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-// refresh.token
-Route::middleware(['auth'])->group(function () {
+
+Route::middleware(['auth:api'])->group(function () {
     Route::get('/currentuser', 'Api\UserController@currentUser');
 
     Route::get('/articles/list', 'Api\ArticlesController@getList');

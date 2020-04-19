@@ -15,11 +15,17 @@ export default {
         };
     },
     created: async function() {
-        // this.renderArticleList();
+        this.csrfCookie();
+        this.renderArticleList();
     },
     methods: {
         renderArticleList: async function() {
-            const res = await axios.get(`/api/articles/list`);
+            const res = await axios.get('/api/articles/list');
+
+            console.log(res);
+        },
+        csrfCookie: async function() {
+            const res = await axios.get('/sanctum/csrf-cookie');
 
             console.log(res);
         }
