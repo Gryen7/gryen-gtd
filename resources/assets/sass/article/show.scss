@@ -38,11 +38,8 @@
             color: #777;
         }
 
-        p {
-            display: flex;
-        }
-
-        p > img {
+        img {
+            display: block;
             max-width: 100%;
             height: auto;
             margin: 1rem auto;
