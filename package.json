@@ -1,5 +1,5 @@
 {
-  "version": "v1.7.2",
+  "version": "v1.7.1",
   "private": true,
   "scripts": {
     "dev": "yarn run development",
