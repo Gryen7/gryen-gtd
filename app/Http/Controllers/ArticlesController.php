@@ -165,7 +165,7 @@ class ArticlesController extends Controller
 
         $article->timestamps = false;
 
-        if (!Auth::check()) {
+        if (! Auth::check()) {
             $article->increment('views');
         }
 
