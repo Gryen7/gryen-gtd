@@ -68,6 +68,6 @@ class Article extends Eloquent implements Feedable
 
     public static function getFeedItems()
     {
-        return self::all();
+        return self::where('status', '>', '0')->get();
     }
 }
