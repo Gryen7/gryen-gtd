@@ -148,7 +148,7 @@ const _upCoverSuccess = (result) => {
     coverInput.val(null);
     tCovrProgrs.removeClass('active');
     tCoverFile.val(result.file_path);
-    tEditCover.attr('src',  result.file_path + '?imageView2/1/interlace/1/w/443/h/295/q/95');
+    tEditCover.attr('src',  result.file_path + '?imageView2/1/interlace/1/w/800/h/400/q/95');
 };
 
 /**
