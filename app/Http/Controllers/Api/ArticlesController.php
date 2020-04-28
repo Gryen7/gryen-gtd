@@ -89,23 +89,36 @@ class ArticlesController extends Controller
      */
     public function getList(Request $request)
     {
-        $sorter = null;
+        $sorter = '';
+        $sort = [];
+        $order = 'desc';
+        $orderType = 'updated_at';
+        $status = 0;
+        $onlyTrashed = 'no';
         $pageSize = empty($request->get('pageSize')) ? env('ARTICLE_PAGE_SIZE') : $request->get('pageSize');
 
         if (! empty($request)) {
-            $onlyTrashed = $request->get('only_trashed');
+            $onlyTrashed = $request->get('onlyTrashed');
             $sorter = $request->get('sorter');
+            $status = $request->get('status');
         }
 
-        if (empty($onlyTrashed)) {
-            $sort = $sorter == 'updated_at_ascend' ? 'asc' : 'desc';
-            $articles = Article::where('status', '>', 0)
-                ->orderBy('updated_at', $sort)
+        if (strlen($sorter) > 0) {
+            $sort = explode('_', $sorter);
+        }
+
+        if (count($sort) > 0) {
+            $order = $sort[count($sort) - 1];
+            $orderType = str_replace('_' . $order, '', $sorter);
+        }
+
+        if ($onlyTrashed === 'yes') {
+            $articles = Article::onlyTrashed()
+                ->orderBy($orderType, $order)
                 ->paginate($pageSize);
         } else {
-            $sort = $sorter == 'deleted_at_ascend' ? 'asc' : 'desc';
-            $articles = Article::onlyTrashed()
-                ->orderBy('deleted_at', $sort)
+            $articles = Article::where('status', $status)
+                ->orderBy($orderType, $order)
                 ->paginate($pageSize);
         }
 

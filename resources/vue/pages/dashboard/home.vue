@@ -1,0 +1,181 @@
+<template>
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+      <a class="navbar-brand" href="#">
+        <img
+          src="https://statics.gryen.com/logo.png"
+          width="30"
+          height="30"
+          class="d-inline-block align-top"
+          alt
+        />
+        仪表盘
+      </a>
+    </nav>
+    <div class="container">
+      <div class="d-flex justify-content-between mb-3">
+        <div class="btn-group" role="group">
+          <button
+            type="button"
+            class="btn btn-primary"
+            @click="filter('status', 0)"
+            :disabled="listQueryParams.status === 0 && listQueryParams.onlyTrashed !== 'yes'"
+          >待发布</button>
+          <button
+            type="button"
+            class="btn btn-success"
+            @click="filter('status', 1)"
+            :disabled="listQueryParams.status === 1 && listQueryParams.onlyTrashed !== 'yes'"
+          >已发布</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            @click="filter('onlyTrashed', 'yes')"
+            :disabled="listQueryParams.onlyTrashed === 'yes'"
+          >已删除</button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-secondary" @click="order('views')">浏览量</button>
+          <button type="button" class="btn btn-secondary" @click="order('created_at')">发布时间</button>
+          <button type="button" class="btn btn-secondary" @click="order('updated_at')">更新时间</button>
+        </div>
+      </div>
+      <ul class="list-group mb-3">
+        <li
+          v-for="article in articleRes.data"
+          :key="article.id"
+          class="list-group-item list-group-item-action flex-column align-items-start"
+        >
+          <div class="row">
+            <h5 class="col-sm mb-1 text-truncate" :title="article.title">
+              <a :href="article.href" target="_blank">{{article.title}}</a>
+            </h5>
+            <div>
+              <span class="badge badge-primary badge-pill">{{article.views}}</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item" :class="{'disabled': articleRes.current_page === 1}">
+            <span v-if="articleRes.current_page === 1" class="page-link">第一页</span>
+            <a v-else class="page-link" @click="firstPage">第一页</a>
+          </li>
+          <li class="page-item" :class="{'disabled': !articleRes.prev_page_url}">
+            <a v-if="articleRes.prev_page_url" class="page-link" @click="prevPage">上一页</a>
+            <span v-else class="page-link">上一页</span>
+          </li>
+          <li class="page-item" :class="{'disabled': !articleRes.next_page_url}">
+            <a v-if="articleRes.next_page_url" class="page-link" @click="nextPage">下一页</a>
+            <span v-else class="page-link">下一页</span>
+          </li>
+          <li
+            class="page-item"
+            :class="{'disabled': articleRes.current_page === articleRes.last_page}"
+          >
+            <span v-if="articleRes.current_page === articleRes.last_page" class="page-link">最后一页</span>
+            <a v-else class="page-link" @click="lastPage">最后一页</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data: function() {
+    return {
+      listQueryParams: {
+        pageSize: 15,
+        page: 1,
+        sorter: 'updated_at_desc',
+        status: 1,
+        onlyTrashed: 'no'
+      },
+      articleRes: {}
+    };
+  },
+  created: async function() {
+    this.csrfCookie();
+    this.renderArticleList();
+  },
+  methods: {
+    renderArticleList: async function() {
+      const res = await axios.get('/api/articles/list', {
+        params: {
+          ...this.listQueryParams
+        }
+      });
+
+      this.articleRes = res.data;
+      this.listQueryParams.page = this.articleRes.current_page;
+    },
+    csrfCookie: async function() {
+      const res = await axios.get('/sanctum/csrf-cookie');
+    },
+    filter: function(type, value) {
+      this.listQueryParams[type] = value;
+
+      if (type === 'status') {
+        this.listQueryParams.onlyTrashed = 'no';
+      }
+      this.renderArticleList();
+    },
+    order: function(type) {
+        const sorterArr = this.listQueryParams.sorter.split('_');
+        const oldType = sorterArr.replace(`_${sorterArr[sorterArr.length - 1]}`, '')
+        if (oldType === type) {
+            this.listQueryParams.sorter = `${type}_`
+        }
+      this.listQueryParams.sorter = `${type}_desc`;
+
+      this.renderArticleList();
+    },
+    firstPage: function() {
+      if (this.listQueryParams.page < 1) {
+        return;
+      }
+
+      this.listQueryParams.page = 1;
+
+      this.renderArticleList();
+    },
+    prevPage: function() {
+      if (this.listQueryParams.page < 1) {
+        return;
+      }
+
+      this.listQueryParams.page = this.listQueryParams.page - 1;
+
+      this.renderArticleList();
+    },
+    nextPage: function() {
+      if (this.listQueryParams.page >= this.articleRes.last_page) {
+        return;
+      }
+
+      this.listQueryParams.page = this.listQueryParams.page + 1;
+
+      this.renderArticleList();
+    },
+    lastPage: function() {
+      if (this.listQueryParams.page < 1) {
+        return;
+      }
+
+      this.listQueryParams.page = this.articleRes.last_page;
+
+      this.renderArticleList();
+    }
+  }
+};
+</script>
+
+<style scoped>
+a {
+  cursor: pointer;
+  color: var(--primary);
+}
+</style>

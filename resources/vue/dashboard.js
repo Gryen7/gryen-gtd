@@ -11,7 +11,7 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('dashboardHome', require('./components/dashboard/home').default);
+Vue.component('dashboardHome', require('./pages/dashboard/home').default);
 
 // noinspection ES6ModulesDependencies
 new Vue({
