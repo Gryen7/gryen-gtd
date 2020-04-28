@@ -149,7 +149,7 @@ class ArticlesController extends Controller
         }
 
         /* 没有权限跳转首页 */
-        if (($article->trashed() || $article->status < 1) && ! \Auth::check()) {
+        if (($article->trashed() || $article->status < 1) && ! Auth::check()) {
             return redirect('/');
         }
 
@@ -165,7 +165,7 @@ class ArticlesController extends Controller
 
         $article->timestamps = false;
 
-        if (!Auth::check()) {
+        if (! Auth::check()) {
             $article->increment('views');
         }
 
