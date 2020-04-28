@@ -34,8 +34,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/files/upload', 'FilesController@upload');
 });
 
-Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'],  function () {
-    Route::get('/', function() {
+Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
+    Route::get('/', function () {
         return view('dashboard.home');
     });
 });
