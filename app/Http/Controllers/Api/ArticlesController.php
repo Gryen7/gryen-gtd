@@ -109,7 +109,7 @@ class ArticlesController extends Controller
 
         if (count($sort) > 0) {
             $order = $sort[count($sort) - 1];
-            $orderType = str_replace('_' . $order, '', $sorter);
+            $orderType = str_replace('_'.$order, '', $sorter);
         }
 
         if ($onlyTrashed === 'yes') {
