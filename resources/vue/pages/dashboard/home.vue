@@ -124,12 +124,21 @@ export default {
       this.renderArticleList();
     },
     order: function(type) {
-        const sorterArr = this.listQueryParams.sorter.split('_');
-        const oldType = sorterArr.replace(`_${sorterArr[sorterArr.length - 1]}`, '')
-        if (oldType === type) {
-            this.listQueryParams.sorter = `${type}_`
+      const sorterArr = this.listQueryParams.sorter.split('_');
+      const oldValue = sorterArr[sorterArr.length - 1];
+      const oldType = this.listQueryParams.sorter.replace(`_${oldValue}`, '');
+
+      if (oldType === type) {
+        if (oldValue === 'desc') {
+          this.listQueryParams.sorter = `${type}_asc`;
         }
-      this.listQueryParams.sorter = `${type}_desc`;
+
+        if (oldValue === 'asc') {
+          this.listQueryParams.sorter = `${type}_desc`;
+        }
+      } else {
+        this.listQueryParams.sorter = `${type}_desc`;
+      }
 
       this.renderArticleList();
     },
