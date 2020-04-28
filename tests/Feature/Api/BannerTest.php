@@ -36,9 +36,8 @@ class BannerTest extends TestCase
             'cover' => env('SITE_DEFAULT_IMAGE'),
         ];
 
-        $response = $this->withHeaders([
-            'Authorization' => 'Bearer '.\JWTAuth::fromUser($this->user),
-        ])->postJson('/api/banners/set', $postData);
+        $response = $this->actingAs($this->user)
+            ->postJson('/api/banners/set', $postData);
 
         $response->assertSuccessful();
 
@@ -54,9 +53,8 @@ class BannerTest extends TestCase
         $banner = \DB::table('banners')
             ->first();
 
-        $response = $this->withHeaders([
-            'Authorization' => 'Bearer '.\JWTAuth::fromUser($this->user),
-        ])->delete('/api/banners/delete/'.$banner->id);
+        $response = $this->actingAs($this->user)
+            ->delete('/api/banners/delete/'.$banner->id);
 
         $response->assertSuccessful();
 
@@ -72,9 +70,8 @@ class BannerTest extends TestCase
             ->orderBy('weight', 'asc')
             ->first();
 
-        $response = $this->withHeaders([
-            'Authorization' => 'Bearer '.\JWTAuth::fromUser($this->user),
-        ])->post('/api/banners/top/'.$banner->id);
+        $response = $this->actingAs($this->user)
+            ->post('/api/banners/top/'.$banner->id);
 
         $response->assertSuccessful();
 

@@ -29,7 +29,7 @@ class TodoTest extends TestCase
 
     public function testGetList()
     {
-        $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
+        $response = $this->actingAs($this->user)
             ->getJson('/api/todos/list?page=1&status=all');
 
         $response->assertSuccessful();
@@ -51,7 +51,7 @@ class TodoTest extends TestCase
             'description' => $faker->text,
         ];
 
-        $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
+        $response = $this->actingAs($this->user)
             ->post('/api/todos/updateorcreate', $postData);
 
         $response->assertSuccessful();
@@ -67,7 +67,7 @@ class TodoTest extends TestCase
             'event' => $beforeStatus === 1 ? 'check' : 'start',
         ];
 
-        $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
+        $response = $this->actingAs($this->user)
             ->post('/api/todos/update', $postData);
 
         $response->assertSuccessful();
@@ -81,7 +81,7 @@ class TodoTest extends TestCase
     {
         $todo = \DB::table('todos')->first();
 
-        $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
+        $response = $this->actingAs($this->user)
             ->post('/api/todos/delete/'.$todo->id);
         $response->assertSuccessful();
 

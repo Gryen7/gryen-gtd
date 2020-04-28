@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth:api'])->group(function () {
+Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/currentuser', 'Api\UserController@currentUser');
 
     Route::get('/articles/list', 'Api\ArticlesController@getList');

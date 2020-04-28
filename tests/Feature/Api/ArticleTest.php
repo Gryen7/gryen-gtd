@@ -41,7 +41,7 @@ class ArticleTest extends TestCase
 
     public function testMoreArticles()
     {
-        $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
+        $response = $this->actingAs($this->user)
             ->getJson('/api/articles/list/'.$this->firstArticle->id);
 
         $response->assertSuccessful()
@@ -50,7 +50,7 @@ class ArticleTest extends TestCase
 
     public function testGetList()
     {
-        $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
+        $response = $this->actingAs($this->user)
             ->getJson('/api/articles/list');
 
         $response->assertSuccessful();
@@ -58,7 +58,7 @@ class ArticleTest extends TestCase
 
     // public function testDelete()
     // {
-    //     $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
+    //     $response = $this->actingAs($this->user)
     //         ->post('/api/articles/delete', ['ids' => [$this->firstArticle->id]]);
 
     //     $response->assertSuccessful();
@@ -77,7 +77,7 @@ class ArticleTest extends TestCase
     //             'deleted_at' => Carbon::now(),
     //         ]);
 
-    //     $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
+    //     $response = $this->actingAs($this->user)
     //         ->post('/api/articles/restore', ['id' => $this->firstArticle->id]);
     //     $response->assertSuccessful();
 
@@ -95,7 +95,7 @@ class ArticleTest extends TestCase
     //             'deleted_at' => Carbon::now(),
     //         ]);
 
-    //     $response = $this->withHeader('Authorization', 'Bearer '.\JWTAuth::fromUser($this->user))
+    //     $response = $this->actingAs($this->user)
     //         ->post('/api/articles/forcedelete', ['id' => $this->firstArticle->id]);
 
     //     $response->assertSuccessful();
