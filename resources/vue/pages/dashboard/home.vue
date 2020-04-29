@@ -59,13 +59,13 @@
         <li class="list-group-item list-group-item-action">
           <div class="row">
             <h5 class="col-sm-5 text-truncate">文章标题</h5>
-            <div class="col-sm-3 text-center">
+            <div class="col-sm-3 text-center text-truncate">
               <span>新建时间</span>
             </div>
-            <div class="col-sm-3 text-center">
+            <div class="col-sm-3 text-center text-truncate">
               <span>更新时间</span>
             </div>
-            <div class="col-sm-1 text-right">
+            <div class="col-sm-1 text-right text-truncate">
               <span>浏览量</span>
             </div>
           </div>
@@ -79,13 +79,13 @@
             <h5 class="col-sm-5 text-truncate" :title="article.title">
               <a :href="article.href" target="_blank">{{article.title}}</a>
             </h5>
-            <div class="col-sm-3 text-center">
+            <div class="col-sm-3 text-center text-truncate">
               <span>{{article.createdAt}}</span>
             </div>
-            <div class="col-sm-3 text-center">
+            <div class="col-sm-3 text-center text-truncate">
               <span>{{article.updatedAt}}</span>
             </div>
-            <div class="col-sm-1 text-right">
+            <div class="col-sm-1 text-right text-truncate">
               <span class="badge badge-primary badge-pill">{{article.views}}</span>
             </div>
           </div>
@@ -231,6 +231,10 @@ a {
   padding-bottom: 5rem;
   min-height: calc(100% - 30px - 2.625rem);
   position: relative;
+
+  h5 {
+    margin-bottom: 0;
+  }
 }
 
 .g-pagination {
