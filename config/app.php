@@ -161,7 +161,6 @@ return [
         zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Spatie\Sitemap\SitemapServiceProvider::class,
-        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
     ],
     /*
     |--------------------------------------------------------------------------
