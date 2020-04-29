@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="g-dashboard">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
       <a class="navbar-brand" href="#">
         <img
@@ -12,7 +12,7 @@
         仪表盘
       </a>
     </nav>
-    <div class="container">
+    <div class="container g-container">
       <div class="d-flex justify-content-between mb-3">
         <div class="btn-group" role="group">
           <button
@@ -35,28 +35,63 @@
           >已删除</button>
         </div>
         <div class="btn-group" role="group">
-          <button type="button" class="btn btn-secondary" @click="order('views')">浏览量</button>
-          <button type="button" class="btn btn-secondary" @click="order('created_at')">发布时间</button>
-          <button type="button" class="btn btn-secondary" @click="order('updated_at')">更新时间</button>
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            :class="{'active': listQueryParams.sorter.indexOf('created_at') > -1}"
+            @click="order('created_at')"
+          >新建时间</button>
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            :class="{'active': listQueryParams.sorter.indexOf('updated_at') > -1}"
+            @click="order('updated_at')"
+          >更新时间</button>
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            :class="{'active': listQueryParams.sorter.indexOf('views') > -1}"
+            @click="order('views')"
+          >浏览量</button>
         </div>
       </div>
-      <ul class="list-group mb-3">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action">
+          <div class="row">
+            <h5 class="col-sm-5 text-truncate">文章标题</h5>
+            <div class="col-sm-3 text-center">
+              <span>新建时间</span>
+            </div>
+            <div class="col-sm-3 text-center">
+              <span>更新时间</span>
+            </div>
+            <div class="col-sm-1 text-right">
+              <span>浏览量</span>
+            </div>
+          </div>
+        </li>
         <li
           v-for="article in articleRes.data"
           :key="article.id"
-          class="list-group-item list-group-item-action flex-column align-items-start"
+          class="list-group-item list-group-item-action"
         >
           <div class="row">
-            <h5 class="col-sm mb-1 text-truncate" :title="article.title">
+            <h5 class="col-sm-5 text-truncate" :title="article.title">
               <a :href="article.href" target="_blank">{{article.title}}</a>
             </h5>
-            <div>
+            <div class="col-sm-3 text-center">
+              <span>{{article.createdAt}}</span>
+            </div>
+            <div class="col-sm-3 text-center">
+              <span>{{article.updatedAt}}</span>
+            </div>
+            <div class="col-sm-1 text-right">
               <span class="badge badge-primary badge-pill">{{article.views}}</span>
             </div>
           </div>
         </li>
       </ul>
-      <nav aria-label="Page navigation example">
+      <nav aria-label="Page navigation" class="g-pagination">
         <ul class="pagination">
           <li class="page-item" :class="{'disabled': articleRes.current_page === 1}">
             <span v-if="articleRes.current_page === 1" class="page-link">第一页</span>
@@ -90,8 +125,8 @@ export default {
       listQueryParams: {
         pageSize: 15,
         page: 1,
-        sorter: 'updated_at_desc',
-        status: 1,
+        sorter: 'created_at_desc',
+        status: 0,
         onlyTrashed: 'no'
       },
       articleRes: {}
@@ -182,9 +217,25 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 a {
   cursor: pointer;
   color: var(--primary);
+}
+
+.g-dashboard {
+  height: 100%;
+}
+
+.g-container {
+  padding-bottom: 5rem;
+  min-height: calc(100% - 30px - 2.625rem);
+  position: relative;
+}
+
+.g-pagination {
+  position: absolute;
+  bottom: 1rem;
+  left: 15px;
 }
 </style>

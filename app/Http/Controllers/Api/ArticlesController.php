@@ -7,6 +7,7 @@ use App\ArticleData;
 use App\Config;
 use App\Http\Controllers\Controller;
 use App\Tag;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
@@ -128,6 +129,8 @@ class ArticlesController extends Controller
             }
 
             $article->href = action('ArticlesController@show', ['id' => $article->id]);
+            $article->createdAt = (new Carbon($article->created_at))->toDateTimeString();
+            $article->updatedAt = (new Carbon($article->updated_at))->toDateTimeString();
         }
 
         return response($articles);

@@ -10,7 +10,7 @@ const JS_MODULES = fs.readdirSync(JS_PATH); // JS 模块
 /* CSS 处理 */
 mix.sass('resources/assets/sass/lib.scss', `${DIST_PATH_WITH_VERSION}/css/lib.css`)
     .sass('resources/assets/sass/app.scss', `${DIST_PATH_WITH_VERSION}/css/app.css`)
-    .sass('node_modules/bootstrap/scss/bootstrap.scss', `${DIST_PATH_WITH_VERSION}/css/dashboard.css`);
+    .sass('resources/assets/sass/dashboard.scss', `${DIST_PATH_WITH_VERSION}/css/dashboard.css`);
 
 /* JS 处理 */
 for (let module of JS_MODULES) {
