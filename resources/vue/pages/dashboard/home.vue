@@ -56,7 +56,7 @@
         </div>
       </div>
       <ul class="list-group">
-        <li class="list-group-item list-group-item-action">
+        <li class="list-group-item disabled">
           <div class="row">
             <div class="col-sm-1">ID</div>
             <div class="col-sm-4 text-truncate">文章标题</div>
