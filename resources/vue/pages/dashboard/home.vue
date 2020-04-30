@@ -1,7 +1,7 @@
 <template>
   <div class="g-dashboard">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         <img
           src="https://statics.gryen.com/logo.png"
           width="30"
@@ -9,7 +9,7 @@
           class="d-inline-block align-top"
           alt
         />
-        仪表盘
+        格安
       </a>
     </nav>
     <div class="container g-container">
@@ -58,11 +58,12 @@
       <ul class="list-group">
         <li class="list-group-item list-group-item-action">
           <div class="row">
-            <h5 class="col-sm-5 text-truncate">文章标题</h5>
-            <div class="col-sm-3 text-center text-truncate">
+            <div class="col-sm-1">ID</div>
+            <div class="col-sm-4 text-truncate">文章标题</div>
+            <div class="col-sm-3 text-truncate">
               <span>新建时间</span>
             </div>
-            <div class="col-sm-3 text-center text-truncate">
+            <div class="col-sm-3 text-truncate">
               <span>更新时间</span>
             </div>
             <div class="col-sm-1 text-right text-truncate">
@@ -76,13 +77,14 @@
           class="list-group-item list-group-item-action"
         >
           <div class="row">
-            <h5 class="col-sm-5 text-truncate" :title="article.title">
+            <div class="col-sm-1">{{article.id}}</div>
+            <h5 class="col-sm-4 text-truncate" :title="article.title">
               <a :href="article.href" target="_blank">{{article.title}}</a>
             </h5>
-            <div class="col-sm-3 text-center text-truncate">
+            <div class="col-sm-3 text-truncate">
               <span>{{article.createdAt}}</span>
             </div>
-            <div class="col-sm-3 text-center text-truncate">
+            <div class="col-sm-3 text-truncate">
               <span>{{article.updatedAt}}</span>
             </div>
             <div class="col-sm-1 text-right text-truncate">
