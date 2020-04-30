@@ -28,7 +28,7 @@ class HomeController extends Controller
         $viewCount = 0;
 
         if (Auth::check()) {
-            $viewCount = Article::count('views');
+            $viewCount = Article::sum('views');
         }
 
         return view('home.index', compact('module', 'banners', 'viewCount'));
