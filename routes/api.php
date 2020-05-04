@@ -30,6 +30,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/banners/set', 'Api\BannersController@set');
     Route::delete('/banners/delete/{id}', 'Api\BannersController@delete');
     Route::post('/banners/top/{id}', 'Api\BannersController@top');
+
+    Route::get('/analytics', 'Api\DashboardController@analytics');
 });
 
 Route::post('/user/login', 'Api\UserController@login');
