@@ -14,7 +14,7 @@ mix.sass('resources/assets/sass/lib.scss', `${DIST_PATH_WITH_VERSION}/css/lib.cs
 
 /* JS 处理 */
 for (let module of JS_MODULES) {
-    if (module !== 'helpers') {
+    if (module !== 'helpers' && module !== '.DS_Store') {
         mix.js(`${JS_PATH}/${module}/index.js`, `${DIST_PATH_WITH_VERSION}/js/${module}.bundle.js`);
     }
 }

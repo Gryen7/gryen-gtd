@@ -13,7 +13,7 @@
             </a>
         </nav>
         <div class="container g-container">
-            <div class="alert alert-primary mb-3">每{{ analytics.aveDist }}天发布一篇文章，平均间隔：{{ analytics.aveRage }}天</div>
+            <div class="alert alert-primary mb-3">每 {{ analytics.aveDist }} 天发布一篇文章，平均间隔：{{ analytics.aveRage }} 天</div>
             <div class="d-flex justify-content-between mb-3">
                 <div class="btn-group" role="group">
                     <button
