@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
 use App\Banner;
-use Auth;
 
 class HomeController extends Controller
 {
