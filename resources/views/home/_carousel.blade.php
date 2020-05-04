@@ -13,7 +13,7 @@
                         <img class="d-block w-100" src="{{ imageView2($banner->cover, ['w' => 960,'h' => 540]) }}"
                             alt="First slide">
                         <div class="t-index-carousel-title">
-                            <p class="mb-1 mt-3">{{ $banner->articleTitle }}</p>
+                            <p class="mb-1 mt-3 text-dark">{{ $banner->articleTitle }}</p>
 </div>
                     </a>
                 </div>

@@ -5,85 +5,41 @@
                  class="rounded mx-auto d-block">
         </div>
         <div class="p-5 t-index-social">
-            <dl class="row">
-                <dt class="col-5 text-truncate">
+            <div class="d-flex justify-content-around">
+                <a href="https://github.com/itargaryen" target="_blank" title="Github">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-github"></use>
                     </svg>
-                    <span>Github：</span>
-                </dt>
-                <dd class="col-7 text-truncate">
-                    <a href="https://github.com/itargaryen" target="_blank">
-                        <span class="font-weight-light">Gryen</span>
-                    </a>
-                </dd>
-                <dt class="col-5 text-truncate">
+                </a>
+                <a href="https://gitee.com/targaryen" target="_blank" title="码云">
                     <svg class="icon icon-gitee" aria-hidden="true">
                         <use xlink:href="#icon-gitee"></use>
                     </svg>
-                    <span>码云：</span>
-                </dt>
-                <dd class="col-7 text-truncate">
-                    <a href="https://gitee.com/targaryen" target="_blank">
-                        <span class="font-weight-light">Gryen</span>
-                    </a>
-                </dd>
-                <dt class="col-5 text-truncate">
+                </a>
+                <a href="https://www.douban.com/people/itargaryen/" target="_blank" title="豆瓣">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-social-douban"></use>
                     </svg>
-                    <span>豆瓣：</span>
-                </dt>
-                <dd class="col-7 text-truncate">
-                    <a href="https://www.douban.com/people/itargaryen/" target="_blank">
-                        <span class="font-weight-light">Gryen</span>
-                    </a>
-                </dd>
-                <dt class="col-5 text-truncate">
+                </a>
+                <a href="mailto:targaryen@gryen.com" title="Email">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-email"></use>
                     </svg>
-                    <span>Email：</span>
-                </dt>
-                <dd class="col-7 text-truncate">
-                    <a href="mailto:targaryen@gryen.com">
-                        <span class="font-weight-light">targaryen@gryen.com</span>
-                    </a>
-                </dd>
-                <dt class="col-5 text-truncate">
+                </a>
+                <a href="/feed.xml" target="_blank" title="RSS">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-RSS"></use>
                     </svg>
-                    <span>RSS：</span>
-                </dt>
-                <dd class="col-7 text-truncate">
-                    <a href="/feed.xml" target="_blank">
-                        <span class="font-weight-light">点我订阅</span>
-                    </a>
-                </dd>
-                <dt class="col-5 text-truncate">
-                    <svg class="icon" aria-hidden="true">
+                </a>
+            </div>
+            <div class="position-absolute text-truncate miitbeian">
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">
+                    <svg class="icon icon-miitbeian" aria-hidden="true">
                         <use xlink:href="#icon-icon-beian"></use>
                     </svg>
-                    <span>ICP 备案：</span>
-                </dt>
-                <dd class="col-7 text-truncate">
-                    <a href="http://www.miitbeian.gov.cn/" target="_blank">
-                        <span class="font-weight-light">鲁 ICP 备15009847号</span>
-                    </a>
-                </dd>
-                @if(Auth::check())
-                <dt class="col-5 text-truncate">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-icon-beian"></use>
-                    </svg>
-                    <span>总访问量：</span>
-                </dt>
-                <dd class="col-7 text-truncate">
-                    <span class="font-weight-light">{{ $viewCount }}</span>
-                </dd>
-                @endif
-            </dl>
+                    <span class="font-weight-light">鲁 ICP 备15009847号</span>
+                </a>
+            </div>
         </div>
     </div>
 </div>

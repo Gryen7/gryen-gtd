@@ -137,8 +137,14 @@ export default {
   created: async function() {
     this.csrfCookie();
     this.renderArticleList();
+    this.renderAnalytics();
   },
   methods: {
+      renderAnalytics: async function() {
+          const res = await axios.get('/api/analytics');
+
+          console.log(res);
+      },
     renderArticleList: async function() {
       const res = await axios.get('/api/articles/list', {
         params: {
