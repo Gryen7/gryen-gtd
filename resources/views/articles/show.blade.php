@@ -11,22 +11,42 @@
         </section>
         <section class="t-rtcl-tags">
             @foreach($article->tagArray as $tag)
-                <a class="badge badge-dark" href="{{ action('ArticlesController@tag', ['tag' => $tag]) }}">{{ $tag }}</a>
+                <a class="badge badge-dark"
+                   href="{{ action('ArticlesController@tag', ['tag' => $tag]) }}">{{ $tag }}</a>
             @endforeach
         </section>
-        <footer class="clearfix">
-            <p>版权声明：自由转载-非商用-非衍生-保持署名（<a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>）</p>
-            <p><span>本文更新于 <time pubdate >{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}</time></span></p>
+        <footer class="clearfix small border border-secondary p-3">
+            <p class="mb-1">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-shijian"></use>
+                </svg>
+                <span>最后更新： <time
+                        pubdate>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}</time></span>
+            </p>
+            <p class="mb-1">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-copyright"></use>
+                </svg>
+                版权声明：自由转载-非商用-非衍生-保持署名（<a target="_blank"
+                                          href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>）
+            </p>
+            <p class="mb-0"><a href="mailto:targaryen@gryen.com" class="text-dark">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                    <span>与我联系：</span>
+                    <u>targaryen@gryen.com</u>
+                </a></p>
         </footer>
     </article>
     <more-articles></more-articles>
     @if (Auth::check())
-    <div class="form-group tar-artl-ssbtn">
-        <div class="btn-group-vertical">
-            <a href="{{ action('ArticlesController@edit', ['id' => $article->id]) }}" class="btn btn-primary">编辑</a>
-            <button class="btn btn-outline-primary" disabled>{{ $article->views }}</button>
+        <div class="form-group tar-artl-ssbtn">
+            <div class="btn-group-vertical">
+                <a href="{{ action('ArticlesController@edit', ['id' => $article->id]) }}" class="btn btn-primary">编辑</a>
+                <button class="btn btn-outline-primary" disabled>{{ $article->views }}</button>
+            </div>
         </div>
-    </div>
     @endif
     @include('articles._full-screen-img')
 @stop
