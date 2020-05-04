@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
 use App\Banner;
-use Auth;
 
 class HomeController extends Controller
 {
@@ -25,13 +23,7 @@ class HomeController extends Controller
             return $banner;
         });
 
-        $viewCount = 0;
-
-        if (Auth::check()) {
-            $viewCount = Article::sum('views');
-        }
-
-        return view('home.index', compact('module', 'banners', 'viewCount'));
+        return view('home.index', compact('module', 'banners'));
     }
 
     public function privacyPolicy()
