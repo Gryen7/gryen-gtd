@@ -1,43 +1,53 @@
 <template>
-  <div class="t-index-top-article">
-    <h6>推荐文章</h6>
-    <ul class="list-group list-group-flush">
-        <li v-for="article in articles" :key="article.id" class="list-group-item">
-            <a :href="article.href" class="text-dark">{{ article.title }}</a>
-        </li>
-    </ul>
-    <div class="t-index-showmore">
-        <a href="/articles">查看更多</a>
+    <div class="t-index-top-article">
+        <div class="list-group flex-column align-items-start">
+            <a v-for="article in articles" :key="article.id" :href="article.href"
+               class="list-group-item list-group-item-action" :title="article.title">
+                <div class="d-flex w-100 justify-content-between">
+                    <h6>{{ article.title }}</h6>
+                </div>
+                <small class="text-muted float-right">{{ article.updatedAt }}</small>
+            </a>
+        </div>
+        <div class="t-index-showmore">
+            <a href="/articles">查看更多</a>
+        </div>
     </div>
-  </div>
 </template>
 <style lang="scss" scoped>
-.t-index-top-article {
-    margin-top: 1rem;
+    .t-index-top-article {
+        margin-top: 1rem;
 
-    a:hover {
-        color: #56202d;
-    }
+        .list-group-item-action {
+            border-top-width: 1px;
+            border-color: #fff;
 
-    .t-index-showmore {
-        margin: 1rem auto;
-        text-align: center;
-    }
-}
-</style>
-<script>
-export default {
-    data: function() {
-        return {
-            articles: []
-        };
-    },
-    created: async function() {
-        let response = await axios.get(`/api/articles/list/top`);
+            &:hover,
+            &:focus {
+                background-color: #fff;
+                border-color: #8e354a;
+            }
+        }
 
-        if (response && response.status === 200) {
-            this.articles = response.data;
+        .t-index-showmore {
+            margin: 1rem auto;
+            text-align: center;
         }
     }
-}
+</style>
+<script>
+    export default {
+        data: function () {
+            return {
+                articles: []
+            };
+        },
+        created: async function () {
+            let response = await axios.get(`/api/articles/list/top`);
+
+            if (response && response.status === 200) {
+                this.articles = response.data;
+            }
+        }
+    }
 </script>

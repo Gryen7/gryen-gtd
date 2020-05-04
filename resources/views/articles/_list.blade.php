@@ -7,7 +7,7 @@
         <p class="text-left text-dark font-weight-bold t-line-ellipsis-1">{{ $article->title }}</p>
         <p class="text-left t-line-ellipsis-4 t-rtcl-desc">{{ $article->description }}</p>
         <p class="text-right">
-          {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $article->updated_at)->toDateString() }}
+          {{ $article->updatedAt }}
         </p>
       </figcaption>
     </figure>

@@ -2,16 +2,16 @@
     margin-top: 15px;
     box-shadow: $box-shadow-sm;
 
-    a:hover {
-        color: #56202d;
-    }
-
     .t-index-carousel-title {
         background-color: #ffffffaa;
         position: absolute;
         bottom: 3.5rem;
         padding: 0 1rem 0.75rem;
         width: 100%;
+    }
+
+    .t-index-carousel-title:hover {
+        background-color: #ffffffdd;
     }
 }
 

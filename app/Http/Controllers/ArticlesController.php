@@ -24,13 +24,14 @@ class ArticlesController extends Controller
     public function index()
     {
         $articles = Article::where('status', '>', 0)
-            ->orderBy('created_at', 'desc')
+            ->orderBy('updated_at', 'desc')
             ->paginate(env('ARTICLE_PAGE_SIZE'));
 
         foreach ($articles as &$article) {
             if (empty($article->cover)) {
                 $article->cover = Config::getAllConfig('SITE_DEFAULT_IMAGE');
             }
+            $article->updatedAt = $article->updated_at->calendar();
         }
 
         return view('articles.index', compact('articles'));
