@@ -63,7 +63,7 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 <a target="_bl
 
 1. 克隆或下载代码；
 2. 执行 `composer install` 安装 PHP 依赖；
-3. 执行 `yarn` 安装 JS 依赖；
+3. 执行 `npm install` 安装 JS 依赖；
 4. 复制 `.env.example` 到 `.env`，修改数据库连接参数：
 
     ```
@@ -76,7 +76,6 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 <a target="_bl
 
 5. 执行 `php artisan key:generate` 生成应用密钥；
 6. 执行 `php artisan migrate`，生成数据表；
-7. 执行 `php artisan jwt:secret` 生成 jwt 秘钥。
 
 #### 评估试用
 
@@ -92,7 +91,3 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 <a target="_bl
 1. 确保已经执行 `php artisan migrate:fresh` 重建数据表，访问 `http(s)://[yourdomain]/register` 注册用户获取权限；
 2. 访问 `http(s)://[yourdomain]/login` 登录用户；
 3. 访问 `http(s)://[yourdomain]/articles/create` 开始创作。
-
-### 日常维护
-
-1.0 版本之后，移除了部分属于管理功能的代码（实现的不够优雅）
