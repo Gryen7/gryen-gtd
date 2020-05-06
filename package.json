@@ -1,5 +1,5 @@
 {
-  "version": "v1.9.1",
+  "version": "v1.9.2",
   "private": true,
   "scripts": {
     "dev": "npm run development",
@@ -17,7 +17,7 @@
     "cross-env": "^7.0",
     "cz-conventional-changelog": "^2.1.0",
     "fs": "0.0.1-security",
-    "highlight.js": "^9.14.2",
+    "highlight.js": "^10.0.2",
     "jquery": "3.4.1",
     "jquery-serializejson": "^2.9.0",
     "laravel-echo": "^1.4.0",

@@ -2,7 +2,7 @@
  * Created by targaryen on 2017/5/18.
  */
 
-import hljs from 'highlight.js/lib/highlight';
+import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
 import typescript from 'highlight.js/lib/languages/typescript';
 import http from 'highlight.js/lib/languages/http';
