@@ -57,16 +57,6 @@
     </script>
     <!-- End Google Tag Manager -->
     @endif
-    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/manifest.js'}}" async="async"></script>
-    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/jquery.bundle.js'}}" async="async"></script>
-    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/axios.bundle.js'}}" async="async"></script>
-    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/common.bundle.js'}}" async="async"></script>
-    @if (isset($vue) && $vue)
-    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/vue.bundle.js'}}" async="async"></script>
-    @endif
-    @if (isset($module) && !isset($noJsLoad))
-    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/' . $module . '.bundle.js'}}" async="async"></script>
-    @endif
 </head>
 
 <body @if(isset($bodyClassString))class="{{ $bodyClassString }}" @endif>
@@ -82,6 +72,16 @@
 
     @section('base_content')
     @show
+    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/manifest.js'}}"></script>
+    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/jquery.bundle.js'}}"></script>
+    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/axios.bundle.js'}}"></script>
+    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/common.bundle.js'}}"></script>
+    @if (isset($vue) && $vue)
+    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/vue.bundle.js'}}"></script>
+    @endif
+    @if (isset($module) && !isset($noJsLoad))
+    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/' . $module . '.bundle.js'}}"></script>
+    @endif
 </body>
 
 </html>
