@@ -37,7 +37,7 @@
                                 'csrfToken' => csrf_token(),
                             ]); ?>
     </script>
-    @if(env('APP_ENV') == 'production')
+    @if(env('APP_ENV') === 'production' && !Auth::check())
     <!-- Google Tag Manager -->
     <script>
         (function(w, d, s, l, i) {
@@ -61,7 +61,7 @@
 
 <body @if(isset($bodyClassString))class="{{ $bodyClassString }}" @endif>
 
-    @if(env('APP_ENV') == 'production')
+    @if(env('APP_ENV') === 'production' && !Auth::check())
     <!-- Google Tag Manager (noscript) -->
     <noscript>
         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WW9GPF5" height="0" width="0" style="display:none;visibility:hidden">
