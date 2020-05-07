@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Api;
 
 use App\Article;
 use App\Http\Controllers\Controller;
+use Carbon\CarbonImmutable;
 
 class DashboardController extends Controller
 {
     /**
-     * 计算平均发博天数及平均间隔天数.
+     * 计算平均发博天数及平均间隔天数
      * @return array
      */
     public function analytics()
@@ -19,7 +20,7 @@ class DashboardController extends Controller
         $minDate = $articlesCreatedAts->min()->created_at;
 
         $distance = $maxDate->diffInDays($minDate);
-        $aveRage = round($distance / $count, 2);
+        $aveRage = ceil($distance / $count);
 
         $aveDistArr = $articlesCreatedAts->map(function ($value, $key) use ($articlesCreatedAts) {
             if (isset($articlesCreatedAts[$key + 1])) {
@@ -32,8 +33,10 @@ class DashboardController extends Controller
             }
         });
 
-        $aveDist = round(array_sum($aveDistArr->toArray()) / count($aveDistArr), 2);
+        $aveDist = ceil(array_sum($aveDistArr->toArray()) / count($aveDistArr));
+        $maxDateCal = $maxDate->calendar();
+        $disNow = CarbonImmutable::now()->diffInDays($maxDate);
 
-        return compact('aveRage', 'aveDist');
+        return compact('aveRage', 'aveDist', 'maxDateCal', 'disNow');
     }
 }
