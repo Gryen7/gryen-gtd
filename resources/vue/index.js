@@ -4,7 +4,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+import './bootstrap';
+import moreArticles from './components/articles/more-articles';
+import topArticles from './components/home/top-articles';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -12,8 +14,8 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('moreArticles', require('./components/articles/more-articles').default);
-Vue.component('topArticles', require('./components/home/top-articles').default);
+Vue.component('moreArticles', moreArticles);
+Vue.component('topArticles', topArticles);
 
 // noinspection ES6ModulesDependencies
 new Vue({
