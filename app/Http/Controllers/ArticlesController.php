@@ -32,7 +32,10 @@ class ArticlesController extends Controller
             if (empty($article->cover)) {
                 $article->cover = Config::getAllConfig('SITE_DEFAULT_IMAGE');
             }
-            $article->publishedAt = $article->published_at->calendar();
+
+            if (! empty($article->published_at)) {
+                $article->publishedAt = $article->published_at->calendar();
+            }
         }
 
         return view('articles.index', compact('articles'));
