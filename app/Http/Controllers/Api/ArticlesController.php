@@ -131,7 +131,10 @@ class ArticlesController extends Controller
             $article->href = action('ArticlesController@show', ['id' => $article->id]);
             $article->createdAt = $article->created_at->toDateTimeString();
             $article->updatedAt = $article->updated_at->toDateTimeString();
-            $article->publishedAt = $article->published_at->toDateTimeString();
+
+            if (! empty($article->publishedAt)) {
+                $article->publishedAt = $article->published_at->toDateTimeString();
+            }
         }
 
         return response($articles);
