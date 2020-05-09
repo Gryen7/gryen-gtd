@@ -19,9 +19,11 @@ class Article extends Eloquent implements Feedable
         'status',
         'created_at',
         'updated_at',
+        'published_at',
+        'modified_times'
     ];
 
-    protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at', 'published_at'];
 
     /**
      * 文章内容.

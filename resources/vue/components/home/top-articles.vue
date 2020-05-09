@@ -6,7 +6,7 @@
                 <div class="d-flex w-100 justify-content-between">
                     <h6>{{ article.title }}</h6>
                 </div>
-                <small class="text-muted float-right">{{ article.updatedAt }}</small>
+                <small class="text-muted float-right">{{ article.publishedAt }}</small>
             </a>
         </div>
         <div class="t-index-showmore">

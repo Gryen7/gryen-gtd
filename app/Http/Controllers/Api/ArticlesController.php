@@ -23,7 +23,7 @@ class ArticlesController extends Controller
 
         $articles = $articles->map(function ($article) {
             $article->href = action('ArticlesController@show', ['id' => $article->id]);
-            $article->updatedAt = $article->updated_at->calendar();
+            $article->publishedAt = $article->published_at->calendar();
 
             return $article;
         });
@@ -131,6 +131,7 @@ class ArticlesController extends Controller
             $article->href = action('ArticlesController@show', ['id' => $article->id]);
             $article->createdAt = $article->created_at->toDateTimeString();
             $article->updatedAt = $article->updated_at->toDateTimeString();
+            $article->publishedAt = $article->published_at->toDateTimeString();
         }
 
         return response($articles);

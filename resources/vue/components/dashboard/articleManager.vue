@@ -25,6 +25,12 @@
         <button
           type="button"
           class="btn btn-outline-primary"
+          :class="{'active': listQueryParams.sorter.indexOf('published_at') > -1}"
+          @click="order('published_at')"
+        >发布时间</button>
+        <button
+          type="button"
+          class="btn btn-outline-primary"
           :class="{'active': listQueryParams.sorter.indexOf('created_at') > -1}"
           @click="order('created_at')"
         >新建时间</button>
@@ -46,12 +52,18 @@
       <li class="list-group-item disabled">
         <div class="row">
           <div class="col-sm-1">ID</div>
-          <div class="col-sm-4 text-truncate">文章标题</div>
-          <div class="col-sm-3 text-truncate">
+          <div class="col-sm-3 text-truncate">文章</div>
+          <div class="col-sm-2 text-truncate">
+            <span>发布时间</span>
+          </div>
+          <div class="col-sm-2 text-truncate">
             <span>新建时间</span>
           </div>
-          <div class="col-sm-3 text-truncate">
+          <div class="col-sm-2 text-truncate">
             <span>更新时间</span>
+          </div>
+          <div class="col-sm-1 text-truncate">
+            <span>更新次数</span>
           </div>
           <div class="col-sm-1 text-right text-truncate">
             <span>浏览量</span>
@@ -65,14 +77,20 @@
       >
         <div class="row">
           <div class="col-sm-1">{{article.id}}</div>
-          <h5 class="col-sm-4 text-truncate" :title="article.title">
+          <h5 class="col-sm-3 text-truncate" :title="article.title">
             <a :href="article.href" target="_blank">{{article.title}}</a>
           </h5>
-          <div class="col-sm-3 text-truncate">
+          <div class="col-sm-2 text-truncate" :title="article.publishedAt">
+            <span>{{article.publishedAt}}</span>
+          </div>
+          <div class="col-sm-2 text-truncate" :title="article.createdAt">
             <span>{{article.createdAt}}</span>
           </div>
-          <div class="col-sm-3 text-truncate">
+          <div class="col-sm-2 text-truncate" :title="article.updatedAt">
             <span>{{article.updatedAt}}</span>
+          </div>
+          <div class="col-sm-1 text-center" :title="article.updatedAt">
+            <span>{{article.modified_times}}</span>
           </div>
           <div class="col-sm-1 text-right text-truncate">
             <span class="badge badge-primary badge-pill">{{article.views}}</span>
@@ -119,7 +137,7 @@ export default {
       listQueryParams: {
         pageSize: 15,
         page: 1,
-        sorter: 'created_at_desc',
+        sorter: 'published_at_desc',
         status: 0,
         onlyTrashed: 'no'
       },
