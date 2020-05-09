@@ -20,7 +20,7 @@ class Article extends Eloquent implements Feedable
         'created_at',
         'updated_at',
         'published_at',
-        'modified_times'
+        'modified_times',
     ];
 
     protected $dates = ['deleted_at', 'published_at'];

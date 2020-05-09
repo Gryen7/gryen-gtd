@@ -151,7 +151,7 @@ class ArticlesController extends Controller
         }
 
         /* 没有权限跳转首页 */
-        if (($article->trashed() || $article->status < 1) && !Auth::check()) {
+        if (($article->trashed() || $article->status < 1) && ! Auth::check()) {
             return redirect('/');
         }
 
@@ -166,7 +166,7 @@ class ArticlesController extends Controller
 
         $article->timestamps = false;
 
-        if (!Auth::check()) {
+        if (! Auth::check()) {
             $article->increment('views');
         }
 
@@ -243,17 +243,17 @@ class ArticlesController extends Controller
                 $res = $article->update([
                     'published_at' => CarbonImmutable::now(),
                     'status' => $request->get('status'),
-                    'modified_times' => DB::raw('modified_times + 1')
+                    'modified_times' => DB::raw('modified_times + 1'),
                 ]);
             } else {
                 $res = $article->update([
                     'status' => $request->get('status'),
-                    'modified_times' => DB::raw('modified_times + 1')
+                    'modified_times' => DB::raw('modified_times + 1'),
                 ]);
             }
         } else {
             $res = $article->update([
-                'status' => $request->get('status')
+                'status' => $request->get('status'),
             ]);
         }
 
