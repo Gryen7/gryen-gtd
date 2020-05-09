@@ -14,18 +14,18 @@ class DashboardController extends Controller
      */
     public function analytics()
     {
-        $articlesCreatedAts = Article::all(['created_at']);
-        $count = $articlesCreatedAts->count();
-        $maxDate = $articlesCreatedAts->max()->created_at;
-        $minDate = $articlesCreatedAts->min()->created_at;
+        $articlesPublishedAts = Article::all(['published_at']);
+        $count = $articlesPublishedAts->count();
+        $maxDate = $articlesPublishedAts->max()->published_at;
+        $minDate = $articlesPublishedAts->min()->published_at;
 
         $distance = $maxDate->diffInDays($minDate);
         $aveRage = ceil($distance / $count);
 
-        $aveDistArr = $articlesCreatedAts->map(function ($value, $key) use ($articlesCreatedAts) {
-            if (isset($articlesCreatedAts[$key + 1])) {
-                $curArtClCtdDt = $value->created_at;
-                $nextArticleCtdDt = $articlesCreatedAts[$key + 1]->created_at;
+        $aveDistArr = $articlesPublishedAts->map(function ($value, $key) use ($articlesPublishedAts) {
+            if (isset($articlesPublishedAts[$key + 1])) {
+                $curArtClCtdDt = $value->published_at;
+                $nextArticleCtdDt = $articlesPublishedAts[$key + 1]->published_at;
 
                 return $nextArticleCtdDt->diffInDays($curArtClCtdDt);
             } else {

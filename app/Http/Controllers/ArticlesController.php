@@ -10,7 +10,8 @@ use App\Http\Requests\CreateArticleRequest;
 use App\Http\Requests\UpdateArticleStatus;
 use App\Tag;
 use Auth;
-use Carbon\Carbon;
+use Carbon\CarbonImmutable;
+use DB;
 use Illuminate\Support\Facades\Request;
 
 class ArticlesController extends Controller
@@ -24,14 +25,17 @@ class ArticlesController extends Controller
     public function index()
     {
         $articles = Article::where('status', '>', 0)
-            ->orderBy('created_at', 'desc')
+            ->orderBy('published_at', 'desc')
             ->paginate(env('ARTICLE_PAGE_SIZE'));
 
         foreach ($articles as &$article) {
             if (empty($article->cover)) {
                 $article->cover = Config::getAllConfig('SITE_DEFAULT_IMAGE');
             }
-            $article->createdAt = $article->created_at->calendar();
+
+            if (! empty($article->published_at)) {
+                $article->publishedAt = $article->published_at->calendar();
+            }
         }
 
         return view('articles.index', compact('articles'));
@@ -158,7 +162,6 @@ class ArticlesController extends Controller
 
         $content = $article->withContent()->first()->content;
         $article->content = handleContentImage($content);
-        $article->cover = 'https:'.$article->cover;
 
         $siteTitle = $article->title;
         $siteKeywords = $article->tags;
@@ -211,7 +214,7 @@ class ArticlesController extends Controller
             ]);
         }
 
-        $updateData['updated_at'] = Carbon::now();
+        $updateData['updated_at'] = CarbonImmutable::now();
         $updateData['status'] = 0;
 
         $article = Article::withTrashed()
@@ -236,8 +239,26 @@ class ArticlesController extends Controller
      */
     public function updateStatus(UpdateArticleStatus $request)
     {
-        $res = Article::where('id', $request->get('id'))
-            ->update(['status' => $request->get('status')]);
+        $article = Article::find($request->get('id'));
+
+        if ($request->get('status') === '1') {
+            if ($article->modified_times === 0) {
+                $res = $article->update([
+                    'published_at' => CarbonImmutable::now(),
+                    'status' => $request->get('status'),
+                    'modified_times' => DB::raw('modified_times + 1'),
+                ]);
+            } else {
+                $res = $article->update([
+                    'status' => $request->get('status'),
+                    'modified_times' => DB::raw('modified_times + 1'),
+                ]);
+            }
+        } else {
+            $res = $article->update([
+                'status' => $request->get('status'),
+            ]);
+        }
 
         event(new PublishArticle());
 
