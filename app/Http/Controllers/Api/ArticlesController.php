@@ -93,7 +93,7 @@ class ArticlesController extends Controller
         $sorter = '';
         $sort = [];
         $order = 'desc';
-        $orderType = 'updated_at';
+        $orderType = 'published_at';
         $status = 0;
         $onlyTrashed = 'no';
         $pageSize = empty($request->get('pageSize')) ? env('ARTICLE_PAGE_SIZE') : $request->get('pageSize');
@@ -132,7 +132,7 @@ class ArticlesController extends Controller
             $article->createdAt = $article->created_at->toDateTimeString();
             $article->updatedAt = $article->updated_at->toDateTimeString();
 
-            if (! empty($article->publishedAt)) {
+            if (! empty($article->published_at)) {
                 $article->publishedAt = $article->published_at->toDateTimeString();
             }
         }
