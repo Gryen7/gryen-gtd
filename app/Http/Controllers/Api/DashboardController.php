@@ -15,10 +15,9 @@ class DashboardController extends Controller
     public function analytics()
     {
         $articlesPublishedAts = Article::all(['published_at'])->filter(function ($article) {
-            return !empty($article->published_at);
+            return ! empty($article->published_at);
         });
         $count = $articlesPublishedAts->count();
-
 
         if ($count > 0) {
             $maxDate = $articlesPublishedAts->max()->published_at;
