@@ -12,7 +12,7 @@
                     </svg>
                 </a>
                 <a href="https://gitee.com/targaryen" target="_blank" title="码云">
-                    <svg class="icon icon-gitee" aria-hidden="true">
+                    <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-gitee"></use>
                     </svg>
                 </a>
@@ -21,7 +21,7 @@
                         <use xlink:href="#icon-social-douban"></use>
                     </svg>
                 </a>
-                <a href="mailto:targaryen@gryen.com" title="Email">
+                <a href="mailto:{{ env('APP_EMAIL') }}" title="Email">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-email"></use>
                     </svg>
