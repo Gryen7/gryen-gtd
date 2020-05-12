@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Article;
+use App\ConfigMany;
 use App\Http\Controllers\Controller;
 use Carbon\CarbonImmutable;
 
@@ -46,5 +47,10 @@ class DashboardController extends Controller
         $disNow = empty($maxDate) ? null : CarbonImmutable::now()->diffInDays($maxDate);
 
         return compact('aveRage', 'aveDist', 'maxDateCal', 'disNow');
+    }
+
+    public function configManies()
+    {
+        return ConfigMany::all();
     }
 }
