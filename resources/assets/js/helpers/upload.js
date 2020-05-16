@@ -36,16 +36,20 @@ module.exports = (file, ajaxConfig, successCall, errorCall, onprogress) => {
                 return successCall(result);
             } else {
                 laravelAlert.show({
-                    type: 'danger',
+                    type: 'success',
                     message: '上传成功！'
                 });
             }
 
         },
         error: function (code, xhr, message) {
-            console.error(message);
             if (errorCall) {
-                return errorCall;
+                return errorCall(message);
+            } else {
+                laravelAlert.show({
+                    type: 'danger',
+                    message: message
+                });
             }
         }
     });

@@ -59,8 +59,8 @@ const show = function (options) {
         message = options.message;
     }
 
-    if (message.length === 0) {
-        console.log('bootstrapAlert: message is empty');
+    if (!message || message.length === 0) {
+        console.error('laravel alert: message is empty');
         return false;
     }
 

@@ -155,11 +155,11 @@ const _upCoverSuccess = (result) => {
  * 上传封面图失败
  * @private
  */
-const _upCoverError = () => {
+const _upCoverError = (message) => {
     coverInput.val(null);
     laravelAlert.show({
         type: 'danger',
-        massage: '上传失败！'
+        message: message
     });
 };
 
@@ -216,6 +216,8 @@ coverInput.on('change', function () {
  */
 tLblBox.find('.t-tag').on('click', function () {
     let tag = $.trim($(this).text());
+
+    console.log('tag', tag);
 
     if (tTagBox.children().length > 7) {
         laravelAlert.show({
