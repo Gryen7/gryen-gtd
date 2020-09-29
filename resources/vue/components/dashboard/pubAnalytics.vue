@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     renderAnalytics: async function() {
-      const res = await axios.get('/api/analytics');
+      const res = await axios.get('/api/dashboard/analytics');
 
       this.analytics = res.data;
     }

@@ -27,11 +27,11 @@
             </svg>
             <span>版权声明：</span><span>自由转载-非商用-非衍生-保持署名（<a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>）</span>
         </p>
-        <p class="mb-0"><a href="mailto:targaryen@gryen.com" class="text-dark">
+        <p class="mb-0"><a href="mailto:{{ env('APP_EMAIL') }}" class="text-dark">
                 <svg class="icon" aria-hidden="true">
                     <use xlink:href="#icon-email"></use>
                 </svg>
-                <span>与我联系：</span><span><u>targaryen@gryen.com</u></span>
+                <span>与我联系：</span><span><u>{{ env('APP_EMAIL') }}</u></span>
             </a></p>
     </footer>
 </article>

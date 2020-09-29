@@ -27,7 +27,7 @@
     @endif
     <title>@section('title')@if(isset($siteTitle) && !empty($siteTitle)){{ $siteTitle }}
         - @endif{{ isset($CONFIG->SITE_TITLE) ? $CONFIG->SITE_TITLE : env('APP_NAME') }}{{ isset($CONFIG->SITE_SUB_TITLE) ? ' - ' . $CONFIG->SITE_SUB_TITLE : '' }}@show</title>
-    <link rel="alternate" href="https://www.gryen.com/" hreflang="zh-Hant" />
+    <link rel="alternate" href="{{ env('APP_URL') }}" hreflang="zh-Hant" />
     <link rel="stylesheet prefetch" media="screen" charset="utf-8" href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/lib.css'}} />
     <link rel="stylesheet prefetch" media="screen" charset="utf-8" href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/app.css'}} />
     <link rel="preload" href="{{ env('SITE_DEFAULT_IMAGE') }}" as="image">
