@@ -2,9 +2,11 @@
  * Created by gcy77 on 2016/3/17.
  */
 import 'jquery-serializejson';
-import Editor from 'tui-editor';
+import Editor from '@toast-ui/editor';
 import laravelAlert from '../helpers/alert';
 import upload from '../helpers/upload';
+
+import '@toast-ui/editor/dist/i18n/zh-cn';
 
 const trArtclFrm = $('.tar-article-form');
 const articleForm = trArtclFrm.find('form');
@@ -29,10 +31,12 @@ let tTagsArray = []; // 标签数组，用于判断标签数量和是否已经�
 
 const editorInstance = new Editor({
     el: textarea,
+    usageStatistics: false,
     initialEditType: 'markdown',
     previewStyle: 'tab',
     height: 'auto',
-    minHeight: '600px'
+    minHeight: '600px',
+    language: 'zh-CN'
 });
 
 /**
