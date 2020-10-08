@@ -1,5 +1,5 @@
 {
-  "version": "v1.10.3",
+  "version": "v1.11.0",
   "private": true,
   "scripts": {
     "dev": "npm run development",
@@ -14,7 +14,6 @@
     "@toast-ui/editor": "^2.4.0",
     "axios": "^0.19",
     "bootstrap": "^4.5.2",
-    "bootstrap-datetime-picker": "^2.4.4",
     "cross-env": "^7.0",
     "cz-conventional-changelog": "^2.1.0",
     "fs": "0.0.1-security",
