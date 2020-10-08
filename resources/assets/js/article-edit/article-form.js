@@ -35,7 +35,7 @@ const editorInstance = new Editor({
     initialEditType: 'markdown',
     previewStyle: 'tab',
     height: 'auto',
-    minHeight: '600px',
+    minHeight: 780,
     language: 'zh-CN'
 });
 
