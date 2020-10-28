@@ -11,6 +11,9 @@
         <span class="display-4 font-weight-bold text-primary">{{analytics.maxDateCal}}</span>，已经过去了
         <span class="display-4 font-weight-bold text-primary">{{analytics.disNow}}</span> 天。
       </p>
+      <p>
+          截止到今日，读者访问过 <span class="display-4 font-weight-bold text-primary">{{analytics.viewsSum}}</span> 次你的文章。
+      </p>
     </div>
   </div>
 </template>
