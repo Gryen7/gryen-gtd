@@ -2,11 +2,11 @@
 
 namespace App;
 
+use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
-use Carbon\CarbonImmutable;
 
 class Article extends Eloquent implements Feedable
 {
