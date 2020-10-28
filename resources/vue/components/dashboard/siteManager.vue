@@ -68,7 +68,7 @@
 export default {
   data: function() {
     return {
-      showAddConfig: true,
+      showAddConfig: false,
       configManies: []
     };
   },
