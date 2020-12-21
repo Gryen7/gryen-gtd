@@ -15,8 +15,7 @@
     </div>
 </div>
 <div class="form-group">
-    <div class="tar-artl-title" contenteditable="true" placeholder="输入标题..." id="title">
-        @if(isset($articleShow)){{ $article->title }}@endif</div>
+    <div class="tar-artl-title" contenteditable="true" placeholder="输入标题..." id="title">@if(isset($articleShow)){{ $article->title }}@endif</div>
     </div>
     <div class="t-edit-area">
         <div class="form-group t-editor-form-group">
