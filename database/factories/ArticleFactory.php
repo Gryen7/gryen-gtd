@@ -8,5 +8,6 @@ $factory->define(App\Article::class, function (Faker $faker) {
         'description' => $faker->text,
         'tags' => empty($faker->tags) ? implode(',', $faker->words()) : $faker->tags,
         'cover' => env('SITE_DEFAULT_IMAGE'),
+        'published_at' =>$faker->date()
     ];
 });
