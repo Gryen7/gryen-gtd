@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c6b9bb68276cb26b27e3e40b5f39720",
+    "content-hash": "0fc0a3f922f9c7ac9a36943aeb905c5b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3173,28 +3173,29 @@
         },
         {
             "name": "spatie/laravel-feed",
-            "version": "2.7.1",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-feed.git",
-                "reference": "ade035d105aa152e08f7e755392e2d8e0ec1a7c5"
+                "reference": "50bf7976920da38c0432034e3e448a95dfc6473e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-feed/zipball/ade035d105aa152e08f7e755392e2d8e0ec1a7c5",
-                "reference": "ade035d105aa152e08f7e755392e2d8e0ec1a7c5",
+                "url": "https://api.github.com/repos/spatie/laravel-feed/zipball/50bf7976920da38c0432034e3e448a95dfc6473e",
+                "reference": "50bf7976920da38c0432034e3e448a95dfc6473e",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "^6.0|^7.0|^8.0",
-                "illuminate/http": "^6.0|^7.0|^8.0",
-                "illuminate/support": "^6.0|^7.0|^8.0",
-                "php": "^7.3"
+                "illuminate/contracts": "^7.0|^8.0",
+                "illuminate/http": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0",
+                "php": "^7.4|^8.0"
             },
             "require-dev": {
-                "orchestra/testbench": "^4.0|^5.0|^6.0",
-                "phpunit/phpunit": "^8.0",
-                "spatie/phpunit-snapshot-assertions": "^2.2"
+                "orchestra/testbench": "^5.0|^6.0",
+                "phpunit/phpunit": "^9.3",
+                "spatie/phpunit-snapshot-assertions": "^4.2",
+                "spatie/test-time": "^1.2"
             },
             "type": "library",
             "extra": {
@@ -3243,7 +3244,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-feed/issues",
-                "source": "https://github.com/spatie/laravel-feed/tree/master"
+                "source": "https://github.com/spatie/laravel-feed/tree/3.1.2"
             },
             "funding": [
                 {
@@ -3251,7 +3252,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-08T22:07:43+00:00"
+            "time": "2020-12-09T09:31:08+00:00"
         },
         {
             "name": "spatie/laravel-sitemap",
@@ -7304,26 +7305,27 @@
         },
         {
             "name": "fzaninotto/faker",
-            "version": "v1.9.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "848d8125239d7dbf8ab25cb7f054f1a630e68c2e"
+                "reference": "5ffe7db6c80f441f150fc88008d64e64af66634b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/848d8125239d7dbf8ab25cb7f054f1a630e68c2e",
-                "reference": "848d8125239d7dbf8ab25cb7f054f1a630e68c2e",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/5ffe7db6c80f441f150fc88008d64e64af66634b",
+                "reference": "5ffe7db6c80f441f150fc88008d64e64af66634b",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0"
+                "php": "^5.3.3 || ^7.0 || ^8.0"
             },
             "require-dev": {
                 "ext-intl": "*",
                 "phpunit/phpunit": "^4.8.35 || ^5.7",
                 "squizlabs/php_codesniffer": "^2.9.2"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -7352,10 +7354,10 @@
             ],
             "support": {
                 "issues": "https://github.com/fzaninotto/Faker/issues",
-                "source": "https://github.com/fzaninotto/Faker/tree/v1.9.2"
+                "source": "https://github.com/fzaninotto/Faker/tree/master"
             },
             "abandoned": true,
-            "time": "2020-12-11T09:56:16+00:00"
+            "time": "2020-12-11T09:59:14+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -9697,7 +9699,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3.0"
+        "php": "^8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
