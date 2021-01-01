@@ -27,10 +27,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/todos/update', 'Api\TodosController@updateTodo');
     Route::post('/todos/delete/{id}', 'Api\TodosController@deleteTodo');
 
-    Route::post('/banners/set', 'Api\BannersController@set');
-    Route::delete('/banners/delete/{id}', 'Api\BannersController@delete');
-    Route::post('/banners/top/{id}', 'Api\BannersController@top');
-
     Route::get('/dashboard/analytics', 'Api\DashboardController@analytics');
     Route::get('/dashboard/configmanies', 'Api\DashboardController@configManies');
 });

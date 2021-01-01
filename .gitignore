@@ -280,3 +280,4 @@ yarn-error.log
 /_ide_helper_models.php
 *.key
 .phpunit.result.cache
+*.sqlite

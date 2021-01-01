@@ -5,9 +5,8 @@ use Illuminate\Support\Facades\Route;
 /**
  * 首页、关于页等.
  */
-Route::get('/', 'HomeController@index');
+Route::redirect('/', '/articles');
 Route::get('/logout', 'Auth\LoginController@logout');
-Route::get('/privacypolicy', 'HomeController@privacyPolicy');
 
 Auth::routes();
 Route::feeds();

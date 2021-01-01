@@ -6,6 +6,7 @@ use App\Config;
 use App\ConfigMany;
 use Exception;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,6 +18,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Paginator::useBootstrap();
+
         try {
             view()->share('CONFIG', Config::getAllConfig());
             view()->share('CONFIG_MANY', ConfigMany::getAllConfig());
