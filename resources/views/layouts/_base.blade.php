@@ -37,7 +37,7 @@
                                 'csrfToken' => csrf_token(),
                             ]); ?>
     </script>
-    @if(env('APP_ENV') === 'production' && !Auth::check())
+    @if(shouldInsertGTK())
     <!-- Google Tag Manager -->
     <script>
         (function(w, d, s, l, i) {
@@ -53,7 +53,7 @@
             j.src =
                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
             f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-WW9GPF5');
+        })(window, document, 'script', 'dataLayer', '<?php echo env('GTM_CODE'); ?>');
     </script>
     <!-- End Google Tag Manager -->
     @endif
@@ -61,10 +61,10 @@
 
 <body @if(isset($bodyClassString))class="{{ $bodyClassString }}" @endif>
 
-    @if(env('APP_ENV') === 'production' && !Auth::check())
+    @if(shouldInsertGTK())
     <!-- Google Tag Manager (noscript) -->
     <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WW9GPF5" height="0" width="0" style="display:none;visibility:hidden">
+        <iframe src="{{'https://www.googletagmanager.com/ns.html?id=' . env('GTM_CODE')}}" height="0" width="0" style="display:none;visibility:hidden">
         </iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
@@ -73,8 +73,8 @@
     @section('base_content')
     @show
     <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/manifest.js'}}"></script>
-    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/jquery.bundle.js'}}"></script>
-    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/axios.bundle.js'}}"></script>
+    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/jquery.slim.min.js'}}"></script>
+    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/bootstrap.min.js'}}"></script>
     <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/common.bundle.js'}}"></script>
     @if (isset($vue) && $vue)
     <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/vue.bundle.js'}}"></script>
