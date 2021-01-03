@@ -5,8 +5,8 @@ namespace App\Providers;
 use App\Config;
 use App\ConfigMany;
 use Exception;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
