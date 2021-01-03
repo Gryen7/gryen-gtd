@@ -13,7 +13,6 @@
                                 'csrfToken' => csrf_token(),
                             ]); ?>
     </script>
-    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/manifest.js'}}" async="async"></script>
     <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/dashboard.bundle.js'}}" async="async"></script>
     <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/jquery.slim.min.js'}}"></script>
     <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/bootstrap.min.js'}}"></script>
