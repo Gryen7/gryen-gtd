@@ -22,11 +22,13 @@ for (let module of JS_MODULES) {
 /* Vue 处理 */
 mix.js('resources/vue/index.js', `${DIST_PATH_WITH_VERSION}/js/vue.bundle.js`);
 mix.js('resources/vue/dashboard.js', `${DIST_PATH_WITH_VERSION}/js/dashboard.bundle.js`);
-
+mix.copy('node_modules/jquery/dist/jquery.slim.min.js', `${DIST_PATH_WITH_VERSION}/js/jquery.slim.min.js`);
+mix.copy('node_modules/bootstrap/dist/js/bootstrap.min.js', `${DIST_PATH_WITH_VERSION}/js/bootstrap.min.js`);
+mix.copy('node_modules/axios/dist/axios.min.js', `${DIST_PATH_WITH_VERSION}/js/axios.min.js`);
 
 /* 公共库抽离 */
-mix.extract(['jquery'], `${DIST_PATH_WITH_VERSION}/js/jquery.bundle.js`);
-mix.extract(['axios'], `${DIST_PATH_WITH_VERSION}/js/axios.bundle.js`);
+// mix.extract(['jquery'], `${DIST_PATH_WITH_VERSION}/js/jquery.bundle.js`);
+// mix.extract(['axios'], `${DIST_PATH_WITH_VERSION}/js/axios.bundle.js`);
 
 mix.sourceMaps(false);
 mix.autoload({
