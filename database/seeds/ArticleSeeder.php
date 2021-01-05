@@ -11,12 +11,12 @@ class ArticleSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Article::class, 30)
+        factory(\App\Models\Article::class, 30)
             ->create()
             ->each(function ($article) {
-                $article->withContent()->save(factory(\App\ArticleData::class)->make());
+                $article->withContent()->save(factory(\App\Models\ArticleData::class)->make());
 
-                \App\Tag::createArticleTagProcess($article->tags, $article->id);
+                \App\Models\Tag::createArticleTagProcess($article->tags, $article->id);
             });
     }
 }

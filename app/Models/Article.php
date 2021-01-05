@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Model as Eloquent;
@@ -32,7 +32,7 @@ class Article extends Eloquent implements Feedable
      */
     public function withContent()
     {
-        return $this->hasOne('App\ArticleData');
+        return $this->hasOne('\App\Models\ArticleData');
     }
 
     /**

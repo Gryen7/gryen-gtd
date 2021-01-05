@@ -11,9 +11,9 @@ class TodoSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Todo::class, 10)->create()
+        factory(\App\Models\Todo::class, 10)->create()
             ->each(function ($todo) {
-                $todo->withDescription()->save(factory(\App\TodoDescription::class)->make([
+                $todo->withDescription()->save(factory(\App\Models\TodoDescription::class)->make([
                     'todo_id' => $todo->id,
                 ]));
             });

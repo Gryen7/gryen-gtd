@@ -2,7 +2,6 @@
 
 namespace Tests\Feature\Api;
 
-use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -18,25 +17,25 @@ class ArticleTest extends TestCase
     {
         parent::setUp();
 
-        factory(\App\Article::class, 1)
+        factory(\App\Models\Article::class, 1)
             ->create()
             ->each(function ($article) {
-                $article->withContent()->save(factory(\App\ArticleData::class)->make());
-                \App\Tag::createArticleTagProcess($article->tags, $article->id);
+                $article->withContent()->save(factory(\App\Models\ArticleData::class)->make());
+                \App\Models\Tag::createArticleTagProcess($article->tags, $article->id);
             });
 
         $this->firstArticle = \DB::table('articles')->first();
 
-        factory(\App\Article::class, self::$COUNT)
+        factory(\App\Models\Article::class, self::$COUNT)
             ->create([
                 'tags' => $this->firstArticle->tags,
             ])
             ->each(function ($article) {
-                $article->withContent()->save(factory(\App\ArticleData::class)->make());
-                \App\Tag::createArticleTagProcess($article->tags, $article->id);
+                $article->withContent()->save(factory(\App\Models\ArticleData::class)->make());
+                \App\Models\Tag::createArticleTagProcess($article->tags, $article->id);
             });
 
-        $this->user = factory(\App\User::class)->create();
+        $this->user = factory(\App\Models\User::class)->create();
     }
 
     public function testMoreArticles()

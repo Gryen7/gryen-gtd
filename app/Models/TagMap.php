@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +13,7 @@ class TagMap extends Model
 
     public function article()
     {
-        $this->belongsTo('App\Article', 'article_id');
+        $this->belongsTo('\App\Models\Article', 'article_id');
     }
 
     public function tag()

@@ -1,19 +1,19 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\ArticleData.
+ * \App\Models\ArticleData.
  *
  * @mixin \Eloquent
  * @property int $id
  * @property int $article_id
  * @property string $content
- * @method static \Illuminate\Database\Query\Builder|\App\ArticleData whereArticleId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\ArticleData whereContent($value)
- * @method static \Illuminate\Database\Query\Builder|\App\ArticleData whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\ArticleData whereArticleId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\ArticleData whereContent($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\ArticleData whereId($value)
  */
 class ArticleData extends Model
 {

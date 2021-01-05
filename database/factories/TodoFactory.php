@@ -3,7 +3,7 @@
 use Carbon\Carbon;
 use Faker\Generator as Faker;
 
-$factory->define(App\Todo::class, function (Faker $faker) {
+$factory->define(\App\Models\Todo::class, function (Faker $faker) {
     $beginAt = Carbon::now();
     $endAt = Carbon::now()->addDay($faker->randomDigit);
 
