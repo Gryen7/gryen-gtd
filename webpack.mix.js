@@ -27,7 +27,7 @@ mix.copy('node_modules/bootstrap/dist/js/bootstrap.min.js', `${DIST_PATH_WITH_VE
 mix.copy('node_modules/axios/dist/axios.min.js', `${DIST_PATH_WITH_VERSION}/js/axios.min.js`);
 
 /* 公共库抽离 */
-mix.extract(['jquery'], `${DIST_PATH_WITH_VERSION}/js/jquery.bundle.js`);
+mix.extract(['jquery', 'axios', 'bootstrap']);
 
 mix.sourceMaps(false);
 mix.autoload({
