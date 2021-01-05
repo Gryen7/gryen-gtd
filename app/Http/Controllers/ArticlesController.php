@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use App\Config;
 use App\Events\PublishArticle;
 use App\File;
 use App\Http\Requests\CreateArticleRequest;
@@ -30,7 +29,7 @@ class ArticlesController extends Controller
 
         foreach ($articles as &$article) {
             if (empty($article->cover)) {
-                $article->cover = Config::getAllConfig('SITE_DEFAULT_IMAGE');
+                $article->cover = env('SITE_DEFAULT_IMAGE');
             }
 
             if (! empty($article->published_at)) {
@@ -58,7 +57,7 @@ class ArticlesController extends Controller
         foreach ($articles as &$article) {
             if (empty($article->cover)) {
                 try {
-                    $article->cover = Config::getAllConfig('SITE_DEFAULT_IMAGE');
+                    $article->cover = env('SITE_DEFAULT_IMAGE');
                 } catch (\Exception $e) {
                     \Log::error('Get SITE_DEFAULT_IMAGE error.', $e);
                 }
@@ -77,7 +76,7 @@ class ArticlesController extends Controller
     public function create()
     {
         $tags = Tag::orderBy('num', 'desc')->take(7)->get();
-        $article['cover'] = Config::getAllConfig('SITE_DEFAULT_IMAGE');
+        $article['cover'] = env('SITE_DEFAULT_IMAGE');
         $article = (object) $article;
         $bodyClassString = 'no-padding';
 
@@ -186,7 +185,7 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $article = Article::withTrashed()->find($id);
-        $article->cover = empty($article->cover) ? Config::getAllConfig('SITE_DEFAULT_IMAGE') : $article->cover;
+        $article->cover = empty($article->cover) ? env('SITE_DEFAULT_IMAGE') : $article->cover;
 
         $article = Article::getTagArray($article);
         $tags = Tag::orderBy('num', 'desc')->take(7)->get();

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Article;
-use App\ConfigMany;
 use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
@@ -17,10 +16,5 @@ class DashboardController extends Controller
         $analytics = Article::analytics();
 
         return $analytics;
-    }
-
-    public function configManies()
-    {
-        return ConfigMany::all();
     }
 }

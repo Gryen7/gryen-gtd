@@ -29,11 +29,6 @@
             >文章管理</router-link
           >
         </li>
-        <li class="nav-item">
-          <router-link to="/site_manager" class="nav-link"
-            >站点设置</router-link
-          >
-        </li>
       </ul>
     </div>
   </nav>

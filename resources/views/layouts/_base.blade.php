@@ -9,13 +9,12 @@
     @if (isset($siteKeywords))
     <meta name="keywords" content="{{ $siteKeywords }}">
     @else
-    <meta name="keywords" content="{{ isset($CONFIG->SITE_KEYWORDS) ? $CONFIG->SITE_KEYWORDS : env('APP_NAME') }}">
+    <meta name="keywords" content="{{ env('APP_KEYWORDS') }}">
     @endif
     @if (isset($siteDescription))
     <meta name="description" content="{{ $siteDescription }}">
     @else
-    <meta name="description" content="{{ isset($CONFIG->SITE_DESCRIPTION) ? $CONFIG->SITE_DESCRIPTION : env('APP_NAME')
-     }}">
+    <meta name="description" content="{{ env('APP_DESCRIPTION') }}">
     @endif
     @if (isset($module) && $module === 'article-show')
     <meta property="og:type" content="article">
@@ -25,8 +24,7 @@
     <meta property="og:description" content="{{ $siteDescription }}">
     <meta property="og:url" content="{{ action('ArticlesController@show', ['id' => $article->id]) }}">
     @endif
-    <title>@section('title')@if(isset($siteTitle) && !empty($siteTitle)){{ $siteTitle }}
-        - @endif{{ isset($CONFIG->SITE_TITLE) ? $CONFIG->SITE_TITLE : env('APP_NAME') }}{{ isset($CONFIG->SITE_SUB_TITLE) ? ' - ' . $CONFIG->SITE_SUB_TITLE : '' }}@show</title>
+    <title>@section('title')@if(isset($siteTitle) && !empty($siteTitle)){{ $siteTitle }} - @endif{{ env('APP_NAME') }}{{ ' - ' . env('APP_SUB_TITLE') }}@show</title>
     <link rel="alternate" href="{{ env('APP_URL') }}" hreflang="zh-Hant" />
     <link rel="stylesheet prefetch" media="screen" charset="utf-8" href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/lib.css'}} />
     <link rel="stylesheet prefetch" media="screen" charset="utf-8" href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/app.css'}} />

@@ -6,7 +6,6 @@
 
 import './bootstrap';
 import moreArticles from './components/articles/more-articles';
-import topArticles from './components/home/top-articles';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,7 +14,6 @@ import topArticles from './components/home/top-articles';
  */
 
 Vue.component('moreArticles', moreArticles);
-Vue.component('topArticles', topArticles);
 
 // noinspection ES6ModulesDependencies
 new Vue({
