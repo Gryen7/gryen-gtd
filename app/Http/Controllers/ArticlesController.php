@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Article;
 use App\Events\PublishArticle;
-use App\Models\File;
 use App\Http\Requests\CreateArticleRequest;
 use App\Http\Requests\UpdateArticleStatus;
+use App\Models\Article;
+use App\Models\File;
 use App\Models\Tag;
 use Auth;
 use Carbon\CarbonImmutable;
