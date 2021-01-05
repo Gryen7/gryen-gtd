@@ -2,8 +2,8 @@
 
 namespace App\Listeners;
 
-use App\Models\Article;
 use App\Events\PublishArticle;
+use App\Models\Article;
 use Carbon\Carbon;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Spatie\Sitemap\Sitemap;
