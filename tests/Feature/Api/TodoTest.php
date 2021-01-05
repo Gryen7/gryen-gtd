@@ -17,11 +17,11 @@ class TodoTest extends TestCase
     {
         parent::setUp();
 
-        $this->user = factory(\App\User::class)->create();
+        $this->user = factory(\App\Models\User::class)->create();
 
-        factory(\App\Todo::class, self::$COUNT)->create()
+        factory(\App\Models\Todo::class, self::$COUNT)->create()
             ->each(function ($todo) {
-                $todo->withDescription()->save(factory(\App\TodoDescription::class)->make([
+                $todo->withDescription()->save(factory(\App\Models\TodoDescription::class)->make([
                     'todo_id' => $todo->id,
                 ]));
             });

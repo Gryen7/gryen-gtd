@@ -32,7 +32,7 @@ class Article extends Eloquent implements Feedable
      */
     public function withContent()
     {
-        return $this->hasOne('App\ArticleData');
+        return $this->hasOne('\App\Models\ArticleData');
     }
 
     /**

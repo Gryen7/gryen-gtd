@@ -104,6 +104,6 @@ class Todo extends Eloquent
      */
     public function withDescription()
     {
-        return $this->hasOne('App\TodoDescription');
+        return $this->hasOne('\App\Models\TodoDescription');
     }
 }

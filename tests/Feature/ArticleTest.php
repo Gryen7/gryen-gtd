@@ -19,11 +19,11 @@ class ArticleTest extends TestCase
     {
         parent::setUp();
 
-        $this->articles = factory(\App\Article::class, 5)
+        $this->articles = factory(\App\Models\Article::class, 5)
             ->create()
             ->each(function ($article) {
-                $article->withContent()->save(factory(\App\ArticleData::class)->make());
-                \App\Tag::createArticleTagProcess($article->tags, $article->id);
+                $article->withContent()->save(factory(\App\Models\ArticleData::class)->make());
+                \App\Models\Tag::createArticleTagProcess($article->tags, $article->id);
             });
 
         $this->firstArticle = \DB::table('articles')
@@ -31,7 +31,7 @@ class ArticleTest extends TestCase
             ->select('articles.id', 'articles.tags', 'articles.title', 'articles.description', 'article_datas.content')
             ->first();
         $this->firstArticle->tagArray = explode(',', $this->firstArticle->tags);
-        $this->user = factory(\App\User::class)->create();
+        $this->user = factory(\App\Models\User::class)->create();
     }
 
     public function testArticlesPage()
