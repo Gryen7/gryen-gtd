@@ -128,8 +128,7 @@ function trimAll($str)
     return str_replace($before, $after, $str);
 }
 
-
 function shouldInsertGTK(): bool
 {
-    return env('APP_ENV') === 'production' && !Auth::check() && !blank(env('GTM_CODE'));
+    return env('APP_ENV') === 'production' && ! Auth::check() && ! blank(env('GTM_CODE'));
 }
