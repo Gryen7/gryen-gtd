@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateTodoRequest;
 use App\Http\Requests\UpdateTodoRequest;
-use App\Todo;
+use App\Models\Todo;
 use Illuminate\Http\Request;
 
 class TodosController extends Controller

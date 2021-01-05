@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Article;
-use App\File;
+use App\Models\Article;
+use App\Models\File;
 use App\Http\Controllers\Controller;
 use App\Services\XmlRpc;
-use App\Tag;
+use App\Models\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 

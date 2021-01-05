@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Article;
+use App\Models\Article;
 use App\Events\PublishArticle;
 use Carbon\Carbon;
 use Illuminate\Contracts\Queue\ShouldQueue;
