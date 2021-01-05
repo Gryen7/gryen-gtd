@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Article;
 use App\ArticleData;
-use App\Config;
 use App\Http\Controllers\Controller;
 use App\Tag;
 use Illuminate\Database\Eloquent\Collection;
@@ -125,7 +124,7 @@ class ArticlesController extends Controller
 
         foreach ($articles as &$article) {
             if (empty($article->cover)) {
-                $article->cover = Config::getAllConfig('SITE_DEFAULT_IMAGE');
+                $article->cover = env('SITE_DEFAULT_IMAGE');
             }
 
             $article->href = action('ArticlesController@show', ['id' => $article->id]);

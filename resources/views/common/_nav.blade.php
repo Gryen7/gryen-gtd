@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light border-bottom bg-white @if(isset($extraClass) && !empty($extraClass)){{ ' ' . $extraClass }}@endif">
     <div class="container">
         <a class="navbar-brand t-navbar-brand" href="{{ action('ArticlesController@index') }}"><img
-                    src="https://statics.gryen.com/logo.png" alt="{{ isset($CONFIG->SITE_TITLE) ? $CONFIG->SITE_TITLE : env('APP_NAME') }}"></a>
+                    src="https://statics.gryen.com/logo.png" alt="{{ env('APP_NAME') }}"></a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#tNavbarCollapse"
                 aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
