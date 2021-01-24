@@ -132,6 +132,7 @@
 </style>
 <script>
 export default {
+  name: "ArticleManager",
   data: function() {
     return {
       listQueryParams: {

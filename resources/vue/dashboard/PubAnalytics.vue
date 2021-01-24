@@ -19,6 +19,7 @@
 </template>
 <script>
 export default {
+  name: 'PubAnalytics',
   data: function() {
     return {
       analytics: ''
