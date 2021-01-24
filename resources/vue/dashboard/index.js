@@ -3,10 +3,13 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-import './bootstrap';
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.withCredentials = true;
+
+import Vue from 'vue';
 import VueRouter from 'vue-router';
 import routes from './routes';
-import dashboardHome from './pages/dashboard/home';
+import Home from './Home.vue';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -14,13 +17,17 @@ import dashboardHome from './pages/dashboard/home';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 Vue.use(VueRouter);
-Vue.component('dashboardHome', dashboardHome);
 
 const router = new VueRouter({
     routes
 });
 
 // noinspection ES6ModulesDependencies
-new Vue({
-    router
-}).$mount('#dashboardApp');
+const vm = new Vue({
+    el: "#DashboardApp",
+    router,
+    components: {
+        Home
+    }
+});
+console.log("🚀 ~ file: index.js ~ line 33 ~ vm", vm)

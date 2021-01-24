@@ -27,19 +27,20 @@ a {
 }
 </style>
 <script>
-import navHeader from '../../components/dashboard/navHeader.vue';
+import NavHeader from "./NavHeader.vue";
 
 export default {
+  name: "Home",
   components: {
-    navHeader
+    NavHeader,
   },
-  created: async function() {
+  created: async function () {
     this.csrfCookie();
   },
   methods: {
-    csrfCookie: async function() {
-      const res = await axios.get('/sanctum/csrf-cookie');
-    }
-  }
+    csrfCookie: async function () {
+      const res = await axios.get("/sanctum/csrf-cookie");
+    },
+  },
 };
 </script>
