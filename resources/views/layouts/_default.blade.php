@@ -69,7 +69,7 @@
     @endif
 
     @include('common._nav', ['extraClass' => ''])
-        <div class="container t-main" id="gryenApp">
+        <div class="container t-main" id="GryenApp">
             @yield('content')
         </div>
     @include('errors._list')

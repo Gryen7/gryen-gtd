@@ -21,6 +21,7 @@ import VueLazyload from 'vue-lazyload';
 Vue.use(VueLazyload);
 
 export default {
+    name: 'MoreArticles',
     data: function() {
         return {
             articles: []
