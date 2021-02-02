@@ -53,7 +53,7 @@ mix.extract(["jquery", "axios", "bootstrap"]).autoload({
 });
 
 /* Vue 处理 */
-mix.js("resources/vue/publication/index.js", `${DIST_PATH_WITH_VERSION}/js`).vue();
+mix.js("resources/vue/publication/index.js", `${DIST_PATH_WITH_VERSION}/js/publication.js`).vue();
 mix.js(
     "resources/vue/dashboard/index.js",
     `${DIST_PATH_WITH_VERSION}/js/dashboard.js`
