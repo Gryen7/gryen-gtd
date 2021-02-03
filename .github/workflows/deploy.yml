@@ -45,7 +45,7 @@ jobs:
       - name: Account to qiniu and upload
         run: |
           ./qshell-linux-x64-v2.4.2 account ${{ secrets.QINIU_AK }} ${{ secrets.QINIU_SK }} gryen-gtd
-          ./qshell-linux-x64-v2.4.2 qupload2 --src-dir=/home/runner/work/gryen-gtd/gryen-gtd/public/dist --bucket=targaryen-top --key-prefix=dist/ --rescan-local=true --skip-file-prefixes=test,demo,.qrsignore --skip-path-prefixes=temp/,tmp/ --skip-fixed-strings=.svn,.git --skip-suffixes=.DS_Store,.exe
+          ./qshell-linux-x64-v2.4.2 qupload2 --src-dir=/home/runner/work/gryen-gtd/gryen-gtd/public/dist --bucket=gryen --key-prefix=dist/ --rescan-local=true --skip-file-prefixes=test,demo,.qrsignore --skip-path-prefixes=temp/,tmp/ --skip-fixed-strings=.svn,.git --skip-suffixes=.DS_Store,.exe
 
       - name: Deploy php code to alicloud
         uses: appleboy/ssh-action@master
