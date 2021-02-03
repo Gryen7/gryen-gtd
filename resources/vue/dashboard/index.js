@@ -23,11 +23,10 @@ const router = new VueRouter({
 });
 
 // noinspection ES6ModulesDependencies
-const vm = new Vue({
+new Vue({
     el: "#DashboardApp",
     router,
     components: {
         Home
     }
 });
-console.log("🚀 ~ file: index.js ~ line 33 ~ vm", vm)

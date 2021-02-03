@@ -75,12 +75,9 @@
     @include('errors._list')
     @show
     <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/manifest.js'}}"></script>
-    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/jquery.slim.min.js'}}"></script>
-    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/bootstrap.min.js'}}"></script>
+    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/vendor.js'}}"></script>
     <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/common.bundle.js'}}"></script>
     @if (isset($vue) && $vue)
-    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/axios.min.js'}}"></script>
-    <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/vue.min.js'}}"></script>
     <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/publication.js'}}"></script>
     @endif
     @if (isset($module) && !isset($noJsLoad))

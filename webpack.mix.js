@@ -31,25 +31,9 @@ for (let module of JS_MODULES) {
     }
 }
 
-mix.copy(
-    "node_modules/vue/dist/vue.min.js",
-    `${DIST_PATH_WITH_VERSION}/js/vue.min.js`
-)
-    .copy(
-        "node_modules/jquery/dist/jquery.slim.min.js",
-        `${DIST_PATH_WITH_VERSION}/js/jquery.slim.min.js`
-    )
-    .copy(
-        "node_modules/bootstrap/dist/js/bootstrap.min.js",
-        `${DIST_PATH_WITH_VERSION}/js/bootstrap.min.js`
-    )
-    .copy(
-        "node_modules/axios/dist/axios.min.js",
-        `${DIST_PATH_WITH_VERSION}/js/axios.min.js`
-    );
-
 mix.extract(["jquery", "axios", "bootstrap"]).autoload({
-    jquery: ["$", "window.jQuery"]
+    jquery: ["$", "window.jQuery"],
+    axios: ["axios", "window.axios"]
 });
 
 /* Vue 处理 */

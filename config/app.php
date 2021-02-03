@@ -96,7 +96,7 @@ return [
     | localized telephone numbers, street address information and more.
     |
     */
-    'faker_locale' => 'en_US',
+    'faker_locale' => 'zh_Hans_CN',
     /*
     |--------------------------------------------------------------------------
     | Encryption Key
