@@ -19,6 +19,9 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 <a target="_bl
 <a href="https://github.com/itargaryen/gryen-gtd">
   <img src="https://img.shields.io/badge/Awesome-Laravel-brightgreen.svg?style=flat-square" alt="Awesome Laravel">
 </a>
+<a>
+  <img src="https://github.com/itargaryen/gryen-gtd/workflows/Deploy/badge.svg?branch=master" alt="Deploy">
+</a>
 </p>
 
 ## 目录
