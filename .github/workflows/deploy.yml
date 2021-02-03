@@ -30,22 +30,22 @@ jobs:
           persist-credentials: false
 
       # Runs a single command using the runners shell
-#       - name: Install and Build 🔧
-#         run: |
-#           npm install
-#           npm run prod
+      - name: Install and Build 🔧
+        run: |
+          npm install
+          npm run prod
 
       # Runs a set of commands using the runners shell
-#       - name: Download qshell
-#         run: |
-#           wget http://devtools.qiniu.com/qshell-linux-x64-v2.4.2.zip
-#           unzip qshell-linux-x64-v2.4.2.zip
-#           chmod +x ./qshell-linux-x64-v2.4.2
+      - name: Download qshell
+        run: |
+          wget http://devtools.qiniu.com/qshell-linux-x64-v2.4.2.zip
+          unzip qshell-linux-x64-v2.4.2.zip
+          chmod +x ./qshell-linux-x64-v2.4.2
           
-#       - name: Account to qiniu and upload
-#         run: |
-#           ./qshell-linux-x64-v2.4.2 account ${{ secrets.QINIU_AK }} ${{ secrets.QINIU_SK }} gryen-gtd
-#           ./qshell-linux-x64-v2.4.2 qupload2 --src-dir=/home/runner/work/gryen-gtd/gryen-gtd/public/dist --bucket=targaryen-top --key-prefix=dist/ --rescan-local=true --skip-file-prefixes=test,demo,.qrsignore --skip-path-prefixes=temp/,tmp/ --skip-fixed-strings=.svn,.git --skip-suffixes=.DS_Store,.exe
+      - name: Account to qiniu and upload
+        run: |
+          ./qshell-linux-x64-v2.4.2 account ${{ secrets.QINIU_AK }} ${{ secrets.QINIU_SK }} gryen-gtd
+          ./qshell-linux-x64-v2.4.2 qupload2 --src-dir=/home/runner/work/gryen-gtd/gryen-gtd/public/dist --bucket=targaryen-top --key-prefix=dist/ --rescan-local=true --skip-file-prefixes=test,demo,.qrsignore --skip-path-prefixes=temp/,tmp/ --skip-fixed-strings=.svn,.git --skip-suffixes=.DS_Store,.exe
 
       - name: Deploy php code to alicloud
         uses: appleboy/ssh-action@master
