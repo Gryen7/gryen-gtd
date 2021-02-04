@@ -72,6 +72,7 @@
         <div class="container t-main" id="GryenApp">
             @yield('content')
         </div>
+        @include('common._footer')
     @include('errors._list')
     @show
     <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/manifest.js'}}"></script>
