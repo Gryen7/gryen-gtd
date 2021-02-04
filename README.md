@@ -7,8 +7,8 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 <a target="_bl
 </p>
 
 <p align="center">
-<a href="https://travis-ci.org/itargaryen/gryen-gtd">
-  <img src="https://travis-ci.org/itargaryen/gryen-gtd.svg?branch=master" alt="Build Status" />
+<a>
+  <img src="https://github.com/itargaryen/gryen-gtd/workflows/Deploy/badge.svg?branch=master" alt="Deploy">
 </a>
 <a href="https://github.styleci.io/repos/164370918">
   <img src="https://github.styleci.io/repos/164370918/shield?branch=master" alt="StyleCI">
@@ -18,9 +18,6 @@ gryen-gtd 是一个界面简洁的 web 端个人 gtd app。基于 <a target="_bl
 </a>
 <a href="https://github.com/itargaryen/gryen-gtd">
   <img src="https://img.shields.io/badge/Awesome-Laravel-brightgreen.svg?style=flat-square" alt="Awesome Laravel">
-</a>
-<a>
-  <img src="https://github.com/itargaryen/gryen-gtd/workflows/Deploy/badge.svg?branch=master" alt="Deploy">
 </a>
 </p>
 
