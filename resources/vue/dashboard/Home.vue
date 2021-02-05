@@ -1,31 +1,11 @@
 <template>
-  <div class="g-dashboard">
+  <div>
     <nav-header></nav-header>
-    <div class="container g-container">
+    <div class="container mx-auto pt-4">
       <router-view></router-view>
     </div>
   </div>
 </template>
-<style lang="scss" scoped>
-a {
-  cursor: pointer;
-  color: var(--primary);
-}
-
-.g-dashboard {
-  height: 100%;
-}
-
-.g-container {
-  padding-bottom: 5rem;
-  min-height: calc(100% - 30px - 2.625rem);
-  position: relative;
-
-  h5 {
-    margin-bottom: 0;
-  }
-}
-</style>
 <script>
 import NavHeader from "./NavHeader.vue";
 

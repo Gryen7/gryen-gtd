@@ -1,4 +1,6 @@
-@import './lib';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 #dashboardApp {
     height: 100%;

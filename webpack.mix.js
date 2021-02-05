@@ -1,6 +1,7 @@
 const fs = require("fs");
 const mix = require("laravel-mix");
 const PKG = require("./package.json");
+const tailwindcss = require('tailwindcss');
 
 const DIST_PATH = "public/dist";
 const DIST_PATH_WITH_VERSION = `${DIST_PATH}/${PKG.version}`;
@@ -15,11 +16,15 @@ mix.sass(
     .sass(
         "resources/assets/sass/app.scss",
         `${DIST_PATH_WITH_VERSION}/css/app.css`
-    )
-    .sass(
+    );
+
+mix.sass(
         "resources/assets/sass/dashboard.scss",
         `${DIST_PATH_WITH_VERSION}/css/dashboard.css`
-    );
+    ).options({
+        processCssUrls: false,
+        postCss: [ tailwindcss('./tailwind.config.js') ],
+      });
 
 /* JS 处理 */
 for (let module of JS_MODULES) {
