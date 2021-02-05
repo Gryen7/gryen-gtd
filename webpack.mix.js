@@ -31,7 +31,7 @@ for (let module of JS_MODULES) {
     }
 }
 
-mix.extract(["jquery", "axios", "bootstrap"]).autoload({
+mix.extract(["jquery", "axios"]).autoload({
     jquery: ["$", "window.jQuery"],
     axios: ["axios", "window.axios"]
 });

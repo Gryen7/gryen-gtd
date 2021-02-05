@@ -10,31 +10,20 @@
       />
       格安
     </a>
-    <button
-      type="button"
-      class="navbar-toggler"
-      data-toggle="collapse"
-      data-target="#tdbNavbarCollapse"
-      aria-expanded="false"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="tdbNavbarCollapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <router-link to="/pub_analytics" class="nav-link">仪表盘</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/article_manager" class="nav-link"
-            >文章管理</router-link
-          >
-        </li>
-      </ul>
-    </div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <router-link to="/pub_analytics" class="nav-link">仪表盘</router-link>
+      </li>
+      <li class="nav-item">
+        <router-link to="/article_manager" class="nav-link"
+          >文章管理</router-link
+        >
+      </li>
+    </ul>
   </nav>
 </template>
 <script>
 export default {
-  name: "NavHeader"
-}
+  name: 'NavHeader',
+};
 </script>
