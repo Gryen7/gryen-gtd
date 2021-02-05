@@ -34,13 +34,8 @@ export default {
   components: {
     NavHeader,
   },
-  created: async function () {
-    this.csrfCookie();
-  },
-  methods: {
-    csrfCookie: async function () {
-      const res = await axios.get("/sanctum/csrf-cookie");
-    },
-  },
+  setup() {
+    axios.get("/sanctum/csrf-cookie");
+  }
 };
 </script>

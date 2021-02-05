@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div id="DashboardApp">
+    <div id="DashboardVue">
         <home></home>
     </div>
     <script type="text/javascript" src="{{env('STATIC_URL') . '/dist/'. config('app.version') . '/js/manifest.js'}}"></script>

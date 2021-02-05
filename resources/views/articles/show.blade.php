@@ -35,7 +35,9 @@
             </a></p>
     </footer>
 </article>
-<more-articles></more-articles>
+<div id="PublicationVue">
+    <more-articles></more-articles>
+</div>
 @if (Auth::check())
 <div class="form-group tar-artl-ssbtn">
     <div class="btn-group-vertical">

@@ -6,27 +6,15 @@
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.axios.defaults.withCredentials = true;
 
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { createApp } from 'vue';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import routes from './routes';
 import Home from './Home.vue';
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-Vue.use(VueRouter);
 
-const router = new VueRouter({
+const router = createRouter({
+    history: createWebHashHistory(),
     routes
 });
 
-// noinspection ES6ModulesDependencies
-new Vue({
-    el: "#DashboardApp",
-    router,
-    components: {
-        Home
-    }
-});
+createApp(Home).use(router).mount('#DashboardVue');

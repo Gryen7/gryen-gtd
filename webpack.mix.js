@@ -37,11 +37,11 @@ mix.extract(["jquery", "axios"]).autoload({
 });
 
 /* Vue 处理 */
-mix.js("resources/vue/publication/index.js", `${DIST_PATH_WITH_VERSION}/js/publication.js`).vue();
+mix.js("resources/vue/publication/index.js", `${DIST_PATH_WITH_VERSION}/js/publication.js`).vue({ version: 3});
 mix.js(
     "resources/vue/dashboard/index.js",
     `${DIST_PATH_WITH_VERSION}/js/dashboard.js`
-).vue();
+).vue({ version: 3});
 
 mix.webpackConfig({
     optimization: {
