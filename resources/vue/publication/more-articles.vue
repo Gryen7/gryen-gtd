@@ -53,8 +53,6 @@ export default {
 </script>
 <style lang="scss">
 .card {
-    margin-bottom: 20px;
-
     .figure {
         width: 100%;
 

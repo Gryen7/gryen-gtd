@@ -1,4 +1,4 @@
-<footer class="t-footer text-center border-top p-3">
+<footer class="t-footer text-center p-3">
     <a href="https://beian.miit.gov.cn/" target="_blank">
         <svg class="icon icon-miitbeian" aria-hidden="true">
             <use xlink:href="#icon-icon-beian"></use>
