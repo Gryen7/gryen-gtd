@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav-header></nav-header>
-    <div class="container mx-auto pt-4">
+    <div class="container mx-auto p-4 bg-gray-50">
       <router-view></router-view>
     </div>
   </div>

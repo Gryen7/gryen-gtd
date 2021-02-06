@@ -1,5 +1,5 @@
 <template>
-  <div class="text-base rounded-sm shadow-xs">
+  <div class="text-base rounded-sm shadow-sm bg-white	p-4">
     <p>
       每
       <span class="text-4xl text-red-600">{{ analytics.aveDist }}</span>
