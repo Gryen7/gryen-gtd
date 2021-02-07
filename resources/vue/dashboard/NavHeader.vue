@@ -29,6 +29,7 @@
           <!-- Mobile menu button -->
           <button
             class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+            @click="toggleMenu"
           >
             <span class="sr-only">Open main menu</span>
             <!--
@@ -75,7 +76,7 @@
         </div>
       </div>
     </div>
-    <div class="hidden md:hidden">
+    <div class="md:hidden" :class="{ hidden: xsHideMenu }">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <router-link
           to="/pub_analytics"
@@ -92,7 +93,18 @@
   </nav>
 </template>
 <script>
+import { ref } from 'vue';
 export default {
   name: 'NavHeader',
+  setup() {
+    let xsHideMenu = ref(true);
+    const toggleMenu = () => {
+      xsHideMenu.value = !xsHideMenu.value;
+    };
+    return {
+      xsHideMenu,
+      toggleMenu,
+    };
+  },
 };
 </script>
