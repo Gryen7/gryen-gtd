@@ -88,7 +88,7 @@
       </a>
     </li>
   </ul>
-  <div aria-label="" class="sticky bottom-0 bg-gray-200 flex justify-end rounded-b py-2 px-4">
+  <div aria-label="" class="sticky bottom-0 bg-gray-200 flex justify-center rounded-b py-2 px-4">
     <ul class="flex space-x-4">
       <li
         class="cursor-pointer"
