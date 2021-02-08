@@ -10,21 +10,20 @@ const JS_MODULES = fs.readdirSync(JS_PATH); // JS 模块
 
 /* CSS 处理 */
 mix.sass(
-    "resources/assets/sass/lib.scss",
-    `${DIST_PATH_WITH_VERSION}/css/lib.css`
-)
-    .sass(
-        "resources/assets/sass/app.scss",
-        `${DIST_PATH_WITH_VERSION}/css/app.css`
-    );
+    "resources/assets/sass/app.scss",
+    `${DIST_PATH_WITH_VERSION}/css/app.css`
+).options({
+    processCssUrls: false,
+    postCss: [tailwindcss('./tailwind.config.js')],
+});
 
 mix.sass(
-        "resources/assets/sass/dashboard.scss",
-        `${DIST_PATH_WITH_VERSION}/css/dashboard.css`
-    ).options({
-        processCssUrls: false,
-        postCss: [ tailwindcss('./tailwind.config.js') ],
-      });
+    "resources/assets/sass/dashboard.scss",
+    `${DIST_PATH_WITH_VERSION}/css/dashboard.css`
+).options({
+    processCssUrls: false,
+    postCss: [tailwindcss('./tailwind.config.js')],
+});
 
 /* JS 处理 */
 for (let module of JS_MODULES) {
@@ -42,11 +41,11 @@ mix.extract(["jquery", "axios"]).autoload({
 });
 
 /* Vue 处理 */
-mix.js("resources/vue/publication/index.js", `${DIST_PATH_WITH_VERSION}/js/publication.js`).vue({ version: 3});
+mix.js("resources/vue/publication/index.js", `${DIST_PATH_WITH_VERSION}/js/publication.js`).vue({ version: 3 });
 mix.js(
     "resources/vue/dashboard/index.js",
     `${DIST_PATH_WITH_VERSION}/js/dashboard.js`
-).vue({ version: 3});
+).vue({ version: 3 });
 
 mix.webpackConfig({
     optimization: {

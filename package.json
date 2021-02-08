@@ -15,7 +15,6 @@
     "@vue/compiler-sfc": "^3.0.5",
     "autoprefixer": "^10.2.4",
     "axios": "^0.21",
-    "bootstrap": "^4.5.2",
     "cross-env": "^7.0",
     "cz-conventional-changelog": "^2.1.0",
     "fs": "0.0.1-security",

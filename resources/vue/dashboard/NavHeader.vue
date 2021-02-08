@@ -80,12 +80,12 @@
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <router-link
           to="/pub_analytics"
-          class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+          class="text-white block px-3 py-2 text-base font-medium"
           >仪表盘</router-link
         >
         <router-link
           to="/article_manager"
-          class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+          class="text-white block px-3 py-2 text-base font-medium"
           >文章管理</router-link
         >
       </div>

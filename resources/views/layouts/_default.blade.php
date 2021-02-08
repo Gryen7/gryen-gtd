@@ -26,8 +26,7 @@
     @endif
     <title>@section('title')@if(isset($siteTitle) && !empty($siteTitle)){{ $siteTitle }} - @endif{{ env('APP_NAME') }}{{ ' - ' . env('APP_SUB_TITLE') }}@show</title>
     <link rel="alternate" href="{{ env('APP_URL') }}" hreflang="zh-Hant" />
-    <link rel="stylesheet prefetch" media="screen" charset="utf-8" href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/lib.css'}} />
-    <link rel="stylesheet prefetch" media="screen" charset="utf-8" href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/app.css'}} />
+    <link rel="stylesheet" media="screen" charset="utf-8" href={{env('STATIC_URL') . '/dist/' . config('app.version') . '/css/app.css'}} />
     <link rel="preload" href="{{ env('SITE_DEFAULT_IMAGE') }}" as="image">
     @include('feed::links')
     <script>
@@ -57,7 +56,7 @@
     @endif
 </head>
 
-<body @if(isset($bodyClassString))class="{{ $bodyClassString }}" @endif>
+<body class="text-sm text-gray-700">
 
     @if(shouldInsertGTK())
     <!-- Google Tag Manager (noscript) -->
