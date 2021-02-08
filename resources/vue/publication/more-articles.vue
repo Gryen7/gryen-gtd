@@ -1,26 +1,18 @@
 <template>
-  <div class="card">
-    <div class="card-header">可能还想看</div>
-    <div class="row card-body">
-      <a
-        v-for="article in articles"
-        :key="article.id"
-        :href="article.href"
-        class="col-md-4"
-      >
-        <figure class="figure">
-          <img class="figure-img img-fluid rounded" :src="article.cover" :alt="article.title" />
-          <figcaption class="figure-caption">
-            <h6 class="t-line-ellipsis-1">{{ article.title }}</h6>
-          </figcaption>
-        </figure>
-      </a>
-    </div>
+  <div class="border-l-8 border-red-500 pl-1 h-8 leading-8 my-4">
+    可能还想看
   </div>
+  <ul>
+    <li v-for="article in articles" :key="article.id" class="leading-6 truncate">
+      <a :href="article.href" class="underline">
+        {{ article.title }}
+      </a>
+    </li>
+  </ul>
 </template>
 
 <script>
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 
 const getArticleId = () => {
   let articleId = -1;
@@ -40,11 +32,11 @@ export default {
     let articles = ref([]);
     let articleId = getArticleId();
 
-    axios.get(`/api/articles/list/${articleId}`).then(response => {
-        if (response && response.status === 200) {
-            articles.value = response.data;
-        }
-    })
+    axios.get(`/api/articles/list/${articleId}`).then((response) => {
+      if (response && response.status === 200) {
+        articles.value = response.data;
+      }
+    });
 
     return {
       articles,
