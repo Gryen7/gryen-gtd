@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-red-500 flex justify-center rounded shadow p-4 text-white">
+  <div class="bg-red-500 flex justify-center rounded shadow p-4 text-white max-w-md mx-auto">
     <div class="flex space-x-4" role="group">
       <button
         type="button"
