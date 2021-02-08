@@ -68,7 +68,7 @@
     @endif
 
     @include('common._nav', ['extraClass' => ''])
-        <div class="container t-main" id="GryenApp">
+        <div class="container mx-auto px-4 pt-5">
             @yield('content')
         </div>
         @include('common._footer')
