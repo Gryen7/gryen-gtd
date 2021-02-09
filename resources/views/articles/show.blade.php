@@ -13,12 +13,12 @@
     <section class="">
         {!! $article->content !!}
     </section>
-    <section class="">
+    <section class="mt-4">
         @foreach($article->tagArray as $tag)
-        <a class="" href="{{ action('ArticlesController@tag', ['tag' => $tag]) }}">{{ $tag }}</a>
+        <a class="bg-gray-800 text-gray-100 rounded-sm p-1" href="{{ action('ArticlesController@tag', ['tag' => $tag]) }}">{{ $tag }}</a>
         @endforeach
     </section>
-    <footer class="mt-4 text-gray-500 border-t-2">
+    <footer class="mt-4 text-gray-500 border-t-2 pt-2">
         <p class="flex items-center leading-6">
             <svg class="w-4 h-4 mr-1" aria-hidden="true">
                 <use xlink:href="#icon-shijian"></use>
@@ -43,7 +43,7 @@
         </p>
     </footer>
 </article>
-<div id="PublicationVue">
+<div id="PublicationVue" class="max-w-4xl mx-auto">
     <more-articles></more-articles>
 </div>
 @include('articles._full-screen-img')
