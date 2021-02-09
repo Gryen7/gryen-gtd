@@ -22,6 +22,11 @@
                 class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >文章管理</router-link
               >
+              <router-link
+                to="/create_article"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >创建文章</router-link
+              >
             </div>
           </div>
         </div>
@@ -87,6 +92,11 @@
           to="/article_manager"
           class="text-white block px-3 py-2 text-base font-medium"
           >文章管理</router-link
+        >
+        <router-link
+          to="/create_article"
+          class="text-white block px-3 py-2 text-base font-medium"
+          >创建文章</router-link
         >
       </div>
     </div>

@@ -4,7 +4,7 @@
 ])
 @section('content')
 <article class="max-w-4xl mx-auto">
-    <h1 class="text-4xl mb-4">
+    <h1 class="mb-4">
         {{ $article->title }}
         @if (Auth::check())
         <a href="{{ action('ArticlesController@edit', ['id' => $article->id]) }}" class="text-sm underline text-gray-500">编辑</a>
