@@ -56,7 +56,7 @@
     @endif
 </head>
 
-<body class="text-sm text-gray-700">
+<body>
 
     @if(shouldInsertGTK())
     <!-- Google Tag Manager (noscript) -->
