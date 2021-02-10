@@ -55,4 +55,4 @@ mix.webpackConfig({
     }
 }).before(() => {
     fs.rmdirSync(DIST_PATH, { recursive: true });
-}).disableNotifications();
+}).disableNotifications().browserSync('gryen.local');
