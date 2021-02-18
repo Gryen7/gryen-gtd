@@ -2,8 +2,6 @@
  * Created by targaryen on 2017/5/18.
  */
 
-import '../common/_highlight';
-
 const TBody = $('body');
 const TArtclBox = $('.t-rtcl-box');
 const Images = TArtclBox.find('img').not('a img');

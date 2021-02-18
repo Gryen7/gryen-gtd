@@ -7,7 +7,7 @@
             <div class="p-2 md:flex-1 md:h-48">
                 <p class="h-12 font-medium text-base overflow-ellipsis overflow-hidden">{{ $article->title }}</p>
                 <p class="text-gray-500 mt-2 h-24">{{ $article->description }}</p>
-                <p class="mt-2 h-5 text-right text-gray-500">
+                <p class="mt-1 h-5 text-right text-gray-500">
                     {{ $article->publishedAt }}
                 </p>
             </div>

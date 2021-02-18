@@ -3,7 +3,7 @@
   <editor></editor>
 </template>
 <script>
-import Editor from './Editor';
+import Editor from './GryenEditor/Editor';
 export default {
   components: {
     Editor,
