@@ -51,8 +51,8 @@ export function bulletListRule(nodeType) {
 // A set of input rules for creating the basic block quotes, lists,
 // code blocks, and heading.
 export function buildInputRules(schema) {
-    let rules = smartQuotes.concat(ellipsis, emDash),
-        type;
+    let rules = smartQuotes.concat(ellipsis, emDash);
+    let type;
 
     if ((type = schema.nodes.heading)) rules.push(headingRule(type));
     if ((type = schema.nodes.code_block)) rules.push(codeBlockRule(type));

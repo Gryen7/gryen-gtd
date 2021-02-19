@@ -6,6 +6,11 @@
 .gryen-editor {
   @apply min-h-screen shadow p-7 border-none outline-none;
 }
+
+.gryen-editor ol, ul {
+  list-style-type: revert;
+  @apply pl-8;
+}
 </style>
 <script>
 import { ref, onMounted } from 'vue';
@@ -40,6 +45,8 @@ export default {
       }),
     ];
 
+    console.log(plugins);
+
     onMounted(() => {
       let state = EditorState.create({
         doc: DOMParser.fromSchema(gryenEditorSchema).parse(content.value),
@@ -50,7 +57,7 @@ export default {
         dispatchTransaction(transaction) {
           let newState = view.state.apply(transaction);
 
-          console.log(newState);
+          // console.log(newState);
           view.updateState(newState);
         },
       });

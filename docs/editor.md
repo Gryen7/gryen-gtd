@@ -8,8 +8,8 @@ TODO 列表
 - [x] 标题支持：最大标题为 H2
 - [ ] 代码块：https://prismjs.com/ https://github.com/mAAdhaTTah/babel-plugin-prismjs
 - [ ] 图片预览
-- [ ] 支持有序列表
-- [ ] 支持无序列表
+- [x] 支持有序列表
+- [x] 支持无序列表
 - [ ] 行内清除文本后，第一次回车是清除样式，第二次回车是删除此行
 
 
