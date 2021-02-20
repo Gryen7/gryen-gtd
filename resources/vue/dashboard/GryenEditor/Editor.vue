@@ -1,14 +1,15 @@
 <template>
-  <div ref="editor"></div>
+  <div ref="editor" class="flex-grow mt-8"></div>
   <div ref="content"></div>
 </template>
 <style lang="scss">
 .gryen-editor {
-  @apply min-h-screen shadow p-7 border-none outline-none;
+  @apply border-none outline-none h-full;
 }
 
-.gryen-editor ol, ul {
-  list-style-type: revert;
+.gryen-editor ol,
+ul {
+  // list-style-type: revert;
   @apply pl-8;
 }
 </style>
@@ -45,8 +46,6 @@ export default {
       }),
     ];
 
-    console.log(plugins);
-
     onMounted(() => {
       let state = EditorState.create({
         doc: DOMParser.fromSchema(gryenEditorSchema).parse(content.value),
@@ -61,6 +60,8 @@ export default {
           view.updateState(newState);
         },
       });
+
+      editor.value.focus();
     });
 
     return {
