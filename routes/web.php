@@ -14,6 +14,10 @@ Route::feeds();
 Route::redirect('/articles/show/37.html', 'https://notes.gryen.com/articles/show/267.html', 301);
 Route::redirect('/articles/show/36.html', 'https://notes.gryen.com/articles/show/269.html', 301);
 Route::redirect('/articles/show/31.html', 'https://notes.gryen.com/articles/show/271.html', 301);
+Route::redirect('/articles/show/29.html', 'https://notes.gryen.com/articles/show/273.html', 301);
+Route::redirect('/articles/show/28.html', 'https://notes.gryen.com/articles/show/275.html', 301);
+Route::redirect('/articles/show/26.html', 'https://notes.gryen.com/articles/show/277.html', 301);
+Route::redirect('/articles/show/25.html', 'https://notes.gryen.com/articles/show/279.html', 301);
 
 /*
  * 文章
