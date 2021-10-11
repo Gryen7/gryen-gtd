@@ -11,6 +11,10 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Auth::routes();
 Route::feeds();
 
+Route::redirect('/articles/show/37.html', 'https://notes.gryen.com/articles/show/267.html', 301);
+Route::redirect('/articles/show/36.html', 'https://notes.gryen.com/articles/show/269.html', 301);
+Route::redirect('/articles/show/31.html', 'https://notes.gryen.com/articles/show/271.html', 301);
+
 /*
  * 文章
  */
