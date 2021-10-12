@@ -18,6 +18,16 @@ Route::redirect('/articles/show/29.html', 'https://notes.gryen.com/articles/show
 Route::redirect('/articles/show/28.html', 'https://notes.gryen.com/articles/show/275.html', 301);
 Route::redirect('/articles/show/26.html', 'https://notes.gryen.com/articles/show/277.html', 301);
 Route::redirect('/articles/show/25.html', 'https://notes.gryen.com/articles/show/279.html', 301);
+Route::redirect('/articles/show/24.html', 'https://notes.gryen.com/articles/show/282.html', 301);
+Route::redirect('/articles/show/23.html', 'https://notes.gryen.com/articles/show/284.html', 301);
+Route::redirect('/articles/show/22.html', 'https://notes.gryen.com/articles/show/286.html', 301);
+Route::redirect('/articles/show/18.html', 'https://notes.gryen.com/articles/show/288.html', 301);
+Route::redirect('/articles/show/12.html', 'https://notes.gryen.com/articles/show/290.html', 301);
+Route::redirect('/articles/show/11.html', 'https://notes.gryen.com/articles/show/292.html', 301);
+Route::redirect('/articles/show/10.html', 'https://notes.gryen.com/articles/show/296.html', 301);
+Route::redirect('/articles/show/7.html', 'https://notes.gryen.com/articles/show/298.html', 301);
+Route::redirect('/articles/show/6.html', 'https://notes.gryen.com/articles/show/300.html', 301);
+Route::redirect('/articles/show/5.html', 'https://notes.gryen.com/articles/show/302.html', 301);
 
 /*
  * 文章
